@@ -1,0 +1,59 @@
+{
+  "schema": "synthia.donor-recovery.v1",
+  "policy": "preserve-original; verify-before-activation; r21.21 is optional lineage, not active root",
+  "address": {
+    "planetary": null,
+    "dimension": null,
+    "gate": null,
+    "line": null,
+    "color": null,
+    "tone": null,
+    "base": null,
+    "degree": null,
+    "minute": null,
+    "second": null,
+    "arcAxis": null,
+    "zodiac": null,
+    "house": null
+  },
+  "addressStatus": "unassigned; no fabricated semantic coordinates",
+  "files": [
+    {
+      "name": "00-Synthia-Core-Organism-r21.21.zip",
+      "bytes": 1011909,
+      "sha256": "8a56ece94beff95519e15c86ec9374f18ef695ae4461362840802c27dfc1d702",
+      "entry": "core/SynthiaUnit.mjs",
+      "role": "optional-legacy-bridge",
+      "verified": "sha256-and-zip-integrity-2026-10-20",
+      "localPlacement": "vendor/cynthia-original/r21.21/00-Synthia-Core-Organism-r21.21.zip"
+    },
+    {
+      "name": "Generative-Morph-Chat (3).zip",
+      "bytes": 9108653,
+      "sha256": "c18c1b9301b86b43dc9eaded5bb2627c9ba0f48373185198cb275f0afd265873",
+      "role": "candidate-donor",
+      "verified": "zip-integrity-only"
+    },
+    {
+      "name": "Mesh-Cognition-Network (4).zip",
+      "bytes": 61782327,
+      "sha256": "2c3bcd5812bc3ed8c67db83379fbed0ea3f38ea47361ddb5b983aa7fc272ca8d",
+      "role": "candidate-donor",
+      "verified": "zip-integrity-only"
+    },
+    {
+      "name": "Primitive-Neural-Network-Foundry (1).zip",
+      "bytes": 2227743,
+      "sha256": "06963d0766f4e3ad8dee82bb19232c1b4c4b62b6ca581a01ad9ad383b158568f",
+      "role": "candidate-donor",
+      "verified": "zip-integrity-only"
+    },
+    {
+      "name": "meaning-mesh-64.zip",
+      "bytes": 201594,
+      "sha256": "4d230965702ff15cdfaf50efd0e876c8be4a121351bc719228dadcffe0ee947e",
+      "role": "candidate-donor",
+      "verified": "zip-integrity-only"
+    }
+  ]
+}
