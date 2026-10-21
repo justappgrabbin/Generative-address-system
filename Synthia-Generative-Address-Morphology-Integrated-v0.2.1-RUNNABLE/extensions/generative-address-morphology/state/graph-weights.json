@@ -1,0 +1,27 @@
+{
+  "graph-conn-ch-03-60-a-g3::a-g60": {
+    "weight": 0.5,
+    "updates": 0,
+    "lastOutcome": null
+  },
+  "graph-conn-ch-06-59-a-g59::a-g6": {
+    "weight": 0.5,
+    "updates": 0,
+    "lastOutcome": null
+  },
+  "graph-conn-ch-04-63-a-g4::a-g63": {
+    "weight": 0.5,
+    "updates": 0,
+    "lastOutcome": null
+  },
+  "graph-conn-ch-03-60-g3::g60": {
+    "weight": 0.5,
+    "updates": 0,
+    "lastOutcome": null
+  },
+  "graph-conn-ch-03-60-gate-3::gate-60": {
+    "weight": 0.5,
+    "updates": 0,
+    "lastOutcome": null
+  }
+}

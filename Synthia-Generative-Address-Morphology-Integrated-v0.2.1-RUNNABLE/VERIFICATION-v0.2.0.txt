@@ -1,0 +1,544 @@
+=== ROOT + PRESERVED AUTHORITIES ===
+
+> synthia-generative-address-morphology-integrated@0.2.0 test:all
+> npm test && npm --prefix authorities/execution-spine test && npm --prefix authorities/trainable-core test
+
+
+> synthia-generative-address-morphology-integrated@0.2.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: generative morphology mounts as a live mesh organ without replacing v0.4.2 organs
+ok 1 - generative morphology mounts as a live mesh organ without replacing v0.4.2 organs
+  ---
+  duration_ms: 22.90591
+  type: 'test'
+  ...
+# Subtest: chat reads inward through active addressed graph ecology and writes outward through morphology
+ok 2 - chat reads inward through active addressed graph ecology and writes outward through morphology
+  ---
+  duration_ms: 45.176792
+  type: 'test'
+  ...
+# Subtest: research browser uses the same morphology field rather than a separate interpretation stack
+ok 3 - research browser uses the same morphology field rather than a separate interpretation stack
+  ---
+  duration_ms: 12.258765
+  type: 'test'
+  ...
+# Subtest: graph dissolves when its connection conditions stop being satisfied
+ok 4 - graph dissolves when its connection conditions stop being satisfied
+  ---
+  duration_ms: 8.965103
+  type: 'test'
+  ...
+# Subtest: browser/form surface receives the same morphology field while retaining its existing consent gates
+ok 5 - browser/form surface receives the same morphology field while retaining its existing consent gates
+  ---
+  duration_ms: 11.006056
+  type: 'test'
+  ...
+# Subtest: root assembles the Klein-connected spine and every trainable organ
+ok 6 - root assembles the Klein-connected spine and every trainable organ
+  ---
+  duration_ms: 23.300974
+  type: 'test'
+  ...
+# Subtest: root chat carries one witnessed Klein evaluation into the training journal
+ok 7 - root chat carries one witnessed Klein evaluation into the training journal
+  ---
+  duration_ms: 23.274464
+  type: 'test'
+  ...
+# Subtest: root tool invocation uses the same intake + Klein + provenance path
+ok 8 - root tool invocation uses the same intake + Klein + provenance path
+  ---
+  duration_ms: 18.248225
+  type: 'test'
+  ...
+# Subtest: book ingestion uses live AutoLing and DISEMINER via engine.invoke and then shares fragments to the mesh
+ok 9 - book ingestion uses live AutoLing and DISEMINER via engine.invoke and then shares fragments to the mesh
+  ---
+  duration_ms: 12.290871
+  type: 'test'
+  ...
+# Subtest: root preserves address authority boundary instead of silently converting arc <-> arcAxis
+ok 10 - root preserves address authority boundary instead of silently converting arc <-> arcAxis
+  ---
+  duration_ms: 3.710547
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 215.039477
+
+> synthia-universal-execution-spine@0.4.1 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: canonical spine remains 13 fields and 12 houses
+ok 1 - canonical spine remains 13 fields and 12 houses
+  ---
+  duration_ms: 0.993487
+  type: 'test'
+  ...
+# Subtest: valid canonical address passes without collapsing degree
+ok 2 - valid canonical address passes without collapsing degree
+  ---
+  duration_ms: 0.252683
+  type: 'test'
+  ...
+# Subtest: resolver descends artifact to actual bit/state primitives
+ok 3 - resolver descends artifact to actual bit/state primitives
+  ---
+  duration_ms: 0.939157
+  type: 'test'
+  ...
+# Subtest: same artifact plus same first-run outcome resolves deterministically
+ok 4 - same artifact plus same first-run outcome resolves deterministically
+  ---
+  duration_ms: 2.701238
+  type: 'test'
+  ...
+# Subtest: different runtime outcome can move the same artifact to a different execution coordinate
+ok 5 - different runtime outcome can move the same artifact to a different execution coordinate
+  ---
+  duration_ms: 0.863054
+  type: 'test'
+  ...
+# Subtest: Synthia automatically assigns and appends full address after first execution attempt
+ok 6 - Synthia automatically assigns and appends full address after first execution attempt
+  ---
+  duration_ms: 36.384074
+  type: 'test'
+  ...
+# Subtest: explicit creator canonical address is preserved while runtime-derived placement remains visible
+ok 7 - explicit creator canonical address is preserved while runtime-derived placement remains visible
+  ---
+  duration_ms: 5.703278
+  type: 'test'
+  ...
+# Subtest: fine index cardinality and boundaries
+ok 8 - fine index cardinality and boundaries
+  ---
+  duration_ms: 1.651387
+  type: 'test'
+  ...
+# Subtest: 5000 random fine-index round trips
+ok 9 - 5000 random fine-index round trips
+  ---
+  duration_ms: 14.676814
+  type: 'test'
+  ...
+# Subtest: whole organism is live, not merely present
+ok 10 - whole organism is live, not merely present
+  ---
+  duration_ms: 24.889088
+  type: 'test'
+  ...
+# Subtest: chat traverses learning/contact and shares with every mounted automaton
+ok 11 - chat traverses learning/contact and shares with every mounted automaton
+  ---
+  duration_ms: 19.968225
+  type: 'test'
+  ...
+# Subtest: execution carries full canonical address and shares first-run outcome
+ok 12 - execution carries full canonical address and shares first-run outcome
+  ---
+  duration_ms: 6.542317
+  type: 'test'
+  ...
+# Subtest: unknown foreign execution failure is observed by learning/grow path, not terminal
+ok 13 - unknown foreign execution failure is observed by learning/grow path, not terminal
+  ---
+  duration_ms: 10.316147
+  type: 'test'
+  ...
+# Subtest: agent rewrite is versioned through SelfEditor and shared across mesh
+ok 14 - agent rewrite is versioned through SelfEditor and shared across mesh
+  ---
+  duration_ms: 2.799161
+  type: 'test'
+  ...
+# Subtest: boot wiring witnesses a live Klein context evaluation and wraps every mounted automaton
+ok 15 - boot wiring witnesses a live Klein context evaluation and wraps every mounted automaton
+  ---
+  duration_ms: 25.727516
+  type: 'test'
+  ...
+# Subtest: engine.call cannot bypass Klein: derivation carries witnessed joint evaluation
+ok 16 - engine.call cannot bypass Klein: derivation carries witnessed joint evaluation
+  ---
+  duration_ms: 14.81661
+  type: 'test'
+  ...
+# Subtest: identical Klein context collapses deterministically and is logged append-only
+ok 17 - identical Klein context collapses deterministically and is logged append-only
+  ---
+  duration_ms: 6.372186
+  type: 'test'
+  ...
+# Subtest: deep contact loop is a real mesh path and its surface receives the joint Klein result
+ok 18 - deep contact loop is a real mesh path and its surface receives the joint Klein result
+  ---
+  duration_ms: 16.817804
+  type: 'test'
+  ...
+# Subtest: structured internal invoke cannot bypass intake or Klein
+ok 19 - structured internal invoke cannot bypass intake or Klein
+  ---
+  duration_ms: 4.068265
+  type: 'test'
+  ...
+# Subtest: boolean operator family
+ok 20 - boolean operator family
+  ---
+  duration_ms: 0.954559
+  type: 'test'
+  ...
+# Subtest: BUT remains a directional IR node
+ok 21 - BUT remains a directional IR node
+  ---
+  duration_ms: 0.148209
+  type: 'test'
+  ...
+# Subtest: hamming works for binary strings, arrays, and ints
+ok 22 - hamming works for binary strings, arrays, and ints
+  ---
+  duration_ms: 0.166136
+  type: 'test'
+  ...
+# Subtest: artifact kind detection covers foreign code and projects
+ok 23 - artifact kind detection covers foreign code and projects
+  ---
+  duration_ms: 1.134805
+  type: 'test'
+  ...
+# Subtest: registered foreign runtime executes original artifact before fallback
+ok 24 - registered foreign runtime executes original artifact before fallback
+  ---
+  duration_ms: 0.558825
+  type: 'test'
+  ...
+# Subtest: missing runtime is explicit and does not pretend translation is native
+ok 25 - missing runtime is explicit and does not pretend translation is native
+  ---
+  duration_ms: 0.220025
+  type: 'test'
+  ...
+# Subtest: fallback realization is labeled fallback when no runtime exists
+ok 26 - fallback realization is labeled fallback when no runtime exists
+  ---
+  duration_ms: 0.485626
+  type: 'test'
+  ...
+# Subtest: bounded predicate search + semantic verification
+ok 27 - bounded predicate search + semantic verification
+  ---
+  duration_ms: 2.443096
+  type: 'test'
+  ...
+# Subtest: DAG runs dependencies and exposes dependency results
+ok 28 - DAG runs dependencies and exposes dependency results
+  ---
+  duration_ms: 0.83996
+  type: 'test'
+  ...
+# Subtest: machine transitions, guards, effects, snapshot and restore
+ok 29 - machine transitions, guards, effects, snapshot and restore
+  ---
+  duration_ms: 2.217503
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 314.69874
+
+> pure-synthia-trainable-assembly@0.4.1 test
+> node tests/run.mjs
+
+PASS registration
+PASS canonical 13-field live address
+PASS provenance-preserving book ingestion
+PASS sentence mesh
+PASS scientist loop
+PASS training journal
+6/6 PASS
+
+=== EMBEDDED MORPHOLOGY ENGINE ===
+
+> synthia-generative-address-morphology-engine@0.2.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: forms canonical gate connections and refuses non-channel pair
+ok 1 - forms canonical gate connections and refuses non-channel pair
+  ---
+  duration_ms: 6.602706
+  type: 'test'
+  ...
+# Subtest: dissolves graph when formation conditions disappear
+ok 2 - dissolves graph when formation conditions disappear
+  ---
+  duration_ms: 0.859398
+  type: 'test'
+  ...
+# Subtest: learning cannot mint nonexistent graph
+ok 3 - learning cannot mint nonexistent graph
+  ---
+  duration_ms: 0.585293
+  type: 'test'
+  ...
+# Subtest: graph ecology reports dominant energy from active graph coverage
+ok 4 - graph ecology reports dominant energy from active graph coverage
+  ---
+  duration_ms: 1.595265
+  type: 'test'
+  ...
+# Subtest: contains 36 unique channel pairs
+ok 5 - contains 36 unique channel pairs
+  ---
+  duration_ms: 1.811224
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 72.05759
+
+=== GENERATIVE DEMO ===
+
+> synthia-generative-address-morphology-integrated@0.2.0 demo:generative
+> node examples/generative-demo.mjs
+
+{
+  "audit": {
+    "ok": true,
+    "root": "UnifiedSynthiaAssembly",
+    "spine": {
+      "ok": true,
+      "chat": true,
+      "canonicalTools": 17,
+      "mountedAutomata": 19,
+      "grownTools": 2,
+      "meshConnections": 7,
+      "transportConnections": 30,
+      "projections": {
+        "knowledge": {
+          "nodes": 27,
+          "edges": 32,
+          "avgDegree": 1.1851851851851851
+        },
+        "causal": {
+          "nodes": 14,
+          "edges": 7,
+          "avgDegree": 0.5
+        },
+        "phase": {
+          "nodes": 0,
+          "edges": 0,
+          "avgDegree": 0
+        },
+        "temporal": {
+          "nodes": 2,
+          "edges": 19,
+          "avgDegree": 9.5
+        },
+        "dependency": {
+          "nodes": 0,
+          "edges": 0,
+          "avgDegree": 0
+        }
+      },
+      "learning": true,
+      "growth": true,
+      "reversibleRewrite": true,
+      "executionBridge": true,
+      "runtimeRegistry": true,
+      "meshSharing": true,
+      "executionAddressResolver": true,
+      "postExecutionPlacement": true,
+      "kleinContextRuntime": true,
+      "kleinOperatorCoverage": 19,
+      "kleinMissingOperators": [],
+      "kleinWitnessedEvaluations": 7,
+      "kleinDeterministicAfterCollapse": true
+    },
+    "organs": {
+      "registry": true,
+      "bookIngest": true,
+      "sentenceMesh": true,
+      "scientist": true,
+      "trainingJournal": true,
+      "liveAutolingExtractor": true,
+      "liveDiseminerExtractor": true
+    },
+    "addressBoundary": {
+      "executionFields": [
+        "planetary",
+        "dimension",
+        "gate",
+        "line",
+        "color",
+        "tone",
+        "base",
+        "degree",
+        "minute",
+        "second",
+        "arcAxis",
+        "zodiac",
+        "house"
+      ],
+      "trainingFields": [
+        "planetary",
+        "dimension",
+        "gate",
+        "line",
+        "color",
+        "tone",
+        "base",
+        "degree",
+        "minute",
+        "second",
+        "arc",
+        "zodiac",
+        "house"
+      ],
+      "identical": false,
+      "policy": "preserve-both-no-silent-conversion"
+    },
+    "rootEvents": 6,
+    "trainingRecords": 6,
+    "morphology": {
+      "mounted": true,
+      "kleinWrapped": true,
+      "chatReadPath": true,
+      "internetResearchPath": true,
+      "internetBrowserPath": true,
+      "activeAddressCount": 2
+    }
+  },
+  "chat": {
+    "utterance": "[weave:computational-grammar-coder] {\"coded\":{\"sentence\":\"Show me what is active in the field.\",\"words\":[{\"word\":\"Show\",\"tests\":[[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"]],\"codes\":[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\"me\",\"tests\":[[\"PN_O\"]],\"codes\":[\"PN_O\"],\"ambiguous\":false},{\"word\":\"what\",\"tests\":[[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"]],\"codes\":[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\"is\",\"tests\":[[\"VERB_IS\"],[\"NOUN\",\"VERB\"]],\"codes\":[\"VERB_IS\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\"active\",\"tests\":[[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"]],\"codes\":[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\"in\",\"tests\":[[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"]],\"codes\":[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\"the\",\"tests\":[[\"ART\"]],\"codes\":[\"ART\"],\"ambiguous\":false},{\"word\":\"field\",\"tests\":[[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"]],\"codes\":[\"ADJ\",\"ADV\",\"NOUN\",\"VERB\"],\"ambiguous\":true},{\"word\":\".\",\"tests\":[[\".TYPE\"]],\"codes\":[\".TYPE\"],\"ambiguous\":false}],\"ambiguous\":[\"Show\",\"what\",\"is\",\"active\",\"in\",\"field\"]},\"kleinEvaluationId\":\"klein-eval-0003\",\"kleinResult\":{\"relation\":\"joint:diseminer~autoling~language-contact~historical-monte-carlo~computational-grammar-coder~conversation:flow\",\"intensity\":0.703822317271135,\"direction\":\"away\"}}\nShow me what is active in the field.\n1. contact:0 borrowed; monte:unchanged; autoling:observed; klein:joint:diseminer~autoling~language-contact~historical-monte-carlo~computational-grammar-coder~conversation:flow; intensity:0.7038; direction:away",
+    "morphology": {
+      "activeGraphCount": 1,
+      "connectionCount": 1,
+      "dominantEnergy": "MUTATION",
+      "dominantStrength": 0.9138174740484428,
+      "graphIds": [
+        "graph-conn-ch-03-60-gate-3::gate-60"
+      ],
+      "pods": [
+        {
+          "id": "pod-1",
+          "graphIds": [
+            "graph-conn-ch-03-60-gate-3::gate-60"
+          ],
+          "energies": [
+            "MUTATION"
+          ],
+          "members": [
+            "gate-3",
+            "gate-60"
+          ],
+          "meanExpression": 0.9627249134948097
+        }
+      ],
+      "projections": {
+        "graph-conn-ch-03-60-gate-3::gate-60": {
+          "evidenceStatus": "experimental",
+          "language": "Mutation graph active across 2 addressed participants; expression 96.3%.",
+          "geometry": {
+            "kind": "edge-assembly",
+            "orientationDegrees": 182.12,
+            "memberCount": 2
+          },
+          "sound": {
+            "frequencyHz": 354.59,
+            "amplitude": 0.9627
+          },
+          "color": {
+            "space": "HSL",
+            "h": 225.88,
+            "s": 70,
+            "l": 69
+          },
+          "timing": {
+            "active": true,
+            "persistence": 0.5
+          }
+        }
+      }
+    }
+  },
+  "research": {
+    "toolId": "research-browser",
+    "morphology": {
+      "activeGraphCount": 1,
+      "connectionCount": 1,
+      "dominantEnergy": "MUTATION",
+      "dominantStrength": 0.9288174740484428,
+      "graphIds": [
+        "graph-conn-ch-03-60-gate-3::gate-60"
+      ],
+      "pods": [
+        {
+          "id": "pod-1",
+          "graphIds": [
+            "graph-conn-ch-03-60-gate-3::gate-60"
+          ],
+          "energies": [
+            "MUTATION"
+          ],
+          "members": [
+            "gate-3",
+            "gate-60"
+          ],
+          "meanExpression": 0.9627249134948097
+        }
+      ],
+      "projections": {
+        "graph-conn-ch-03-60-gate-3::gate-60": {
+          "evidenceStatus": "experimental",
+          "language": "Mutation graph active across 2 addressed participants; expression 96.3%.",
+          "geometry": {
+            "kind": "edge-assembly",
+            "orientationDegrees": 182.12,
+            "memberCount": 2
+          },
+          "sound": {
+            "frequencyHz": 354.59,
+            "amplitude": 0.9627
+          },
+          "color": {
+            "space": "HSL",
+            "h": 225.88,
+            "s": 70,
+            "l": 69
+          },
+          "timing": {
+            "active": true,
+            "persistence": 0.6
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+import { UnifiedSynthiaAssembly } from './unified-synthia-assembly.mjs';
+import { toolOntology } from '../authorities/execution-spine/src/pure-synthia/engine/triples.js';
+import { GenerativeMorphologyAutomaton } from './generative-morphology-automaton.mjs';
+
+const clone = (value) => {
+  try { return structuredClone(value); }
+  catch { try { return JSON.parse(JSON.stringify(value)); } catch { return String(value); } }
+};
+
+function pickAddresses(context = {}, input = null, fallback = []) {
+  const candidates = [
+    input?.addresses,
+    context.morphologyAddresses,
+    context.addresses,
+    context.canonicalAddresses,
+  ];
+  for (const value of candidates) if (Array.isArray(value) && value.length) return clone(value);
+  if (context.canonicalAddress && typeof context.canonicalAddress === 'object') return [clone(context.canonicalAddress)];
+  return clone(fallback);
+}
+
+function mergeMeshState(existing, morphologyOutput) {
+  const summary = morphologyOutput?.summary ?? {};
+  return {
+    ...(existing && typeof existing === 'object' ? clone(existing) : {}),
+    activation: Number(summary.dominantStrength ?? existing?.activation ?? 0),
+    generativeMorphology: clone(summary),
+  };
+}
+
+/**
+ * Pure Synthia v0.4.2 + additive Generative Address & Morphology organ.
+ *
+ * Existing authorities are not rewritten. The new organ mounts onto their
+ * live AutomataMesh and uses the same intake, Klein, provenance and training
+ * paths as every other invoked organ.
+ */
+export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
+  constructor(options = {}) {
+    super(options);
+    this.activeMorphologyAddresses = clone(options.morphologyAddresses ?? []);
+    this.morphologyAutomaton = new GenerativeMorphologyAutomaton(options.morphology ?? {});
+    this.#mountMorphology();
+  }
+
+  get generativeMorphology() { return this.morphologyAutomaton.morphology; }
+
+  #mountMorphology() {
+    const a = this.morphologyAutomaton;
+    this.engine.mesh.register(a);
+    this.engine.tools.push(a);
+    this.engine.toolsById.set(a.id, a);
+    this.engine.tripleStore.addAll(toolOntology(a));
+
+    const links = [
+      ['diseminer', a.id, 'meaning-to-morphology'],
+      ['autoling', a.id, 'language-to-morphology'],
+      ['morph-mir', a.id, 'artifact-morphology-contact'],
+      ['research-browser', a.id, 'internet-to-morphology'],
+      ['browser-form', a.id, 'browser-state-to-morphology'],
+      [a.id, 'conversation', 'morphology-to-expression'],
+      [a.id, 'research-browser', 'morphology-to-research'],
+      [a.id, 'browser-form', 'morphology-to-browser-action'],
+    ];
+    if (this.engine.mesh.get('media-field')) {
+      links.push(['media-field', a.id, 'media-to-morphology'], [a.id, 'media-field', 'morphology-to-media']);
+    }
+    for (const [from, to, operator] of links) this.engine.mesh.connectTransport(from, to, { operator });
+    this.engine.klein.syncOperators();
+  }
+
+  setMorphologyAddresses(addresses = []) {
+    if (!Array.isArray(addresses)) throw new TypeError('addresses must be an array');
+    this.activeMorphologyAddresses = clone(addresses);
+    return this.activeMorphologyAddresses.length;
+  }
+
+  morphology(operation = 'compile', { addresses = null, subject = null, context = {}, surface = null } = {}) {
+    const resolved = Array.isArray(addresses) && addresses.length
+      ? clone(addresses)
+      : clone(this.activeMorphologyAddresses);
+    return super.invoke('generative-address-morphology', {
+      operation,
+      addresses: resolved,
+      subject: clone(subject),
+      surface: surface ?? operation,
+      context: clone(context),
+    }, {
+      ...context,
+      dimension: context.dimension ?? null,
+      meshState: context.meshState ?? null,
+    });
+  }
+
+  /**
+   * Explicit Klein-only chat form. This intentionally bypasses the additive
+   * morphology pre/post passes while keeping Pure Synthia's existing private
+   * Klein contact loop, provenance, training journal and conversation surface.
+   */
+  async chatKlein(message, context = {}) {
+    return super.chat(message, { ...context, processingMode: 'klein' });
+  }
+
+  /**
+   * Chat reads inward through morphology before the existing Klein contact
+   * loop, then records an outward morphology pass over the resulting utterance.
+   * Existing chat behavior is preserved; morphology enters Klein as live mesh
+   * state rather than replacing conversation.
+   */
+  async chat(message, context = {}) {
+    const addresses = pickAddresses(context, null, this.activeMorphologyAddresses);
+    if (addresses.length) this.activeMorphologyAddresses = clone(addresses);
+
+    const inward = this.morphology('chat-read', {
+      addresses,
+      subject: { kind: 'language-input', text: String(message ?? '') },
+      context,
+      surface: 'chat:read',
+    });
+    const inwardOutput = inward.derivation.output;
+    const base = await super.chat(message, {
+      ...context,
+      meshState: mergeMeshState(context.meshState, inwardOutput),
+    });
+    const outward = this.morphology('chat-write', {
+      addresses,
+      subject: {
+        kind: 'language-output',
+        text: base.utterance,
+        systemRecordId: base.recordId ?? null,
+      },
+      context: { ...context, meshState: mergeMeshState(context.meshState, inwardOutput) },
+      surface: 'chat:write',
+    });
+
+    return {
+      ...base,
+      utterance: base.utterance,
+      morphology: {
+        inward: clone(inwardOutput),
+        outward: clone(outward.derivation.output),
+        policy: 'morphology-is-live-in-chat; base wording is preserved until exact addressed language transformation rules are source-supported',
+      },
+    };
+  }
+
+  /** Address/morphology-aware research-browser surface. */
+  research(input = {}, context = {}) {
+    return this.#internetSurface('research-browser', input, context);
+  }
+
+  /** Address/morphology-aware browser/form surface. */
+  browser(input = {}, context = {}) {
+    return this.#internetSurface('browser-form', input, context);
+  }
+
+  internet({ tool = 'research-browser', input = {}, addresses = null } = {}, context = {}) {
+    if (!['research-browser', 'browser-form'].includes(tool)) {
+      throw new Error(`internet tool must be research-browser or browser-form; got ${tool}`);
+    }
+    return this.#internetSurface(tool, { ...input, addresses: addresses ?? input.addresses }, context);
+  }
+
+  #internetSurface(toolId, input = {}, context = {}) {
+    const addresses = pickAddresses(context, input, this.activeMorphologyAddresses);
+    if (addresses.length) this.activeMorphologyAddresses = clone(addresses);
+    const inward = this.morphology('internet-read', {
+      addresses,
+      subject: { kind: 'internet-input', toolId, input: clone(input) },
+      context,
+      surface: `${toolId}:read`,
+    });
+    const meshState = mergeMeshState(context.meshState, inward.derivation.output);
+    const action = super.invoke(toolId, input, { ...context, meshState });
+    const outward = this.morphology('internet-write', {
+      addresses,
+      subject: {
+        kind: 'internet-output',
+        toolId,
+        output: clone(action.derivation.output),
+        derivationId: action.derivation.id,
+      },
+      context: { ...context, meshState },
+      surface: `${toolId}:write`,
+    });
+    return {
+      ok: true,
+      accepted: action.derivation.evaluation?.accepted !== false,
+      toolId,
+      action,
+      morphology: { inward: clone(inward.derivation.output), outward: clone(outward.derivation.output) },
+    };
+  }
+
+  wiringAudit() {
+    const base = super.wiringAudit();
+    const mounted = this.engine.mesh.get('generative-address-morphology');
+    const transports = [...this.engine.mesh.transportConnections.values()];
+    const has = (fromId, toId) => transports.some(x => x.fromId === fromId && x.toId === toId);
+    const morphology = Object.freeze({
+      mounted: Boolean(mounted),
+      kleinWrapped: Boolean(this.engine.klein.operator('generative-address-morphology')),
+      chatReadPath: has('diseminer', 'generative-address-morphology') && has('generative-address-morphology', 'conversation'),
+      internetResearchPath: has('research-browser', 'generative-address-morphology') && has('generative-address-morphology', 'research-browser'),
+      internetBrowserPath: has('browser-form', 'generative-address-morphology') && has('generative-address-morphology', 'browser-form'),
+      activeAddressCount: this.activeMorphologyAddresses.length,
+    });
+    return Object.freeze({ ...base, ok: base.ok && Object.values(morphology).slice(0,5).every(Boolean), morphology });
+  }
+
+  snapshot() {
+    const base = super.snapshot();
+    return {
+      ...base,
+      morphology: clone(this.generativeMorphology.snapshot()),
+      activeMorphologyAddresses: clone(this.activeMorphologyAddresses),
+    };
+  }
+}
+
+export default SynthiaGenerativeAssembly;

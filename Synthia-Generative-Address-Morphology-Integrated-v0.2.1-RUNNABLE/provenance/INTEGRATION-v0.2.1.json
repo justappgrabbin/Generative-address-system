@@ -1,0 +1,35 @@
+{
+  "version": "0.2.1",
+  "active_root": "Pure-Synthia-Integrated-Assembly-v0.4.2",
+  "chat_forms": [
+    "communication",
+    "klein",
+    "morph"
+  ],
+  "preservation": {
+    "authority_trees_byte_identical_to_v0.2.0": true,
+    "original_v14_preserved": true
+  },
+  "files": {
+    "src/generative-server.mjs": {
+      "sha256": "af9c05233e42a5632d2ec7b8bce952e08ad9f0f65567711fe64c5314451a75e3",
+      "bytes": 4637
+    },
+    "src/synthia-generative-assembly.mjs": {
+      "sha256": "26e0bb2e904f2248e08ef7057a1488872af1152dfb48786d8545b253b7e43cae",
+      "bytes": 8818
+    },
+    "ui/synthia-v14-three-chat-modes.html": {
+      "sha256": "b2e1071c22aff16e9fc1b02ec7d97d247fc3885856a8f1fe0ff0fe8ad4b0891b",
+      "bytes": 283294
+    },
+    "ui/original/synthia-v14.html": {
+      "sha256": "fe54975cbda4ee08fcce4aeaeca2969b894b25543e05698b7d8907d7331d765b",
+      "bytes": 280148
+    },
+    "tests/generative-morphology-integration.test.mjs": {
+      "sha256": "3000315e8b2d7d318fc848082ce978c0614150191ee5a778e6b57f92dab66f91",
+      "bytes": 4580
+    }
+  }
+}

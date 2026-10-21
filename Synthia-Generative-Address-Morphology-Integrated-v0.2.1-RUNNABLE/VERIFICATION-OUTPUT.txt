@@ -1,0 +1,219 @@
+BOOT AUDIT
+{
+  "ok": true,
+  "root": "UnifiedSynthiaAssembly",
+  "spine": {
+    "ok": true,
+    "chat": true,
+    "canonicalTools": 16,
+    "mountedAutomata": 17,
+    "grownTools": 1,
+    "meshConnections": 7,
+    "transportConnections": 20,
+    "projections": {
+      "knowledge": {
+        "nodes": 3,
+        "edges": 2,
+        "avgDegree": 0.6666666666666666
+      },
+      "causal": {
+        "nodes": 2,
+        "edges": 1,
+        "avgDegree": 0.5
+      },
+      "phase": {
+        "nodes": 0,
+        "edges": 0,
+        "avgDegree": 0
+      },
+      "temporal": {
+        "nodes": 0,
+        "edges": 0,
+        "avgDegree": 0
+      },
+      "dependency": {
+        "nodes": 0,
+        "edges": 0,
+        "avgDegree": 0
+      }
+    },
+    "learning": true,
+    "growth": true,
+    "reversibleRewrite": true,
+    "executionBridge": true,
+    "runtimeRegistry": true,
+    "meshSharing": true,
+    "executionAddressResolver": true,
+    "postExecutionPlacement": true,
+    "kleinContextRuntime": true,
+    "kleinOperatorCoverage": 17,
+    "kleinMissingOperators": [],
+    "kleinWitnessedEvaluations": 1,
+    "kleinDeterministicAfterCollapse": true
+  },
+  "organs": {
+    "registry": true,
+    "bookIngest": true,
+    "sentenceMesh": true,
+    "scientist": true,
+    "trainingJournal": true,
+    "liveAutolingExtractor": true,
+    "liveDiseminerExtractor": true
+  },
+  "addressBoundary": {
+    "executionFields": [
+      "planetary",
+      "dimension",
+      "gate",
+      "line",
+      "color",
+      "tone",
+      "base",
+      "degree",
+      "minute",
+      "second",
+      "arcAxis",
+      "zodiac",
+      "house"
+    ],
+    "trainingFields": [
+      "planetary",
+      "dimension",
+      "gate",
+      "line",
+      "color",
+      "tone",
+      "base",
+      "degree",
+      "minute",
+      "second",
+      "arc",
+      "zodiac",
+      "house"
+    ],
+    "identical": false,
+    "policy": "preserve-both-no-silent-conversion"
+  },
+  "rootEvents": 0,
+  "trainingRecords": 0
+}
+
+CHAT KLEIN
+{
+  "evaluationId": "klein-eval-0002",
+  "activeToolIds": [
+    "diseminer",
+    "autoling",
+    "language-contact",
+    "historical-monte-carlo",
+    "computational-grammar-coder",
+    "conversation"
+  ],
+  "result": {
+    "relation": "joint:diseminer~autoling~language-contact~historical-monte-carlo~computational-grammar-coder~conversation:flow",
+    "intensity": 0.4838709677419355,
+    "direction": "away"
+  },
+  "transportDelivered": true,
+  "trainingRecordId": "train_85e1b48c-265c-44f9-b971-53e11b54bb7e"
+}
+
+POST AUDIT
+{
+  "ok": true,
+  "root": "UnifiedSynthiaAssembly",
+  "spine": {
+    "ok": true,
+    "chat": true,
+    "canonicalTools": 16,
+    "mountedAutomata": 17,
+    "grownTools": 1,
+    "meshConnections": 7,
+    "transportConnections": 20,
+    "projections": {
+      "knowledge": {
+        "nodes": 20,
+        "edges": 25,
+        "avgDegree": 1.25
+      },
+      "causal": {
+        "nodes": 4,
+        "edges": 2,
+        "avgDegree": 0.5
+      },
+      "phase": {
+        "nodes": 0,
+        "edges": 0,
+        "avgDegree": 0
+      },
+      "temporal": {
+        "nodes": 2,
+        "edges": 17,
+        "avgDegree": 8.5
+      },
+      "dependency": {
+        "nodes": 0,
+        "edges": 0,
+        "avgDegree": 0
+      }
+    },
+    "learning": true,
+    "growth": true,
+    "reversibleRewrite": true,
+    "executionBridge": true,
+    "runtimeRegistry": true,
+    "meshSharing": true,
+    "executionAddressResolver": true,
+    "postExecutionPlacement": true,
+    "kleinContextRuntime": true,
+    "kleinOperatorCoverage": 17,
+    "kleinMissingOperators": [],
+    "kleinWitnessedEvaluations": 2,
+    "kleinDeterministicAfterCollapse": true
+  },
+  "organs": {
+    "registry": true,
+    "bookIngest": true,
+    "sentenceMesh": true,
+    "scientist": true,
+    "trainingJournal": true,
+    "liveAutolingExtractor": true,
+    "liveDiseminerExtractor": true
+  },
+  "addressBoundary": {
+    "executionFields": [
+      "planetary",
+      "dimension",
+      "gate",
+      "line",
+      "color",
+      "tone",
+      "base",
+      "degree",
+      "minute",
+      "second",
+      "arcAxis",
+      "zodiac",
+      "house"
+    ],
+    "trainingFields": [
+      "planetary",
+      "dimension",
+      "gate",
+      "line",
+      "color",
+      "tone",
+      "base",
+      "degree",
+      "minute",
+      "second",
+      "arc",
+      "zodiac",
+      "house"
+    ],
+    "identical": false,
+    "policy": "preserve-both-no-silent-conversion"
+  },
+  "rootEvents": 1,
+  "trainingRecords": 1
+}

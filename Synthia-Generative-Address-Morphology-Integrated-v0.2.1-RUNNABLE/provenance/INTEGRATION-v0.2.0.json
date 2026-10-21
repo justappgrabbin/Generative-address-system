@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "activeRoot": "Pure-Synthia-Integrated-Assembly-v0.4.2",
+  "preservation": {
+    "authoritiesIdentical": true,
+    "unifiedRootSourceIdentical": true,
+    "originalRootTestIdentical": true,
+    "originalUploadedZip": "provenance/original-v0.4.2/Pure-Synthia-Integrated-Assembly-v0.4.2.zip"
+  },
+  "additions": {
+    "rootClass": "SynthiaGenerativeAssembly",
+    "automatonId": "generative-address-morphology",
+    "chat": {
+      "readMorphology": true,
+      "kleinMeshState": true,
+      "writeMorphology": true
+    },
+    "internet": {
+      "researchBrowser": true,
+      "browserForm": true,
+      "existingConsentGatesPreserved": true
+    },
+    "extensionRegistry": true,
+    "graphEcology": true
+  },
+  "tests": {
+    "original": {
+      "root": 5,
+      "executionSpine": 29,
+      "trainableCore": 6,
+      "total": 40
+    },
+    "newIntegration": 5,
+    "embeddedMorphology": 5
+  }
+}

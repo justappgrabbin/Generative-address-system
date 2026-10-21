@@ -1,0 +1,116 @@
+{
+  "build": "Synthia-Generative-Address-Morphology-Integrated-v0.2.0",
+  "activeRoot": "Pure-Synthia-Integrated-Assembly-v0.4.2",
+  "rootPolicy": "existing v0.4.2 authority source preserved; additive runtime mount only",
+  "previousR2121BuildRole": "lineage/reference only",
+  "newOrgan": "generative-address-morphology",
+  "surfaces": [
+    "chat",
+    "research-browser",
+    "browser-form"
+  ],
+  "donors": [
+    {
+      "name": "Generative-Morph-Chat (1).zip",
+      "size": 9108650,
+      "sha256": "2bb99683ee017f8ff0cdd9f0527325031ac468db0b5c81aaf4050d29532065b9",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Generative-Morph-Chat.zip",
+      "size": 9108650,
+      "sha256": "951541b1358b686c5128383ea2003906b98d456beeff6764f33c7f5b8e5b0eb2",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Generative-Process-Cluster (1).zip",
+      "size": 2460424,
+      "sha256": "9338aef1ad5cde4a51b0c0139923b45a4c5d1945c002a6561220cd80086044de",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Mesh-Cognition-Network (2).zip",
+      "size": 63357738,
+      "sha256": "5ae73125a55c37bf9b9460fcad2744ba821059b526db39523a04f5b620a3bb0f",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Model-Weaver.zip",
+      "size": 6399688,
+      "sha256": "9630ae4e8e0805b8b725149be8ee6addc5452450e7dd8ecf91754102d5f87877",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Neural-Network-Builder.zip",
+      "size": 31685092,
+      "sha256": "6405581e015f9f62133717ee97b46041c227828c8900246db3ff15ead7396f0a",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Primitive-Neural-Network-Foundry.zip",
+      "size": 2227740,
+      "sha256": "e91581d2c703d3eb2b4cb36c12174ef73d70a3d7c0b902af1b931b1f962e201c",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "SynthAI-Foundry-QQMOD-Replit-Drop.zip",
+      "size": 11126696,
+      "sha256": "9961d08d32e190aaff26996c0ed9953055c2483028360c81d5762f67597f1bc4",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Synthia-Coherent-Autonomy-Hands-v0.2.0.zip",
+      "size": 18169130,
+      "sha256": "e0e939757fd23247373c853aead44b93f50554a0c65c7e942a25f55aef46383a",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "Synthia-Top-3-Autonomy-Lineages-PARTIAL.zip",
+      "size": 951584,
+      "sha256": "cb30831d2d99a6e6f1f5f2929d027b230d9114fe67ba4add6c76322b8795a355",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "address_space_engine.py",
+      "size": 28041,
+      "sha256": "f6d06c90a9f4a4c660da4221f028511dc87a1c795e1b9fa78e55fb154ad90778",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "alphabet-genealogy-lab.zip",
+      "size": 6512,
+      "sha256": "0a6377250ea189326a5308b7a0ae5e9c2823f9fd9b686c526cbe69968681d05d",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "github-app-automaton-FIXED-v2.1.0.zip",
+      "size": 29571,
+      "sha256": "e9c47ab27f6a756cc677b9368f27979cbec38f6cdf6d13ca8c0152fa04ab7996",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "meaning-mesh-64 (3).zip",
+      "size": 201594,
+      "sha256": "4d230965702ff15cdfaf50efd0e876c8be4a121351bc719228dadcffe0ee947e",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "mesh-automaton (2).zip",
+      "size": 832224,
+      "sha256": "ab1803f0b9825b49e76157684317d1f51ebc715fd61a6902e7acfa47dbccf7f8",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "neural-architecture-generator (7).zip",
+      "size": 1640295,
+      "sha256": "660885ee1a684d13f14da8bb73cd08bf6fbb32f19fe219e66672ec6f1e2f4f77",
+      "role": "preserved donor; not automatically authoritative"
+    },
+    {
+      "name": "synthia-mesh.mjs",
+      "size": 6397,
+      "sha256": "4dbbf17853a4e4fc3a512d5bc4801d2ff78b16c61bfc317731be96c230094724",
+      "role": "preserved donor; not automatically authoritative"
+    }
+  ]
+}
