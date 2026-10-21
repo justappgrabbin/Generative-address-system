@@ -15,3 +15,11 @@ Alexis's Klein tools reading an image directly from visual primitives — no wor
 - Region classes are k-means on colour/brightness (k=4); token bins (flat/grain/rough, edge thresholds) are measurement bins, not meanings.
 - Recolor at DC only gives visible 8×8 block edges at region borders.
 - Mapping of these primitives to her address (gate/line/color/tone/base) and to the 13 per-gate layers: investigating, hers to define.
+
+## ATO — Appositional Transformation Operators (Klein et al. ~1981, "Revolt in Flatland")
+- `src/ato.mjs` implements the paper's definitions over bit arrays: `*ab` = XNOR (3-valued `-` = does not apply), analogy `?=*Z(*XY)`, complex analogy, ATO tree ("patterns behind patterns"), replanning `*A(*DE)…`.
+- It is the same operator as Alexis's `klein-iching-ato-mesh.ts` `ato()` (vendored byte-exact in `vendor/klein-final-engines/`, sha256 in `PROVENANCE-ato.sha256`); a test runs her function and checks all 64×64 6-bit pairs agree. Hers works on integers ≤31 bits, so the array form is added alongside.
+- KMGE's `AtoEngine` is a different "ATO" (Fayyaz 2022 episodic memory), so it was not used here.
+- Paper examples reproduce exactly: `10101010:01010110::01100101:? = 10011001`, `10010101:01011010::10100110:? = 01101001`.
+- Visual: each region gets an 8-bit feature state (Y 3 bits, Cb>0, Cr>0, texture 2 bits, vertical-edge). `R0:R1::R2:?` gave a new state, rendered onto R2's blocks via genrec (others byte-identical). Bit layout is a measurement choice — *investigating*, Alexis's to define.
+- Frames: 24 moving-photo frames as 2D bright/dark bit-planes → level-1 ATOs and level-2 ATO-of-ATOs in `fixtures/out/ato-report.json`.
