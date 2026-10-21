@@ -1,0 +1,548 @@
+{
+  "monteCarlo": {
+    "candidates": 17,
+    "originalSeam": 13.810200216450216,
+    "deterministic": {
+      "state": "10110011",
+      "seam": 51.10200216450217,
+      "score": 51.10200216450217
+    },
+    "monteCarlo": {
+      "state": "10010011",
+      "seam": 26.319940476190474,
+      "ham": 1,
+      "score": 30.319940476190474
+    }
+  },
+  "mesh": {
+    "before": {
+      "gameRules": 4,
+      "visualWords": 0,
+      "total": 4
+    },
+    "after": {
+      "gameRules": 4,
+      "visualWords": 4,
+      "total": 46
+    },
+    "gamePlaced": [
+      {
+        "word": "open",
+        "codes": [
+          "MISC"
+        ],
+        "dimension": "Movement",
+        "gate": null,
+        "gateHeld": "her code assigns gates only by hash",
+        "justification": {
+          "source": "r21.21/substrate/mesh072/core/klein_autoling_learner.mjs",
+          "via": "inferRoles + observe() dimension priority",
+          "matchedRoles": [
+            "what"
+          ]
+        }
+      },
+      {
+        "word": "on",
+        "codes": [
+          "MISC"
+        ],
+        "dimension": "Being",
+        "gate": null,
+        "gateHeld": "her code assigns gates only by hash",
+        "justification": {
+          "source": "r21.21/substrate/mesh072/core/klein_autoling_learner.mjs",
+          "via": "inferRoles + observe() dimension priority",
+          "matchedRoles": [
+            "where"
+          ]
+        }
+      },
+      {
+        "word": "because",
+        "codes": [
+          "MISC"
+        ],
+        "dimension": "Design",
+        "gate": null,
+        "gateHeld": "her code assigns gates only by hash",
+        "justification": {
+          "source": "r21.21/substrate/mesh072/core/klein_autoling_learner.mjs",
+          "via": "inferRoles + observe() dimension priority",
+          "matchedRoles": [
+            "why"
+          ]
+        }
+      },
+      {
+        "word": "when",
+        "codes": [
+          "MISC"
+        ],
+        "dimension": "Evolution",
+        "gate": null,
+        "gateHeld": "her code assigns gates only by hash",
+        "justification": {
+          "source": "r21.21/substrate/mesh072/core/klein_autoling_learner.mjs",
+          "via": "inferRoles + observe() dimension priority",
+          "matchedRoles": [
+            "when"
+          ]
+        }
+      }
+    ],
+    "gameHeld": [
+      {
+        "rule": "word:player",
+        "codes": [
+          "NOUN"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:self",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:target",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:enemy",
+        "codes": [
+          "NOUN"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:boss",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:item",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:wall",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:door",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:key",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:health",
+        "codes": [
+          "NOUN"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:ammo",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:score",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:move",
+        "codes": [
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:shoot",
+        "codes": [
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:jump",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:use",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:take",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:is",
+        "codes": [
+          "VERB-IS"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:has",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:can",
+        "codes": [
+          "AXV"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:will",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:must",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:quickly",
+        "codes": [
+          "ADV",
+          "ADJ"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:slowly",
+        "codes": [
+          "ADV",
+          "ADJ"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:red",
+        "codes": [
+          "/ED/",
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:blue",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:broken",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:locked",
+        "codes": [
+          "/ED/",
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:running",
+        "codes": [
+          "/ING/",
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:shooting",
+        "codes": [
+          "/ING/",
+          "VERB"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:the",
+        "codes": [
+          "ART"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:a",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:this",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:in",
+        "codes": [
+          "PREP"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:near",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:behind",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:and",
+        "codes": [
+          "CONJC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:or",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:then",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:if",
+        "codes": [
+          "CONJR"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:it",
+        "codes": [
+          "PN"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:them",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:all",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "word:none",
+        "codes": [
+          "MISC"
+        ],
+        "reason": "no role regex in klein_autoling_learner.inferRoles matches; only her default would place it"
+      },
+      {
+        "rule": "suffix:_ing",
+        "codes": [
+          "/ING/",
+          "VERB"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_ed",
+        "codes": [
+          "/ED/",
+          "VERB"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_ly",
+        "codes": [
+          "ADV",
+          "ADJ"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_er",
+        "codes": [
+          "NOUN",
+          "VERB"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_tion",
+        "codes": [
+          "NOUN"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_able",
+        "codes": [
+          "ADJ"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_ful",
+        "codes": [
+          "ADJ"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      },
+      {
+        "rule": "suffix:_less",
+        "codes": [
+          "ADJ"
+        ],
+        "reason": "no placement logic for morphology rules found in her mesh code"
+      }
+    ],
+    "visualWords": [
+      {
+        "word": "VW0",
+        "members": [
+          "R0.flat.e0",
+          "R0.grain.e0",
+          "R0.grain.eh",
+          "R0.rough.e0",
+          "R0.rough.eh",
+          "R0.rough.ev",
+          "R1.grain.e0",
+          "R1.rough.e0",
+          "R1.rough.eh",
+          "R1.rough.ev",
+          "R2.grain.e0",
+          "R2.grain.eh",
+          "R2.grain.ev",
+          "R2.rough.e0",
+          "R2.rough.eh",
+          "R2.rough.ev",
+          "R3.grain.e0",
+          "R3.grain.eh",
+          "R3.grain.ev",
+          "R3.rough.e0",
+          "R3.rough.eh",
+          "R3.rough.ev"
+        ]
+      },
+      {
+        "word": "VW1",
+        "members": [
+          "R0.grain.e0",
+          "R0.rough.ev",
+          "R1.rough.e0",
+          "R1.rough.ev"
+        ]
+      },
+      {
+        "word": "VW2",
+        "members": [
+          "R0.rough.e0",
+          "R1.rough.ev"
+        ]
+      },
+      {
+        "word": "VW3",
+        "members": [
+          "R1.rough.e0",
+          "R2.rough.eh",
+          "R2.rough.ev"
+        ]
+      }
+    ],
+    "h2Rules": 292,
+    "learnedGrammarNodes": 37,
+    "compGramCoderMISC": {
+      "before": 23,
+      "after": 1,
+      "distinct": 23
+    },
+    "comparison": {
+      "token": "R3.rough.eh",
+      "visualCode": "VW0",
+      "sameCode": [],
+      "learnerReading": {
+        "words": [
+          "r3_rough_eh"
+        ],
+        "roles": [
+          "what"
+        ]
+      }
+    },
+    "registry": {
+      "autolingComplete": true,
+      "learner": "substrate/mesh072/core/klein_autoling_learner.mjs"
+    }
+  }
+}

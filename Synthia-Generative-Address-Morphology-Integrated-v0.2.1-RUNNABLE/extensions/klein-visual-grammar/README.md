@@ -23,3 +23,13 @@ Alexis's Klein tools reading an image directly from visual primitives — no wor
 - Paper examples reproduce exactly: `10101010:01010110::01100101:? = 10011001`, `10010101:01011010::10100110:? = 01101001`.
 - Visual: each region gets an 8-bit feature state (Y 3 bits, Cb>0, Cr>0, texture 2 bits, vertical-edge). `R0:R1::R2:?` gave a new state, rendered onto R2's blocks via genrec (others byte-identical). Bit layout is a measurement choice — *investigating*, Alexis's to define.
 - Frames: 24 moving-photo frames as 2D bright/dark bit-planes → level-1 ATOs and level-2 ATO-of-ATOs in `fixtures/out/ato-report.json`.
+
+## Monte Carlo (her tool-06 Klein historical Monte Carlo + her mulberry32, unchanged, same repo)
+`src/mc.mjs` (candidate scheme + score are ours): flip ATO-answer bits at random, score = border seam error + 4×Hamming distance from the ATO answer; her automaton drifts the weights and picks the dominant. R0:R1::R2:? deterministic seam 51.1 → Monte Carlo 26.3 (1 bit changed; original photo seam 13.8). Seeded, repeatable.
+
+## AUTOLING on the mesh (`src/mesh.mjs`)
+- Tools resolved through her `KleinModuleRegistry` (r21.21 ato-core; `compose('autoling')` complete; KMGE tools registered as extra modules); grammar-induction resolves to her `substrate/mesh072/core/klein_autoling_learner.mjs`.
+- All learnings (row grammar, visual words, ATO results, game words) are published to her `LearningMesh` (r21.21 browser) and read back from it. A small node-store adapter (ours) lets her learner write into LearningMesh.
+- Visual words: her KMGE `AutolingGrammar.heuristic2`, triggered by our rule "two tokens in the same left/right environment" → 4 visual words; CompGramCoder (wrapped) MISC 23 → 1 using mesh words.
+- Gaming vocab kept: placed only by her learner's `inferRoles` + `observe()` dimension priority (4 words: open→Movement, on→Being, because→Design, when→Evolution). Gates never assigned (her code only hashes). 52 held-for-Alexis: 44 words no role match, 8 suffix rules no placement logic found.
+- Limit: her learner, on its own, still gives its row-grammar nodes hash gates (her code's behaviour, not ours). Visual-word merge can leave a token in two words. Heuristic 4 not triggered.

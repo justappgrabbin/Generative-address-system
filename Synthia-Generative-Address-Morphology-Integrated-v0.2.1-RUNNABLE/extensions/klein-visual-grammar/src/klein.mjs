@@ -56,8 +56,10 @@ export function regionState(read, cls) {
   return featureBits({ Y: R.meanY, Cb: R.meanCb, Cr: R.meanCr, texture: R.meanTexture, vertical: v / n > 0.5 });
 }
 /** Visual ATO analogy A:B::C:?  — new feature state, rendered onto region C's blocks (others untouched). */
-export function visualAnalogy(read, a, b, c) {
-  const A = regionState(read, a), B = regionState(read, b), C = regionState(read, c), Q = analogy(A, B, C), tgt = decodeFeatureBits(Q), src = decodeFeatureBits(C);
+export function visualAnalogy(read, a, b, c) { return renderFeatureState(read, a, b, c); }
+/** Render feature state Q (default: the ATO answer) onto region c. */
+export function renderFeatureState(read, a, b, c, Qin = null) {
+  const A = regionState(read, a), B = regionState(read, b), C = regionState(read, c), Q = Qin ?? analogy(A, B, C), tgt = decodeFeatureBits(Q), src = decodeFeatureBits(C);
   const out = { ...read.an, coefs: read.an.coefs.map((x) => Float64Array.from(x)) }, R = read.regions[c], acScale = tgt.texture / src.texture;
   for (let blk = 0; blk < read.lab.length; blk++) if (read.lab[blk] === c) {
     const o = blk * 64; out.coefs[0][o] += (tgt.Y - R.meanY) * 8; // shift DC by the analogy's brightness change, keep the block's own variation
