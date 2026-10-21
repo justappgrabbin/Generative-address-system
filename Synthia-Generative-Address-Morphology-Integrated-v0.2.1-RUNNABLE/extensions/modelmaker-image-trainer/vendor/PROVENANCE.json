@@ -1,0 +1,78 @@
+{
+ "note": "Byte-exact copy of Alexis Mcmillion's ModelMaker morph-studio. Not edited.",
+ "sourceRepo": "https://github.com/justappgrabbin/Stellarproximology-lab",
+ "branch": "feature/modelmaker-neural-morph",
+ "commit": "17e2b83",
+ "sourcePath": "Modelmaker-repair/morph-studio/",
+ "vendoredPath": "vendor/modelmaker-morph-studio/",
+ "files": [
+  {
+   "path": "./.gitignore",
+   "sha256": "c85186b7067f1eab688245dbed3a52ef3e50a3e7376eaba7563e07acb6fb2927"
+  },
+  {
+   "path": "./README.md",
+   "sha256": "16551bf010cf546e53dc8b42c411deb221b0285c2f055cab519681d8f157d6cd"
+  },
+  {
+   "path": "./build-standalone.py",
+   "sha256": "df860eedc7dc60500b5aeb4ba912131807225720280f732fbdaab1e5affe47cd"
+  },
+  {
+   "path": "./dist/app.mjs",
+   "sha256": "a9ffc642f7d3d8528e85e176c28f865a1f7d163571fb197ec25a2bdc65499650"
+  },
+  {
+   "path": "./dist/index.html",
+   "sha256": "af8299e61a598824be9082edb097b8658e738b197fef36f506f28550845f863b"
+  },
+  {
+   "path": "./dist/neural.mjs",
+   "sha256": "0e528ebd0e1af427549e1339668768aa17e880b6bd7b8a3c245ac0e85d5614d3"
+  },
+  {
+   "path": "./dist/onnx.mjs",
+   "sha256": "4e833e0c8813f7f20bfa4c915ab1b87597ab925b7dc8082087f019a674be339b"
+  },
+  {
+   "path": "./dist/procedural.mjs",
+   "sha256": "624851f45b93ff265ddcae99010ccb6a2039ac7df5736de29adc2dd5db2a82b4"
+  },
+  {
+   "path": "./dist/style.css",
+   "sha256": "bd863fe7c10ba8a46a1ed731119288c2a8a8c74ecc481d077b66e3d4e7ef97e0"
+  },
+  {
+   "path": "./dist/sw.js",
+   "sha256": "80fd026033141ca2363aa48ce688008748d46eae16bad6a4d08fbd2afdaf09f5"
+  },
+  {
+   "path": "./dist/train-worker.mjs",
+   "sha256": "00a74bec65713b2fbb8557c7fc96a5672ee397f2becc327d7710984a42d9ac2f"
+  },
+  {
+   "path": "./morph-standalone.html",
+   "sha256": "5d3085c5c46447e8fbcc2491f4a6d0bea900c79937704b6ba020d63827327989"
+  },
+  {
+   "path": "./package.json",
+   "sha256": "87dce1d9f246f3b7c7c01f4baa1f6cf41d24f9f4fa0aaaab4ed94a3b63846c1b"
+  },
+  {
+   "path": "./tests/check_onnx.py",
+   "sha256": "a5920b571a816bbb03f65d752048d86615fc0a5095e999239441bc3418b7fe41"
+  },
+  {
+   "path": "./tests/export-fixture.mjs",
+   "sha256": "7965707bbfc7ed30b1f7c015d3842b56938541d5fde35e5b78a4a20f33323991"
+  },
+  {
+   "path": "./tests/neural.test.mjs",
+   "sha256": "2bbc66bee6707814a17ff9565a63d7d5cab25c2fa96eb12bb18337b037cb5069"
+  },
+  {
+   "path": "./tests/procedural.test.mjs",
+   "sha256": "c8b4a527ad87d7154edb4d0888dd09f523fedd75929a96da36f9e6dcf4dba218"
+  }
+ ]
+}
