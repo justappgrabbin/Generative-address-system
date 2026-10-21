@@ -20,3 +20,16 @@ How her system assigns gates (cited, not invented):
 - Same rule in `r21.21/vendor/resonance-engine/core/OntologicalAddress.js:71-79` ("Gate 41 at 0°").
 - Open (her call): human-design.js header F2 records three wheel anchors (58.0°, ~311.75° tropical, 46.75°); code keeps 58.0.
 - Missing piece: a learned grammar/word has no degree, so mapping a rule to a longitude is undefined → those rules stay held, not guessed.
+
+## Rewire to her execution spine (src/spine.mjs) — r21.21 copies left untouched, out of this path
+- Tools: `authorities/execution-spine/.../automata/registry.js` resolveTool/createAllTools → autoling (tool-14), historical-monte-carlo (tool-06), iching-grammar (tool-04).
+- Learnings: spine `merged/mesh-memory.js` AnticipatoryMemory. Address = AUTOLING tool's arcSecond (324000 = 90°) → `human-design.js` longitudeToHD (GATE_WHEEL, 58° start — her code default; F2 alternatives 311.75 / 46.75 pending Alexis) → G55.L5.C1.T5.B5.
+- Real gate table `data/real_gate_table.json` (sha256 05532cf0…a146d, byte-exact) passed into spine `mesh-state-space.js` StateSpace; matches spine gateBits and built trigrams on all 64 gates.
+- Game words (56): 14 placed by spine lexicon SEED_WORDS class (is/has/can/will/must AUX; the/a/this DET; in/on PREP; and/or/if CONJ; it PRON), word gate held for all; 42 held (34 words not in spine lexicon + 8 suffix rules) — needs degree rule from Alexis.
+- Spine AUTOLING learned 1 rule from 37 rows: its owned engine only coins a new rule on the first sentence; later sentences return no newRules (observed, not changed).
+
+### Spine defects (report only)
+- Two wheels conflict: `state-space/addressing.js:31 addressForArcSec` is sequential (gate = floor(arc/5.625°)+1; 90° → gate 17, = registry gate) vs `human-design.js:964 longitudeToHD` (GATE_WHEEL, 58° start; 90° → gate 55).
+- Hash/index gates in spine paths: `execution-address-resolver.mjs:131` `take(n, 64)` of fnv hash128 (labelled 'computational-coordinate', not semantic); `engine/intake.js:119` `parseInt(hash,16) % WHEEL_ARCSECONDS`; `state-space/letters.js:45` `(index % 64) + 1`; `merged/tool-factory.js:75` `((gate + level*7 - 1) % 64) + 1`; `engine/learning.js:454` `(from % 64) + 1`; `merged/media-field.js:447` `mediaHash({name, gates, purpose})`.
+- `merged/mesh-memory.js:17 publicAddress` clamps a missing gate to 1 (a default) — so nothing is stored without a wheel address here.
+- Non-celestial option seen but NOT used: `addressing.js gateFromBits` (6 bits → gate). Visual states are 8-bit; which 6 bits is Alexis's call.
