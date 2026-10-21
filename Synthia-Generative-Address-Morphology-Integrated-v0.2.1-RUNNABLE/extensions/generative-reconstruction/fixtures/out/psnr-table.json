@@ -1,0 +1,54 @@
+{
+ "image": "196x292 (photo.jpg downscaled x4)",
+ "address": "genrec://image/389481fa282d47552cf2f70fc2707818e1f56b6304feeed7e6c18228c36d2cd3",
+ "layers": [
+  {
+   "layers": 1,
+   "psnr": 20.33,
+   "maxError": 210
+  },
+  {
+   "layers": 2,
+   "psnr": 23.46,
+   "maxError": 181
+  },
+  {
+   "layers": 3,
+   "psnr": 27.13,
+   "maxError": 133
+  },
+  {
+   "layers": 4,
+   "psnr": 30.26,
+   "maxError": 85
+  },
+  {
+   "layers": 5,
+   "psnr": 33.42,
+   "maxError": 58
+  },
+  {
+   "layers": 6,
+   "psnr": 84.04,
+   "maxError": 1
+  }
+ ],
+ "repair25": {
+  "droppedBlocks": 202,
+  "totalBlocks": 925,
+  "damaged": 16.6,
+  "naive": 25.13,
+  "pso": 27.12,
+  "psoMs": 2343,
+  "evals": 596304
+ },
+ "hole32px": {
+  "naive": 35.16,
+  "pso": 36.13
+ },
+ "inbetween": {
+  "psnrVsA": 18.2,
+  "psnrVsB": 18.2
+ },
+ "exactOriginalSha256Match": true
+}
