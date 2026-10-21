@@ -1,0 +1,46 @@
+name: Import original Generative Address archive
+on:
+  workflow_dispatch:
+    inputs:
+      drive_file_id:
+        description: "Google Drive file ID of the original 66 MB ZIP (shared as Anyone with link)"
+        required: true
+        type: string
+jobs:
+  import-original:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact original ZIP
+        env:
+          DRIVE_FILE_ID: ${{ inputs.drive_file_id }}
+        run: |
+          python -m pip install --quiet gdown
+          gdown --id "$DRIVE_FILE_ID" -O /tmp/original.zip
+      - name: Verify and extract original files without modifications
+        run: |
+          python - <<'PY'
+          import hashlib, pathlib, zipfile
+          p=pathlib.Path('/tmp/original.zip')
+          expected='e1cd2b2c9a86e05384eaf79eb5a8ec25eaf515ea71d3087cde346cf8feb0309b'
+          actual=hashlib.sha256(p.read_bytes()).hexdigest()
+          if actual!=expected: raise SystemExit(f'Wrong archive: SHA256 {actual}; expected {expected}')
+          with zipfile.ZipFile(p) as z:
+              for item in z.infolist():
+                  name=pathlib.PurePosixPath(item.filename)
+                  if name.is_absolute() or '..' in name.parts or item.is_dir() and not item.filename.endswith('/'):
+                      raise SystemExit(f'Unsafe archive path: {item.filename}')
+                  if item.filename.startswith('.git/'): raise SystemExit('Archive contains Git metadata')
+              z.extractall('.')
+              print(f'Extracted {len(z.infolist())} original archive entries')
+          PY
+      - name: Commit exact extracted contents
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          if git diff --cached --quiet; then echo "Already imported"; exit 0; fi
+          git commit -m "Import unchanged original Synthia Generative Address assembly"
+          git push
