@@ -63,3 +63,11 @@ ingestion path, every 6-bit chunk becomes a DAG node. `executeDAG` then scales r
 nodes for the 28 KB donor, which is an estimated hour of runtime. The layer avoids that path because it
 reads the source directly. A fix would belong in the scheduler (indexed ready-queue instead of
 rescanning), and it hasn't been made.
+
+## Pairing with the v0.3.0 resident path
+`src/resident-donor.mjs` exports `createResidentDonor()`, a donor in the contract used by
+`MeshCapabilityDeriver` (`name`, `gateAddress`, `provides`, `canHandle`, `derive → {execute}`).
+Register it with `assembly.registerResidentCapability(createResidentDonor())` on a
+`ScientificSynthiaAssembly({executionMode:'resident'})`. The 253 MB v0.3.0 base is not vendored. Its
+integration test runs when `SYNTHIA_V030_ROOT` points at an extracted base with the 1R4snwT8 overlay
+applied, and is skipped otherwise.
