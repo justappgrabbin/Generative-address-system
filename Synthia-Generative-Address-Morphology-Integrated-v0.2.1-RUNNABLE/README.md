@@ -43,7 +43,11 @@ The integrated core URL is configurable in the same menu under **CORE** and defa
 
 ## Address behavior in Morph mode
 
-Morph uses the explicit active/canonical addresses already loaded into the integrated engine. It does **not** manufacture an address from chat text when none has been supplied. The morphology state can therefore be empty while the chat path still runs, which is preferable to fabricating structure.
+Morph preserves explicit active/canonical addresses when supplied. With no supplied addresses, it now derives candidate addresses from the subject's morphological and semantic features, validates them, and registers them before compiling connections. Chat and research work from an empty address registry; new candidates do not need to exist beforehand.
+
+The included interpretable feature model uses AUTOLING morphology, the existing gate names/themes and line descriptions, and the source dimension chains. Cosine similarity measures candidate fit; Boolean ATO completes explicitly requested analogies over shared named features. Channel IDs and names no longer seed morphology parameters. SHA-256 remains only for stable address identifiers.
+
+These mappings are **experimental**. This is a source-vocabulary prototype model, not a trained general-language model. Unknown meanings remain unresolved and can be taught explicitly. Planetary and fine-coordinate defaults are recorded as symbolic defaults, not inferred astronomical facts. See [semantic generation and model extension](docs/SEMANTIC-ADDRESS-GENERATION.md).
 
 ## Internet / browser integration
 
@@ -117,3 +121,4 @@ const morph = await synthia.chat('hello');
 ```
 
 The original unified root remains available unchanged through `src/index.mjs`.
+

@@ -26,6 +26,45 @@ const addr = (id, gate, dimension='Being', extra={}) => ({
 
 const mutation = [addr('g3', 3, 'Movement'), addr('g60', 60, 'Movement')];
 
+test('cold-start Morph chat generates addresses from meaning and keeps subsequent subjects fresh', async () => {
+  const root = new SynthiaGenerativeAssembly({ morphology: { engineOptions: { weightsFile: null } } });
+  const first = await root.chat('Innovation ordering limitation acceptance', { seed: 7 });
+  const inward = first.morphology.inward.snapshot;
+  assert.equal(inward.generation.status, 'generated');
+  assert.ok(inward.addresses.some(a => a.gate === 3));
+  assert.ok(inward.addresses.some(a => a.gate === 60));
+  assert.ok(inward.graphs.length);
+  assert.deepEqual(first.morphology.outward.snapshot.addresses.map(a => a.id), inward.addresses.map(a => a.id));
+  assert.ok(first.contact.kleinEvaluation);
+  const second = await root.chat('Memory love light', { seed: 7 });
+  assert.equal(second.morphology.inward.snapshot.generation.status, 'generated');
+  assert.notDeepEqual(second.morphology.inward.snapshot.addresses.map(a => a.id), inward.addresses.map(a => a.id));
+  assert.equal(root.activeMorphologyAddresses.length, 0);
+});
+
+test('research generates semantic addresses without caller-supplied coordinates', () => {
+  const root = new SynthiaGenerativeAssembly({ morphology: { engineOptions: { weightsFile: null } } });
+  const out = root.research({ operation: 'create', title: 'Innovation limitation', question: 'Ordering and acceptance' });
+  assert.equal(out.morphology.inward.snapshot.generation.status, 'generated');
+  assert.ok(out.morphology.inward.snapshot.addresses.length);
+  assert.deepEqual(out.morphology.inward.snapshot.addresses, out.morphology.outward.snapshot.addresses);
+});
+
+test('the live Klein operator probes semantic generation without changing registry state', () => {
+  const root = new SynthiaGenerativeAssembly({ morphology: { engineOptions: { weightsFile: null } } });
+  root.generativeMorphology.generator.model.teach('zorbax', { 'meaning:innovation': 1 });
+  const operator = root.engine.klein.operator('generative-address-morphology');
+  const context = { input: { operation: 'compile', subject: { text: 'zorbax' } } };
+  const before = root.generativeMorphology.snapshot();
+  const first = operator(context);
+  assert.deepEqual(operator(context), first);
+  assert.equal(root.generativeMorphology.generator.registry.size, 0);
+  assert.deepEqual(root.generativeMorphology.snapshot(), before);
+  const actual = root.morphology('compile', { subject: { text: 'zorbax' } }).derivation.output;
+  assert.equal(actual.snapshot.generation.status, 'generated');
+  assert.ok(root.generativeMorphology.generator.registry.size > 0);
+});
+
 test('generative morphology mounts as a live mesh organ without replacing v0.4.2 organs', () => {
   const root = new SynthiaGenerativeAssembly({ morphologyAddresses: mutation });
   const audit = root.wiringAudit();
@@ -99,3 +138,4 @@ test('Klein chat form stays distinct from morphology chat form', async () => {
   assert.ok(morph.contact?.kleinEvaluation);
   assert.equal(morph.morphology.inward.summary.dominantEnergy, 'MUTATION');
 });
+

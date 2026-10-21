@@ -6,6 +6,10 @@ export const ADDRESS_ORDER = Object.freeze([
 
 const DIMENSIONS = new Set(['Movement','Evolution','Being','Design','Space']);
 const within = (v,a,b) => Number.isFinite(Number(v)) && Number(v) >= a && Number(v) <= b;
+const freezeTree = value => {
+  if (value && typeof value === 'object') { for (const child of Object.values(value)) freezeTree(child); Object.freeze(value); }
+  return value;
+};
 const stable = (v) => {
   if (v === null || v === undefined) return '';
   if (typeof v !== 'object') return String(v);
@@ -44,6 +48,7 @@ export function normalizeAddress(raw={}){
     context: raw.context ?? {},
     source: raw.source ?? null,
     canonicalAddress: raw.canonicalAddress ?? null,
+    semantic: raw.semantic ? freezeTree(structuredClone(raw.semantic)) : null,
   };
   validateAddress(a);
   if(!a.id) a.id = `addr-${digestAddress(a).slice(0,16)}`;
@@ -69,7 +74,9 @@ export function validateAddress(a){
 }
 
 export function addressKey(a){
-  return ADDRESS_ORDER.map(k=>`${k}=${stable(a[k])}`).join('|');
+  const coordinates = ADDRESS_ORDER.map(k=>`${k}=${stable(a[k])}`).join('|');
+  return a.semantic ? `${coordinates}|semantic=${stable({schema:a.semantic.schema,vector:a.semantic.vector})}` : coordinates;
 }
 export function digestAddress(a){return createHash('sha256').update(addressKey(a)).digest('hex');}
 export function pairKey(a,b){return [a.id,b.id].sort().join('::');}
+

@@ -123,7 +123,7 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
       meshState: mergeMeshState(context.meshState, inwardOutput),
     });
     const outward = this.morphology('chat-write', {
-      addresses,
+      addresses: inwardOutput?.snapshot?.addresses ?? addresses,
       subject: {
         kind: 'language-output',
         text: base.utterance,
@@ -173,7 +173,7 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     const meshState = mergeMeshState(context.meshState, inward.derivation.output);
     const action = super.invoke(toolId, input, { ...context, meshState });
     const outward = this.morphology('internet-write', {
-      addresses,
+      addresses: inward.derivation.output?.snapshot?.addresses ?? addresses,
       subject: {
         kind: 'internet-output',
         toolId,
@@ -219,3 +219,4 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
 }
 
 export default SynthiaGenerativeAssembly;
+

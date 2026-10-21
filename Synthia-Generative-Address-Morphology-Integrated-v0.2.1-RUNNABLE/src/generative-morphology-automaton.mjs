@@ -10,6 +10,8 @@ function summarize(snapshot = {}) {
   const energies = snapshot?.ecology?.energies ?? [];
   const dominant = energies[0] ?? null;
   return Object.freeze({
+    addressCount: snapshot?.addresses?.length ?? 0,
+    generationStatus: snapshot?.generation?.status ?? 'explicit-addresses',
     activeGraphCount: snapshot?.graphs?.length ?? 0,
     connectionCount: snapshot?.connections?.length ?? 0,
     dominantEnergy: snapshot?.ecology?.dominantEnergy ?? null,
@@ -71,7 +73,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
     // ephemeral engine gives Klein a real run shape while preserving the live
     // organism until enactment.
     if (context?.klein === true || context?.kleinJoint === true) {
-      return new GenerativeAddressMorphologyEngine({ weightsFile: null });
+      return this.morphology.fork();
     }
     return this.morphology;
   }
@@ -121,3 +123,4 @@ export class GenerativeMorphologyAutomaton extends Automaton {
 
 export { summarize as summarizeMorphology };
 export default GenerativeMorphologyAutomaton;
+
