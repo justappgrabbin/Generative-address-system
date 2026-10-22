@@ -1,0 +1,15 @@
+{
+  "name": "synthia-state-space-foundation",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:spine": "node --test vendor/spine/tests/*.test.mjs",
+    "test:browser": "npm --prefix vendor/browser test",
+    "build:offline": "python3 scripts/build-offline.py",
+    "test:offline": "node --experimental-vm-modules scripts/check-offline.mjs",
+    "serve": "python3 -m http.server 8080",
+    "demo:field": "node examples/field-demo.mjs"
+  }
+}

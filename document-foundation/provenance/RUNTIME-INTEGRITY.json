@@ -1,0 +1,1798 @@
+{
+  "retainedUnchanged": [
+    {
+      "path": "scripts/build-offline.py",
+      "sha256": "12cb15d24936ca47f33dcb95a4b6807d309891daa82b2cf5da8459004ab4e777"
+    },
+    {
+      "path": "scripts/check-offline.mjs",
+      "sha256": "a5ff1a8b75f46ee89d1e0ad2f964fd07eb89ab0ce2afd7a7ee4c2a2d8ed84285"
+    },
+    {
+      "path": "src/lineage-adapter.mjs",
+      "sha256": "a29ee37358c84aa2ec37625a011db2ce197a89ca23b6d9bdc889b9258d2d52f9"
+    },
+    {
+      "path": "src/storage-adapter.mjs",
+      "sha256": "a8117b88dae8860e23649e14e3c0abe0c75ca5b586374be5f405bc6dd0110f3a"
+    },
+    {
+      "path": "tests/foundation.test.mjs",
+      "sha256": "782d81ca49efbcdddfe373bdc9f36bd5bf6f1da8c647d8233ac3b077f267b162"
+    },
+    {
+      "path": "vendor/VersionLineageRegistry.js",
+      "sha256": "8ed635ba6aece8d565cdd94415a1e1e6d108eb91d62abfe70a413b7fdc00aded"
+    },
+    {
+      "path": "vendor/ato-engine.mjs",
+      "sha256": "c2b2bad655a0393dd4155d7a2bf463669c2be134ab1ff159c71c9052a4fa5c98"
+    },
+    {
+      "path": "vendor/browser/INTEGRATION_README.md",
+      "sha256": "2de283983d0de7aa28463ed0db86c2abb0816f53454cf4e41d3377ff8b881133"
+    },
+    {
+      "path": "vendor/browser/README.md",
+      "sha256": "0f3c247204e22f2ffc8916b2b582646300e503534709edd335a6c81e43b1f677"
+    },
+    {
+      "path": "vendor/browser/RUNTIME_ADAPTERS.md",
+      "sha256": "f306f40bc94b279d58c53c76626b36c4b267021ba712eba622ff29f6d0d46994"
+    },
+    {
+      "path": "vendor/browser/TEST_v1.3.3.txt",
+      "sha256": "09ebcaa80630e781eff6f428cc1ec87969d0965e8a714c709b8121aded6bd4ce"
+    },
+    {
+      "path": "vendor/browser/TEST_v1.3.4.txt",
+      "sha256": "051b8c99787c7e098d81ffbbce3ca33a87a79896f873326d80e1f24f936dbdd1"
+    },
+    {
+      "path": "vendor/browser/demo.mjs",
+      "sha256": "2743808989b6333d078044dbbb62f885a61571d3cb2ac50620adb0ed4355384b"
+    },
+    {
+      "path": "vendor/browser/docs/EXECUTION_LOOP_V1.3.5.md",
+      "sha256": "3f3fb472b94fe73a71dcdc46727dd90544109cfb9bb1fd70a904d0270f219945"
+    },
+    {
+      "path": "vendor/browser/docs/FIVE_WAY_RECOVERY_INVENTORY.md",
+      "sha256": "ac40ca552511466ff4af8c4cc61799e4068e8734718268b16850b827a810c70f"
+    },
+    {
+      "path": "vendor/browser/docs/FRAGMENT_ALGEBRA_SPEC.md",
+      "sha256": "73586ccb0ec726cfa32ec4aad135f9e8f395bdd77cab7bcddcca31963f8e7df6"
+    },
+    {
+      "path": "vendor/browser/docs/HANDOFF_INTEGRATION.md",
+      "sha256": "5de9d371b984d1ccda946cdef2c15f80649e16f754c210de2b70545028f84ac9"
+    },
+    {
+      "path": "vendor/browser/docs/IMPLEMENTATION_CONTRACT.md",
+      "sha256": "007f81264201ad2e0c66c282caa47590fa2f03fc6dc24c28913dece2fac321a1"
+    },
+    {
+      "path": "vendor/browser/docs/KLEIN_CONTACT_WIRING.md",
+      "sha256": "d02c2abf941ab963fce11f80c1d56804e31c24239bfa224bd9624a59b2e315ce"
+    },
+    {
+      "path": "vendor/browser/docs/MAPPING_AUDIT.md",
+      "sha256": "b1add8eac9ace6ecefc818e4f57e0cb95c61b7bbc32173b49432bf237af0ae14"
+    },
+    {
+      "path": "vendor/browser/docs/MERGE_NOTES.md",
+      "sha256": "54a38311a610edba4173f26118c822071eb4f14edd84a3e29bdf70390f8941b9"
+    },
+    {
+      "path": "vendor/browser/docs/MESH_RULE_SYNTHESIS.md",
+      "sha256": "8ff45f7211f53f4cdb0faac196e7e059a8e1eac607b78e6dc30ecf45c68a6bc8"
+    },
+    {
+      "path": "vendor/browser/docs/PROCESSING_HIERARCHY.md",
+      "sha256": "bacaa70657d54f3083f9d596592768c13dd02fd44629424fa73983b2b34cca7f"
+    },
+    {
+      "path": "vendor/browser/docs/SOURCE_MATRIX.md",
+      "sha256": "91fcdcbd67922b54efb4a51d1d81e0b8d31fd8a22ab50b5382c78cec1c69e3a3"
+    },
+    {
+      "path": "vendor/browser/docs/SPEC_PERSONAL_NETWORK_SCALE.md",
+      "sha256": "16c3c2059a88fd2f5e1e1e15b6ea809ed2ee431191d5bacb49b2be9e41960e1a"
+    },
+    {
+      "path": "vendor/browser/docs/STATE_SPACE_SPEC.md",
+      "sha256": "4e79adf3996d8d01628c6109ddf18d1f90a7321fd01780afd6aceaadc55acf21"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/adler-yijing-guide.md",
+      "sha256": "c8d9f9905c12c2babdeccd3144258c1b6644f09a08ad6e164cae860342815f45"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/black-book-5.md",
+      "sha256": "c880650cd38d02196d591aee73d3d86199215592bf06fd79d59f63568ec609d6"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/black-book-chains-colors.md",
+      "sha256": "8f118bdb0661815c98010ad7db61882368a0499e46e7ae12a39f8da8e4949dbd"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/daoust-occult-iching.md",
+      "sha256": "175e69a43dca5ada8b27ce043539268049843f2857592a8e38dffe96edbeb7b3"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/datasets-report.md",
+      "sha256": "9a70289f460394797edd8a84d5feb12ab121ec9ef9c84ca4acd43301dd85501f"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/existing-inventory.md",
+      "sha256": "adef32da98c2b228b3184c075f503005ced9a093527c1a443746bfb2ba45d5ae"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/generative-grammar-master.md",
+      "sha256": "ef3f5016832d671cfa6d17ba4bb66461c2aecfc7d31ac6d61d512f87e6b35c1b"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/govinda-inner-structure.md",
+      "sha256": "2571f79d20dc872408be1bf5c9f6527bbbbc99d46ab7948ce5a450fe7582bde2"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/moog-cosmic-way.md",
+      "sha256": "5e4d2365339d7ef6b4224583f69624d71922d745ee3b30a24f9e1924c2074b97"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/moore-trigrams-of-han.md",
+      "sha256": "532b3e53d4f0812e3aea06e63fc72e561dc8003f6cb84ec847e8dbcd4b280afe"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/pure-synthia-state-calculus-compendium.md",
+      "sha256": "31816a5926a1ed90bef459c402a3a3500980b3f35cb8166b786e9ad0dd8fd61d"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/raw-sentence-breakdown.txt",
+      "sha256": "2af8634b4477d52dc64a242df478eb60284d2c485dae1e2eedc81a332808cf82"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/reifler-new-interpretation.md",
+      "sha256": "d19de31f9128eac0177e6d647d0add1aee4616b8229cedda699eddc6e53d1a4f"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/science-new-golden-age.md",
+      "sha256": "36e252f2809777b29abcb6dbd8be33e1c96a72830ca0bf7541d17de241e2d3c8"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/super-iching.md",
+      "sha256": "994dc73c24c57a85866d576095a7f47ee8339f892b3972fd2a184d89404b78b5"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/unique-pieces-survey-2.md",
+      "sha256": "e1ce00bbb1e1bdef771b4994ffb0233ea052cd2bdd3628f45dc3f0b4e697bc9f"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/wen-oracle.md",
+      "sha256": "3d5bdb5643ca52dfff5ef1ff42749cc4f50f035b93f07f3b3a7a6f9bc1da00ce"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/yijing1-2.md",
+      "sha256": "9a86a3041918526dc8294eb088366431d68e5662b6a4b86505560672319ae436"
+    },
+    {
+      "path": "vendor/browser/docs/corpus/zhouyi-bronze-age.md",
+      "sha256": "6b6e424ef273bcaaaa22ce7efde31c47738d2d529b85096d893d12b711b8d489"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/ResonanceAnalyzer.ts",
+      "sha256": "037b43479367467571f013b2da630cb735c841b261eb4f727b16fc283d65934a"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/code-analyzer.ts",
+      "sha256": "7046a123838e4796adfc2ce0b45591bb7640dec1cdf8fd3e8a3c1d4263f0cf9f"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/dimensional-neutrino-analyzer.ts",
+      "sha256": "5689307f97e27065eedaa69d963f4e633d15c27c3be7a34c0461048004a51ed9"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/mirAnalyzer.ts",
+      "sha256": "5d5e3927053a9789456304b7e8c772ce36e8adc11aac826e4baf439878d70d79"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/morphAnalyzer.ts",
+      "sha256": "4ca52ed0380e084817dee5f3b88347a56f83a979ce4f6b3963b5d87a5274f415"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/resonance_spectrum_analyzer.py",
+      "sha256": "4b78346fc47b6121b96a018ad9af39462129ad379077b15b88d0b317081704e0"
+    },
+    {
+      "path": "vendor/browser/docs/donors/analyzers/semantic-analyzer.js",
+      "sha256": "c3c41b08632f67fd0465190a934cb70322a785994fe1353ad2044691f498a83d"
+    },
+    {
+      "path": "vendor/browser/docs/donors/language-contact/klein-language-contact.ts",
+      "sha256": "2a94e80339baa69138dc65a7f1bb1ba951f098f29bf227b8582b90a0d44adc7a"
+    },
+    {
+      "path": "vendor/browser/docs/donors/language-contact/language-contact-model-complete.ts",
+      "sha256": "3ced50ff26a3c8e567c83839f20d8e2fcbf4bf60b987a4d07061926665cf6339"
+    },
+    {
+      "path": "vendor/browser/docs/donors/language-contact/languageContact.js",
+      "sha256": "c6a44b210328fe7a7bb9874fc1e5a9c46989672d38179800df97b9b6c2c5c0e3"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/ParserAdapters.ts",
+      "sha256": "d4c5e7286b944653793aa9b320c0487d7f3346a4206c0362950d28e62a869976"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/codeParser.ts",
+      "sha256": "9ddc1fbe5cc67f35829e22b7ab59b889a8e9bf06dfdb946adac5e61f6a1476aa"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/fileParser.ts",
+      "sha256": "97e24a07db5af4ea11de2c7c51f4ab8660e3717b1513e4f3e5ad2195bf811f43"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/intent-parser.ts",
+      "sha256": "6018d9e64181af191957b69d97e5ec49d5ea2a18e2e6d4abca0e2febf3743bba"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/pdfParser.ts",
+      "sha256": "066c7f657b28c7baabc870d0c682ac8ccf71718ae04485e36e4d31d7ba84f165"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/punctuation-parser.ts",
+      "sha256": "82d07c50a5aab64b5056b8dff642a46f11077618f31835d47ae938c163f26821"
+    },
+    {
+      "path": "vendor/browser/docs/donors/parsers/zipAnalyzer.ts",
+      "sha256": "fb7de7bf1c5abab107e1542ba7b92cb5c39d03b7509e55d026cc955f4ebe6666"
+    },
+    {
+      "path": "vendor/browser/docs/donors/rewriters/ContrastResolver.ts",
+      "sha256": "156e5216f37b253ac1166ad8bc93677f4b9ee25795470f2421117b0b989bdab8"
+    },
+    {
+      "path": "vendor/browser/docs/donors/rewriters/SYNTHIA_MASTER_INTEGRATION.ts",
+      "sha256": "462b8594ba6a8411c3351f8d7305ea80a4864c54dcf5c31da9ea3a1bb4714da4"
+    },
+    {
+      "path": "vendor/browser/docs/donors/rewriters/morphAst.ts",
+      "sha256": "baab73ba90fbdb488a0387c6617e15836823eb38fe8386be0be8c4bf34187313"
+    },
+    {
+      "path": "vendor/browser/index.html",
+      "sha256": "0f7af0e79fd6322e4bf4d7a0e5ab54a27550f9b68db343d3824b92ab4b96aa0f"
+    },
+    {
+      "path": "vendor/browser/package.json",
+      "sha256": "681e4903a4680ac7fba67a52d3aa6735db432bfcd4291fdfc923fa005c44be8e"
+    },
+    {
+      "path": "vendor/browser/paper-prime-v5.html",
+      "sha256": "12950d33923c7ffd1af0f971eff27d5c56cc54fd6d6447129fb05c9ca648657e"
+    },
+    {
+      "path": "vendor/browser/scripts/write-sample-artifacts.mjs",
+      "sha256": "6cde182189bdc0db03876160d868ae681fda9416b2541f9185cfe838bfe165da"
+    },
+    {
+      "path": "vendor/browser/sovereign.html",
+      "sha256": "e352a3986ad487b5a88d481c9c53542f09986dacbeced059c826692d8e3cf60e"
+    },
+    {
+      "path": "vendor/browser/src/automata/automaton.js",
+      "sha256": "d06f969e743ffcea97ddbc947b6ad71ae7f62628d6d19081c9ae3dd5e6cee5cc"
+    },
+    {
+      "path": "vendor/browser/src/automata/registry.js",
+      "sha256": "60bc27b1408d210c91ed70b1c6cdfd54860da64ad29a7f6c184091ba9e3219e4"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-01-autoling-lite.js",
+      "sha256": "99f7b8d15fb7c5bb441bade1bfbebc498871c0c6c05ebe82952f9ea59e4b12bb"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-02-diseminer-lite.js",
+      "sha256": "3b184578626ff5efdc603c88aeb490a8d1d08de9479b4bb26d4115d92a015af9"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-03-klein-analogy.js",
+      "sha256": "ca4583c395b9033a4218a0bf05f079618984ae28805b79af228660757fac6285"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-04-iching-grammar.js",
+      "sha256": "2cc9452042958399b2f5163b43c0d86ce0ca35efebe687014de3214cdf66288f"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-05-language-contact.js",
+      "sha256": "73fe011b2c6fd8b6b897eec012275e7d18f054cbc4e00d04f70867d0cbca4213"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-06-historical-monte-carlo.js",
+      "sha256": "805cb5be406abbcfb49057d83fa27c13a2e39266135b25690d07b8e3dd04c231"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-07-autonovel.js",
+      "sha256": "425777d263e3e225b7ef531f058ff2621cbf245c15110e1e7e3dee258b58913e"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-08-messy.js",
+      "sha256": "c7004ba5db3c75ad1fc69446f60ca7dfa89f0074db2cdb7132b4e88798ff6296"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-09-success.js",
+      "sha256": "64e906c7fff757db23bda0cc068f461e14c720567018be559e3b27be2bb00135"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-10-conversation.js",
+      "sha256": "9203f15cfe856a0dcf6b2f7edb60a66059c517153e140b5fcd9e971fdf82eabb"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-11-browser-form.js",
+      "sha256": "2cae13590d6ae1c63f7dd4421ef933ce7a30b655ba28e6155d9afc2dc10b3911"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-12-research-browser.js",
+      "sha256": "b8172968530b62faf2d316e09badf5efb98beda6dcbe2aca2c83b2128f09cc2c"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-13-computational-grammar-coder.js",
+      "sha256": "ef73df165e46f3b60bbdbea9fc803c16e143b1b02ff57565c4a177c7c853387a"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-14-autoling.js",
+      "sha256": "7af4a523879ab8903bfc24102041ac8536a0f5555ab39a93fbd88de4d381b8dc"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-15-diseminer.js",
+      "sha256": "2b87cc5c6a010f4a6979b3834438a49b69ae056aace12e43a5f030ebb8cad00c"
+    },
+    {
+      "path": "vendor/browser/src/automata/tools/tool-16-morph-mir.js",
+      "sha256": "5663527d781ab2ea8edbf99c61aedfdde1eaba61edfe47783bcb9dac1efa285b"
+    },
+    {
+      "path": "vendor/browser/src/emergence/coordination.js",
+      "sha256": "f2970d60624a68f71066aac5acc3878487557ea55cd6a63580eb2aeaf9015de4"
+    },
+    {
+      "path": "vendor/browser/src/emergence/detector.js",
+      "sha256": "fa25a7fa085d22e43f44d0d2f3dbac130df8d7a0787146280d87b9073f768e3b"
+    },
+    {
+      "path": "vendor/browser/src/emergence/intent-engine.js",
+      "sha256": "71d320194abf9d2943356f75c526b94867a743e96194a710bf6e82002cef71d4"
+    },
+    {
+      "path": "vendor/browser/src/emergence/self-editor.js",
+      "sha256": "14e65d2921655b419f1bb50e717666cc50e497bd67245a4fb22ba7617fcde55c"
+    },
+    {
+      "path": "vendor/browser/src/engine/boolean-ato.js",
+      "sha256": "81bccdfa1992d88295d651db730ca4197c1087c36f04cafda0a93fdf3ea2bb41"
+    },
+    {
+      "path": "vendor/browser/src/engine/canon-registry.js",
+      "sha256": "206b1ebcf70d4dce1b0bae4144db5aa95b4044117ef27602e4fe07c3c693085c"
+    },
+    {
+      "path": "vendor/browser/src/engine/derivation.js",
+      "sha256": "177f11554aed6af67adff1de648a1c1bd177e5fd0dc0b354b3c04d6f4b3ef62a"
+    },
+    {
+      "path": "vendor/browser/src/engine/intake.js",
+      "sha256": "53b5c29496bb74bda1099fc8456f16f3cc986a44411c4e595defe8a615d7e905"
+    },
+    {
+      "path": "vendor/browser/src/engine/klein-distributional.js",
+      "sha256": "5aa4b3a60b3621249156151d8cce0d7a960b5c9b08863bcc4d07c1d601a55d6b"
+    },
+    {
+      "path": "vendor/browser/src/engine/klein.js",
+      "sha256": "c2d5216dc6280944ed3a89e8f4eb6b926f1f46fa90674ab72d77c5e444371551"
+    },
+    {
+      "path": "vendor/browser/src/engine/learning.js",
+      "sha256": "e8a13eaf7210ded738568cc0157a3cf63a42fcd39b8e32c0d2c0cd0fa924d92f"
+    },
+    {
+      "path": "vendor/browser/src/engine/ledger.js",
+      "sha256": "14896e2d87c1a2223d0a2889a53f5dc0a5943f14a457299aaa31041771d81085"
+    },
+    {
+      "path": "vendor/browser/src/engine/override-registry.js",
+      "sha256": "a6575bc4f227867c9e9e98f35d35aca8e0a69f8dea1acc8fa04adeef64e71b65"
+    },
+    {
+      "path": "vendor/browser/src/engine/prediction.js",
+      "sha256": "5346750e1ca4f83af38e8745344ff939d0dce0e11952152be8fbf324c7e91258"
+    },
+    {
+      "path": "vendor/browser/src/engine/questions.js",
+      "sha256": "82909e836419ce9cbbd49fcbf23167c40905b7207a074e20522c63df2a4842d3"
+    },
+    {
+      "path": "vendor/browser/src/engine/resonance-network.js",
+      "sha256": "140f28264166997bc88ca22da3d73ba9f3aa56f4d02ca1ddd336aa21e929814d"
+    },
+    {
+      "path": "vendor/browser/src/engine/rule-council.js",
+      "sha256": "a4e928d8ca6ec21d0ad6c7305197ecbb49a433c4bdfce72d374802a347cdaba6"
+    },
+    {
+      "path": "vendor/browser/src/engine/self-correcting.js",
+      "sha256": "cd41b007d7c7a8710436c0ebaaa8a2a980f218b24fc767de716d04b860272ba9"
+    },
+    {
+      "path": "vendor/browser/src/engine/synthai-converter.js",
+      "sha256": "a6d1f2fa2c58f8b0b9917af1ee2aa01fca99140deb10bdffb0c9ed5584e55bfc"
+    },
+    {
+      "path": "vendor/browser/src/engine/synthia.js",
+      "sha256": "7e3df1d9a035e35fb7869047ade11d6f9eba5b065dbe7b36768c45f8d44ef19d"
+    },
+    {
+      "path": "vendor/browser/src/engine/triples.js",
+      "sha256": "c916fd74311acf570286f3db53d4d31fb3f07a5b4f764dd4c049ab283aadc197"
+    },
+    {
+      "path": "vendor/browser/src/engine/v2/coordinate_engine.js",
+      "sha256": "1218affc8c8093c92535ab79ef8d8edd3d505ce8878bac133c6faa8c02a826c7"
+    },
+    {
+      "path": "vendor/browser/src/engine/v2/layer5_ssm.js",
+      "sha256": "5ba9bd3e2478f348d0746a645c4d6e80db1f23e54faaaeea38ae175ea30dca31"
+    },
+    {
+      "path": "vendor/browser/src/engine/v2/phase_space_engine.js",
+      "sha256": "f2d6743bb27d28e55ca3900d19be35ea4621176c45ae490fd1a99af9221a38c3"
+    },
+    {
+      "path": "vendor/browser/src/experiments/hypothesis-registry.js",
+      "sha256": "da27e2b65bfd162937673f28cbe49c30ec67b79c59a35a64ad00ffad36b09861"
+    },
+    {
+      "path": "vendor/browser/src/experiments/relational-capability.js",
+      "sha256": "145783a28e9b8de2359d4d19d950dc0afc0d8c4ce0dd53ca0b7d904043255438"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/automata-composition.js",
+      "sha256": "7458ea96d78298bb88fccfb808cb5654913e0e95187976c8c075a041dd1eab76"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/controls.js",
+      "sha256": "8d1fbe1ba87f9c37635c3004a6bf741682349347830d7e73efb69180db787372"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/core.js",
+      "sha256": "7bd732970d8080941bb68c3a43b4b8542d9cd21e664804122f2afd4a75289b69"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/cross-scale.js",
+      "sha256": "6a63abd67f22ac39dcd2af9dbfd7f3c05169ecaf101e0a11bd222e54db54bff6"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/d1.js",
+      "sha256": "385477e43d35ac858c3647fea3ddcc56921d0b29a9eacaeef1608d5f5ea4b4bc"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/d2.js",
+      "sha256": "294f4f6204089e9a626861523ac23f057ae7f4c35850039890589f30bdcddffc"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/d3.js",
+      "sha256": "079c000c1f13fe26014597a57f46c8361c97803f77892e832380b2def127b647"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/datasets.js",
+      "sha256": "00ba94feed9a8bb76040c6f94ca62a6a18be962d4317923655032c2fcb8391df"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/evaluators.js",
+      "sha256": "541078c915e2b38501c523df9ddd07826fc919eb65a9e9769348000d88198376"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/fsm.js",
+      "sha256": "5dbba747ac7c8a5458dcdb41285b6e73dacd6b0c7c11076e0ed826b1bad3b11b"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/graph-trace.js",
+      "sha256": "2650ab236b92920fac08b92856d5fa2ec065781aba71acdc9fee49da6a90470d"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/metrics.js",
+      "sha256": "b7dea4f5ea7c9869b5a5b6bdf63f5dd6fd035d6d6bbd553bf2d53e3ce45bf61f"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/operators.js",
+      "sha256": "c406b434f008c27ba3794ab7f52fb6b0378d305779b5f75b86eb02056fdea051"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/parsers.js",
+      "sha256": "9dee868723368e417c230ac83b0facffd6e13311717d57d8da2777308510de29"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/phase-corpora.js",
+      "sha256": "757cc8254a50ff8e6f3c58bab96fdecba36af3a99bb2a80a58c68ea152908041"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/reproduce.js",
+      "sha256": "095ec06eeec732c08ef3f2fbc03fdd09a6cb01a2439b26734719e94e5c65c854"
+    },
+    {
+      "path": "vendor/browser/src/experiments/scale/sealed-results.js",
+      "sha256": "f6866a62454e1715eea6bd034924e624ab9411f9c3320d07bb8848b4316ca89e"
+    },
+    {
+      "path": "vendor/browser/src/grammar/grammar.js",
+      "sha256": "629f3802804f11aec499eaf0a855428f5ce47bb70d5c1d9c34ee8d53d7955ec6"
+    },
+    {
+      "path": "vendor/browser/src/grammar/parser.js",
+      "sha256": "35d5cab651f879de5f7428899b87cecb66654f2ab94fec7dec1ba468636c5f2f"
+    },
+    {
+      "path": "vendor/browser/src/grammar/tokens.js",
+      "sha256": "2d0ce183a5c6467e5ad3e30b4cf38556fcd76097487b0e30eabf42e43ff97860"
+    },
+    {
+      "path": "vendor/browser/src/integration/canonical-address-code.js",
+      "sha256": "8a77fd0d570c1ed73dad83f0125f2f2280244d0f919ce4cd3704a3bb30c7ea08"
+    },
+    {
+      "path": "vendor/browser/src/integration/execution-loop-orchestrator.js",
+      "sha256": "3e770da885b3cd8ae3fc40a2b240a200a179fe7f6969310f2b0d6da4a60f7c6b"
+    },
+    {
+      "path": "vendor/browser/src/integration/focal-state-space.js",
+      "sha256": "f370fa85fbbd608ba1aeaf63d396d73abf1a09df75c3e292dd464c0d099aa3d6"
+    },
+    {
+      "path": "vendor/browser/src/integration/focal-weight-calculator.js",
+      "sha256": "7bea1171e77e02125e7016913ff184c5abcda98bdd24cee87dd88b0a361b47de"
+    },
+    {
+      "path": "vendor/browser/src/integration/language-contact-models.js",
+      "sha256": "fc77755459da8e391795dca870678d48ee3239cf38f62e4c7419cf2f1780c706"
+    },
+    {
+      "path": "vendor/browser/src/integration/mesh-rule-synthesizer.js",
+      "sha256": "22ad53881af1a4fdf2643058ad28dcb2584504ecf3e29436697c73e3b7601909"
+    },
+    {
+      "path": "vendor/browser/src/integration/paper-runtime-sandbox.js",
+      "sha256": "be773665ceb582b147cc6ca30428edc5878f22282b87677b9b2dba72f885c7b1"
+    },
+    {
+      "path": "vendor/browser/src/integration/runtime-adapter-registry.js",
+      "sha256": "ee479f82b1a378f3ba872c8e1adddadb27d8169ce17168e7b815283a6b482545"
+    },
+    {
+      "path": "vendor/browser/src/integration/storage.js",
+      "sha256": "3c29dc98263caffbcd66d47e9d7e607667fa0f70d686973891b75e1b81f91a27"
+    },
+    {
+      "path": "vendor/browser/src/integration/universal-execution-bridge.js",
+      "sha256": "d53192bd77ca760547cadcaf7526cb0eeb4f62e4826e599b3d84d1a421c5a361"
+    },
+    {
+      "path": "vendor/browser/src/merged/artifacts.js",
+      "sha256": "eff5dcb5c25dd9b0f02da85b5dbf680ad8676a5ad7d5a07a09f2f0317b51647e"
+    },
+    {
+      "path": "vendor/browser/src/merged/ato-analogy.js",
+      "sha256": "d4fc2068263e11bd20cd4ace8848cd546cab55ba4736524b087ba6422caa37dd"
+    },
+    {
+      "path": "vendor/browser/src/merged/centers-channels.js",
+      "sha256": "d8226bbdf03505bf2a574afb3e4e19ec072574f756a69b8fd5dd5ad5888489d9"
+    },
+    {
+      "path": "vendor/browser/src/merged/dimension-router.js",
+      "sha256": "60bc9edb8b6ee49a0d17e2ac1746af9e6856e385e064adbd8652de047c4ce2bb"
+    },
+    {
+      "path": "vendor/browser/src/merged/fuxi-encoder.js",
+      "sha256": "b9cbb3d2c87cab567eb3352e34b455cf8e3e8d3f88200cb0e474e8dfef2e1056"
+    },
+    {
+      "path": "vendor/browser/src/merged/gate-field.js",
+      "sha256": "467e392eb8aa4ef04844d254be2d010b9d698f6011680922ef5a89f4c1f0a856"
+    },
+    {
+      "path": "vendor/browser/src/merged/index.js",
+      "sha256": "712d82aa4a200d96b3756839e28e1f9dff04658b8fb87408e902d4db2bda5593"
+    },
+    {
+      "path": "vendor/browser/src/merged/kingwen.js",
+      "sha256": "ad9902a4cb7298d767d1001e6784e30cbe975bf3eeacc73de76715d8b9741a42"
+    },
+    {
+      "path": "vendor/browser/src/merged/lawful-grammar.js",
+      "sha256": "2da086133818aea785584c326c7191e8667e5d374e07ed7e37b0c65ca42be021"
+    },
+    {
+      "path": "vendor/browser/src/merged/media-field.js",
+      "sha256": "d22ff4cf0e397d4597e6839bcb2db1ced33d2f90d888d4d72b43b1904934d979"
+    },
+    {
+      "path": "vendor/browser/src/merged/mesh-memory.js",
+      "sha256": "210c0c62c042392c90b607f0179ed4b2a35be9d518e2ef08dffd96b6e89db1bb"
+    },
+    {
+      "path": "vendor/browser/src/merged/scene-grammar.js",
+      "sha256": "1c5f4949a113188bbff020e06587eb2dd634e7613f4452cc76fe9f57d1d17da5"
+    },
+    {
+      "path": "vendor/browser/src/merged/tool-factory.js",
+      "sha256": "097ba7ebe94f56672c063f0bbf9c981ad224e096302e45301700b049d2be20d5"
+    },
+    {
+      "path": "vendor/browser/src/mesh/channels.js",
+      "sha256": "03ea40f12b095f7e187bff9b7cab9c15ae44df9e461f6180d99417a84b9dbf49"
+    },
+    {
+      "path": "vendor/browser/src/mesh/mesh.js",
+      "sha256": "1603c99fd3b00d2de3937fac7dd0c008fe45b1b0a2ff9bcc6892c2bf3860681e"
+    },
+    {
+      "path": "vendor/browser/src/mesh/packet.js",
+      "sha256": "fc64efc53a437709d43cb8243b03f1336807d70b05cf952793f2f32b0d661f02"
+    },
+    {
+      "path": "vendor/browser/src/organism/living-loop.js",
+      "sha256": "a2d29acaf7027df4ad64dcaf0a2177390f97469e7309602dd720122335a601be"
+    },
+    {
+      "path": "vendor/browser/src/organism/vitals.js",
+      "sha256": "96bb87e8dac5c6cecd344d194f06f04bbb60718a2ac16e5f13e4857693c68aa6"
+    },
+    {
+      "path": "vendor/browser/src/sovereign-entry.js",
+      "sha256": "82152bfb168cf5e7f597e487eb786bd90c461547e6b89aff26673fbb545c0146"
+    },
+    {
+      "path": "vendor/browser/src/state-space/addressing.js",
+      "sha256": "8ded17f32b55db30b7671749a70e9622b0f85d05ee910ab07f6da0a0c2354704"
+    },
+    {
+      "path": "vendor/browser/src/state-space/chains.js",
+      "sha256": "d2284c907382dd0fde50020e1d79f3c503280a59691714227975ab3e99e376da"
+    },
+    {
+      "path": "vendor/browser/src/state-space/claim-status.js",
+      "sha256": "092e89e3cdab43f19fa7606654db494241f2257114872ba3359eff2ba2644bfe"
+    },
+    {
+      "path": "vendor/browser/src/state-space/colors.js",
+      "sha256": "d7cd613040b0a82e22bdf2d49a49f19d1bc6b510a248b1ca6e9b310f48feab64"
+    },
+    {
+      "path": "vendor/browser/src/state-space/constants.js",
+      "sha256": "950e5d751a7078bb1df3ff129c6b43e68bc90a7c48a3c2484aa0624ed7ecc5f7"
+    },
+    {
+      "path": "vendor/browser/src/state-space/correspondences.js",
+      "sha256": "f5cd4ad414dcf61588a47998e16937cae63142c06aa869f14662af7ff759db05"
+    },
+    {
+      "path": "vendor/browser/src/state-space/dimension-canon.js",
+      "sha256": "6be371dc1f2c4caf4c0e08272990327d8c07e307d47027cc9fdf3e973951b1b3"
+    },
+    {
+      "path": "vendor/browser/src/state-space/dimensions.js",
+      "sha256": "7c08581a981564f85b63bd5ebf66198a262344e4aac79dd77794be813c0e0f09"
+    },
+    {
+      "path": "vendor/browser/src/state-space/features.js",
+      "sha256": "6193e678fd1c75356d84f417d98304d813b6f7828835122157128c7b9c09fdb5"
+    },
+    {
+      "path": "vendor/browser/src/state-space/fragments.js",
+      "sha256": "af083ad4b23f58625b064c793c7db96af05bf545ad10ef3c9f3255514de57cfd"
+    },
+    {
+      "path": "vendor/browser/src/state-space/generative-grammar.js",
+      "sha256": "de1c7c9bb2c4ea9b65edd64be3052391e17544b0176836d287dbd8305968fc1b"
+    },
+    {
+      "path": "vendor/browser/src/state-space/govinda-structure.js",
+      "sha256": "616064aa5e287489666301a1172548cde6f1b6054f6ccd0eda3879bc1c3891ca"
+    },
+    {
+      "path": "vendor/browser/src/state-space/human-design.js",
+      "sha256": "31470821d2217011a373ad53b9efec689f84eda08a6a0ed7ca19e8218ce26412"
+    },
+    {
+      "path": "vendor/browser/src/state-space/letters.js",
+      "sha256": "8b327c644800f0ef0db0c5f0c6bf19951317a37603ebee08ffd7b40c0a32fbb8"
+    },
+    {
+      "path": "vendor/browser/src/state-space/lexicon.js",
+      "sha256": "4f3a865bfaeeb2f618947a573711ef85d8d477cdf1d1793665f29c2e8ef137f3"
+    },
+    {
+      "path": "vendor/browser/src/state-space/mesh-state-space.js",
+      "sha256": "653eb7c5e3c88f6e712a0df954747c9d062d5d9e0d86ac81c982b41f970215e8"
+    },
+    {
+      "path": "vendor/browser/src/state-space/operators.js",
+      "sha256": "549d70c3e183d4cf555caef0658a4aa1742ffd6c761a34d11dd56181fc9c7a75"
+    },
+    {
+      "path": "vendor/browser/src/state-space/primitive-dimensions.js",
+      "sha256": "541362c6fa937ff61133ec97dcf2f71068b4aef3db905f81d06de62d032e9999"
+    },
+    {
+      "path": "vendor/browser/src/state-space/sounds.js",
+      "sha256": "146cecee8e49a20b62849deeb60d36bd31e5f3a9531ed85688783b97936467b9"
+    },
+    {
+      "path": "vendor/browser/src/state-space/transitions.js",
+      "sha256": "2560e3e0b658d27f918c6d8861ad4fc4974cc51a3344c3047cf175a52bd45a29"
+    },
+    {
+      "path": "vendor/browser/src/state-space/wen-wang-gua.js",
+      "sha256": "2f7ce01cb28cb8f94b61340038090d5ba0cede5cc4228694bbb30cb875a5ee1d"
+    },
+    {
+      "path": "vendor/browser/test/canon.test.mjs",
+      "sha256": "c6237a32c18e661d4f1ee938dae0aa75baebe1122bba40043b8cb8ae9618ff68"
+    },
+    {
+      "path": "vendor/browser/test/chains-colors.test.mjs",
+      "sha256": "0a98b905d2e28d5fecc3e8a013a2b4adeefc34ef9321646629f09e1e1892562e"
+    },
+    {
+      "path": "vendor/browser/test/emergence.test.mjs",
+      "sha256": "697ed8c43f60f82c9ebcd2e11ba8a94924fe68124a7e71bad51bb50404086b43"
+    },
+    {
+      "path": "vendor/browser/test/execution-loop-orchestrator.test.mjs",
+      "sha256": "c67bd36375cbd516ff86eaedbe6a5f104b061f4fe997db0f8fe704c76e1601d7"
+    },
+    {
+      "path": "vendor/browser/test/focal-integration.test.mjs",
+      "sha256": "584cea6f1b341a6aeccaa436c4ad55ebed544f939b186d9d7f70885a7d5b0cda"
+    },
+    {
+      "path": "vendor/browser/test/focal-weight-calculator.test.mjs",
+      "sha256": "ddf3abe265517bdca67e4d393e45f80064822f9673ff32c52346e190f22d7e51"
+    },
+    {
+      "path": "vendor/browser/test/fragments.test.mjs",
+      "sha256": "1276fafb0f1f8ce312cfd6e77001fd693d1f0066c7e0338df459411f698f09a3"
+    },
+    {
+      "path": "vendor/browser/test/generative.test.mjs",
+      "sha256": "f8224677115a6b4f059162ce4608e5c7749c68084797989a0508a41cef6afd36"
+    },
+    {
+      "path": "vendor/browser/test/govinda-structure.test.mjs",
+      "sha256": "20fa0ecc9d4c4348cf47e1b044252e79343921eec79b27d53409172295352cd0"
+    },
+    {
+      "path": "vendor/browser/test/living-loop.test.mjs",
+      "sha256": "b2de2779f8aadf02be40673352f22b6346309b169257516c4d51b7c2dfe36b0e"
+    },
+    {
+      "path": "vendor/browser/test/merged.smoke.mjs",
+      "sha256": "d875df0bcca029355987ced5cf6ed82a793e6a2fc3afa62e3010725a17a5492d"
+    },
+    {
+      "path": "vendor/browser/test/mesh-rule-synthesizer.test.mjs",
+      "sha256": "2728801c3078b0cb0cc3a9c085f66ddd06527c4a1f1c3cfd9d3b2cc0fca6d36d"
+    },
+    {
+      "path": "vendor/browser/test/paper-runtime-sandbox.test.mjs",
+      "sha256": "72c176c4dc5cf24aed0e87c307c138d4940a93460c7980e3e926ae46dc906d3f"
+    },
+    {
+      "path": "vendor/browser/test/ports-b.test.mjs",
+      "sha256": "c5b40c1393be5e174baadbb40bb23f3905ae87a89e1427b6b65ae7f2c1fee998"
+    },
+    {
+      "path": "vendor/browser/test/ports-c.test.mjs",
+      "sha256": "ff1418eb8a6269ddb3e791aee42a78e1bbfb0b87c6eff0b45eee28e905102477"
+    },
+    {
+      "path": "vendor/browser/test/runtime-adapter-registry.test.mjs",
+      "sha256": "880df2ca5d8052ffefff7784b0fba10612c04f64aa4fb01f1950f94dac7356c3"
+    },
+    {
+      "path": "vendor/browser/test/scale-experiments.test.mjs",
+      "sha256": "f25f1e52358a38d7c932be3a6a7987cafcfd14bb853a8626f7dfde0296fd922d"
+    },
+    {
+      "path": "vendor/browser/test/universal-execution-bridge.test.mjs",
+      "sha256": "d0ec1e061ccbd2507a405450d299f2f3affa89ff68110817b57bf045adbefba6"
+    },
+    {
+      "path": "vendor/browser/tests/run.mjs",
+      "sha256": "ef017209c20bb898cd05c3f87c20edacd36abb8c02925411ee8ac2576461f6f9"
+    },
+    {
+      "path": "vendor/ingestion/CHANGELOG.md",
+      "sha256": "6ec0aa5bc4c6597c48e114cd88854603fd12b2e92414c442d9c1f974119c802b"
+    },
+    {
+      "path": "vendor/ingestion/PATCH_MANIFEST.json",
+      "sha256": "178e470cd62730813d9ac0b42dcfd0aba7c13d7f30ccb58e0c2aa7a8f32bde6b"
+    },
+    {
+      "path": "vendor/ingestion/PATCH_README.md",
+      "sha256": "d63f2b3c0c738198fdbf12fde6be961a49f3f3224fb5af433c3cc1e287c5427e"
+    },
+    {
+      "path": "vendor/ingestion/docs/AUTOMATA_INGESTION_EXECUTION_PATCH.md",
+      "sha256": "5a23693f53ea0ec28134f5c8a64f8bb77f41c3c76853a1c880d1dd9e9bc91db5"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/artifact-normalizer.mjs",
+      "sha256": "8767fdc316bd7c02aa7f06aa69793e7bb42e45d6acafd25392150ec0b1b96769"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/browser-automata-store.mjs",
+      "sha256": "2153439dea359337d67454388c78e59a3a15f77f35259cc167a45db90e6aeb9d"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/browser-execution-surface.mjs",
+      "sha256": "e14b8084986ce74af9addd34b744787b5ae9dd8a5c16ce41d8deae89ffca389a"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/five-field-compiler.mjs",
+      "sha256": "f50914ab5fc7dcd40363f2913e08d7ac0990aa5134a59a4318a3b41d7d6eaaec"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/index.mjs",
+      "sha256": "25f757712ac251187a01dff0c541a839b4e16c41df0ab092c9f4f3b9b0ffecc6"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/ingestion-execution-kernel.mjs",
+      "sha256": "a1fa73df51c0fe9c2b26f901bbd02be2f7fba2981a4bc461b147cc7dff9f1882"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/ontological-address.mjs",
+      "sha256": "ccf76d1ddc77273224cfb682ec13c8279c22679a8acb606c2414ab46f36bb413"
+    },
+    {
+      "path": "vendor/ingestion/src/automata/primitive-reducer.mjs",
+      "sha256": "917e86746fa7ec16fca539777d8c6028ff901bf87e6fb51355e85114b9ade76d"
+    },
+    {
+      "path": "vendor/ingestion/src/execution/execution-pipeline.mjs",
+      "sha256": "59d33ea291e7af3af70416a98d1eb322e9b647479d83fd02ab4f2843a136a2fe"
+    },
+    {
+      "path": "vendor/ingestion/src/index.mjs",
+      "sha256": "7aeb2fdb9959dc6ebac3e3d050135e81c5923f3d59efd5884d38b820ad0082a9"
+    },
+    {
+      "path": "vendor/ingestion/src/integrated-synthia-system.mjs",
+      "sha256": "97c8c983a338eb9f0837b0b725442b64fb621c7a13ef70b3dbaa8039124b7a7c"
+    },
+    {
+      "path": "vendor/ingestion/test/12-automata-ingestion-execution.test.mjs",
+      "sha256": "0bdbf4cbe2c14fe54154ee93b763472f188d1eccceeb99d101e40050558b51b3"
+    },
+    {
+      "path": "vendor/klein-full-toolkit.mjs",
+      "sha256": "23c94da268011a51589526e849e164d44c997247577e96df52743445853fdbc8"
+    },
+    {
+      "path": "vendor/klein-original/ato-engine.d.ts",
+      "sha256": "f5c1411d2051620911f2b85e54b6e7537ef155ccfa137a23f4b6c34226acf825"
+    },
+    {
+      "path": "vendor/klein-original/ato-engine.d.ts.map",
+      "sha256": "6f4c11e944ca987fda35bb88f70d331d275d4319d6796e5337e32b7ea5883d54"
+    },
+    {
+      "path": "vendor/klein-original/ato-engine.js",
+      "sha256": "bf6182d5235b96f4ee7f0019c5528433bf5046bd660e610abe533c9d93a6a5ff"
+    },
+    {
+      "path": "vendor/klein-original/ato-engine.js.map",
+      "sha256": "f359026e304c952dcec4ba95ad401fe760d72eb807ba2f78a32b2f5bc5b10ebb"
+    },
+    {
+      "path": "vendor/klein-original/core-engine.d.ts",
+      "sha256": "a63581c5b39d8eef4ee7314372b447ab087281718fcfce6f65b8f03758ee1338"
+    },
+    {
+      "path": "vendor/klein-original/core-engine.d.ts.map",
+      "sha256": "5cb852705880af24f8257d7910197f721c917abdac7bb6cffe41e324e0742d43"
+    },
+    {
+      "path": "vendor/klein-original/core-engine.js",
+      "sha256": "06e54070f8d735219a0c5872b5a60932c817008687777322a033576113c730b7"
+    },
+    {
+      "path": "vendor/klein-original/core-engine.js.map",
+      "sha256": "27d4250636374da4d1ba585e9de52d3e8e2f6e4dcd27dea5cdb999abfdb82fa6"
+    },
+    {
+      "path": "vendor/klein-original/gamengen-adapter.d.ts",
+      "sha256": "f561cf918e68c19a1144062dc73266dc5239e49e085cde00137342f60fdace35"
+    },
+    {
+      "path": "vendor/klein-original/gamengen-adapter.d.ts.map",
+      "sha256": "c5cc77625f9fbe960932536e94198195950b77ce624d077288072b99c87e16e4"
+    },
+    {
+      "path": "vendor/klein-original/gamengen-adapter.js",
+      "sha256": "f977ec2ce371105f95538b81a041035ed35aa7783457015cbf69998e2be5623c"
+    },
+    {
+      "path": "vendor/klein-original/gamengen-adapter.js.map",
+      "sha256": "1c9c1496ddf446be0be16504a367b6d1e8adf3b69a7bbcd8088b91488900e570"
+    },
+    {
+      "path": "vendor/klein-original/index.d.ts",
+      "sha256": "e8f72f8a3c8fcd598c7555b654a3e6152bb66b2e7736fa4af18ef5a5f31e3d53"
+    },
+    {
+      "path": "vendor/klein-original/index.d.ts.map",
+      "sha256": "e904d20cb8457607e65453b2f3755feb8573c493a2cd41aad21e13b2c74f5611"
+    },
+    {
+      "path": "vendor/klein-original/index.js",
+      "sha256": "34d98c6197b8fc7d0c6a134a7f5f52f135408dd690234b02cb5357559e6e54c5"
+    },
+    {
+      "path": "vendor/klein-original/index.js.map",
+      "sha256": "e76b955539888c5766c857b3a311e843327ec835537b01077ee292f8b026c4b0"
+    },
+    {
+      "path": "vendor/klein-original/klein-full-toolkit.d.ts",
+      "sha256": "49aae0604a1e1aa80540c6d5c1d3a1e8894f059fce56b20ad45230e5270d0246"
+    },
+    {
+      "path": "vendor/klein-original/klein-full-toolkit.d.ts.map",
+      "sha256": "82bebe42f86763d059fcf8b8acfdd7c8cdb616a3d36bf9257353502bbf6ef92e"
+    },
+    {
+      "path": "vendor/klein-original/klein-full-toolkit.js",
+      "sha256": "4698725e4a78d3a9e0e6ad1e150093829ba2b7a6198404806e2fd02f765b9360"
+    },
+    {
+      "path": "vendor/klein-original/klein-full-toolkit.js.map",
+      "sha256": "66b035e7b52a820dadb8ac874414e617b48f93a10f17041b9e2249271b88aedc"
+    },
+    {
+      "path": "vendor/klein-original/klein-mesh-game-engine.d.ts",
+      "sha256": "70c7765ba8d54fa8ce563dc0059a51479ff19bbc5a7035be45d1170aba4d04b9"
+    },
+    {
+      "path": "vendor/klein-original/klein-mesh-game-engine.d.ts.map",
+      "sha256": "f61f95fbb23eb98d5e61ef922c1db843ac19a6684c462e35a70d45b2edf36330"
+    },
+    {
+      "path": "vendor/klein-original/klein-mesh-game-engine.js",
+      "sha256": "83abf0d87e3d651aef3a84177aefd572fc12dcb8502c39ce4e6386449b44f8e9"
+    },
+    {
+      "path": "vendor/klein-original/klein-mesh-game-engine.js.map",
+      "sha256": "7e08f1b85d1d2ceb1f652750592a991c2d26a29f0429d92fee5db5b28f528f03"
+    },
+    {
+      "path": "vendor/klein-original/package.json",
+      "sha256": "dbf8353f77358bc12169b7bb7301e1978d5b503e002ee927229a8993672818fc"
+    },
+    {
+      "path": "vendor/klein-original/pipeline.d.ts",
+      "sha256": "1d5a07a6daab29b9af3a8551125fa963938969da5bfc0b9189e7cde5e522d2e4"
+    },
+    {
+      "path": "vendor/klein-original/pipeline.d.ts.map",
+      "sha256": "064c7a1a66f95778a49eba0f5dfa5f9a881d54d0c6b368ab649a68366542a3cc"
+    },
+    {
+      "path": "vendor/klein-original/pipeline.js",
+      "sha256": "d599057d1b286a2f8ac5a24c5e4342c4f28cc821c7aa3a6e840cab8515292008"
+    },
+    {
+      "path": "vendor/klein-original/pipeline.js.map",
+      "sha256": "668a0fae81f40ccf1259a6edc7faff6c806ec41572e8411a4b169529974f9cb7"
+    },
+    {
+      "path": "vendor/klein-original/sensory-adapter.d.ts",
+      "sha256": "268ce3d77b20e98fc7998d4f9377adceb027665c643304f94cd9f8a573f93898"
+    },
+    {
+      "path": "vendor/klein-original/sensory-adapter.d.ts.map",
+      "sha256": "b2276244bf402273acce2eb91d4b84cafe5b9b8875a6a1c46b9abe7c2597a2a8"
+    },
+    {
+      "path": "vendor/klein-original/sensory-adapter.js",
+      "sha256": "c2791425be0221b5143a9cb03e896c446c7405cb039c61af2958890d0e40e822"
+    },
+    {
+      "path": "vendor/klein-original/sensory-adapter.js.map",
+      "sha256": "c3abb072947c6af9938f74a75c0f05a6b794fd72d07a7d3ed5c6a52b007ce38e"
+    },
+    {
+      "path": "vendor/pipeline-original/EXECUTION_PIPELINE_CHANGE_RECORD.md",
+      "sha256": "1dbddd8de7bdc9474b2a648f0037c5cf434cb26547f82f069f3475d40551a529"
+    },
+    {
+      "path": "vendor/pipeline-original/apps/mobile/src/App.jsx",
+      "sha256": "65d6f33f8a92661aa2087234879d9cf043ec320486a9bcb9d2768f6cd80668d0"
+    },
+    {
+      "path": "vendor/pipeline-original/apps/mobile/src/SynthiaMobileModule.jsx",
+      "sha256": "2861a3f80c6b66339e757b25dbb9156371917d218969549106468544be24eb83"
+    },
+    {
+      "path": "vendor/pipeline-original/apps/mobile/src/runtime/synthia-mobile-bridge.mjs",
+      "sha256": "04437c058b5814bafa803b03740ddd6cc87eb4bd8662e70ce27c27069b813a58"
+    },
+    {
+      "path": "vendor/pipeline-original/apps/mobile/tests/source.test.mjs",
+      "sha256": "d0af265632133fced2bd5d2ad832725a18c6e6db02e17bd6a5bd8c69fa57c0dc"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/baseline-sha256.txt",
+      "sha256": "8944b5b46220f19f3f5b2379c2851b38c523a2fccaabde5299806e1f515bed51"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/changed-from-baseline.txt",
+      "sha256": "44073d28adf7a581fabb14450704d5638b3359d4d755c2f4a8ee40bd52f580bc"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/final-test-all.txt",
+      "sha256": "78119cdbc38b75b15e5c0d1a7aec63a9a3b32f9d2b960fd5615674acb91a2216"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/mobile-build-attempt.txt",
+      "sha256": "f7e1ea8e5c1818010008eaea6769d5018adee3fbbab29a225e70187652de2d6d"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/preservation-report.json",
+      "sha256": "cb696672c7d2faa512fadc08f06b0dcecfcff36e6ad1a96ecf84e96f699f2d39"
+    },
+    {
+      "path": "vendor/pipeline-original/evidence/verify-execution-pipeline.json",
+      "sha256": "1f5e7a755ac4b0735b6aa5e8ed94d09bda8f790f715ff0a16ed612620c3a1d0c"
+    },
+    {
+      "path": "vendor/pipeline-original/package.json",
+      "sha256": "7d2ece1e32c9706c244c6bdc2acbb20942a1ce542e86fc1d57a1fcbaa3497dad"
+    },
+    {
+      "path": "vendor/pipeline-original/packages/execution-spine/src/execution-pipeline.mjs",
+      "sha256": "4b736a8cfe75c1d45368d87bda0ab283b66ac73001f9f0ff9ceb6270b0bc1235"
+    },
+    {
+      "path": "vendor/pipeline-original/packages/execution-spine/src/index.mjs",
+      "sha256": "503d76bba4e676415dcf23d87af5a1b17ae64470662ed238824aad05a885c6a5"
+    },
+    {
+      "path": "vendor/pipeline-original/packages/execution-spine/src/synthia-system.mjs",
+      "sha256": "e19dadb9a9afaac7a4b44eed1b1076e97a5a881fd86a10c8b30b9085b13a89b5"
+    },
+    {
+      "path": "vendor/pipeline-original/packages/execution-spine/tests/execution-pipeline.test.mjs",
+      "sha256": "17b8ef640536a3dc3384500620cc9bd3cbc120777dfdaa6a1d6bd65ad0795ec9"
+    },
+    {
+      "path": "vendor/pipeline-original/scripts/verify-execution-pipeline.mjs",
+      "sha256": "0e979df034ccd0c0929c82e895ee964d130265597935dd20b00e308d69596d2c"
+    },
+    {
+      "path": "vendor/pipeline-original/src/synthia-unified-system.mjs",
+      "sha256": "b4533ad57059bc34cf9f782e0f6e0009604e2e8c4958ef4d33af0901aefa84c0"
+    },
+    {
+      "path": "vendor/pipeline-original/tests/unified.test.mjs",
+      "sha256": "bd8aebae979ec8ab946da9257ccf777392f6494956f141f296a36839943391ca"
+    },
+    {
+      "path": "vendor/spine/ADDRESS-RESOLUTION-v0.4.0.md",
+      "sha256": "8069db35c779186976014478c3a17c31db8d22bec58d02aa5948435a2d10a2c7"
+    },
+    {
+      "path": "vendor/spine/DONOR-MAP.md",
+      "sha256": "9896d23c4bd777d0eb33040a199be7780fdceda11a0a6baf03fbf5af7709ae3e"
+    },
+    {
+      "path": "vendor/spine/INTEGRATION-v0.2.0.md",
+      "sha256": "4211a3fcbd26b4a80cb539d1d98399ac7c82fc6ccfb25c2d38dcd0d7ad83b991"
+    },
+    {
+      "path": "vendor/spine/NEXT-MOVE.md",
+      "sha256": "7f2649532e8ab9ff6c9dad7c30eeec39d587c2eb909feaa7070100d87ca308e2"
+    },
+    {
+      "path": "vendor/spine/README.md",
+      "sha256": "9ec25d4b77a96bda4552a31680df1492c1429509be6e27b97ca51621a5934297"
+    },
+    {
+      "path": "vendor/spine/RUNTIME-ADAPTERS.md",
+      "sha256": "63e6b0c034326061e1879b73ee9cbaaae51d13675a4ee105894ff70adc3576ff"
+    },
+    {
+      "path": "vendor/spine/VERIFICATION-v0.3.0.md",
+      "sha256": "a2c8ab924338bfc76687b912b2aa5e9f526b28a0cbd57f1e8284b43d3c435a7c"
+    },
+    {
+      "path": "vendor/spine/VERIFICATION-v0.4.0.md",
+      "sha256": "96e0dc0d7b28225aaa52fb8911f3e21902f6370accd8e80da1bd06f279a6f2fd"
+    },
+    {
+      "path": "vendor/spine/WIRING-v0.3.0.md",
+      "sha256": "64184246e2dbc9199d0aa957f19d6ccc3745ac15b8e86a5a34d1e7cb0f7fccbf"
+    },
+    {
+      "path": "vendor/spine/donors/Online-Code-Execution-Engine-main.zip",
+      "sha256": "2d8f824ae190b7057c6372f942ac76d8f43ce46c8b3b3ddfa76f3480fc3a3ede"
+    },
+    {
+      "path": "vendor/spine/donors/Synthia-Universal-Browser-Execution-v1.3.7.zip",
+      "sha256": "2b5933ca22453da6e4a63956d8c2a364586cbb6f89181eca7f4e02c4b85b052d"
+    },
+    {
+      "path": "vendor/spine/donors/constants.pdf",
+      "sha256": "a451c46036158b4f8bb7dc03828a8edbcc08f09e033d1aa4a74cee4d25e6ce17"
+    },
+    {
+      "path": "vendor/spine/donors/dag-engine.ts",
+      "sha256": "3c6e91aa02bdedefbbed8c55419c2957757e145618eac884f75f9202a35ac0bc"
+    },
+    {
+      "path": "vendor/spine/donors/dagengine-main.zip",
+      "sha256": "88f5532419107b39a51ca5e75b9123e0e1bc702e4ae645e2f066004303356af4"
+    },
+    {
+      "path": "vendor/spine/donors/fine-index-addressing.test.mjs",
+      "sha256": "170bea799b006f3d2de29150e4519e6ef81e64184771d0fc91aecafd5922bf7c"
+    },
+    {
+      "path": "vendor/spine/donors/godot-quickjs-master.zip",
+      "sha256": "b7120c1e12e0307b92821fe7e0b54ea473b5ce08e59cdde9f6b97496ac303642"
+    },
+    {
+      "path": "vendor/spine/donors/inngest-orchestrator.ts",
+      "sha256": "9538d0682057886c5bb292fc41f62448434ef99351a01c0dd6dcdf4036cdbff7"
+    },
+    {
+      "path": "vendor/spine/donors/state-manager.ts",
+      "sha256": "8c90386d51412bb68ecd079931687b11b52959b2fb1a4e4d67911d678a7a8b61"
+    },
+    {
+      "path": "vendor/spine/examples/demo.mjs",
+      "sha256": "3476838a983eeedc1870ed5acc698c4c0def2569c06cf2e94fe779a9a3f4b76c"
+    },
+    {
+      "path": "vendor/spine/package.json",
+      "sha256": "74f6b6fbf977f76447190783635f33ff86ac8902a42439accf13530d572d1a93"
+    },
+    {
+      "path": "vendor/spine/src/canonical-address.mjs",
+      "sha256": "e286fb2a845214a977d9c1a8eb9729ee21d133d606f34508e66fdc4675055cbc"
+    },
+    {
+      "path": "vendor/spine/src/dag-runtime.mjs",
+      "sha256": "7ecf09727eabefb622519715ff261e158da042649f77c2eec46375751b7ed94a"
+    },
+    {
+      "path": "vendor/spine/src/execution-address-resolver.mjs",
+      "sha256": "8d5900bb6ffde4440e0e24b940cb5ef90d2178d9b3daaada1b85964976ce9b2f"
+    },
+    {
+      "path": "vendor/spine/src/execution-pipeline.mjs",
+      "sha256": "4b736a8cfe75c1d45368d87bda0ab283b66ac73001f9f0ff9ceb6270b0bc1235"
+    },
+    {
+      "path": "vendor/spine/src/fine-index.mjs",
+      "sha256": "caa9b1ecfc2c2e2492299b2983b1290cd2fb76c2b523f789b3bfc856d38436b9"
+    },
+    {
+      "path": "vendor/spine/src/index.mjs",
+      "sha256": "79c92d3fc18e7e154b091346062abd14c62736b10d457e12f61c5b39a02d6e96"
+    },
+    {
+      "path": "vendor/spine/src/predicate-ir.mjs",
+      "sha256": "d551887f3545ca17eb7526f03a8e5bc281dffa7f76e8f8f65c09507afb8e9ab1"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/automaton.js",
+      "sha256": "d06f969e743ffcea97ddbc947b6ad71ae7f62628d6d19081c9ae3dd5e6cee5cc"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/registry.js",
+      "sha256": "60bc27b1408d210c91ed70b1c6cdfd54860da64ad29a7f6c184091ba9e3219e4"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-01-autoling-lite.js",
+      "sha256": "99f7b8d15fb7c5bb441bade1bfbebc498871c0c6c05ebe82952f9ea59e4b12bb"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-02-diseminer-lite.js",
+      "sha256": "3b184578626ff5efdc603c88aeb490a8d1d08de9479b4bb26d4115d92a015af9"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-03-klein-analogy.js",
+      "sha256": "ca4583c395b9033a4218a0bf05f079618984ae28805b79af228660757fac6285"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-04-iching-grammar.js",
+      "sha256": "2cc9452042958399b2f5163b43c0d86ce0ca35efebe687014de3214cdf66288f"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-05-language-contact.js",
+      "sha256": "73fe011b2c6fd8b6b897eec012275e7d18f054cbc4e00d04f70867d0cbca4213"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-06-historical-monte-carlo.js",
+      "sha256": "805cb5be406abbcfb49057d83fa27c13a2e39266135b25690d07b8e3dd04c231"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-07-autonovel.js",
+      "sha256": "425777d263e3e225b7ef531f058ff2621cbf245c15110e1e7e3dee258b58913e"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-08-messy.js",
+      "sha256": "c7004ba5db3c75ad1fc69446f60ca7dfa89f0074db2cdb7132b4e88798ff6296"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-09-success.js",
+      "sha256": "64e906c7fff757db23bda0cc068f461e14c720567018be559e3b27be2bb00135"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-10-conversation.js",
+      "sha256": "9203f15cfe856a0dcf6b2f7edb60a66059c517153e140b5fcd9e971fdf82eabb"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-11-browser-form.js",
+      "sha256": "2cae13590d6ae1c63f7dd4421ef933ce7a30b655ba28e6155d9afc2dc10b3911"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-12-research-browser.js",
+      "sha256": "b8172968530b62faf2d316e09badf5efb98beda6dcbe2aca2c83b2128f09cc2c"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-13-computational-grammar-coder.js",
+      "sha256": "ef73df165e46f3b60bbdbea9fc803c16e143b1b02ff57565c4a177c7c853387a"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-14-autoling.js",
+      "sha256": "7af4a523879ab8903bfc24102041ac8536a0f5555ab39a93fbd88de4d381b8dc"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-15-diseminer.js",
+      "sha256": "2b87cc5c6a010f4a6979b3834438a49b69ae056aace12e43a5f030ebb8cad00c"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/automata/tools/tool-16-morph-mir.js",
+      "sha256": "5663527d781ab2ea8edbf99c61aedfdde1eaba61edfe47783bcb9dac1efa285b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/emergence/coordination.js",
+      "sha256": "f2970d60624a68f71066aac5acc3878487557ea55cd6a63580eb2aeaf9015de4"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/emergence/detector.js",
+      "sha256": "fa25a7fa085d22e43f44d0d2f3dbac130df8d7a0787146280d87b9073f768e3b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/emergence/intent-engine.js",
+      "sha256": "71d320194abf9d2943356f75c526b94867a743e96194a710bf6e82002cef71d4"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/emergence/self-editor.js",
+      "sha256": "14e65d2921655b419f1bb50e717666cc50e497bd67245a4fb22ba7617fcde55c"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/boolean-ato.js",
+      "sha256": "81bccdfa1992d88295d651db730ca4197c1087c36f04cafda0a93fdf3ea2bb41"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/canon-registry.js",
+      "sha256": "206b1ebcf70d4dce1b0bae4144db5aa95b4044117ef27602e4fe07c3c693085c"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/derivation.js",
+      "sha256": "177f11554aed6af67adff1de648a1c1bd177e5fd0dc0b354b3c04d6f4b3ef62a"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/intake.js",
+      "sha256": "53b5c29496bb74bda1099fc8456f16f3cc986a44411c4e595defe8a615d7e905"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/klein-distributional.js",
+      "sha256": "5aa4b3a60b3621249156151d8cce0d7a960b5c9b08863bcc4d07c1d601a55d6b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/klein.js",
+      "sha256": "c2d5216dc6280944ed3a89e8f4eb6b926f1f46fa90674ab72d77c5e444371551"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/learning.js",
+      "sha256": "e8a13eaf7210ded738568cc0157a3cf63a42fcd39b8e32c0d2c0cd0fa924d92f"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/ledger.js",
+      "sha256": "14896e2d87c1a2223d0a2889a53f5dc0a5943f14a457299aaa31041771d81085"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/override-registry.js",
+      "sha256": "a6575bc4f227867c9e9e98f35d35aca8e0a69f8dea1acc8fa04adeef64e71b65"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/prediction.js",
+      "sha256": "5346750e1ca4f83af38e8745344ff939d0dce0e11952152be8fbf324c7e91258"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/questions.js",
+      "sha256": "82909e836419ce9cbbd49fcbf23167c40905b7207a074e20522c63df2a4842d3"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/resonance-network.js",
+      "sha256": "140f28264166997bc88ca22da3d73ba9f3aa56f4d02ca1ddd336aa21e929814d"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/rule-council.js",
+      "sha256": "a4e928d8ca6ec21d0ad6c7305197ecbb49a433c4bdfce72d374802a347cdaba6"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/self-correcting.js",
+      "sha256": "cd41b007d7c7a8710436c0ebaaa8a2a980f218b24fc767de716d04b860272ba9"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/synthai-converter.js",
+      "sha256": "a6d1f2fa2c58f8b0b9917af1ee2aa01fca99140deb10bdffb0c9ed5584e55bfc"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/synthia.js",
+      "sha256": "dec2e8137469aa66af8122775e19a3e52b3296822b24aacea73ce6d5045109d5"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/triples.js",
+      "sha256": "c916fd74311acf570286f3db53d4d31fb3f07a5b4f764dd4c049ab283aadc197"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/v2/coordinate_engine.js",
+      "sha256": "1218affc8c8093c92535ab79ef8d8edd3d505ce8878bac133c6faa8c02a826c7"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/v2/layer5_ssm.js",
+      "sha256": "5ba9bd3e2478f348d0746a645c4d6e80db1f23e54faaaeea38ae175ea30dca31"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/engine/v2/phase_space_engine.js",
+      "sha256": "f2d6743bb27d28e55ca3900d19be35ea4621176c45ae490fd1a99af9221a38c3"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/hypothesis-registry.js",
+      "sha256": "da27e2b65bfd162937673f28cbe49c30ec67b79c59a35a64ad00ffad36b09861"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/relational-capability.js",
+      "sha256": "145783a28e9b8de2359d4d19d950dc0afc0d8c4ce0dd53ca0b7d904043255438"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/automata-composition.js",
+      "sha256": "7458ea96d78298bb88fccfb808cb5654913e0e95187976c8c075a041dd1eab76"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/controls.js",
+      "sha256": "8d1fbe1ba87f9c37635c3004a6bf741682349347830d7e73efb69180db787372"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/core.js",
+      "sha256": "7bd732970d8080941bb68c3a43b4b8542d9cd21e664804122f2afd4a75289b69"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/cross-scale.js",
+      "sha256": "6a63abd67f22ac39dcd2af9dbfd7f3c05169ecaf101e0a11bd222e54db54bff6"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/d1.js",
+      "sha256": "385477e43d35ac858c3647fea3ddcc56921d0b29a9eacaeef1608d5f5ea4b4bc"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/d2.js",
+      "sha256": "294f4f6204089e9a626861523ac23f057ae7f4c35850039890589f30bdcddffc"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/d3.js",
+      "sha256": "079c000c1f13fe26014597a57f46c8361c97803f77892e832380b2def127b647"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/datasets.js",
+      "sha256": "00ba94feed9a8bb76040c6f94ca62a6a18be962d4317923655032c2fcb8391df"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/evaluators.js",
+      "sha256": "541078c915e2b38501c523df9ddd07826fc919eb65a9e9769348000d88198376"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/fsm.js",
+      "sha256": "5dbba747ac7c8a5458dcdb41285b6e73dacd6b0c7c11076e0ed826b1bad3b11b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/graph-trace.js",
+      "sha256": "2650ab236b92920fac08b92856d5fa2ec065781aba71acdc9fee49da6a90470d"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/metrics.js",
+      "sha256": "b7dea4f5ea7c9869b5a5b6bdf63f5dd6fd035d6d6bbd553bf2d53e3ce45bf61f"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/operators.js",
+      "sha256": "c406b434f008c27ba3794ab7f52fb6b0378d305779b5f75b86eb02056fdea051"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/parsers.js",
+      "sha256": "9dee868723368e417c230ac83b0facffd6e13311717d57d8da2777308510de29"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/phase-corpora.js",
+      "sha256": "757cc8254a50ff8e6f3c58bab96fdecba36af3a99bb2a80a58c68ea152908041"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/reproduce.js",
+      "sha256": "095ec06eeec732c08ef3f2fbc03fdd09a6cb01a2439b26734719e94e5c65c854"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/experiments/scale/sealed-results.js",
+      "sha256": "f6866a62454e1715eea6bd034924e624ab9411f9c3320d07bb8848b4316ca89e"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/grammar/grammar.js",
+      "sha256": "629f3802804f11aec499eaf0a855428f5ce47bb70d5c1d9c34ee8d53d7955ec6"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/grammar/parser.js",
+      "sha256": "35d5cab651f879de5f7428899b87cecb66654f2ab94fec7dec1ba468636c5f2f"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/grammar/tokens.js",
+      "sha256": "2d0ce183a5c6467e5ad3e30b4cf38556fcd76097487b0e30eabf42e43ff97860"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/canonical-address-code.js",
+      "sha256": "8a77fd0d570c1ed73dad83f0125f2f2280244d0f919ce4cd3704a3bb30c7ea08"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/execution-loop-orchestrator.js",
+      "sha256": "3e770da885b3cd8ae3fc40a2b240a200a179fe7f6969310f2b0d6da4a60f7c6b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/focal-state-space.js",
+      "sha256": "f370fa85fbbd608ba1aeaf63d396d73abf1a09df75c3e292dd464c0d099aa3d6"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/focal-weight-calculator.js",
+      "sha256": "7bea1171e77e02125e7016913ff184c5abcda98bdd24cee87dd88b0a361b47de"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/language-contact-models.js",
+      "sha256": "fc77755459da8e391795dca870678d48ee3239cf38f62e4c7419cf2f1780c706"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/mesh-rule-synthesizer.js",
+      "sha256": "22ad53881af1a4fdf2643058ad28dcb2584504ecf3e29436697c73e3b7601909"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/paper-runtime-sandbox.js",
+      "sha256": "be773665ceb582b147cc6ca30428edc5878f22282b87677b9b2dba72f885c7b1"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/runtime-adapter-registry.js",
+      "sha256": "ee479f82b1a378f3ba872c8e1adddadb27d8169ce17168e7b815283a6b482545"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/storage.js",
+      "sha256": "3c29dc98263caffbcd66d47e9d7e607667fa0f70d686973891b75e1b81f91a27"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/integration/universal-execution-bridge.js",
+      "sha256": "d53192bd77ca760547cadcaf7526cb0eeb4f62e4826e599b3d84d1a421c5a361"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/artifacts.js",
+      "sha256": "eff5dcb5c25dd9b0f02da85b5dbf680ad8676a5ad7d5a07a09f2f0317b51647e"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/ato-analogy.js",
+      "sha256": "d4fc2068263e11bd20cd4ace8848cd546cab55ba4736524b087ba6422caa37dd"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/centers-channels.js",
+      "sha256": "d8226bbdf03505bf2a574afb3e4e19ec072574f756a69b8fd5dd5ad5888489d9"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/dimension-router.js",
+      "sha256": "60bc9edb8b6ee49a0d17e2ac1746af9e6856e385e064adbd8652de047c4ce2bb"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/fuxi-encoder.js",
+      "sha256": "b9cbb3d2c87cab567eb3352e34b455cf8e3e8d3f88200cb0e474e8dfef2e1056"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/gate-field.js",
+      "sha256": "467e392eb8aa4ef04844d254be2d010b9d698f6011680922ef5a89f4c1f0a856"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/index.js",
+      "sha256": "712d82aa4a200d96b3756839e28e1f9dff04658b8fb87408e902d4db2bda5593"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/kingwen.js",
+      "sha256": "ad9902a4cb7298d767d1001e6784e30cbe975bf3eeacc73de76715d8b9741a42"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/lawful-grammar.js",
+      "sha256": "2da086133818aea785584c326c7191e8667e5d374e07ed7e37b0c65ca42be021"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/media-field.js",
+      "sha256": "d22ff4cf0e397d4597e6839bcb2db1ced33d2f90d888d4d72b43b1904934d979"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/mesh-memory.js",
+      "sha256": "210c0c62c042392c90b607f0179ed4b2a35be9d518e2ef08dffd96b6e89db1bb"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/scene-grammar.js",
+      "sha256": "1c5f4949a113188bbff020e06587eb2dd634e7613f4452cc76fe9f57d1d17da5"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/merged/tool-factory.js",
+      "sha256": "097ba7ebe94f56672c063f0bbf9c981ad224e096302e45301700b049d2be20d5"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/mesh/channels.js",
+      "sha256": "03ea40f12b095f7e187bff9b7cab9c15ae44df9e461f6180d99417a84b9dbf49"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/mesh/mesh.js",
+      "sha256": "627cde2551d67a62c63ad16e19be1d6c8816950b95cb1a92da547b3d62c1af41"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/mesh/packet.js",
+      "sha256": "fc64efc53a437709d43cb8243b03f1336807d70b05cf952793f2f32b0d661f02"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/organism/living-loop.js",
+      "sha256": "a2d29acaf7027df4ad64dcaf0a2177390f97469e7309602dd720122335a601be"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/organism/vitals.js",
+      "sha256": "96bb87e8dac5c6cecd344d194f06f04bbb60718a2ac16e5f13e4857693c68aa6"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/sovereign-entry.js",
+      "sha256": "82152bfb168cf5e7f597e487eb786bd90c461547e6b89aff26673fbb545c0146"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/addressing.js",
+      "sha256": "8ded17f32b55db30b7671749a70e9622b0f85d05ee910ab07f6da0a0c2354704"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/chains.js",
+      "sha256": "d2284c907382dd0fde50020e1d79f3c503280a59691714227975ab3e99e376da"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/claim-status.js",
+      "sha256": "092e89e3cdab43f19fa7606654db494241f2257114872ba3359eff2ba2644bfe"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/colors.js",
+      "sha256": "d7cd613040b0a82e22bdf2d49a49f19d1bc6b510a248b1ca6e9b310f48feab64"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/constants.js",
+      "sha256": "950e5d751a7078bb1df3ff129c6b43e68bc90a7c48a3c2484aa0624ed7ecc5f7"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/correspondences.js",
+      "sha256": "f5cd4ad414dcf61588a47998e16937cae63142c06aa869f14662af7ff759db05"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/dimension-canon.js",
+      "sha256": "6be371dc1f2c4caf4c0e08272990327d8c07e307d47027cc9fdf3e973951b1b3"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/dimensions.js",
+      "sha256": "7c08581a981564f85b63bd5ebf66198a262344e4aac79dd77794be813c0e0f09"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/features.js",
+      "sha256": "6193e678fd1c75356d84f417d98304d813b6f7828835122157128c7b9c09fdb5"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/fragments.js",
+      "sha256": "af083ad4b23f58625b064c793c7db96af05bf545ad10ef3c9f3255514de57cfd"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/generative-grammar.js",
+      "sha256": "de1c7c9bb2c4ea9b65edd64be3052391e17544b0176836d287dbd8305968fc1b"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/govinda-structure.js",
+      "sha256": "616064aa5e287489666301a1172548cde6f1b6054f6ccd0eda3879bc1c3891ca"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/human-design.js",
+      "sha256": "31470821d2217011a373ad53b9efec689f84eda08a6a0ed7ca19e8218ce26412"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/letters.js",
+      "sha256": "8b327c644800f0ef0db0c5f0c6bf19951317a37603ebee08ffd7b40c0a32fbb8"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/lexicon.js",
+      "sha256": "4f3a865bfaeeb2f618947a573711ef85d8d477cdf1d1793665f29c2e8ef137f3"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/mesh-state-space.js",
+      "sha256": "653eb7c5e3c88f6e712a0df954747c9d062d5d9e0d86ac81c982b41f970215e8"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/operators.js",
+      "sha256": "549d70c3e183d4cf555caef0658a4aa1742ffd6c761a34d11dd56181fc9c7a75"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/primitive-dimensions.js",
+      "sha256": "541362c6fa937ff61133ec97dcf2f71068b4aef3db905f81d06de62d032e9999"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/sounds.js",
+      "sha256": "146cecee8e49a20b62849deeb60d36bd31e5f3a9531ed85688783b97936467b9"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/transitions.js",
+      "sha256": "2560e3e0b658d27f918c6d8861ad4fc4974cc51a3344c3047cf175a52bd45a29"
+    },
+    {
+      "path": "vendor/spine/src/pure-synthia/state-space/wen-wang-gua.js",
+      "sha256": "2f7ce01cb28cb8f94b61340038090d5ba0cede5cc4228694bbb30cb875a5ee1d"
+    },
+    {
+      "path": "vendor/spine/src/realizers.mjs",
+      "sha256": "273c31405cb123fb19125de1719bd292d56f19473ec399a5030b8edd06bb1298"
+    },
+    {
+      "path": "vendor/spine/src/runtime-adapters.mjs",
+      "sha256": "0d0e64090b525110e2ad6a62f0eb31c6d848ed4557e9e4794b30dd346ce3d3c6"
+    },
+    {
+      "path": "vendor/spine/src/semantic-verifier.mjs",
+      "sha256": "c8b532c95e6357db9175f138824e370d7f26ea6a914d76b4d52c2858cbc14c87"
+    },
+    {
+      "path": "vendor/spine/src/state-machine.mjs",
+      "sha256": "99837f9e43000270546f875f38d9deafe6a71609f59f33b1d4bef393f8d17019"
+    },
+    {
+      "path": "vendor/spine/src/state-space.mjs",
+      "sha256": "0e136836d386fe3c43602e6ec33ff12f20f51c1d1fef914cc2ab52cb8a09ba6b"
+    },
+    {
+      "path": "vendor/spine/src/synthia-system.mjs",
+      "sha256": "f71f535def80ec2068617da4251425600affd1469d985cd6f00dc004d9faee92"
+    },
+    {
+      "path": "vendor/spine/src/universal-runtime.mjs",
+      "sha256": "c4b3351d231ad96a7e5b2ec8eab2afd0c5b827da6b93f5d359acf998b4f7ae84"
+    },
+    {
+      "path": "vendor/spine/tests/canonical-address.test.mjs",
+      "sha256": "c4e741969f7cbf436449a81f1849a598a0273782b793cdcc44dc03670ef30b3d"
+    },
+    {
+      "path": "vendor/spine/tests/execution-address-resolution.test.mjs",
+      "sha256": "b8536c8d1a948379dee51d83968e76a174fbd81fa640025133b21c7ce1a4efaf"
+    },
+    {
+      "path": "vendor/spine/tests/fine-index.test.mjs",
+      "sha256": "6926a0719d6b30b2cb4941c55f8fecf917c91ea5ec97f907fa236476a0b4ad1b"
+    },
+    {
+      "path": "vendor/spine/tests/full-wiring.test.mjs",
+      "sha256": "374471131a615c48994e1d17e2e1888acc3ae46da1210fead2c1944e97e3cd47"
+    },
+    {
+      "path": "vendor/spine/tests/predicate-ir.test.mjs",
+      "sha256": "fe2a873577e4d9d8a1091bed9d70fddef60662e3ec56b2773aa6fd39ff1c495e"
+    },
+    {
+      "path": "vendor/spine/tests/runtime-adapters.test.mjs",
+      "sha256": "9404f0951076ba7e905ecc69c0fe0ced49fd8be818869e681f9d3976b432f66b"
+    },
+    {
+      "path": "vendor/spine/tests/runtime.test.mjs",
+      "sha256": "2a72251537d8138c64a8c2f638e15c11b0fb4a494bfe80ae223cef9c704cf9e8"
+    },
+    {
+      "path": "vendor/spine/tests/state-machine.test.mjs",
+      "sha256": "39ab1ef01f9ead1635dfc68bdb81befb386d8693cdeefc155e9f63b900f8d011"
+    }
+  ],
+  "modifiedDescendants": [
+    {
+      "path": "README.md",
+      "sha256": "dca74845ee4fb2c52a4b2bc6a3478096d0b2b1282075704f8caf794afa3823b1",
+      "originalSha256": "50860cd83f0900c73ed86ff3f92e587c4120595bd0b7ec35c868f410b38aff2c"
+    },
+    {
+      "path": "Synthia-Foundation-Offline.html",
+      "sha256": "48dca7ace4dc268951328ea0de785869d40c1d07a208e1eca2680216168eb902",
+      "originalSha256": "c0a8893c7a8ddcf127af0dc9f805abc12f12ae2e52d5d91cddb759d66e607edb"
+    },
+    {
+      "path": "index.html",
+      "sha256": "b20e84d7cdf7f4006c7f171a552a859ac6a99452864f6a5f5b456f815caedde7",
+      "originalSha256": "d54ecb3fd81f913f5ffeab22f0af32df7e5a13e23555feb7188a4dbadef387a3"
+    },
+    {
+      "path": "package.json",
+      "sha256": "af94a937ea82f6a79dac7efa474ae9257b6b08108387606dae333735a7837b95",
+      "originalSha256": "0568de1248d9b0451a4618c495930d5a9d35836969e087c9861f7dbb6fef746b"
+    },
+    {
+      "path": "src/app.mjs",
+      "sha256": "02652c57f81a4f470218381d5ad5f5d9f8d91cf076349e065e92a6a2445d1c00",
+      "originalSha256": "fe5cc4e015ec630148f5b5308bd2fb30806578909f8027ab69c36a762e82cdff"
+    },
+    {
+      "path": "src/foundation.mjs",
+      "sha256": "5ad13d8e4328f4069ffc0784cb1e1965fe99bd6c0f7c18f72d49dbc22ace60b9",
+      "originalSha256": "1cd933d1cb1bf127a739e43184c6572d8942ca4f2ce76ec63664556b7c61ff96"
+    }
+  ],
+  "added": [
+    {
+      "path": "CAPABILITIES.md",
+      "sha256": "063ff6b0454941300ac33b9267c759ed8dedd92fa36cbf0c2694d5d819ee411a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "fd4ae184d6f611bd761ef5e2e0e493b59bc490f2adc11ea25e3c0739a5646075"
+    },
+    {
+      "path": "examples/field-demo.mjs",
+      "sha256": "39cab46c2b791ead2059f4fb80b59ad3bf7740105f910b64a43832e923ccdee1"
+    },
+    {
+      "path": "scripts/browser-qa.mjs",
+      "sha256": "23500901d97e85e6accc33d7743d8f24ce4a57e532b89de738938e46f0c6b4a9"
+    },
+    {
+      "path": "src/addressed-field.mjs",
+      "sha256": "35e5cac672594a5fa4458c15d62a09842cd3bc6a858908db60b39c60825c4be5"
+    },
+    {
+      "path": "src/document-tool-policy.mjs",
+      "sha256": "04694fc39d6a88d2c31eb855d346fe8759c6327e56d1dd07efa014c1357c7373"
+    },
+    {
+      "path": "src/operational-address.mjs",
+      "sha256": "779acd9bf774784c7646ba19b570e2d47b5b660007dd181ca5a267668fd67d78"
+    },
+    {
+      "path": "src/trainable-component.mjs",
+      "sha256": "ae13303a60d45819d8873d8250bc6102a0f460d56f154d6c3d8461567117f825"
+    },
+    {
+      "path": "tests/addressed-field.test.mjs",
+      "sha256": "5ffb2267c9aaf4198959919a79940e9de8113c23a67641e89f8f0256e4b2385e"
+    },
+    {
+      "path": "tests/fixtures/gradient.png",
+      "sha256": "af294b42c2fed0af0c992da92566f02617bd1c766544b1a6529731a00a7d76ab"
+    },
+    {
+      "path": "vendor/morphmir-memory.mjs",
+      "sha256": "a70e7d82b3619e859a3b49ae2bec367881ab4679567a592bd4d478cc93762814"
+    },
+    {
+      "path": "vendor/sha256.mjs",
+      "sha256": "4a4494a91ba180e9d1fa7dd0b131c7d3be9afbfec44ec7358f177091ce42bb00"
+    }
+  ]
+}

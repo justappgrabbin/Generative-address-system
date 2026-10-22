@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "entry": "Synthia-Foundation-Offline.html",
+  "transport": "static-http",
+  "fileNavigation": "NOT_TESTED: managed Chromium blocks file navigation",
+  "storage": "indexeddb",
+  "fieldLearningAndReload": true,
+  "actualPhotoOpened": {
+    "width": 96,
+    "height": 96
+  },
+  "photoReload": true,
+  "chatSubmitted": true,
+  "mobileOverflow": false,
+  "externalRequests": [],
+  "pageErrors": []
+}

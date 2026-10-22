@@ -1,0 +1,23 @@
+{
+  "descendant": "synthia-document-foundation.v0.2.0",
+  "sourceArchive": {
+    "name": "Synthia-State-Space-Foundation (2).zip",
+    "driveId": "19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys",
+    "sha256": "4c9611a0e4b2b2b8423556cabaff48ff3101249774921621d4fd398e01db3392"
+  },
+  "specification": {
+    "title": "Synthia: Architecture and Nested State-Space Neural Field (combined, 2026-10-10)",
+    "driveId": "1a4-4qM_dOJSaUUokRA68s1g0KeUkxUX5-YWnuS11bFs",
+    "extractedTextSha256": "7348571a1c20d989d8a5bef0a5f73b3585b78debf2eb7e23f34cc497bdcc80f9"
+  },
+  "preservation": "Original archive retained unchanged; vendor runtime files copied unchanged. This selected runtime descendant omits private northstar documents and inactive model-building packages; no upstream files deleted.",
+  "additionalDonor": {
+    "repository": "justappgrabbin/Generative-address-system",
+    "commit": "04d0227",
+    "paths": [
+      "extensions/morphmir-memory/src/index.mjs",
+      "extensions/translation-layer/src/sha256.mjs"
+    ],
+    "changes": "Two relative imports adjusted for the preserved foundation vendor layout."
+  }
+}

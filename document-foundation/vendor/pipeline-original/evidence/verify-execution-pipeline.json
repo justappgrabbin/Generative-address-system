@@ -1,0 +1,95 @@
+{
+  "verified": true,
+  "artifact": "verification.json",
+  "first": {
+    "ok": true,
+    "path": "direct-probe-complete",
+    "engine": "json-native",
+    "analysisCacheHit": false
+  },
+  "second": {
+    "ok": true,
+    "path": "direct-probe-complete",
+    "engine": "json-native",
+    "analysisCacheHit": true
+  },
+  "stageCount": 11,
+  "stages": [
+    {
+      "stage": "ingest",
+      "ok": true
+    },
+    {
+      "stage": "normalize",
+      "ok": true
+    },
+    {
+      "stage": "primitive-operator-graph",
+      "ok": true
+    },
+    {
+      "stage": "five-field-allocation",
+      "ok": true
+    },
+    {
+      "stage": "dependency-schedule-forwarding",
+      "ok": true
+    },
+    {
+      "stage": "artifact-execution",
+      "ok": true
+    },
+    {
+      "stage": "fold-recombine",
+      "ok": true
+    },
+    {
+      "stage": "state-commit",
+      "ok": true
+    },
+    {
+      "stage": "observation",
+      "ok": true
+    },
+    {
+      "stage": "ontological-address",
+      "ok": true
+    },
+    {
+      "stage": "execution-cache",
+      "ok": true
+    }
+  ],
+  "forwardingCount": 56,
+  "canonicalAddressKey": "planetary=12|dimension=Movement|gate=27|line=3|color=6|tone=2|base=3|degree={\"band\":5,\"subdivision\":6,\"structure\":\"5-of-29\"}|minute=41|second=44|arcAxis={\"arcUnit\":4,\"axis\":\"Vertical\"}|zodiac=3|house=5",
+  "foldHash": "e6175a63",
+  "runSequence": 2,
+  "fields": {
+    "Movement": {
+      "runs": 2,
+      "totalPrimitives": 50,
+      "lastChecksum": 2540743896
+    },
+    "Evolution": {
+      "runs": 2,
+      "totalPrimitives": 24,
+      "lastChecksum": 1557658894
+    },
+    "Being": {
+      "runs": 2,
+      "totalPrimitives": 38,
+      "lastChecksum": 4018688791
+    },
+    "Design": {
+      "runs": 2,
+      "totalPrimitives": 20,
+      "lastChecksum": 990240265
+    },
+    "Space": {
+      "runs": 2,
+      "totalPrimitives": 24,
+      "lastChecksum": 2133232488
+    }
+  },
+  "learningJournalExecutions": 2
+}

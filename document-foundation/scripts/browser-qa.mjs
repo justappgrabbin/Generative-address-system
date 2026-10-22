@@ -1,0 +1,41 @@
+// npm install --no-save playwright; PLAYWRIGHT_MODULE can point to an existing installation.
+import assert from 'node:assert/strict';
+import {writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE??'playwright');
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox']});
+try{
+ const context=await browser.newContext({viewport:{width:1100,height:900}}),page=await context.newPage(),errors=[],network=[];
+ page.on('pageerror',error=>errors.push(error.message));
+ const appUrl=process.env.FOUNDATION_URL??new URL('../Synthia-Foundation-Offline.html',import.meta.url).href;
+ await page.route(/^https?:/,route=>{if(process.env.FOUNDATION_URL&&route.request().url().startsWith(new URL(appUrl).origin+'/'))return route.continue();network.push(route.request().url());return route.abort();});
+ await page.goto(appUrl);
+ await page.waitForFunction(()=>globalThis.synthiaFoundation?.history!==undefined&&document.getElementById('status').textContent.includes('ready'));
+ const a={planetary:1,dimension:'Movement',gate:1,line:1,color:1,tone:1,base:1,degree:0,minute:0,second:0,arcFraction:0,zodiac:1,house:1};
+ const provenance={source:'browser-QA:synthetic-fixture'};
+ const commands=[{operation:'register',payload:{address:a,provenance}},{operation:'run',payload:{candidates:[a],input:[0.5,0.2],feedback:0.8,provenance}}];
+ await page.locator('#command').fill(JSON.stringify(commands));await page.locator('#field-command button').click();
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.field.runs.length===1);
+ const learned=await page.evaluate(()=>globalThis.synthiaFoundation.field.snapshot());
+ assert.equal(learned.nodes[0][1].component.version,1);
+ await page.locator('#photo-files').setInputFiles(fileURLToPath(new URL('../tests/fixtures/gradient.png',import.meta.url)));
+ await page.waitForFunction(()=>document.querySelectorAll('#photo-list button').length===1);
+ await page.locator('#photo-list button').click();
+ await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ const image=await page.locator('#photo-preview').evaluate(el=>({width:el.naturalWidth,height:el.naturalHeight}));
+ await page.locator('#text').fill('A person builds a tool because it helps.');await page.locator('#chat button').click();
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===4);
+ const before=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),photos:[...globalThis.synthiaFoundation.photos.values()],storage:globalThis.synthiaFoundation.store.mode}));
+ assert.equal(before.storage,'indexeddb');
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===4);
+ const after=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),photos:[...globalThis.synthiaFoundation.photos.values()]}));
+ assert.deepEqual(after.field,before.field);assert.deepEqual(after.photos,before.photos);
+ assert.match(await page.locator('#messages').textContent(),/A person builds a tool because it helps/);
+ await page.locator('#photo-list button').click();await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ await page.setViewportSize({width:390,height:844});
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
+ await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
+ assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
+ const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,mobileOverflow:false,externalRequests:network,pageErrors:errors};
+ await writeFile(new URL('../evidence/document-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+}finally{await browser.close();}

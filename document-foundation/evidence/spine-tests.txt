@@ -1,0 +1,37 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> synthia-state-space-foundation@0.1.0 test:spine
+> node --test vendor/spine/tests/*.test.mjs
+
+✔ canonical spine remains 13 fields and 12 houses (1.669623ms)
+✔ valid canonical address passes without collapsing degree (0.355585ms)
+✔ resolver descends artifact to actual bit/state primitives (1.403253ms)
+✔ same artifact plus same first-run outcome resolves deterministically (2.958984ms)
+✔ different runtime outcome can move the same artifact to a different execution coordinate (1.069119ms)
+✔ Synthia automatically assigns and appends full address after first execution attempt (36.655521ms)
+✔ explicit creator canonical address is preserved while runtime-derived placement remains visible (5.108671ms)
+✔ fine index cardinality and boundaries (1.471726ms)
+✔ 5000 random fine-index round trips (14.589244ms)
+✔ whole organism is live, not merely present (17.572012ms)
+✔ chat traverses learning/contact and shares with every mounted automaton (15.359031ms)
+✔ execution carries full canonical address and shares first-run outcome (5.813201ms)
+✔ unknown foreign execution failure is observed by learning/grow path, not terminal (9.795235ms)
+✔ agent rewrite is versioned through SelfEditor and shared across mesh (3.427459ms)
+✔ boolean operator family (1.423533ms)
+✔ BUT remains a directional IR node (0.224408ms)
+✔ hamming works for binary strings, arrays, and ints (0.185529ms)
+✔ artifact kind detection covers foreign code and projects (1.433408ms)
+✔ registered foreign runtime executes original artifact before fallback (1.158253ms)
+✔ missing runtime is explicit and does not pretend translation is native (0.245519ms)
+✔ fallback realization is labeled fallback when no runtime exists (0.67781ms)
+✔ bounded predicate search + semantic verification (3.647692ms)
+✔ DAG runs dependencies and exposes dependency results (1.447819ms)
+✔ machine transitions, guards, effects, snapshot and restore (1.927342ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.943011

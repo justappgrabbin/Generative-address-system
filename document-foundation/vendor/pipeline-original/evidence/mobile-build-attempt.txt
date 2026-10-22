@@ -1,0 +1,6 @@
+Command: (cd apps/mobile && npm run build)
+Result: FAILED BEFORE BUNDLING
+Reason: /bin/sh: vite: not found
+Observed package state: no node_modules directory and no package-lock.json in preserved source.
+Follow-up: npm install --ignore-scripts was attempted in the working copy and timed out before node_modules or package-lock.json was created.
+Interpretation: dependency/tooling availability blocker; no Vite source compilation result was produced.

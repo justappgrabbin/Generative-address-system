@@ -1,0 +1,751 @@
+
+> synthia-state-space-foundation@0.2.0 test:browser
+> npm --prefix vendor/browser test
+
+
+> pure-synthia-automata@1.3.7 test
+> node tests/run.mjs && node test/merged.smoke.mjs && node test/govinda-structure.test.mjs && node test/focal-weight-calculator.test.mjs && node test/focal-integration.test.mjs && node test/universal-execution-bridge.test.mjs && node test/mesh-rule-synthesizer.test.mjs && node test/execution-loop-orchestrator.test.mjs && node test/paper-runtime-sandbox.test.mjs && node test/runtime-adapter-registry.test.mjs
+
+
+# engine boot: 16 automata
+ok   listTools() returns 16 tools
+ok   tool ids match the contract exactly, in registry order
+ok   registry entry complete: autoling-lite (gate 17, Design, rule-induction FSM)
+ok   registry entry complete: diseminer-lite (gate 48, Evolution, narrative-sim FSM)
+ok   registry entry complete: klein-analogy (gate 4, Design, analogy transducer)
+ok   registry entry complete: iching-grammar (gate 61, Being, hexagram pushdown automaton)
+ok   registry entry complete: language-contact (gate 12, Movement, dual-tape transducer)
+ok   registry entry complete: historical-monte-carlo (gate 32, Evolution, sampling automaton)
+ok   registry entry complete: autonovel (gate 56, Design, generative stack machine)
+ok   registry entry complete: messy (gate 3, Movement, probabilistic FSM)
+ok   registry entry complete: success (gate 14, Being, reward hill-climber)
+ok   registry entry complete: conversation (gate 12, Space, turn-taking transducer)
+ok   registry entry complete: browser-form (gate 20, Being, DOM-walker FSM)
+ok   registry entry complete: research-browser (gate 11, Space, crawl automaton)
+ok   registry entry complete: computational-grammar-coder (gate 62, Evolution, compiler PDA)
+ok   registry entry complete: autoling (gate 17, Design, enhanced rule-induction pipeline)
+ok   registry entry complete: diseminer (gate 48, Evolution, distributional narrative engine)
+ok   registry entry complete: morph-mir (gate 24, Space, memory-graph automaton)
+
+# grammar: parse, aliases, chains, address, flags, errors
+ok   single call parses with chainLength 1
+ok   single call resolves tool id
+ok   single call captures quoted string arg
+ok   parse tree root is a call node
+ok   alias 'coder' resolves to computational-grammar-coder
+ok   alias call keeps its string arg
+ok   two-call chain parses (chainLength 2)
+ok   two-call chain tools in order
+ok   three-call chain parses (chainLength 3)
+ok   three-call chain tools in order
+ok   address 'at 41.2.3' parses to {gate,line,color}
+ok   flag --mode=exact parses to {mode:'exact'}
+ok   unknown tool throws ParseError
+ok   ParseError message lists all 16 tool ids
+ok   ParseError carries expected: the 16 ids
+
+# engine: calls across diverse tools
+ok   engine.call resolves 'klein-analogy' -> klein-analogy
+ok   klein-analogy: run accepted
+ok   klein-analogy: derivation.hash is a hex string (406b6b7a)
+ok   klein-analogy: ledger carries the full 7-tuple
+ok   klein-analogy: ledger minimums (ignition + automatize bound every run)
+ok   klein-analogy: ledger operations/automata minimums
+ok   klein-analogy: every trace step carries a named transition
+ok   klein-analogy: every trace step carries sound + color
+ok   engine.call resolves 'coder' -> computational-grammar-coder
+ok   computational-grammar-coder: run accepted
+ok   computational-grammar-coder: derivation.hash is a hex string (1aa91451)
+ok   computational-grammar-coder: ledger carries the full 7-tuple
+ok   computational-grammar-coder: ledger minimums (ignition + automatize bound every run)
+ok   computational-grammar-coder: ledger operations/automata minimums
+ok   computational-grammar-coder: every trace step carries a named transition
+ok   computational-grammar-coder: every trace step carries sound + color
+ok   engine.call resolves 'conversation' -> conversation
+ok   conversation: run accepted
+ok   conversation: derivation.hash is a hex string (dd1ffb18)
+ok   conversation: ledger carries the full 7-tuple
+ok   conversation: ledger minimums (ignition + automatize bound every run)
+ok   conversation: ledger operations/automata minimums
+ok   conversation: every trace step carries a named transition
+ok   conversation: every trace step carries sound + color
+ok   engine.call resolves 'success' -> success
+ok   success: run accepted
+ok   success: derivation.hash is a hex string (649d4f6c)
+ok   success: ledger carries the full 7-tuple
+ok   success: ledger minimums (ignition + automatize bound every run)
+ok   success: ledger operations/automata minimums
+ok   success: every trace step carries a named transition
+ok   success: every trace step carries sound + color
+ok   engine.call resolves 'diseminer' -> diseminer
+ok   diseminer: run accepted
+ok   diseminer: derivation.hash is a hex string (a188301f)
+ok   diseminer: ledger carries the full 7-tuple
+ok   diseminer: ledger minimums (ignition + automatize bound every run)
+ok   diseminer: ledger operations/automata minimums
+ok   diseminer: every trace step carries a named transition
+ok   diseminer: every trace step carries sound + color
+ok   engine.call resolves 'autoling' -> autoling
+ok   autoling: run accepted
+ok   autoling: derivation.hash is a hex string (da6cca44)
+ok   autoling: ledger carries the full 7-tuple
+ok   autoling: ledger minimums (ignition + automatize bound every run)
+ok   autoling: ledger operations/automata minimums
+ok   autoling: every trace step carries a named transition
+ok   autoling: every trace step carries sound + color
+ok   engine.call resolves 'language-contact' -> language-contact
+ok   language-contact: run accepted
+ok   language-contact: derivation.hash is a hex string (6c5ae537)
+ok   language-contact: ledger carries the full 7-tuple
+ok   language-contact: ledger minimums (ignition + automatize bound every run)
+ok   language-contact: ledger operations/automata minimums
+ok   language-contact: every trace step carries a named transition
+ok   language-contact: every trace step carries sound + color
+ok   engine.call resolves 'historical-monte-carlo' -> historical-monte-carlo
+ok   historical-monte-carlo: run accepted
+ok   historical-monte-carlo: derivation.hash is a hex string (60ada6cd)
+ok   historical-monte-carlo: ledger carries the full 7-tuple
+ok   historical-monte-carlo: ledger minimums (ignition + automatize bound every run)
+ok   historical-monte-carlo: ledger operations/automata minimums
+ok   historical-monte-carlo: every trace step carries a named transition
+ok   historical-monte-carlo: every trace step carries sound + color
+
+# engine: two-call chaining (packet hand-off)
+ok   two-call chain executes with chainLength 2
+ok   derivation records the o_sequence relation success->conversation
+ok   conversation reports chained=true (packet received)
+ok   conversation weaves A's packet payload into its utterance
+ok   conversation trace shows the WEAVE transition (packet use)
+ok   packet routed across the mesh with a delivery receipt
+ok   two-call chain accepted end-to-end
+ok   diseminer-lite -> conversation: packet woven into the utterance
+ok   diseminer-lite chain: conversation trace shows WEAVE
+
+# engine: chain lengths 1, 2, 3+
+ok   length-1 chain runs
+ok   length-1 chain produces one chain result
+ok   length-3 chain runs
+ok   length-3 chain tools in order
+ok   length-3 chain: final call weaves the middle packet
+ok   length-3 chain accepted end-to-end
+
+# engine: deterministic replay
+ok   replay status is REPRODUCED
+ok   replay hashMatch true
+ok   replay compares against the original hash
+ok   replayed hash equals the original hash
+ok   single call with address + flags replays identically
+ok   non-genesis derivation replays via input-history prefix (state reconstructed)
+ok   history-prefix replay hash matches exactly
+
+# operators: involutions + iching transforms
+ok   o_inverse ∘ o_inverse = id on all 64 gates (involution)
+ok   o_reverse ∘ o_reverse = id on all 64 gates (involution)
+ok   o_converse ∘ o_converse = id on all 64 gates (involution)
+ok   iching-grammar 'mirror' on gate 1 returns a valid hexagram (value 63)
+ok   iching-grammar 'shadow' on gate 1 returns a valid hexagram (value 0)
+ok   iching-grammar 'rotation' on gate 1 returns a valid hexagram (value 0)
+ok   iching-grammar 'core' on gate 1 returns a valid hexagram (value 63)
+ok   iching-grammar 'becoming' on gate 1 returns a valid hexagram (value 45)
+ok   iching-grammar 'mirror' on gate 24 returns a valid hexagram (value 32)
+ok   iching-grammar 'shadow' on gate 24 returns a valid hexagram (value 62)
+ok   iching-grammar 'rotation' on gate 24 returns a valid hexagram (value 31)
+ok   iching-grammar 'core' on gate 24 returns a valid hexagram (value 0)
+ok   iching-grammar 'becoming' on gate 24 returns a valid hexagram (value 19)
+ok   iching-grammar 'mirror' on gate 41 returns a valid hexagram (value 49)
+ok   iching-grammar 'shadow' on gate 41 returns a valid hexagram (value 28)
+ok   iching-grammar 'rotation' on gate 41 returns a valid hexagram (value 14)
+ok   iching-grammar 'core' on gate 41 returns a valid hexagram (value 1)
+ok   iching-grammar 'becoming' on gate 41 returns a valid hexagram (value 49)
+
+# merged: ato-analogy, kingwen, centers-channels, mesh-memory
+ok   ato-analogy selfTest() is true
+ok   kingwen: gate<->Fu Xi decimal is a bijection over all 64 gates
+ok   KING_WEN tables agree between state-space/addressing.js and merged/kingwen.js (64/64)
+ok   KING_WEN anchors: gate1->63, gate2->0, gate3->17
+ok   centers-channels: 36 canonical channels
+ok   channelsForGate(20) includes '10-20','20-34','20-57'
+ok   mesh-memory publicAddress keeps gate/line/color/tone/base
+ok   mesh-memory publicAddress strips private keys (degree/minute/second/arcSecond/zodiac/house)
+
+# state space: sounds and colors
+ok   soundFor returns a positive frequency (899.27 Hz)
+ok   soundFor returns a valid timbre
+ok   colorFor returns a valid #RRGGBB (#4B5EC3)
+ok   transitionSound applies modifiers (rotation transposes +6 semitones)
+ok   transitionSound applies modifiers (dormancy is a rest)
+ok   transitionColor applies modifiers (mirror shifts hue +180)
+ok   transitionColor applies modifiers (dormancy desaturates to 20%)
+
+# mesh: metrics
+ok   mesh metrics expose all 5 projections
+ok   projection 'knowledge' reports {nodes, edges, avgDegree}
+ok   projection 'causal' reports {nodes, edges, avgDegree}
+ok   projection 'phase' reports {nodes, edges, avgDegree}
+ok   projection 'temporal' reports {nodes, edges, avgDegree}
+ok   projection 'dependency' reports {nodes, edges, avgDegree}
+ok   mesh reports 17 automata (16 canonical + boot-grown media-field)
+
+# automata: exportState/hydrate round-trip (Map-based owned state)
+ok   autoling-lite: exportState/hydrate round-trips losslessly
+ok   diseminer-lite: exportState/hydrate round-trips losslessly
+ok   klein-analogy: exportState/hydrate round-trips losslessly
+ok   iching-grammar: exportState/hydrate round-trips losslessly
+ok   language-contact: exportState/hydrate round-trips losslessly
+ok   historical-monte-carlo: exportState/hydrate round-trips losslessly
+ok   autonovel: exportState/hydrate round-trips losslessly
+ok   messy: exportState/hydrate round-trips losslessly
+ok   success: exportState/hydrate round-trips losslessly
+ok   conversation: exportState/hydrate round-trips losslessly
+ok   browser-form: exportState/hydrate round-trips losslessly
+ok   research-browser: exportState/hydrate round-trips losslessly
+ok   computational-grammar-coder: exportState/hydrate round-trips losslessly
+ok   autoling: exportState/hydrate round-trips losslessly
+ok   diseminer: exportState/hydrate round-trips losslessly
+ok   morph-mir: exportState/hydrate round-trips losslessly
+
+# intake: address-first Sensory Adapter (five mechanical senses)
+ok   text intake gets a canonical address (gate 22)
+ok   address is labeled addressBasis:hash-candidate (H3 stays a hypothesis)
+ok   intake sound has positive freq (322.93 Hz)
+ok   intake color is a valid hex (#72C270)
+ok   all five mechanical senses present with correct shapes (see/taste/touch/smell/hear)
+ok   analysis.concepts non-empty for 'the gate learns from the user' (gate, learns, user)
+ok   analysis.purpose is a first-verb-phrase guess (gate learns user)
+ok   code string is decomposed as kind:code
+ok   code gets a morph-mir-style structural sniff (imports/exports/functions)
+ok   code regime is Design
+ok   object input is decomposed as kind:data
+ok   data regime is Evolution
+
+# intake: engine.call routes through intake FIRST
+ok   boot intake is the media-field growth (history starts at 1)
+ok   derivation carries intakeId (intake-2)
+ok   intake history grows on engine.call
+ok   the call intake is in history with its own address
+
+# intake: determinism (fresh gates, same input -> same address + senses)
+ok   same input -> same arcSecond address
+ok   same input -> identical five-sense signatures
+ok   same input -> identical color
+
+# learning: routed, grown, learned-recall, CR metrics
+ok   media-field is grown at boot (gate 25, Space) via the learning grow path
+ok   video request resolves as routed|grown (routed)
+ok   video request routes to media-field
+ok   media-field returns frames metadata (8 frames of 16384 bytes)
+ok   changing lines for gates 24->41 = popcount(xor) = 2 (lines 2 and 6)
+ok   code request routes to media-field (CodeWeaver core)
+ok   code request returns a generated code string containing export
+ok   unknown request grows a new tool
+ok   grown tool id is the deterministic factory id (tool-d296fd13824c94d3)
+ok   second identical request resolves as learned-recall
+ok   learned-recall keeps the same toolId (no re-grow)
+ok   'the gate learns from the user' resolves sensibly (mode routed, tool autoling-lite)
+ok   a parseable tool-call sentence resolves as known-call
+ok   CR metrics C(X) = {operations, visitedStates, materialized, peakStates, steps} in every log entry
+ok   log entries are timestamp-free (counter seq) with a ledger snapshot
+ok   crReport summarizes counts (6 requests, 2 grown tools)
+
+# media-field: pure-JS media core (frames, morph, code weaver)
+ok   morphFrames(24, 41, 4) returns 4 frames
+ok   every frame is a 64x64 RGBA Uint8ClampedArray
+ok   two fresh fields produce byte-identical morph frames (deterministic)
+ok   morphFrames is field-state-pure: same instance, identical bytes
+ok   changing lines = popcount(fuxi(from) XOR fuxi(to)) — documented in lastMorph
+ok   changing lines of gates 24->41 are lines 2 and 6
+ok   codeWeaver.analyze extracts functions/imports/exports + fnv signature
+ok   weave returns a module string containing export
+ok   weave is deterministic
+ok   diffSummary reports added lines
+ok   VideoTimeline exportFrames -> {rgba, width, height, delay} with deterministic delays
+
+# triples: each tool is made of semantic triples
+ok   triple store populated at boot (306 triples)
+ok   17 mesh automata (16 canonical + boot-grown media-field)
+ok   autoling-lite: contributes >= 8 ontology triples (15)
+ok   diseminer-lite: contributes >= 8 ontology triples (14)
+ok   klein-analogy: contributes >= 8 ontology triples (12)
+ok   iching-grammar: contributes >= 8 ontology triples (13)
+ok   language-contact: contributes >= 8 ontology triples (11)
+ok   historical-monte-carlo: contributes >= 8 ontology triples (12)
+ok   autonovel: contributes >= 8 ontology triples (14)
+ok   messy: contributes >= 8 ontology triples (11)
+ok   success: contributes >= 8 ontology triples (21)
+ok   conversation: contributes >= 8 ontology triples (22)
+ok   browser-form: contributes >= 8 ontology triples (29)
+ok   research-browser: contributes >= 8 ontology triples (25)
+ok   computational-grammar-coder: contributes >= 8 ontology triples (18)
+ok   autoling: contributes >= 8 ontology triples (29)
+ok   diseminer: contributes >= 8 ontology triples (25)
+ok   morph-mir: contributes >= 8 ontology triples (19)
+ok   media-field: contributes >= 8 ontology triples (16)
+ok   autoling ontology: (autoling, isA, Automaton)
+ok   autoling ontology: (autoling, hasGate, 17)
+ok   autoling ontology: at least one (autoling, hasCapability, _) triple
+ok   autoling ontology: delta-table transitions asserted as usesTransition
+ok   toolOntology returns frozen Triple instances
+ok   iching-grammar ontology: channel 24-61, automaton form, 4 internal states
+ok   runTriples: (inputHash, processedBy, toolId)
+ok   runTriples: (toolId, produced, outputHash)
+ok   runTriples: one transition triple per trace step
+ok   runTriples: every triple carries the derivation id
+
+# triples: run provenance appears after engine.call
+ok   after call: (inputHash, processedBy, conversation) asserted
+ok   after call: (conversation, produced, outputHash) asserted
+ok   query by predicate 'transition' returns the run's trace triples (6) with derivation provenance
+
+# triples: TripleStore dedupe + wildcard queries
+ok   add() dedupes by (subject, predicate, object) key
+ok   addAll adds distinct triples
+ok   wildcard query: subject+object null match all
+ok   wildcard query: predicate null matches all
+ok   empty query returns the whole store
+ok   bySubject filters on subject
+ok   predicates() lists distinct predicates
+ok   export/import round-trips the store
+ok   imported triples are frozen Triple instances
+
+# channels: crossings promote to emergent channels (self-cultivation)
+ok   first crossing is temporary (uses 1)
+ok   third use promotes the crossing, keeping packet provenance
+ok   emergentCapability is directional and promotion-gated
+ok   no promoted channels at boot
+ok   two crossings of autoling->diseminer: still temporary
+ok   third identical chain promotes autoling~diseminer; engine.emergentChannels() lists it
+ok   promoted channel is a composite sequential capability of both tools
+ok   4th request matching both member tools resolves with mode emergent-channel
+ok   emergent-channel executes the promoted pair as a composed two-call chain
+ok   emergent-channel result carries the channel capability record
+ok   the emergent run records another crossing through the channel
+
+# experiential return: results feed back into owned state
+ok   conversation absorbed >= 2 experience records (2)
+ok   experience record shape: {derivationId, intakeId, outputHash, seq}
+ok   exportState/hydrate preserves the experiences log
+ok   stateless tools (ownedState null) gain an experiences log
+ok   replay stays hash-identical with triples + experiential return active
+
+# artifacts: real file bytes (BMP, GIF89a, code) — proof of realness
+ok   BMP starts with magic 'BM'
+ok   BMP file-size field equals the buffer length
+ok   BMP size = 54 + padded rows (4px rows are 4-byte aligned)
+ok   BMP pixel data offset is 54 (14 + 40 byte headers)
+ok   BMP spot-check: bottom row first -> pixel (1,3) stored BGR = [32,48,16]
+ok   BMP spot-check: last stored row -> pixel (2,0) stored BGR = [16,0,32]
+ok   BMP encode is byte-deterministic across two encodes
+ok   GIF starts with header 'GIF89a'
+ok   GIF ends with trailer 0x3B
+ok   GIF re-parse: width/height little-endian = 8x8
+ok   GIF re-parse: exactly 3 image descriptors (0x2C) walked structurally
+ok   GIF re-parse: structural walk terminates at the trailer
+ok   GIF encode is byte-deterministic across two encodes (fixed palette + own LZW)
+ok   ArtifactWriter ids are deterministic art-N
+ok   artifact hash is fnv1a32 over the exact bytes
+ok   artifact size is the byte length
+ok   text artifacts are utf8-encoded and keep their text
+ok   list() enumerates all artifacts
+ok   list() returns metadata only (no byte payload)
+ok   request 'make a picture of gate 24' routes to media-field
+ok   picture request mode is routed (capability match)
+ok   picture op returns a BMP artifact (gate-24-picture.bmp, 12342 bytes)
+ok   picture artifact bytes are a JSON-safe plain array starting with BM
+ok   picture artifact hash verifies against its bytes
+ok   picture artifact hash is stable across repeat requests
+ok   request 'make a video...' routes to media-field
+ok   video op returns an animated GIF artifact (morph-gate-24-to-41.gif, 8 frames)
+ok   video artifact bytes start with GIF89a
+ok   video artifact re-parses to the same frame count as the morph
+ok   video artifact hash is stable across repeat requests
+ok   request 'write code...' routes to media-field
+ok   code op returns a JS artifact (resonanceCounter.js) whose text contains export
+ok   code artifact file is <name>.js and opens with the Pure Synthia header
+ok   code artifact hash is stable across repeat requests
+
+# klein operator: K_i(C_t) = (relation, intensity, direction)
+ok   K(C) returns a frozen triple
+ok   relation is a named transition id ('flow')
+ok   intensity ∈ [0,1] (0.5625)
+ok   direction ∈ {toward, away, neutral} ('toward')
+ok   Klein evaluation is side-effect free (tool calls/state untouched)
+ok   invariant: K(C) === K(C) for identical context
+ok   invariant: distinct sample contexts yield distinct triples
+ok   invariant: J(Ki,Kj,C) ≠ Ki(C)+Kj(C) via emergent-channel compose
+ok   composed relation is the emergent channel id
+
+# questions: Open Questions Registry
+ok   engine.questions is a QuestionRegistry
+ok   three open questions are registered
+ok   question ids OQ-1..OQ-3
+ok   all three questions are open and frozen
+ok   OQ-2 (DMS assignment) linked to H3
+ok   OQ-3 (Space discrepancy) linked to H4
+ok   OQ-1 carries candidate tests
+ok   OPEN_QUESTIONS export holds the three seed questions
+ok   resolve() without an evidenceId throws
+ok   resolve(id, evidenceId) closes the question
+ok   resolved question records its evidence id
+ok   export() reports resolved count
+
+# experiment H10: a relation creates a capability neither automaton has alone
+ok   report is hypothesis H10
+ok   results object carries all five pre-registered conditions
+ok   A(Q) = 0 — iching-grammar computes but cannot speak
+ok   B(Q) = 0 — conversation speaks but cannot compute hexagrams
+ok   F(A,B,∅) = 0 — independent runs without packet exchange fail
+ok   F(A,B,R_shuffled) = 0 — shuffled-payload control fails
+ok   F(A,B,R) = 1 — the sequential packet channel succeeds
+ok   H10 interpretation is 'supported'
+ok   transfer probe: C=klein-analogy, D=conversation on Q'
+ok   transfer result recorded honestly (1)
+ok   report carries derivationIds (6)
+ok   report carries a merged ledger
+ok   capability: unformatted prose fails even with the right tokens
+ok   capability: wrong gate number fails
+ok   shuffledString is a real deterministic shuffle
+ok   re-running the experiment reproduces the identical verdict
+ok   T2: LINES has exactly the 4 casting variants 6/7/8/9
+ok   T2: 6=old yin moving->yang, 9=old yang moving->yin, 7/8 stable
+ok   T2: bits match parity (yin=0, yang=1)
+ok   T3: SI_XIANG has 4 bigrams with unique 2-bit patterns and casting numbers 6/7/8/9
+ok   T3: emblem dimensions are Space/Movement/Design/Evolution (Being is the unrepresented pivot)
+ok   T4: 8 trigrams, ids unique, one per 3-bit value 0-7
+ok   T4: bits are consistent with valueCode (bottom line = LSB)
+ok   T4: fuxiOrdinal is a permutation of 1..8; luoshu spans 1-9 with center 5 unassigned
+ok   T4: every trigram carries the full attribute set (name/pinyin/nature/quality/family/directions/wuxing/season/color/animal/body)
+ok   T4: secondary dimension == WUXING_DIMENSION[wuxing] for all 8 (H-F3 chain)
+ok   T4: TRIGRAM_BY_ID lookup works
+ok   T5: nuclearTrigrams == brute-force lines 2-3-4 / 3-4-5 for all 64 gates
+ok   T5: exactly 16 hexagrams can be nuclei, matching NUCLEUS_GATES
+ok   T5: NUCLEAR_CLOSURE map verified — every listed member has the key as its nucleus, 4 members each
+ok   T5: gates 1 and 2 are their own nuclei; second-order nuclei == {1,2,63,64} (computed fixed points)
+ok   T5: isNucleus membership
+ok   T6: special sets — chong gua = pure = palace heads; 63 dang / 64 bu dang
+ok   T6: lower/upper trigram split (zhen inner bits[0..2], hui outer bits[3..5])
+ok   T7: complementOf/reverseOf/swapOf/kingWenPartnerOf are involutions over all 64
+ok   T7: flipped/opposite pairs all have hamming === 6
+ok   T7: self-inverse gates == T7 list {1,2,27,28,29,30,61,62}
+ok   T7: self-swap gates == 8 chong gua {1,2,29,30,51,52,57,58}
+ok   T7: all 28 qian gua fixture pairs verify against computed o_reverse
+ok   T7: all 32 pang tong fixture pairs verify against computed o_inverse
+ok   T7: all 28 jiao gua fixture pairs (Hatcher vol.2 p.18) verify against computed o_swap
+ok   T7/C4: swapOf(3) === 40 (spec worked example), and swap != antipode for gate 3
+ok   T7: King Wen sequence rule — 32 pairs; 4 pair by complement, rest by inversion (R-H9)
+ok   T7: 28 inversion + 4 complement = 32 King Wen pairs, covering all 64 gates
+ok   T8: xiantian trigram positions — 8 unique compass points
+ok   T8: houtian circulation = Zhen E -> Xun SE -> Li S -> Kun SW -> Dui W -> Qian NW -> Kan N -> Gen NE
+ok   T8: mawangdui upper family order + lower cycle given; sovereign cycle = 24,19,11,34,43,1,44,33,12,20,23,2
+ok   T8: xiantianIndex(1) === 63 and xiantianIndex(2) === 0 (binary index delegates to verified bijection)
+ok   T17: table has 8 cases (k=0..6 + special)
+ok   T17 k=0: judgement of the original hexagram
+ok   T17 k=1: the changing line’s own statement
+ok   T17 k=2: both changing lines of the original, UPPER rules
+ok   T17 k=3: Tuan of both hexagrams
+ok   T17 k=4: two UNCHANGED lines of the RESULTING hexagram, LOWER rules
+ok   T17 k=5: the one unchanged line of the RESULTING hexagram
+ok   T17 k=6: Qian/Kun read yong; others read Tuan of the resulting hexagram
+ok   T18: 4 slots in canonical order oracle -> indication -> prognostic -> observation
+ok   T10: valuation scale ji/wujiu/li/xiong/ta with valences; hui/lin excluded to observation (Evolution)
+ok   T19: coin distribution = {6:1/8,7:3/8,8:3/8,9:1/8}, sums to 1
+ok   T19: yarrow distribution = {6:1/16,7:5/16,8:7/16,9:3/16}, sums to 1
+ok   T19: coin flattens moving-line odds vs yarrow (P(moving) 1/4 vs 1/4 line-level; moving 9 odds differ)
+ok   T19: castLine is deterministic under the same seed and yields only 6/7/8/9
+ok   T19: castHexagram records the method and zhiGua = benGua with exactly the moving lines flipped
+ok   T19: yarrow empirical hexagram distribution recorded (Rutt Table 18: 36/66/18/17)
+ok   T11: all 26 letters attributed, exactly one primary dimension each, all valid
+ok   T11: materialized table === rule reapplied (letterAttribution) for all 26
+ok   T11: distribution matches spec (Movement 9, Evolution 5, Being 5, Design 5, Space 2)
+ok   T11: R-L2 affricate detection (p.dzh = stop+fricative composite -> affricate -> Design)
+ok   T11: spot checks a->Being/Evolution, v->Evolution/Evolution, x->Movement/Space
+ok   T12: exactly 19 canonical marks, unique glyphs
+ok   T12: every mark has mark/name/metaphysicalRole/linguisticEquivalent/ontologicalAction
+ok   T12: canon keeps dimension null; H-F1b tentative attribution is separate and dimension-valid
+ok   T12: DMS marks carry coordinate roles (., °, ′, ″) and Verb-Field Triad (=, –, →)
+ok   §2.1: SENSE_DIMENSIONS = see->Movement, taste->Evolution, touch->Being, smell->Design, hear->Space (canon)
+ok   T13: 14 sound parameters + 5 tones; scale degrees map gong/shang/jue/zhi/yu -> Being/Design/Movement/Evolution/Space
+ok   T14: 4 color channels + 5 wuxing colors + 8 trigram colors + 6 HD anchors
+ok   T14: wuxing color bridge == H-F3 map (Wood->Movement … Water->Space)
+ok   T15: 20 fragment class rows; spot: line->Being, bigram->Evolution, nuclear->Design+Space, hexagram->Being+Movement, pairs->Design
+ok   dimensionOf: letter -> rule basis + H-F4
+ok   dimensionOf: mark -> canon null primary + H-F1b tentative
+ok   dimensionOf: sense -> canon (MECHANISM)
+ok   dimensionOf: sound/tone/color/wuxing/trigram/bigram/fragment lookups with basis flags
+ok   dimensionOf: unknown kind or id -> null
+ok   all constant tables are deeply frozen
+ok   every constant table carries a source field citing the spec
+[fragments] 69 passed, 0 failed
+ok   T23: SLOT_GRAMMAR has exactly 12 slots
+ok   T23: canon order Dimension..YijingWrapper
+ok   T23: SLOT_ORDER matches slot names
+ok   T23: emergent closure is separate (no single layer dictates it)
+ok   T23: every slot carries grammaticalRole + definition + sources
+ok   T24: PRODUCTIONS are P9..P14 in {lhs, rhs, conditions} form
+ok   T24: P9 keynotes Movement/Evolution/Being/Design/Space
+ok   T24: keynote grammatical functions [L922-933]
+ok   P10: Cardinal/Fixed/Mutable verb flavors verbatim
+ok   P10: signModality Virgo=Mutable, Aries=Cardinal, Leo=Fixed
+ok   rewrite parser: 7 steps from the author example
+ok   rewrite parser: assignments dimension/gate/line/color/tone/base
+ok   rewrite parser: G group -> axis/sign/house (Identity/Virgo/5th)
+ok   rewrite parser: marks — Gate carries ° Collapse, Line carries ' Pulse, Tone carries " Container
+ok   rewrite parser: round-trip formatRewrite(parseRewrite(s)) === s
+ok   rewrite parser: second parse of round-trip is stable
+ok   composeAddress: O_{k,l,c,t,b} = B_b∘T_t∘M_c∘L_l∘G_k composition string
+ok   composeAddress: produces a valid DMS address (gate/line/color/tone/base preserved)
+ok   composeAddress: arcSec round-trip via addressing.js
+ok   P14: Verb-Field Triad = Recognition / – Continuity / → Transformation
+ok   P14: verbs-of-being note quotes the operators
+ok   generateSentence: deterministic — same address twice -> identical string
+ok   generateSentence: different gate -> different sentence
+ok   generateSentence: Gate 25 archetype verb "Innocence" present; Gate 26 differs
+ok   generateSentence: Virgo (mutable) verb flavor shift/adapt/blend
+ok   generateSentence: all 4 canonical templates produce non-empty strings
+ok   generateSentences: 4 distinct renderings of one deep structure
+ok   generateSentence: templates are the canon four (minimal/final/consciousness/dimensional)
+ok   generateSentence: changing lines -> "Not yet complete" wrapper; static -> "Already complete"
+ok   generateSentence: consciousness template carries the axis polarity clause (complement Gate 46)
+ok   deepStructure: address decomposition carries bits + arcSecond + waveform note
+ok   generateSentence: lexicon override swaps the gate archetype deterministically
+ok   T25: BINARY_OVERLAY has 5 line-state entries incl. mirror + echo
+ok   T25: yin broken = subject/object split; yang solid = subject–verb unity
+ok   T25: sentenceFormFor — gate 25 line 4 (yang) changing -> binary split; 2 movers -> echo
+ok   T25: overlaySentence mirror reverses clause order deterministically
+ok   T26: 9 pipelines; mechanism-implementable = PL1,PL2,PL3,PL4,PL9
+ok   T26/PL1: fieldParse -> fields + pressure scores + P/D/M tags
+ok   T26/PL1: crystallineTranslate Being -> "I Am" embodiment/action
+ok   T26/PL1: authorityResolve — Monopole > Design > Personality; yang tiebreak
+ok   T26/PL1: pipelineRoute L1->L2->L4->L5 with L3 needs-definition
+ok   T26/PL2: GENERATOR_STEPS has 7 steps; interference off by default (no closure)
+ok   T26/PL2: interference enabled above threshold -> deterministic emergent closure
+ok   T26/PL3: yijingPhases phases 1-4, phase 5 needs-definition
+ok   T26/PL4: dmsToSentenceForm DMS -> binary -> form; CI params needs-definition
+ok   T19: successors(gate 25, line 4 moving) -> exactly 12 lawful successors (2^1 lattice + 10 distinct images)
+ok   T19: successor entries are frozen {state, via, rule} over rules E1/E2/E6
+ok   T19: lattice includes Ben Gua (no flip) and Zhi Gua (all flips)
+ok   T19: dedup quotient — reverse (26) absorbs the King Wen pair partner
+ok   T19: successor states are re-feedable (static 7/8 lines)
+ok   T19: static gate (k=0) -> 1 lattice node (itself) + operator images
+ok   T19: rules filter — E1 only yields exactly the 2^k lattice
+ok   T19: normalizeState accepts a bare gate number; movingLinesOf reads 6/9
+ok   E1: enumerateLattice k=1 -> 2 nodes; count form walks lowest-line-first (line 1 -> gate 12)
+ok   E1: explicit moving line [4] -> top = zhi gua 42
+ok   E1: enumerateLattice k=3 -> 8 nodes, 12 edges (Boolean lattice B3)
+ok   E1: depth control — k=3 maxDepth=1 -> 1 + 3 = 4 nodes, 3 edges
+ok   E1: explicit changing-line set {2,5} -> 4 nodes over those lines
+ok   T17: readingPath([4]) -> k=1 case K1 (the changing line statement)
+ok   T17: Qian all-nines special case -> yong text
+ok   T17: k=0 -> Tuan of the original hexagram
+ok   T17: readingPath via is fragments.evaluateReading when available, local table otherwise
+ok   E6: pairPartner 25<->26, 63<->64
+ok   PL9: banXiangGrid(25) — subject zhen/Arousing, object qian/Creative
+ok   PL9: pairs — inverse 46 (pang tong), swap 34 (jiao gua), nuclear 53 (hu gua)
+ok   PL9: symmetry flags — gate 1 is self-reverse/self-swap, complement maps to gate 2
+ok   §5: PREDICTION_DISCLAIMER quotes mechanism-not-oracle + H-F7
+ok   Predictor: works engine-less; next(state) === successors(state)
+ok   Predictor: lattice + readingPath + grid + disclaimer exposed
+ok   Predictor: optional engine is stored, never required
+
+70 passed, 0 failed
+[generative] 70 passed, 0 failed
+[emergence] 53 passed, 0 failed
+[scale] 41 passed, 0 failed
+[canon] 43 passed, 0 failed
+[chains-colors] 55 passed, 0 failed
+[ports-b] 96 passed, 0 failed
+[ports-c] 59 passed, 0 failed
+[living-loop] 31 passed, 0 failed
+
+866 passed, 0 failed
+ok   ato-analogy selfTest() === true
+ok   solveAnalogy Klein = 10011001 (man loves dark)
+ok   kingwen round-trip all 64 (bijective)
+ok   kingwen table has 64 entries, gate1=63, gate2=0, gate3=17
+ok   hexagram names: 1=The Creative, 2=The Receptive, 3=Difficulty at the Beginning
+ok   fuxi-encoder encode/decode + flip/inverse/opposite involutions, 6 neighbors each
+ok   tool-factory deterministic: same request twice -> same id
+ok   tool id is hex stableId form
+ok   tool address shape {gate,line,color,tone,base} + addressKey + levelName
+ok   L1 yin/yang runtime works
+ok   address rule: targetGate=((14+5*7-1)%64)+1=49, line=6, color=tone=6, base=((6-1)%5)+1=1
+ok   explicit level wins (5=Hexagram)
+ok   dimension-operation fallback transition->3
+ok   L6 event packet {sequence,from,to,signal,address}
+ok   L7 Markov seeded: two fresh factories same walk, <=16 tokens
+ok   dimension-router resolves Movement sentence
+ok   dimension-router unresolved on empty match
+ok   dimension-router Being=When mapping
+ok   scene-grammar select picks matching rule a
+ok   scene-grammar reinforce clamps weight to [0.05, 8]
+ok   scene-grammar tickModulo condition
+ok   GateLocus.meet -> {pair, overlap, tension} hamming-derived (1 vs 2: complement)
+ok   GateProcessField tick -> voices for 5 dimensions, 64 loci
+ok   meetAll -> 2016 pairwise relations
+ok   addressed gate observes + history ring capped at 24
+ok   CANONICAL_CHANNELS has 36 pairs
+ok   Sacral=[5,14,29,34,59], 57 in Spleen only
+ok   9 centers
+ok   channelsForGate(10) = [10,20],[10,34],[10,57]
+ok   lawful-grammar spec has 4 invariants + bnf
+ok   lawful-grammar validate ok, rejects illegal part
+ok   publicAddress strips private coords
+ok   recall returns sanitized precedents (no rawText/userId/private coords)
+ok   contribute -> sanitized public form
+ok   media-field: morphFrames(24,41,4) -> 4 frames of 64*64*4 bytes, byte-identical across instances
+ok   media-field: changing lines = popcount(xor) = 2 (lines 2,6) for gates 24->41
+ok   media-field: injectFuXi/tick/frameRGBA deterministic + timeline exportFrames delays
+ok   codeWeaver.analyze -> functions/imports/exports/signature
+ok   codeWeaver.weave -> deterministic module string containing export; diffSummary flags change
+ok   artifacts: BMP magic + size + offset 54 + bottom-up BGR first pixel
+ok   artifacts: GIF89a header + trailer + byte-deterministic
+ok   artifacts: weaveArtifact -> {kind code, <name>.js, text/javascript, fnv hash} + writer list
+
+42 passed, 0 failed
+govinda-structure: PASS
+focal-weight-calculator: PASS {"inputs":{"knowledge":1,"causal":0.75,"temporal":0.5,"dependency":0.25},"operatorScores":{"false":0,"and":0,"a_and_not_b":0,"a":1,"not_a_and_b":0.25098039215686274,"b":0.25098039215686274,"xor":0.5019607843137255,"or":1,"nor":0.5019607843137255,"xnor":0.4980392156862745,"not_b":0.7490196078431373,"b_implies_a":1,"not_a":0,"a_implies_b":0.4980392156862745,"nand":0.7490196078431373,"true":1},"spaceWeight":0.49142156862745096}
+{
+  "ok": true,
+  "identity": "artifact:kimi-operator-source",
+  "address": {
+    "planetary": "Mercury",
+    "dimension": "Movement",
+    "gate": 24,
+    "line": 1,
+    "color": 2,
+    "tone": 3,
+    "base": 4,
+    "degree": 135,
+    "minute": 0,
+    "second": 0,
+    "arcAxis": "Horizontal",
+    "zodiac": "Leo",
+    "house": 5
+  },
+  "projections": {
+    "knowledge": 31,
+    "causal": 2,
+    "temporal": 3,
+    "dependency": 2
+  },
+  "macro": {
+    "containers": [
+      "pure-synthia-automata"
+    ],
+    "neighbors": [
+      "transitions.js"
+    ],
+    "upstream": [
+      "addressing.js"
+    ],
+    "downstream": [
+      "focal-state-space.js"
+    ]
+  },
+  "micro": {
+    "components": [
+      "OPERATORS",
+      "operatorById"
+    ],
+    "localStates": [
+      {
+        "gate": 24,
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "gate": 23,
+        "bits": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "relationships": [
+      "transition.operatorId -> operator.id"
+    ],
+    "transitions": [
+      1
+    ]
+  },
+  "transition": {
+    "sequence": 1,
+    "type": "transition",
+    "transition": "mirror",
+    "operator": "o_reverse",
+    "args": {},
+    "before": {
+      "gate": 24,
+      "bits": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "gate": 23,
+      "bits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "result": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "replay": {
+    "reproduced": true,
+    "usedArtifactSnapshot": false,
+    "reanalyzed": false,
+    "transition": "mirror",
+    "operator": "o_reverse",
+    "expected": {
+      "gate": 23,
+      "bits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "gate": 23,
+      "bits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  }
+}
+universal-execution-bridge: PASS (foreign synthesis + 1,000,000-loop workload in 9 ms)
+mesh-rule-synthesizer: PASS
+execution-loop-orchestrator: PASS
+paper-runtime-sandbox: PASS
+runtime-adapter-registry: PASS

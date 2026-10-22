@@ -1,0 +1,8 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> synthia-state-space-foundation@0.1.0 test:offline
+> node --experimental-vm-modules scripts/check-offline.mjs
+
+(node:148) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Offline module graph: 138 modules parsed; foundation linked and executed 42.

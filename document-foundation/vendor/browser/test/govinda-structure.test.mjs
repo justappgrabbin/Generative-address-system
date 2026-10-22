@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import { govindaTrigram,trigramDirection,innerTrigramStructure,directionalInteraction,GOVINDA_KING_WEN_TEMPORAL_SEQUENCE,GOVINDA_ABSTRACT_TEMPORAL_MAPS,GOVINDA_HOUSE_EXAMPLES,govindaStateEvidence } from '../src/state-space/govinda-structure.js';
+
+assert.equal(govindaTrigram([1,1,1]).id,'KIAN');
+assert.equal(trigramDirection([1,0,0]).direction,'up');
+assert.equal(trigramDirection([0,1,1]).direction,'down');
+const g1=innerTrigramStructure(1);
+assert.equal(g1.outer.lower.id,'KIAN');
+assert.equal(g1.inner.nuclearGate,1);
+assert.deepEqual(g1.membership[3],['A','C','D']);
+assert.equal(directionalInteraction(1).outcome,'parallelism-up');
+assert.equal(directionalInteraction(12).outcome,'divergence');
+assert.equal(directionalInteraction(11).status,'unresolved-discriminator');
+assert.deepEqual(GOVINDA_KING_WEN_TEMPORAL_SEQUENCE,['JEN','SUN','LI','KUN','DUI','KIAN','KAN','GEN']);
+assert.equal(GOVINDA_ABSTRACT_TEMPORAL_MAPS.cycleForm.KIAN,'LI');
+assert.equal(GOVINDA_ABSTRACT_TEMPORAL_MAPS.axialForm.KIAN,'GEN');
+assert.deepEqual(GOVINDA_HOUSE_EXAMPLES.KIAN.gates,[1,44,33,12,20,23,35,14]);
+const evidence=govindaStateEvidence(24);
+assert.ok(evidence.projections.knowledge.length&&evidence.projections.causal.length&&evidence.projections.temporal.length&&evidence.projections.dependency.length);
+console.log('govinda-structure: PASS');
