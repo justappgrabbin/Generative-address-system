@@ -44,3 +44,11 @@ Source: Synthia State-Space Foundation (2).zip, Drive `19vpMZv9R-xlqhnuGg6zfYjj8
 - Preserved original vendor runtime files and the original archive outside this descendant. Omitted inactive model-building packages and private northstar documents from this selected runtime distribution. Existing repository application and voice sources are unchanged.
 
 This is a working substrate increment, not completion of the specification's language, charting, morphology, center-emergence or generative-media research.
+# 0.4.2 — native learning and addressed tool generation
+
+- Restore native DISEMINER observation and claim extraction alongside dictionary storage, while retaining existing journal policies for replay.
+- Connect the existing integrated assembly's Klein context evaluator directly to actual tool/contact invocations on the shared mesh. Retain the resulting language and context evidence in field observations.
+- Expose the existing Tool Factory through field commands and the existing tool selector. Honor supplied address fields, await generated execution, and restore learned counts, rules, events, and random-generator state through the same journal.
+- Connect the existing ATO feature-space analogy and Hamming ranking to field-owned binary representations. Completed vectors do not require an already-stored exact match.
+- Register generated callables in the existing execution synthesizer, verify proposed capabilities against supplied behavioral examples, and reconstruct installed capabilities through journal replay. Fix installation of candidates whose behavioral probes all failed.
+- Bundle the existing authority imports into the offline application, with no new source archive collection or duplicate factory.

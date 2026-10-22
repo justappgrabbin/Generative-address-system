@@ -51,7 +51,10 @@ export function stableId(value) {
 /** Seeded PRNG derived from stableId (used only by the L7 Markov walk). */
 function seeded(seed) {
   let x = parseInt(stableId(seed).slice(0, 8), 16) || 1;
-  return () => ((x = Math.imul(x ^ (x >>> 15), 1 | x), x ^= x + Math.imul(x ^ (x >>> 7), 61 | x), (x ^ (x >>> 14)) >>> 0) / 4294967296);
+  const random=() => ((x = Math.imul(x ^ (x >>> 15), 1 | x), x ^= x + Math.imul(x ^ (x >>> 7), 61 | x), (x ^ (x >>> 14)) >>> 0) / 4294967296);
+  random.getState=()=>x;
+  random.setState=value=>{x=value;};
+  return random;
 }
 
 function planLevel(request, route) {
@@ -66,20 +69,21 @@ function planLevel(request, route) {
 
 function makePlan(request, route) {
   const level = planLevel(request, route);
-  const gate = Number.isInteger(request.gate) ? request.gate : route.seedGate;
+  const gate = Number.isInteger(request.gate) ? request.gate : request.address?.gate??route.seedGate;
   if (gate < 1 || gate > 64) throw new FactoryError('INVALID_GATE', 'gate must be 1..64');
-  const line = (level % 6) + 1;
+  const line = request.address?.line??(level % 6) + 1;
   return Object.freeze({
     level,
     gate,
-    targetGate: ((gate + level * 7 - 1) % 64) + 1,
+    targetGate: request.targetGate??((gate + level * 7 - 1) % 64) + 1,
     line,
-    color: ((line - 1) % 6) + 1,
-    tone: ((line - 1) % 6) + 1,
-    base: ((line - 1) % 5) + 1,
+    color: request.address?.color??((line - 1) % 6) + 1,
+    tone: request.address?.tone??((line - 1) % 6) + 1,
+    base: request.address?.base??((line - 1) % 5) + 1,
     dimension: route.dimension,
     operation: route.operation,
     purpose: request.purpose || null,
+    ...(request.address?{address:clone(request.address)}:{}),
   });
 }
 
@@ -87,7 +91,7 @@ function makePlan(request, route) {
 function makeRuntime(plan, id) {
   const random = seeded(id);
   const state = { seen: new Map(), rules: [], events: [] };
-  const addressKey = `${plan.dimension}:G${plan.gate}.L${plan.line}.C${plan.color}.T${plan.tone}.B${plan.base}`;
+  const addressKey = plan.address?canonical(plan.address):`${plan.dimension}:G${plan.gate}.L${plan.line}.C${plan.color}.T${plan.tone}.B${plan.base}`;
   const implementations = [
     // L0 Base — echo the constant seed value back with the input
     async input => ({ address: addressKey, value: plan.base, input }),
@@ -150,7 +154,8 @@ function makeRuntime(plan, id) {
   ];
   return {
     execute: implementations[plan.level],
-    exportState: () => ({ seen: [...state.seen], rules: clone(state.rules), events: clone(state.events) }),
+    exportState: () => ({ seen: [...state.seen], rules: clone(state.rules), events: clone(state.events),...(plan.address?{randomState:random.getState()}:{} ) }),
+    restoreState: snapshot=>{state.seen=new Map(snapshot.seen);state.rules=clone(snapshot.rules);state.events=clone(snapshot.events);if(snapshot.randomState!==undefined)random.setState(snapshot.randomState);},
   };
 }
 
@@ -178,15 +183,15 @@ export class ToolFactory {
     if (!DIMENSION_META[route.dimension]) throw new FactoryError('UNKNOWN_DIMENSION', route.dimension);
     const plan = makePlan(request, { ...DIMENSION_META[route.dimension], ...route });
     const identity = {
-      version: 'pure-synthia-merged-tool-factory.v1',
+      version: request.address?'pure-synthia-merged-tool-factory.addressed.v2':'pure-synthia-merged-tool-factory.v1',
       plan,
       request: { purpose: request.purpose || null, input: request.input || null },
     };
     const id = `tool-${stableId(identity)}`;
     if (this.tools.has(id)) return Object.freeze({ status: 'existing', tool: this.tools.get(id) });
     const runtime = makeRuntime(plan, id);
-    const address = { gate: plan.gate, line: plan.line, color: plan.color, tone: plan.tone, base: plan.base };
-    const addressKey = `${plan.dimension}:G${plan.gate}.L${plan.line}.C${plan.color}.T${plan.tone}.B${plan.base}`;
+    const address = plan.address?clone(plan.address):{ gate: plan.gate, line: plan.line, color: plan.color, tone: plan.tone, base: plan.base };
+    const addressKey = plan.address?canonical(plan.address):`${plan.dimension}:G${plan.gate}.L${plan.line}.C${plan.color}.T${plan.tone}.B${plan.base}`;
     const tool = {
       id,
       name: `${TOOL_LEVELS[plan.level].name}${plan.dimension}G${plan.gate}L${plan.line}`,
@@ -199,6 +204,7 @@ export class ToolFactory {
       purpose: plan.purpose,
       execute: (input, context = {}) => runtime.execute(input, context),
       exportState: runtime.exportState,
+      restoreState: runtime.restoreState,
     };
     this.tools.set(id, tool);
     return Object.freeze({ status: 'generated', tool });

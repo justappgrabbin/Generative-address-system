@@ -1,6 +1,16 @@
-# SWARM-OS / Synthworld integration map
+# State-space integration map
 
 This is an implementation inventory against the user's October 22, 2026 Integrated Developer Specification v1.0 and subsequent corrections. The supplied requirements define the target. Tests check code against that target; they do not ask the user to establish the design again. This file is an index, not a verbatim replacement for the supplied specification.
+
+## Current scope and completed connections (0.4.2)
+
+The current assignment is the state space. Game/world references below are historical source locations, not active implementation work.
+
+Native DISEMINER learning/extraction, the integrated assembly's `KleinContextRuntime`, the existing Tool Factory, ATO feature-space analogy, and the existing execution synthesizer now have tested live paths into the same Foundation journal, field and mesh. Generated tools are executable donors, not descriptor-only registrations. Their state survives restart. Failed behavioral probes cannot install capabilities.
+
+The supplied later relational/temporal/morph patches target a different `FederatedSynthia` base and different address interfaces. They were not overlaid blindly. Their bounded-history defects are not imported into the active runtime. The supplied LCM resolver emits global degrees and leaves mathematical morphology operations as descriptors; it has not replaced the current 0–29 operational address boundary. The preserved style/deep-structure engines instantiate their own substrate and contain older conflicting coordinate conventions; mounting them directly would violate the shared-state requirement. These are concrete integration boundaries, not claims that the components do not exist.
+
+Relevant Euclid sources located in Drive: `Elements.pdf` (`1bAAtBMQ-fAb2wzK7bM4a_ULRCQFxTaBh`) and Byrne's illustrated `Elements-I-VI.pdf` (`1bASWMDt3zxCUFafb2n-lzWfkR0ZMTApv`). Book I constructions, Book V ratios, Book VI similarity, and Book XI solid definitions were inspected. These sources supply mathematical operations and constraints, not an automatic correspondence from arbitrary words to addressed visual forms.
 
 ## Preserved corrections
 
@@ -25,8 +35,8 @@ All paths below are relative to this directory unless prefixed by a repository n
 | Execution spine and resolver | `vendor/spine/src/synthia-system.mjs`, `vendor/spine/src/universal-runtime.mjs`, `vendor/spine/src/execution-address-resolver.mjs` | Existing engine used by `src/foundation.mjs`; donor computational address bookkeeping remains separately labeled. |
 | Mesh and formation | `vendor/spine/src/pure-synthia/mesh/mesh.js`, `mesh/channels.js` | Actual tool-call chains route StatePackets; third crossing/level stabilizes the existing channel. `src/formation-views.mjs` reads that one record in two perspectives. |
 | Formation persistence | `src/foundation.mjs: restore`, `tests/formation-continuity.test.mjs` | Three actual AUTOLING→Conversation chain executions stabilize a reusable sequential capability. Fresh Foundation replays the same channel and mesh. Fourth interaction retains identity and stabilization history. |
-| Klein tools | `vendor/spine/src/pure-synthia/automata/tools/`, `src/document-tool-policy.mjs` | Sixteen mounted contracts tested through the journaled field bridge. Control of Style and Situation Router are not yet mapped to verified canonical implementations in this inventory. |
-| Tool Factory | `vendor/spine/src/pure-synthia/merged/tool-factory.js: ToolFactory.generate`, `engine/learning.js: LearningOrchestrator.grow` | Source generation and mesh mounting exist. A complete four-primitive formation trace is still missing. |
+| Klein tools | `vendor/spine/src/pure-synthia/automata/tools/`, `src/document-tool-policy.mjs` | Sixteen mounted contracts tested through the journaled field bridge; native DISEMINER operations restored. The existing private context evaluator is connected. Style and Situation Router implementations were found; their independent substrates/seeded policies are not silently substituted for field semantics. |
+| Tool Factory | `vendor/spine/src/pure-synthia/merged/tool-factory.js: ToolFactory.generate`, `engine/learning.js: LearningOrchestrator.grow` | Live addressed generation, mesh mounting, selection/use, learned-state restoration, Hamming donor synthesis and installed-capability replay tested. A complete four-primitive formation trace remains distinct from these checks. |
 | Model Maker | `justappgrabbin/Stellarproximology-lab`, branch `codex/modelmaker-klein-assembly`, `Modelmaker-repair/assembly/training.py: fit_model` | Existing training assembly is pushed separately. No claim it participates in the browser swarm path yet. Original foundation archive also retains `model-building/Modelmaker-repair` and Trident. |
 | Neural Net Maker | `src/trainable-component.mjs` provides a small trainable component | This component is not silently substituted for the required Neural Net Maker. Canonical maker implementation and contribution remain to be traced. |
 | ATO | `vendor/ato-engine.mjs: AtoEngine`; native Boolean analogy in tool 03 | Existing ATO execution retained. An ATO engine's presence alone does not establish the ATO Foundry contribution. |

@@ -282,8 +282,8 @@ export class LearningOrchestrator {
    * engine.mesh.register -> lineage record. Deterministic ids come from the
    * factory; `forcedId` gives a stable public name (boot tools).
    */
-  grow({ purpose, input, dimension, gate, capabilities = [], hints = [], implementation = null, forcedId = null, learnedFrom = null }) {
-    const generated = this.factory.generate({ purpose, input, dimension, gate });
+  grow({ purpose, input, dimension, gate, address, level, targetGate, capabilities = [], hints = [], implementation = null, forcedId = null, learnedFrom = null }) {
+    const generated = this.factory.generate({ purpose, input, dimension, gate, address, level, targetGate });
     if (!generated || !generated.tool) {
       throw new Error(`ToolFactory could not generate (status: ${generated && generated.status})`);
     }
@@ -301,12 +301,25 @@ export class LearningOrchestrator {
         capabilities,
         dimension: gen.dimension,
         automatonForm: 'grown-tool',
-        implementation: implementation || ((runInput) => gen.execute(
+        implementation: implementation || ((runInput, {emit}) => {
+          if(address)emit({from:'sense',to:'respond',transition:'flow'});
+          return gen.execute(
           runInput && typeof runInput === 'object' && 'raw' in runInput
             ? (runInput.raw ?? (runInput.args || []).join(' '))
             : runInput,
-        )),
+          );
+        }),
       });
+      if(address){
+        automaton.address=structuredClone(address);
+        automaton.addressKey=gen.addressKey;
+        // The generated runtime owns learned counts/rules and its PRNG state.
+        // Include that state in the same automaton snapshot/rollback contract.
+        const exportOwned=automaton.exportState.bind(automaton),hydrateOwned=automaton.hydrate.bind(automaton);
+        automaton.exportState=()=>({ownedState:exportOwned(),factoryRuntime:gen.exportState()});
+        automaton.hydrate=snapshot=>{hydrateOwned(snapshot.ownedState);gen.restoreState(snapshot.factoryRuntime);return automaton;};
+        automaton.factoryGenerated=true;
+      }
       if (this.engine && this.engine.mesh) this.engine.mesh.register(automaton);
       this.grownById.set(toolId, automaton);
       const record = {

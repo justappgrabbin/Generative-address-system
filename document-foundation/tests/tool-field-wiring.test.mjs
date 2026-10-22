@@ -49,7 +49,7 @@ test('source and coordinate errors cannot mutate tools; rejected, missing and fa
  const missing=await app.runTool({tool:'success',source:'fixture',input:{operation:'summary',personId:'unknown'}});assert.equal(missing.tool.status,'INVESTIGATE');assert.equal(missing.ok,false);
  const failed=await app.runTool({tool:'research-browser',source:'fixture',input:{operation:'snapshot',projectId:'unknown'}});assert.equal(failed.tool.status,'FAILED');assert.ok(failed.tool.error);
  const restored=new Foundation({store:app.store});await restored.ready;assert.deepEqual(restored.field.snapshot(),app.field.snapshot());
- assert.deepEqual(app.tools().find(t=>t.id==='diseminer').capabilities,['observe','extract','query']);
+ assert.deepEqual(app.tools().find(t=>t.id==='diseminer').capabilities,['observe','extract','query','stats']);
 });
 test('field meaning supplies actual native tool operands, changes behavior, and persists across replay',async()=>{
  const app=new Foundation({store:new BrowserAutomataStore()});await app.ready;

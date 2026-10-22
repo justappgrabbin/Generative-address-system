@@ -286,8 +286,8 @@ export class MeshRuleSynthesizer {
       results.push({...candidate,compiled,probe,fitness});
     }
     results.sort((a,b)=>b.fitness-a.fitness);
-    const winner=results.find(r=>r.compiled?.ok && r.probe?.ok!==false) || results[0];
-    if(!winner?.compiled?.ok) return {ok:false,reason:'NO_COMPILABLE_MESH_RULE',...derived,results};
+    const winner=results.find(r=>r.compiled?.ok && r.probe?.ok===true);
+    if(!winner) return {ok:false,reason:'NO_VERIFIED_MESH_RULE',...derived,results};
     const capability = gapContext.requiredCapability || `mesh-capability-${this.installed.size+1}`;
     const installed = this.registerLearned({
       id:capability,
@@ -297,7 +297,7 @@ export class MeshRuleSynthesizer {
       behavioralContract:gapContext.behavioralContract,
       execute:winner.compiled.execute,
       rawBody:winner.compiled.rawBody,
-      provenance:{ donors:winner.donors, fitness:winner.fitness, mode:winner.mode },
+      provenance:{ source:'mesh-behavioral-probe',donors:winner.donors, fitness:winner.fitness, mode:winner.mode },
     });
     return {ok:true,capability,installed,winner,results,targetGate:derived.targetGate,queryTokens:derived.queryTokens};
   }

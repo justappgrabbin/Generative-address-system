@@ -23,6 +23,9 @@ import {composeImage} from './image-structure.mjs';
 import {parseAddress} from './operational-address.mjs';
 import {resolveFieldToolInput} from './field-tool-input.mjs';
 import {formationViews} from './formation-views.mjs';
+import {KleinContextRuntime} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/src/pure-synthia/engine/klein-context-runtime.js';
+import {FeatureSpace} from '../vendor/spine/src/pure-synthia/engine/boolean-ato.js';
+import {stableStringify} from '../vendor/spine/src/pure-synthia/engine/derivation.js';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -57,6 +60,7 @@ export class Foundation {
       }
     };
     this.system = new SynthiaSystem({engine:new SynthiaAutomata(),executionBridge:new UniversalExecutionBridge({sandbox:chamber})});
+    this.system.engine.klein = new KleinContextRuntime({engine:this.system.engine});
     this.documentToolPolicy = installDocumentToolPolicy(this.system.engine);
     this.lineage = new LineageAdapter(this.system.engine);
     this.kernel = new AutomataIngestionExecutionKernel({store,executionSurface:this.surface});
@@ -81,6 +85,7 @@ export class Foundation {
     return this;
   }
   transact(input, context, kind) {
+    context={toolPolicyVersion:'native-learning.v3',...context};
     const operation = this.queue.then(async () => {
       await this.ready;
       if(this.storageFault)throw new Error('Reload the foundation from its landed journal after the storage failure');
@@ -105,11 +110,12 @@ export class Foundation {
   }
   async apply(input, context={}, kind, id) {
     if(kind==='tool') {
-      const tool=this.system.engine.toolsById.get(input.tool);
+      const tool=this.system.engine.toolsById.get(input.tool)??this.system.engine.mesh.get(input.tool);
       if(!tool||typeof input.source!=='string'||!input.source.trim())throw new TypeError('Mounted tool id and source provenance required');
       // Validate the complete operational coordinate before any tool mutation.
       // Donor gate assignments are tool metadata, never semantic coordinates.
-      const address=input.address?parseAddress(input.address,{source:input.source}):null;
+      const requestedAddress=input.address??(tool.factoryGenerated?tool.address:null);
+      const address=requestedAddress?parseAddress(requestedAddress,{source:input.source}):null;
       const handoff=input.meaning?resolveFieldToolInput(this.field,input.meaning,input.input??{}):null;
       if(handoff?.status==='INVESTIGATE') {
         const receipt={tool:tool.id,source:input.source,address,status:'INVESTIGATE',handoff,reason:'The field must resolve meaning before this tool runs'};
@@ -118,10 +124,16 @@ export class Foundation {
       }
       const saved={state:tool.exportState(),calls:tool.calls,lifecycle:tool.lifecycle};
       let run,error=null;
-      try {run=tool.run(handoff?.input??input.input??{},{...context,source:id,address,dimension:address?.dimension??context.dimension,fieldMeaning:handoff?.meaning??null});}
+      let kleinEvaluation=null;
+      const toolContext={...context,source:id,address,dimension:address?.dimension??context.dimension,fieldMeaning:handoff?.meaning??null};
+      try {
+        if(context.toolPolicyVersion==='native-learning.v3'&&!tool.factoryGenerated)kleinEvaluation=this.system.engine.klein.evaluate({nodeId:id,eventType:'field-tool',invocations:[{toolId:tool.id,input:handoff?.input??input.input??{}}],address,dimension:toolContext.dimension,meshState:handoff?.meaning??null,context:toolContext});
+        run=tool.run(handoff?.input??input.input??{},toolContext);
+        run={...run,output:await run.output};
+      }
       catch(failure){tool.hydrate(saved.state);tool.calls=saved.calls;tool.lifecycle=saved.lifecycle;error={code:failure.code??'TOOL_ERROR',message:String(failure.message??failure)};}
-      const status=error?'FAILED':run.output?.ok===false?'REJECTED':run.output==null?'INVESTIGATE':'EXECUTED';
-      const receipt={tool:tool.id,source:input.source,address,handoff,output:copy(run?.output??null),trace:copy(run?.trace??[]),status,error,lifecycleAccepted:run?.accepted??null,semanticTruth:'UNVERIFIED_TOOL_RESULT',traceAppearance:'DONOR_COMPUTATIONAL_METADATA'};
+      const status=error?'FAILED':run.output?.status==='UNAVAILABLE'?'UNAVAILABLE':run.output?.status==='INVESTIGATE'?'INVESTIGATE':run.output?.ok===false?'REJECTED':run.output==null?'INVESTIGATE':'EXECUTED';
+      const receipt={tool:tool.id,source:input.source,address,handoff,output:copy(run?.output??null),trace:copy(run?.trace??[]),status,error,lifecycleAccepted:run?.accepted??null,semanticTruth:'UNVERIFIED_TOOL_RESULT',traceAppearance:'DONOR_COMPUTATIONAL_METADATA',...(kleinEvaluation?{kleinEvaluation}:{})};
       const fieldContact=this.field.observe({modality:'tool-result',source_ref:id,address,observed_features:{tool:tool.id},tool_evidence:receipt});
       const shared=this.system.shareKnowledge({kind:'addressed-tool-result',receipt,observation:fieldContact.observation.id},{source:id});
       return {id,ok:receipt.status==='EXECUTED',tool:receipt,fieldContact,shared};
@@ -138,8 +150,58 @@ export class Foundation {
     }
     if(kind==='field') {
       if(input.operation==='tool')return this.apply(input.payload,context,'tool',id);
+      if(input.operation==='factory'){
+        const request=input.payload??{};
+        if(typeof request.source!=='string'||!request.source.trim())throw new TypeError('Factory operations require source provenance');
+        let result;
+        if(request.operation==='generate'){
+          const address=parseAddress(request.address,{source:request.source});
+          if(!Number.isInteger(request.level)||request.level<0||request.level>7)throw new TypeError('Factory requires an explicit structural level from 0 to 7');
+          if(request.capabilities!==undefined&&(!Array.isArray(request.capabilities)||request.capabilities.some(value=>typeof value!=='string')))throw new TypeError('Factory capabilities must be strings');
+          if(request.level===6&&(!Number.isInteger(request.targetGate)||request.targetGate<1||request.targetGate>64))throw new TypeError('Channel generation requires an explicit target gate');
+          const {automaton,record}=this.system.engine.learning.grow({purpose:request.purpose,input:request.input,address,dimension:address.dimension,gate:address.gate,level:request.level,targetGate:request.targetGate,capabilities:request.capabilities??[],learnedFrom:id});
+          this.system.engine.klein.syncOperators();
+          // Register the live callable, not just its descriptor, in the existing
+          // execution bridge's donor index. Both paths use this same automaton.
+          this.system.execution.capabilityMesh.register({id:`automaton:${automaton.id}`,gate:address.gate,kind:'automaton',labels:[request.purpose,...(request.capabilities??[])],description:request.purpose,execute:async(value,context={})=>await automaton.run(value,context).output,provenance:{source:request.source,toolId:automaton.id},metadata:{address:copy(address)}});
+          result={status:'MOUNTED',toolId:automaton.id,address:copy(address),record:copy(record),runtimeFamily:record.levelName};
+        }else if(request.operation==='analogy'){
+          if(!Array.isArray(request.features)||!request.features.length||!Array.isArray(request.terms)||request.terms.length!==3)throw new TypeError('Analogy requires named binary features and three field terms');
+          const meaning=this.field.resolveMeaning(request);
+          if(meaning.status!=='RESOLVED')result={status:'INVESTIGATE',meaning};
+          else{
+            if(!['xor','equivalence','xnor'].includes(request.mode??'equivalence'))throw new TypeError('Analogy completion requires XOR or equivalence');
+            const space=new FeatureSpace(request.features);
+            meaning.operands.forEach((operand,index)=>space.add(String(index),operand.state.representation.bits,{ref:operand.state.ref,source:operand.state.source}));
+            result={status:'COMPLETED',...space.analogy('0','1','2',request.mode??'equivalence'),meaning,method:'native-ATO-analogy-and-Hamming-distance'};
+          }
+        }else if(request.operation==='derive'){
+          if(typeof request.capability!=='string'||!request.capability.trim()||!Array.isArray(request.examples)||!request.examples.length||request.examples.length>64||request.examples.some(example=>!Object.hasOwn(example,'input')||!Object.hasOwn(example,'expected')))throw new TypeError('Derivation requires a capability name and 1–64 input/expected examples');
+          const snapshots=[...this.system.mesh.automata.values()].filter(tool=>tool.factoryGenerated).map(tool=>({tool,state:tool.exportState(),calls:tool.calls,lifecycle:tool.lifecycle}));
+          const gap={requiredCapability:request.capability,requirements:request.requirements??[],canonicalAddress:request.address?parseAddress(request.address,{source:request.source}):null,behavioralContract:{examples:copy(request.examples)}};
+          const ranked=this.system.execution.meshSynthesizer.query(gap);
+          const synthesis=await this.system.execution.meshSynthesizer.synthesize(gap,{probeCandidate:async execute=>{
+            try{
+              for(const example of request.examples){const actual=await execute(copy(example.input),{source:request.source});if(stableStringify(actual)!==stableStringify(example.expected))return {ok:false,progress:0,behaviorMatch:0,newFailures:1};}
+              return {ok:true,progress:1,behaviorMatch:1,newFailures:0};
+            }finally{for(const saved of snapshots){saved.tool.hydrate(saved.state);saved.tool.calls=saved.calls;saved.tool.lifecycle=saved.lifecycle;}}
+          }});
+          result={status:synthesis.ok?'SYNTHESIZED':'FAILED',capability:request.capability,reason:synthesis.reason??null,donors:synthesis.ok?[...synthesis.winner.donors]:[],mode:synthesis.ok?synthesis.winner.mode:null,candidateCount:synthesis.results?.length??synthesis.candidates?.length??0,verifiedExamples:synthesis.ok?request.examples.length:0,neighbors:ranked.neighbors.map(entry=>({id:entry.node.id,hammingDistance:entry.distance})),method:'existing-mesh-rule-synthesizer',source:request.source};
+        }else if(request.operation==='execute'){
+          const node=this.system.execution.meshSynthesizer.installed.get(request.capability);
+          if(!node?.execute)result={status:'UNAVAILABLE',capability:request.capability,reason:'No verified capability has been installed'};
+          else{
+            const snapshots=[...this.system.mesh.automata.values()].filter(tool=>tool.factoryGenerated).map(tool=>({tool,state:tool.exportState(),calls:tool.calls,lifecycle:tool.lifecycle}));
+            try{result={status:'EXECUTED',capability:request.capability,output:await node.execute(copy(request.input),{source:request.source})};}
+            catch(error){for(const saved of snapshots){saved.tool.hydrate(saved.state);saved.tool.calls=saved.calls;saved.tool.lifecycle=saved.lifecycle;}throw error;}
+          }
+        }else throw new TypeError('Unknown factory operation');
+        const fieldContact=this.field.observe({modality:'tool-result',source_ref:id,address:result.address??null,tool_evidence:result});
+        const shared=this.system.shareKnowledge({kind:'factory',result},{source:request.source});
+        return {id,ok:['MOUNTED','COMPLETED','SYNTHESIZED','EXECUTED'].includes(result.status),factory:result,fieldContact,shared};
+      }
       const result=input.operation==='dictionary'
-        ? this.system.engine.toolsById.get('diseminer').run(input.payload,{source:id}).output
+        ? this.system.engine.toolsById.get('diseminer').run(input.payload,{...context,source:id}).output
         : input.operation==='formation'?this.formation(input.payload)
         : this.field.execute(input);
       const shared=this.system.shareKnowledge({kind:'document-field',entry:id,result},{source:'document-field'});
@@ -167,7 +229,9 @@ export class Foundation {
     const fiveW = symbol ? this.klein.ask5W(id) : null;
     const episode = this.ato.storeEpisode('foundation',{state:{id,fingerprint:session.fingerprint,address:record.address.id,ok:execution.ok}},1);
     const shared = this.system.shareKnowledge({kind:'ingestion',fingerprint:record.fingerprint,address:record.address,fields:record.fields,fiveW,episodeId:episode.id},{source:kind});
-    const fieldContact=this.field.observe({modality:kind==='chat'?'text':'artifact',source_ref:id,observed_features:{text:text||null,mime:session.normalized.mime??null},address:context.operationalAddress??null,tool_evidence:{fiveW,executionStatus:execution.ok}});
+    const contact=outcome.contact;
+    const toolEvidence=context.toolPolicyVersion==='native-learning.v3'?{fiveW,executionStatus:execution.ok,languageContact:contact?.stages??null,kleinEvaluation:contact?.kleinEvaluation??null}:{fiveW,executionStatus:execution.ok};
+    const fieldContact=this.field.observe({modality:kind==='chat'?'text':'artifact',source_ref:id,observed_features:{text:text||null,mime:session.normalized.mime??null},address:context.operationalAddress??null,tool_evidence:toolEvidence});
     return {id,ok:execution.ok,admission,record,outcome,fiveW,shared,atoEpisode:episode.id,fieldContact};
   }
   async executeCore(artifact,context) {
@@ -195,7 +259,10 @@ export class Foundation {
     }
     return outcome;
   }
-  tools() { return this.system.engine.listTools().map(tool=>tool.id==='diseminer'?{...tool,capabilities:['observe','extract','query'],automatonForm:'sourced dictionary adapter',policy:this.documentToolPolicy.version}:tool); }
+  tools() {
+    const native=this.system.engine.listTools().map(tool=>tool.id==='diseminer'?{...tool,capabilities:['observe','extract','query','stats'],automatonForm:'native distributional observation with sourced dictionary adapter',policy:this.documentToolPolicy.version}:tool);
+    return [...native,...[...this.system.engine.mesh.automata.values()].filter(tool=>tool.factoryGenerated).map(tool=>({id:tool.id,address:copy(tool.address),dimension:tool.dimension,capabilities:[...tool.capabilities],automatonForm:tool.automatonForm}))];
+  }
   imageCommand(command){return this.transact(command,{},'image');}
   async analyzePhoto(photoId,options={}){
     await this.ready;
@@ -337,11 +404,11 @@ export class Foundation {
     const observations=this.field.observations.filter(o=>o.modality==='tool-result');
     return {schema:'synthia.tool-field-wiring.v1',tools:this.tools().map(tool=>{
       const receipts=observations.filter(o=>o.tool_evidence?.tool===tool.id);
-      return {id:tool.id,mounted:this.system.engine.toolsById.has(tool.id),capabilities:tool.capabilities,fieldReceiptCount:receipts.length,lastStatus:receipts.at(-1)?.tool_evidence.status??'NOT_EXERCISED',addressBasis:'SUPPLIED_COORDINATE_ONLY'};
+      return {id:tool.id,mounted:this.system.engine.mesh.automata.has(tool.id),capabilities:tool.capabilities,fieldReceiptCount:receipts.length,lastStatus:receipts.at(-1)?.tool_evidence.status??'NOT_EXERCISED',addressBasis:'SUPPLIED_COORDINATE_ONLY'};
     }),meaningStatus:'SOURCED_CONTEXTUAL_RESOLUTION',generalUnderstandingVerified:false,automaticSemanticRoutingVerified:false};
   }
   audit() {
-    return {toolWiring:this.toolWiringAudit(),system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
+    return {toolWiring:this.toolWiringAudit(),system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),kleinContext:this.system.engine.klein.audit(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
   }
   export() { return copy({schema:'synthia.foundation.journal.v1',entries:this.history}); }
 }

@@ -1,3 +1,15 @@
+## 0.4.2 native learning and factory integration
+
+Verified: 41 foundation tests, 24 spine tests, the existing browser-donor suites, the offline execution graph, and mobile-width Chromium checks of both source and offline entry points. The browser checks exercised actual factory controls, native DISEMINER learning, private Klein context evaluations, reload, and continued generated-tool learning with external requests blocked.
+
+- Native DISEMINER observation and claim extraction run alongside dictionary storage. Actual contact evidence reaches the field.
+- The existing Klein context evaluator uses the same engine/mesh, imported directly from the integrated assembly.
+- The existing factory generates tools at full supplied addresses; generated runtime learning and PRNG state participate in snapshot/restore and journal replay.
+- Field-owned binary representations feed native ATO analogy completion and Hamming ranking.
+- Generated callables feed the existing execution synthesizer. Behavioral probes must pass before installation; installed capabilities execute on new inputs and are reconstructed on restart.
+
+These checks establish these connected execution paths. They do not establish unrestricted language understanding, automatic derivation of every dimensional rule, or a finished Euclid-driven picture generator. The Euclid editions and relevant proportion/similarity/solid-geometry sections were read as source material; no guessed word-to-geometry mapping was installed.
+
 ## 0.4 contextual construction and handoff
 
 Verified by the 35-test foundation suite: exact nested subdivision from a supplied origin; intrinsic identity versus append-only placement; all 16 mounted tools through the journaled field bridge; field-owned values consumed by native tool contracts; contextual lexical resolution with ambiguity controls; field-owned image reconstruction and novel learned compositions without source cache lookup; recursive reuse; contextual construction producing different pixels for the same terms; deterministic replay.

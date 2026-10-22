@@ -6,7 +6,14 @@ modules={}
 pattern=re.compile(r'(^\s*(?:import\s+(?:[^;]*?\s+from\s+)?|export\s+[^;]*?\s+from\s+)[\'"])([^\'"]+)([\'"])',re.M)
 dynamic=re.compile(r'(import\s*\(\s*[\'"])([^\'"]+)([\'"])')
 def collect(path):
- path=path.resolve();key='synthia/'+path.relative_to(root).as_posix()
+ path=path.resolve()
+ if path.is_relative_to(root):
+  key='synthia/'+path.relative_to(root).as_posix()
+ else:
+  # Bundle the existing authority directly, rather than copying its runtime
+  # into another vendor tree. Reject unrelated paths outside this package.
+  authority=root.parent/'Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE'/'authorities'/'execution-spine'/'src'/'pure-synthia'/'engine'
+  key='synthia-authority/'+path.relative_to(authority).as_posix()
  if key in modules:return key
  modules[key]=''
  source=path.read_text()

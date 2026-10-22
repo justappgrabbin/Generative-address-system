@@ -1,8 +1,28 @@
-# Synthia document foundation 0.4.1
+# Synthia document foundation 0.4.2
 
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
 Open `Synthia-Foundation-Offline.html`. It embeds the runtime modules. If your browser blocks local-file modules, serve this directory with any static-file server and open the same HTML. The server serves bytes only; computation and IndexedDB persistence run in the browser. Python is an optional existing build/static-serving utility, not a runtime dependency.
+
+For the source entry point, run `npm run serve` and open `http://localhost:8080/document-foundation/index.html`. The server serves the repository root because the source now imports the existing Klein context runtime directly from the integrated assembly. The offline HTML bundles that same runtime and remains self-contained.
+
+## Native learning and factory integration (0.4.2)
+
+New journal entries use the native DISEMINER observation and extraction methods alongside sourced dictionary storage. Their claims and actual contact-loop stages enter field observations. The existing `KleinContextRuntime` evaluates actual tool invocations against the same live mesh; older journal entries retain their recorded policy during replay. This restores native mechanisms without claiming that the supplied learner implements unrestricted language understanding.
+
+The existing Tool Factory can now generate and mount a tool through the operational state-space panel:
+
+```json
+{"operation":"factory","payload":{"operation":"generate","source":"user:factory-request","purpose":"analyze observations","level":4,"address":{"planetary":1,"dimension":"Being","gate":25,"line":4,"color":3,"tone":2,"base":5,"degree":29,"minute":59,"second":59,"arcFraction":99,"zodiac":1,"house":1}}}
+```
+
+The generated tool appears in the tool selector. Select it and send text or JSON to execute it. Its exact supplied address, learned runtime state, and generation/use history survive restart through the existing journal. Level 6 additionally requires an explicit `targetGate`. The factory uses its existing eight structural runtime families; this does not establish arbitrary algorithm invention.
+
+`factory` also accepts `{operation:"analogy",source,features,terms,mode}`. The three terms resolve through the existing field; each representation must contain a binary `bits` vector matching the named `features`. The existing ATO `FeatureSpace` performs analogy completion and ranks candidates by Hamming distance. It returns the completed vector even when no existing candidate matches exactly. Hashes remain tool identifiers, not feature vectors or semantic coordinates.
+
+Generated tools are also registered as **live executable donors** in the existing execution bridge. A `factory` payload with `{operation:"derive",source,capability,address,examples:[{input,expected}]}` uses that bridge's existing Hamming/semantic candidate search and composition. Each candidate must pass every supplied example before installation; probes restore donor learning state. `{operation:"execute",source,capability,input}` executes the installed capability on new input. Generation, derivation and execution replay through the same journal after restart. Passing examples verifies those examples, not every possible future input.
+
+Existing vendor modules were changed in place: `merged/tool-factory.js` and `engine/learning.js` under `vendor/spine/src/pure-synthia` now preserve supplied addresses and generated state; `vendor/browser/src/integration/mesh-rule-synthesizer.js` no longer installs a candidate when all behavioral probes fail. The original supplied archives remain available; no new archive collection or replacement factory was created.
 
 The existing chat, file ingestion and tool selector remain. **Operational state space** accepts JSON commands and shows real results. **Photo recovery** stores an original image file, verifies its recovered bytes, and opens the recovered image. Refresh restores landed commands, parameters and photos. Export contains the full private input journal; keep it private.
 
