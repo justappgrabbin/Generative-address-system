@@ -20,6 +20,8 @@ import {VisualSensory} from './visual-sensory.mjs';
 import {decodeImageBytes} from './browser-image-decoder.mjs';
 import {sha256Hex} from '../vendor/sha256.mjs';
 import {composeImage} from './image-structure.mjs';
+import {parseAddress} from './operational-address.mjs';
+import {resolveFieldToolInput} from './field-tool-input.mjs';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -94,11 +96,34 @@ export class Foundation {
     return operation;
   }
   chat(text, context={}) { return this.transact(String(text),context,'chat'); }
+  runTool(command,context={}) { return this.transact(command,context,'tool'); }
   async ingest(input, context={}) {
     const a = await normalizeArtifact(input,context);
     return this.transact({name:a.name,mime:a.mime,bytes:a.bytes,content:a.text},context,'artifact');
   }
   async apply(input, context={}, kind, id) {
+    if(kind==='tool') {
+      const tool=this.system.engine.toolsById.get(input.tool);
+      if(!tool||typeof input.source!=='string'||!input.source.trim())throw new TypeError('Mounted tool id and source provenance required');
+      // Validate the complete operational coordinate before any tool mutation.
+      // Donor gate assignments are tool metadata, never semantic coordinates.
+      const address=input.address?parseAddress(input.address,{source:input.source}):null;
+      const handoff=input.meaning?resolveFieldToolInput(this.field,input.meaning,input.input??{}):null;
+      if(handoff?.status==='INVESTIGATE') {
+        const receipt={tool:tool.id,source:input.source,address,status:'INVESTIGATE',handoff,reason:'The field must resolve meaning before this tool runs'};
+        const fieldContact=this.field.observe({modality:'tool-result',source_ref:id,address,tool_evidence:receipt});
+        return {id,ok:false,tool:receipt,fieldContact};
+      }
+      const saved={state:tool.exportState(),calls:tool.calls,lifecycle:tool.lifecycle};
+      let run,error=null;
+      try {run=tool.run(handoff?.input??input.input??{},{...context,source:id,address,dimension:address?.dimension??context.dimension,fieldMeaning:handoff?.meaning??null});}
+      catch(failure){tool.hydrate(saved.state);tool.calls=saved.calls;tool.lifecycle=saved.lifecycle;error={code:failure.code??'TOOL_ERROR',message:String(failure.message??failure)};}
+      const status=error?'FAILED':run.output?.ok===false?'REJECTED':run.output==null?'INVESTIGATE':'EXECUTED';
+      const receipt={tool:tool.id,source:input.source,address,handoff,output:copy(run?.output??null),trace:copy(run?.trace??[]),status,error,lifecycleAccepted:run?.accepted??null,semanticTruth:'UNVERIFIED_TOOL_RESULT',traceAppearance:'DONOR_COMPUTATIONAL_METADATA'};
+      const fieldContact=this.field.observe({modality:'tool-result',source_ref:id,address,observed_features:{tool:tool.id},tool_evidence:receipt});
+      const shared=this.system.shareKnowledge({kind:'addressed-tool-result',receipt,observation:fieldContact.observation.id},{source:id});
+      return {id,ok:receipt.status==='EXECUTED',tool:receipt,fieldContact,shared};
+    }
     if(kind==='image')return this.applyImage(input,id);
     if(kind==='photo') {
       const artifact=this.photoMemory.ingest({name:input.name,content:new Uint8Array(input.bytes),mode:'binary'});
@@ -110,6 +135,7 @@ export class Foundation {
       return {id,ok:recovery.isExact,photo,fieldContact,shared};
     }
     if(kind==='field') {
+      if(input.operation==='tool')return this.apply(input.payload,context,'tool',id);
       const result=input.operation==='dictionary'
         ? this.system.engine.toolsById.get('diseminer').run(input.payload,{source:id}).output
         : this.field.execute(input);
@@ -166,7 +192,7 @@ export class Foundation {
     }
     return outcome;
   }
-  tools() { return this.system.engine.listTools(); }
+  tools() { return this.system.engine.listTools().map(tool=>tool.id==='diseminer'?{...tool,capabilities:['observe','extract','query'],automatonForm:'sourced dictionary adapter',policy:this.documentToolPolicy.version}:tool); }
   imageCommand(command){return this.transact(command,{},'image');}
   async analyzePhoto(photoId,options={}){
     await this.ready;
@@ -195,9 +221,10 @@ export class Foundation {
     }
     if(input.operation==='teach'){
       if(input.outcome!==undefined&&!Number.isFinite(input.outcome))throw new TypeError('Finite numeric outcome required');
+      if(input.context?.dominatingStructure&&!this.field.structures.things.has(input.context.dominatingStructure))throw new TypeError('Unknown dominating structure');
       const feedback=this.imageMemory.teach(input);
       const ref=this.field.semantic.refFor(feedback.imageId);
-      const semanticEvidence=ref?this.field.semantic.teach({ref,term:feedback.label,source:feedback.source}):null;
+      const semanticEvidence=ref?this.field.semantic.teach({ref,term:feedback.label,source:feedback.source,context:input.context??{}}):null;
       const dictionary=this.system.engine.toolsById.get('diseminer').run({operation:'extract',entries:[{term:feedback.label,definition:`User-supplied label for measured image ${feedback.imageId}`,source:feedback.source}]},{source:id}).output;
       const autoling=this.system.engine.toolsById.get('autoling').run({operation:'pipeline',text:feedback.label},{source:id}).output;
       const fieldExecution=input.outcome===undefined?null:this.runVisualField(feedback.imageId,input.outcome);
@@ -211,7 +238,7 @@ export class Foundation {
       if(!this.field.nodes.has(key))this.field.register({address:input.address,provenance:input.provenance});
       const ref=this.field.semantic.attach({coordinate:input.address,representation:{format:'image-grammar.v1',structure:image.structure,pixelSha256:image.pixelSha256},source:input.imageId,provenance:input.provenance});
       const latest=this.imageMemory.feedback.filter(f=>f.imageId===input.imageId).at(-1);
-      if(latest)this.field.semantic.teach({ref,term:latest.label,source:latest.source});
+      if(latest)this.field.semantic.teach({ref,term:latest.label,source:latest.source,context:latest.context??{}});
       this.imageMemory.bindings.set(input.imageId,{address:copy(input.address),provenance:copy(input.provenance)});
       return {id,ok:true,imageBinding:{imageId:input.imageId,key,ref,provenance:input.provenance},fieldExecution:this.runVisualField(input.imageId)};
     }
@@ -222,6 +249,7 @@ export class Foundation {
     if(input.operation==='analyze')image=this.imageMemory.store({id:imageId,...input.frame,source:input.source});
     else if(input.operation==='compose')image=this.imageMemory.compose(input.recipe,imageId);
     else if(input.operation==='generate'){
+      if(input.dominatingStructure&&!this.field.structures.things.has(input.dominatingStructure))return {id,ok:false,semantic:{status:'INVESTIGATE',reason:'Unknown dominating structure'}};
       const autoling=this.system.engine.toolsById.get('autoling').run({operation:'pipeline',text:input.terms.map(t=>typeof t==='string'?t:t.text).join('\n')},{source:id}).output;
       construction=this.field.semantic.plan(input);
       if(construction.status!=='PLANNED')return {id,ok:false,semantic:construction,autoling};
@@ -302,8 +330,15 @@ export class Foundation {
   }
   registerPiece(piece) {return this.transact(piece,{},'lineage');}
   fitPieces(contract) {return this.transact(contract,{},'fit');}
+  toolWiringAudit() {
+    const observations=this.field.observations.filter(o=>o.modality==='tool-result');
+    return {schema:'synthia.tool-field-wiring.v1',tools:this.tools().map(tool=>{
+      const receipts=observations.filter(o=>o.tool_evidence?.tool===tool.id);
+      return {id:tool.id,mounted:this.system.engine.toolsById.has(tool.id),capabilities:tool.capabilities,fieldReceiptCount:receipts.length,lastStatus:receipts.at(-1)?.tool_evidence.status??'NOT_EXERCISED',addressBasis:'SUPPLIED_COORDINATE_ONLY'};
+    }),meaningStatus:'SOURCED_CONTEXTUAL_RESOLUTION',generalUnderstandingVerified:false,automaticSemanticRoutingVerified:false};
+  }
   audit() {
-    return {system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
+    return {toolWiring:this.toolWiringAudit(),system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
   }
   export() { return copy({schema:'synthia.foundation.journal.v1',entries:this.history}); }
 }

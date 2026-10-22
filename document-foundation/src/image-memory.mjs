@@ -22,9 +22,9 @@ export class ImageMemory {
     return {id,mime:'image/bmp',bytes,sha256:sha256Hex(bytes),pixelSha256:this.images.get(id).pixelSha256,width:frame.width,height:frame.height,alphaPolicy:'BMP preview composites transparency over white; stored RGBA stays exact'};
   }
   compose(recipe,id){const frame=composeImage(recipe,key=>this.images.get(key)?.structure);return this.store({id,...frame,source:recipe.source,lineage:frame.lineage});}
-  teach({imageId,label,source}){
+  teach({imageId,label,source,context={}}){
     if(!this.images.has(imageId)||typeof label!=='string'||!label.trim()||typeof source!=='string'||!source)throw new TypeError('Teaching requires a stored image, a label and an evidence source');
-    const result={id:`visual-feedback:${this.feedback.length+1}`,imageId,label:label.trim(),source};this.feedback.push(result);return structuredClone(result);
+    const result={id:`visual-feedback:${this.feedback.length+1}`,imageId,label:label.trim(),source,...(Object.keys(context).length?{context:structuredClone(context)}:{})};this.feedback.push(result);return structuredClone(result);
   }
   recognize(id,{limit=3}={}){
     const image=this.images.get(id);if(!image)throw new Error('Unknown image');

@@ -1,3 +1,9 @@
+## 0.4 contextual construction and handoff
+
+Verified by the 35-test foundation suite: exact nested subdivision from a supplied origin; intrinsic identity versus append-only placement; all 16 mounted tools through the journaled field bridge; field-owned values consumed by native tool contracts; contextual lexical resolution with ambiguity controls; field-owned image reconstruction and novel learned compositions without source cache lookup; recursive reuse; contextual construction producing different pixels for the same terms; deterministic replay.
+
+The context examples and native tool adapters are sourced test fixtures. They demonstrate the mechanism; they do not establish autonomous general language understanding, automatic extraction of every rule from a book, historical fidelity of all donors, arbitrary photo synthesis, or universal cross-field correspondences. Original retained-source records below describe the earlier versions and remain for provenance.
+
 # Document acceptance ledger
 
 TESTED means the named bounded path has reproducible evidence. USER-VERIFIED remains pending. This is not a claim that every document requirement is complete.

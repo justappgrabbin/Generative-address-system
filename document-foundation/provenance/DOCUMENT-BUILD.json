@@ -1,5 +1,5 @@
 {
-  "descendant": "synthia-document-foundation.v0.3.0",
+  "descendant": "synthia-document-foundation.v0.4.0",
   "sourceArchive": {
     "name": "Synthia-State-Space-Foundation (2).zip",
     "driveId": "19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys",
@@ -38,5 +38,11 @@
     "extractedTextSha256": "71464de27e63bf04c9b32c4da70d363af1f5db7dcdfac5412eaeeb6ea0334cb4",
     "application": "Use documents together: operational mechanism and represented structure. Final recap clarifies intrinsic identity versus contextual placement; dominating structures; Being-led read order; retained occurrence history. User corrections retain priority.",
     "dmsClarification": "Degree 0\u201329, minute 0\u201359, second 0\u201359; 5\u00b037\u203230\u2033 is a span expressed in this notation, not replacement field ranges."
+  },
+  "contextualHandoff": {
+    "module": "src/field-tool-input.mjs",
+    "scope": "Sourced native input bindings over field-owned representations; contextual lexical evidence and learned image construction",
+    "tests": "tests/tool-field-wiring.test.mjs; tests/semantic-construction.test.mjs",
+    "historicalAlgorithmFidelityVerified": false
   }
 }

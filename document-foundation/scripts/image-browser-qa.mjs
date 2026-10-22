@@ -52,6 +52,43 @@ try{
  await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  await page.locator('#image-preview').scrollIntoViewIfNeeded();await page.screenshot({path:fileURLToPath(new URL('../evidence/image-browser.png',import.meta.url))});
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
- const report={status:'PASS',gpuDisabled:true,pixelCheck,sourceFormats:['PNG','JPEG'],taughtExamplesChangeCandidates:true,sourceSuppliedGateActivated:17,numericOutcomeLearned:true,generated:{id:generated.id,width:generated.width,height:generated.height,sha256:generated.sha256},artifactDownloaded:true,corruptInputRecorded:true,fullReplayExact:true,mobileOverflow:false,pageErrors:errors,externalRequests:external};
+
+ // Continue the real UI flow through learned field meaning and contextual construction.
+ await page.setViewportSize({width:1100,height:900});
+ await page.locator('#command').fill(JSON.stringify([
+  {operation:'image:bind',payload:{imageId:second,address:{...address,gate:18},provenance:{source:'browser-QA:second-coordinate'}}},
+  ...['first-frame','second-frame'].map(id=>({operation:'defineStructure',payload:{id,dimension:'Being',source:'browser-QA:context'}}))
+ ]));await page.locator('#field-command button').click();
+ await page.waitForFunction(()=>document.getElementById('image-context').options.length===3);
+ for(const [ctx,labels] of [['first-frame',['foreground','background']],['second-frame',['background','foreground']]]){
+  for(const [i,imageId] of [first,second].entries()){
+   const before=await page.evaluate(()=>globalThis.synthiaFoundation.history.length);
+   await page.locator('#image-source').selectOption(imageId);await page.locator('#image-context').selectOption(ctx);await page.locator('#image-label').fill(labels[i]);await page.locator('#teach-image button').click();
+   await page.waitForFunction(n=>globalThis.synthiaFoundation.history.length>n,before);
+  }
+ }
+ await page.locator('#program-example').selectOption(generated.id);await page.locator('#program-name').fill('Observed pair');await page.locator('#learn-construction button').click();
+ await page.waitForFunction(()=>document.getElementById('generation-program').options.length===1);
+ const constructed=[];
+ for(const ctx of ['first-frame','second-frame']){
+  const before=await page.evaluate(()=>globalThis.synthiaFoundation.imageMemory.images.size);
+  await page.locator('#generation-context').selectOption(ctx);await page.locator('#generation-terms').fill('foreground\nbackground');await page.locator('#generate-state-image button').click();
+  await page.waitForFunction(n=>globalThis.synthiaFoundation.imageMemory.images.size>n,before);
+  constructed.push(await page.evaluate(()=>{const a=globalThis.synthiaFoundation,id=[...a.imageMemory.images.keys()].at(-1);return a.imageMemory.summary(id);}));
+ }
+ assert.notEqual(constructed[0].pixelSha256,constructed[1].pixelSha256);
+ assert.equal(constructed[0].fieldAddress.dominatingStructure,'first-frame');assert.equal(constructed[1].fieldAddress.dominatingStructure,'second-frame');
+ await page.locator('#command').fill(JSON.stringify({operation:'tool',payload:{tool:'klein-analogy',source:'browser-QA:tool',input:{vocab:['a','b'],A:['a'],B:['b'],C:['a']}}}));await page.locator('#field-command button').click();
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.at(-1)?.result?.tool?.status==='EXECUTED');
+ assert.match(await page.locator('#activity').textContent(),/UNVERIFIED_TOOL_RESULT/);
+ const final=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),entries:globalThis.synthiaFoundation.history.length}));
+ await page.reload();await page.waitForFunction(n=>globalThis.synthiaFoundation?.history.length===n,final.entries);
+ assert.deepEqual(await page.evaluate(()=>globalThis.synthiaFoundation.field.snapshot()),final.field);
+ await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await page.locator('#generate-state-image').scrollIntoViewIfNeeded();await page.screenshot({path:fileURLToPath(new URL('../evidence/context-construction-mobile.png',import.meta.url))});
+ assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
+ console.log(JSON.stringify({contextualConstructionUI:'PASS',sameTermsDifferentContextChangesPixels:true,toolReceiptVisible:true,replayExact:true,pageErrors:errors,externalRequests:external}));
+
+ const report={status:'PASS',contextualConstructionUI:true,sameTermsDifferentContextChangesPixels:true,toolReceiptVisible:true,contextualReplayExact:true,gpuDisabled:true,pixelCheck,sourceFormats:['PNG','JPEG'],taughtExamplesChangeCandidates:true,sourceSuppliedGateActivated:17,numericOutcomeLearned:true,generated:{id:generated.id,width:generated.width,height:generated.height,sha256:generated.sha256},artifactDownloaded:true,corruptInputRecorded:true,fullReplayExact:true,mobileOverflow:false,pageErrors:errors,externalRequests:external};
  await writeFile(new URL('../evidence/image-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 }finally{await browser.close();}

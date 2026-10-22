@@ -100,6 +100,18 @@ export class AddressedField {
     return {dimension,kind:dimension==='Space'?'derived-view':'perspective-view',slots,activationMaskHex:mask,encoding:'64 slot-occupancy bits, separate from six-line codes and parameters'};
   }
   defineStructure(payload){return this.structures.define(payload);}
+  attachRepresentation(payload){return this.semantic.attach(payload);}
+  teachMeaning(payload){
+    if(payload.context?.dominatingStructure&&!this.structures.things.has(payload.context.dominatingStructure))throw new TypeError('Unknown dominating structure');
+    return this.semantic.teach(payload);
+  }
+  resolveMeaning({terms,dimension,dominatingStructure}={}){
+    if(dominatingStructure&&!this.structures.things.has(dominatingStructure))return {status:'INVESTIGATE',reason:'Unknown dominating structure',dominatingStructure};
+    const resolution=this.semantic.resolve(terms,{dimension,dominatingStructure});
+    if(resolution.status!=='RESOLVED')return {status:'INVESTIGATE',resolution};
+    const frame=dominatingStructure?this.structures.enter({id:dominatingStructure}):null;
+    return {status:'RESOLVED',resolution,frame,operands:resolution.matches.map(match=>({term:match.term,teaching:match.selected,state:this.semantic.read(match.selected.ref)}))};
+  }
   placeStructure(payload){return this.structures.place(payload);}
   readStructure(payload){return this.structures.read(payload);}
   enterStructure(payload){return this.structures.enter(payload);}
@@ -109,12 +121,13 @@ export class AddressedField {
     return resolved;
   }
   execute(command){
-    const semantic=this.semantic,before=this.snapshot({includeSemantic:false});
+    const mutatesMeaning=['attachRepresentation','teachMeaning'].includes(command?.operation);
+    const semantic=this.semantic,before=this.snapshot({includeSemantic:mutatesMeaning});
     try {
-      if(!['register','observe','installRule','run','compose','transfer','view','slots','resolveAddress','defineStructure','placeStructure','readStructure','enterStructure'].includes(command?.operation))throw new TypeError('Unknown field operation');
+      if(!['register','observe','installRule','run','compose','transfer','view','slots','resolveAddress','defineStructure','placeStructure','readStructure','enterStructure','resolveMeaning','attachRepresentation','teachMeaning'].includes(command?.operation))throw new TypeError('Unknown field operation');
       if(command.operation==='view')return this.view(command.address,command.dimension);
       return this[command.operation](command.payload);
-    }catch(error){this.restore(before);this.semantic=semantic;throw error;}
+    }catch(error){this.restore(before);if(!mutatesMeaning)this.semantic=semantic;throw error;}
   }
   snapshot({includeSemantic=true}={}){return clone({schema:'synthia.addressed-field.v1',nodes:[...this.nodes].map(([key,n])=>[key,{...n,component:n.component.snapshot()}]),edges:this.edges,runs:this.runs,compositions:this.compositions,observations:this.observations,rules:[...this.rules],structures:this.structures.snapshot(),semantic:includeSemantic?this.semantic.snapshot():null});}
   restore(s){
@@ -122,5 +135,5 @@ export class AddressedField {
     const nodes=new Map(s.nodes.map(([key,n])=>{if(coordinateKey(n.address)!==key)throw new TypeError('Snapshot address mismatch');return [key,{...clone(n),component:new TrainableComponent(n.component)}];}));
     this.nodes=nodes;this.edges=clone(s.edges);this.runs=clone(s.runs);this.compositions=clone(s.compositions);this.observations=clone(s.observations);this.rules=new Map(clone(s.rules));this.semantic=new SemanticState(s.semantic);this.structures=new StructuralFrames(s.structures);return this;
   }
-  audit(){return {schema:'synthia.addressed-field.v1',slots:Object.fromEntries(PERSPECTIVES.map(d=>[d,{available:64,kind:d==='Space'?'derived-view':'perspective-view'}])),components:this.nodes.size,edges:this.edges.length,runs:this.runs.length,compositions:this.compositions.length,observations:this.observations.length,rules:[...this.rules.keys()],externalModelRequired:false,gpuRequired:false,unknown:['birth-to-address','nine-center-reference-selection','arc-to-color-sound','DMSA-CTB-assignment','Base-sharing','Bantu-language-rule-pack','four-Model-Maker-positions']};}
+  audit(){return {schema:'synthia.addressed-field.v1',slots:Object.fromEntries(PERSPECTIVES.map(d=>[d,{available:64,kind:d==='Space'?'derived-view':'perspective-view'}])),components:this.nodes.size,edges:this.edges.length,runs:this.runs.length,compositions:this.compositions.length,observations:this.observations.length,rules:[...this.rules.keys()],externalModelRequired:false,gpuRequired:false,unknown:['birth-to-address','nine-center-reference-selection','arc-to-color-sound','dimension-specific-CTB-DMS-alignment','Base-sharing','Bantu-language-rule-pack','four-Model-Maker-positions']};}
 }

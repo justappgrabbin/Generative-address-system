@@ -3,7 +3,7 @@ const app=new Foundation();globalThis.synthiaFoundation=app;
 const el=id=>document.getElementById(id);
 const show=v=>JSON.stringify(v,(_,x)=>typeof x==='bigint'?x.toString():x instanceof Uint8Array?{__synthiaBytes:Array.from(x)}:x,2);
 const append=(target,title,content)=>{const box=document.createElement('article');const heading=document.createElement('strong');heading.textContent=title;const pre=document.createElement('pre');pre.textContent=typeof content==='string'?content:show(content);box.append(heading,pre);el(target).append(box);};
-const describe=r=>r.field??r.image??r.semanticProgram??r.semantic??r.imageFeedback??r.imageFailure??r.imageBinding??r.photo??{address:r.record?.address?.id,path:r.record?.execution?.path,fiveW:r.fiveW,fieldContact:r.fieldContact};
+const describe=r=>r.tool??r.field??r.image??r.semanticProgram??r.semantic??r.imageFeedback??r.imageFailure??r.imageBinding??r.photo??{address:r.record?.address?.id,path:r.record?.execution?.path,fiveW:r.fiveW,fieldContact:r.fieldContact};
 const refresh=()=>{el('audit').textContent=show(app.audit());el('status').textContent=`Foundation ready · ${app.history.length} landed entries`;};
 async function run(task){el('status').textContent='Processing through the foundation…';try{const r=await task();append('activity',`${r.id} · ${r.ok?'Executed':'Execution evidence recorded'}`,describe(r));refresh();return r;}catch(e){el('status').textContent=`Processing issue: ${e.message}`;throw e;}}
 await app.ready;refresh();const storage=await app.store.audit();el('status').textContent+=` · ${storage.durable?'Saved on this device':'Memory session; export to retain history'}`;
@@ -32,6 +32,8 @@ async function showImageArtifact(id,download=false){
 }
 function recognition(){const id=el('image-source').value;el('recognition').textContent=id?show(app.imageMemory.recognize(id)):'Upload a photo and analyze its pixels, then teach an example.';}
 function renderImages(){
+ for(const id of ['image-context','generation-context']){const select=el(id),previous=select.value;select.replaceChildren();const empty=document.createElement('option');empty.value='';empty.textContent='Unspecified';select.append(empty);for(const name of app.field.structures.things.keys()){const option=document.createElement('option');option.value=name;option.textContent=name;select.append(option);}select.value=[...select.options].some(o=>o.value===previous)?previous:'';}
+
  for(const name of ['image-source','compose-left','compose-right','program-example']){const select=el(name),previous=select.value;select.replaceChildren();for(const image of app.imageMemory.images.values()){if(name==='program-example'&&!image.lineage?.parts?.length)continue;const option=document.createElement('option');option.value=image.id;option.textContent=`${image.id} · ${image.width} × ${image.height}`;select.append(option);}if([...select.options].some(o=>o.value===previous))select.value=previous;}
  const programs=el('generation-program'),previous=programs.value;programs.replaceChildren();for(const name of app.field.semantic.programs.keys()){const option=document.createElement('option');option.value=name;option.textContent=name;programs.append(option);}if([...programs.options].some(o=>o.value===previous))programs.value=previous;
  el('image-list').replaceChildren();for(const image of app.imageMemory.images.values()){
@@ -42,7 +44,7 @@ function renderImages(){
  recognition();
 }
 el('image-source').onchange=recognition;
-el('teach-image').onsubmit=async event=>{event.preventDefault();try{await run(()=>app.imageCommand({operation:'teach',imageId:el('image-source').value,label:el('image-label').value,source:'user:visual-feedback'}));el('image-label').value='';renderImages();}catch{}};
+el('teach-image').onsubmit=async event=>{event.preventDefault();try{await run(()=>app.imageCommand({operation:'teach',imageId:el('image-source').value,label:el('image-label').value,source:'user:visual-feedback',context:el('image-context').value?{dominatingStructure:el('image-context').value}:{}}));el('image-label').value='';renderImages();}catch{}};
 el('compose-images').onsubmit=async event=>{event.preventDefault();try{
  const left=app.imageMemory.images.get(el('compose-left').value),right=app.imageMemory.images.get(el('compose-right').value);if(!left||!right)throw new Error('Analyze at least one photo first');
  const height=Math.min(512,left.height,right.height),lw=Math.max(1,Math.round(left.width*height/left.height)),rw=Math.max(1,Math.round(right.width*height/right.height));
@@ -50,4 +52,4 @@ el('compose-images').onsubmit=async event=>{event.preventDefault();try{
  }catch(error){el('status').textContent=error.message;}};
 renderImages();
 el('learn-construction').onsubmit=async event=>{event.preventDefault();try{const result=await run(()=>app.imageCommand({operation:'learn-program',imageId:el('program-example').value,name:el('program-name').value,source:'user:demonstrated-construction'}));el('semantic-trace').textContent=show(result.semanticProgram??result.semantic);renderImages();}catch{}};
-el('generate-state-image').onsubmit=async event=>{event.preventDefault();try{const terms=el('generation-terms').value.split(/\r?\n/u).map(s=>s.trim()).filter(Boolean);const result=await run(()=>app.imageCommand({operation:'generate',program:el('generation-program').value,terms,source:'user:semantic-request'}));el('semantic-trace').textContent=show(result.construction??result.semantic);renderImages();if(result.image)await showImageArtifact(result.image.id);}catch{}};
+el('generate-state-image').onsubmit=async event=>{event.preventDefault();try{const terms=el('generation-terms').value.split(/\r?\n/u).map(s=>s.trim()).filter(Boolean);const result=await run(()=>app.imageCommand({operation:'generate',program:el('generation-program').value,terms,source:'user:semantic-request',dominatingStructure:el('generation-context').value||undefined}));el('semantic-trace').textContent=show(result.construction??result.semantic);renderImages();if(result.image)await showImageArtifact(result.image.id);}catch{}};

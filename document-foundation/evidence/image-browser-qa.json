@@ -1,5 +1,9 @@
 {
   "status": "PASS",
+  "contextualConstructionUI": true,
+  "sameTermsDifferentContextChangesPixels": true,
+  "toolReceiptVisible": true,
+  "contextualReplayExact": true,
   "gpuDisabled": true,
   "pixelCheck": {
     "equal": true,

@@ -1716,43 +1716,43 @@
   "modifiedDescendants": [
     {
       "path": "README.md",
-      "sha256": "2acad3a7b1693d52d7976e0225f8fbae36ac7b65f250bda78a9ccfb559afd539",
+      "sha256": "06b99c4f0748db7f5790c65096d3b48b8c1bf05192da93298279c91504eeb544",
       "originalSha256": "50860cd83f0900c73ed86ff3f92e587c4120595bd0b7ec35c868f410b38aff2c"
     },
     {
       "path": "Synthia-Foundation-Offline.html",
-      "sha256": "50494589c1abd114e7a6d7373c54367cd0c9bf8a310d3c5f903a0866c94e379c",
+      "sha256": "1c8a9d4965dbb12f9fafd1d42e64ac34de91181a4f95012f8d27bda0ebb6f222",
       "originalSha256": "c0a8893c7a8ddcf127af0dc9f805abc12f12ae2e52d5d91cddb759d66e607edb"
     },
     {
       "path": "index.html",
-      "sha256": "e270cd775c6b1907d0352f5568281879065612a126cf7aba916aa89c92019b7c",
+      "sha256": "f3ab02c56b7e644621c6c2d70b6246834560c2c3a02a33ad7abf47689373fff8",
       "originalSha256": "d54ecb3fd81f913f5ffeab22f0af32df7e5a13e23555feb7188a4dbadef387a3"
     },
     {
       "path": "package.json",
-      "sha256": "d6cb2b253340fdb10b868d2c841571214d24a984469910a3f0f8e0369d63a983",
+      "sha256": "867d18d138396ad26912ef3ffbe7f62b73a14e211e2639d33804217d93403186",
       "originalSha256": "0568de1248d9b0451a4618c495930d5a9d35836969e087c9861f7dbb6fef746b"
     },
     {
       "path": "src/app.mjs",
-      "sha256": "467ed533de243ca86168864fa3a7f7b369cbda69b79cdc85a7168004b9aaf06e",
+      "sha256": "93534275f8bc2384bbbb759ac2f0ac16ec9815e5aeb2ce37625c1e6f205d3c6c",
       "originalSha256": "fe5cc4e015ec630148f5b5308bd2fb30806578909f8027ab69c36a762e82cdff"
     },
     {
       "path": "src/foundation.mjs",
-      "sha256": "aaa62ed63620ee0e407571293ec4720c78e649f5882930fb0cc8620990092ade",
+      "sha256": "9b3f41edbed8316779d39df92fd1ab2efaea2e4db3edbf06d7a2ae001c472977",
       "originalSha256": "1cd933d1cb1bf127a739e43184c6572d8942ca4f2ce76ec63664556b7c61ff96"
     }
   ],
   "added": [
     {
       "path": "CAPABILITIES.md",
-      "sha256": "4470c91a25cdc883015923ccd81568f4bb3c22cd37a34fcd0a03109da5484d8f"
+      "sha256": "91a5be676d5e87551d571531861344b14ea25ec16f4de6afe663fe1a33075dc5"
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "9ec9d8f2c9d9f8e2ff69286b7a83a26f7f8d0f5b39b70c38a44be9c26f9004a5"
+      "sha256": "6f7adb2924a06c9350e1a5154cd60e6da5c7db7a7d6b0bf68374c2176ba005b7"
     },
     {
       "path": "examples/field-demo.mjs",
@@ -1764,11 +1764,11 @@
     },
     {
       "path": "scripts/image-browser-qa.mjs",
-      "sha256": "a6d48b94afd4da4c4110144c48404709f891c0b3554dd9169415c34384fba45d"
+      "sha256": "da179009aa890b88d20b7ea3f551f8c51650b1cc2b9c36fa9d4b416293e356c1"
     },
     {
       "path": "src/addressed-field.mjs",
-      "sha256": "2c5825447f127e667994985e5a11142baf9132ba115850b1bb31723635fdfde2"
+      "sha256": "a51b8e94e0a8926a6bb76a1280e1d56ef11227b743bf25a7d149eb80b4b1c3f3"
     },
     {
       "path": "src/browser-image-decoder.mjs",
@@ -1780,7 +1780,7 @@
     },
     {
       "path": "src/image-memory.mjs",
-      "sha256": "cde425fedea36a12f20232b29d3b2e21f91d401dfa7809a43faae47010277697"
+      "sha256": "74cfcb7429937b79f3dbafcf6bd96ded6162061a250c2b861d4bc2789ba20901"
     },
     {
       "path": "src/image-structure.mjs",
@@ -1830,7 +1830,7 @@
   "addressedConstructionAdditions": [
     {
       "path": "src/semantic-state.mjs",
-      "sha256": "0360dbd7bf8e89d119a4d3983bbc9a441b8c352c7cee9377f8344c007d6d79d5"
+      "sha256": "b4ad979bf7bc547b43229b6578feb2ba88fd20b32b4935abd25fdd854ddbdc7d"
     },
     {
       "path": "src/proportional-position.mjs",
@@ -1842,11 +1842,21 @@
     },
     {
       "path": "tests/semantic-construction.test.mjs",
-      "sha256": "f51d22272f9755b0f8c4d0f8f8f60a91c9591c3bec9e7779875c8c6c28fe8451"
+      "sha256": "107ead70b927cf02514a77a7d523d3012abbfd1a828f3e801385bde71a158c30"
     },
     {
       "path": "tests/document-rules.test.mjs",
       "sha256": "fd1e673cd5e72e7c21ccbebcaf834271499b2bd1c5804716c57479619d55b463"
+    }
+  ],
+  "contextualHandoffAdditions": [
+    {
+      "path": "src/field-tool-input.mjs",
+      "sha256": "593031b9b652b2b749f66b45471813819eaf309414323e0465575ebeb844dbd5"
+    },
+    {
+      "path": "tests/tool-field-wiring.test.mjs",
+      "sha256": "4deb4f1b1bf3c27ce81df743a34247cfe3881dec96c4839771a41a985e96910c"
     }
   ]
 }

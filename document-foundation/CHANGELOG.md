@@ -1,4 +1,13 @@
-# In development — addressed construction and document corrections
+# 0.4.0 — field-owned contextual meaning and tool handoff
+
+- Add contextual lexical evidence scoped to the dominating structure. The same expression can resolve to different state representations without erasing earlier uses.
+- Feed actual field-owned values into native tool inputs through versioned, sourced adapters. Unresolved meaning stops a semantic call before execution. Record successful, rejected, unavailable and failed tool results separately from automaton lifecycle acceptance.
+- Exercise all 16 mounted tools through journaled field observations and shared mesh publication; preserve results and errors across restart. Validate full supplied addresses before tool mutation and restore tool state when a call throws.
+- Add contextual image teaching and construction controls. Learned programs resolve contextual meanings inside the shared field before rendering. Preserve the context in generated addresses and retain recursive constituent lineage.
+- Correct the dictionary capability listing and stale UI wording about DMS subdivision. Keep historical-algorithm fidelity and automatic semantic tool routing explicitly unverified.
+- Automated coverage now includes controlled context ablation: identical expressions yield different native operands and different pixels in two sourced contexts; removing the needed context yields ambiguity. Pixel construction also works with source-image caches removed and external calls blocked.
+
+# Prior increment — addressed construction and document corrections
 
 - Use the two supplied documents together, retaining the user’s corrections. Record the additional document’s identifier and extracted-text hash without publishing its private contents.
 - Keep degree/minute/second ranges at 0–29 / 0–59 / 0–59. Resolve exact nested proportions inside a 5°37′30″ span from a supplied origin; retain fractional precision and allow a previously unregistered coordinate to be admitted. This does not infer chart origins or semantic meanings from numeric subdivisions.

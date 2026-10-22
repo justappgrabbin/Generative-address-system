@@ -1,4 +1,4 @@
-# Synthia document foundation 0.3.0
+# Synthia document foundation 0.4.0
 
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
@@ -6,9 +6,21 @@ Open `Synthia-Foundation-Offline.html`. It embeds the runtime modules. If your b
 
 The existing chat, file ingestion and tool selector remain. **Operational state space** accepts JSON commands and shows real results. **Photo recovery** stores an original image file, verifies its recovered bytes, and opens the recovered image. Refresh restores landed commands, parameters and photos. Export contains the full private input journal; keep it private.
 
+## Contextual field meaning and tools (0.4)
+
+The field owns sourced representations, their lexical expressions, learned construction programs and contextual teaching. `attachRepresentation` and `teachMeaning` are journaled field operations; `resolveMeaning` reads them with an optional `dominatingStructure`. Teach the same expression in different structures without overwriting those different uses. Omit necessary context and ambiguity remains visible.
+
+`{operation:"tool",payload:{tool,source,input,address,meaning}}` runs any mounted tool through the same journal and shared mesh. `address` is optional for unplaced computational work and must be complete when provided. Donor tool gate assignments do not become semantic coordinates. For semantic work, `meaning` specifies `terms`, optional `dominatingStructure`, a `source` and `version` for its adapter, and `bindings`. Each binding selects an actual field-owned value, for example `{A:{operand:0,path:["representation","features"]}}`. Those values replace the corresponding native tool inputs before execution. The receipt records the selected states, teaching sources, adapter and trace. Missing or ambiguous meaning stops the semantic call before the tool runs. This is a sourced input adapter, not automatic discovery of all tool contracts.
+
+The mounted set contains 16 tools including lightweight variants: autoling-lite, diseminer-lite, klein-analogy, iching-grammar, language-contact, historical-monte-carlo, autonovel, messy, success, conversation, browser-form, research-browser, computational-grammar-coder, autoling, diseminer and morph-mir. Tests exercise a valid contract for each, preserve tool output in field observations, and verify restart replay. This does not establish every advertised behavior or fidelity to the original historical algorithms. The dictionary adapter advertises its actual storage/query contract rather than the donor narrative capabilities.
+
+For images, bind the observed constituents to sourced addresses, teach labels, demonstrate a composition, then use **Learn this construction** and **Construct from states**. Optional **Context** selects a previously defined dominating structure for teaching and construction. The state space resolves the terms and supplies its retained representations and learned layout to the renderer. The same expression can produce different images in different sourced contexts. A generated whole can become a constituent at the next scale. Construction does not require an existing output image or the source-image cache.
+
+The runtime is local JavaScript with no mandatory GPU or paid image service. Tests establish exact decoded-pixel reconstruction and bounded contextual construction, not arbitrary photorealistic scene invention or universal semantic understanding. Acceleration is optional; no product setting disables it.
+
 ## Working paths
 
-- Typed addresses: degree 0–29, minute/second 0–59, arcFraction 0–99. Errors retain coordinate, origin and calculation evidence. `arcFraction` is separate from unresolved `axis` semantics.
+- Typed addresses: degree 0–29, minute/second 0–59, arcFraction 0–99. Errors retain coordinate, origin and calculation evidence. `arcFraction` is separate from the documented Design/Axis structural role.
 - Lazy components, sparse budgets, independently checked binary transitions, observed coactivity, typed messages affecting computations, real tiny-MLP parameter updates and explicit local transfer.
 - Micro outputs, engineering meso aggregation and derived Space. Five × 64 slot views without a fifth peer model or invented nine-center assignment.
 - Ordered composition with retained constituents. Composites become constituents without materializing the whole possibility space. Scale-specific address derivation remains open.

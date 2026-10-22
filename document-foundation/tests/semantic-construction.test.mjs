@@ -57,3 +57,26 @@ test('a generated addressed whole becomes a constituent under the same learned o
  const repeat=await app.imageCommand({operation:'generate',program:'Pair',terms:['B','R'],source:'fixture:repeat'});
  assert.equal(repeat.construction.witnessedAgain,true);assert.equal(repeat.image.pixelSha256,first.image.pixelSha256);
 });
+test('context in the shared field changes constructed pixels for the same request without a GPU or source image cache',async()=>{
+ const {app,ids}=await setup();
+ for(const [frame,foreground] of [['first-frame',ids[0]],['second-frame',ids[2]]]){
+  await app.fieldCommand({operation:'defineStructure',payload:{id:frame,dimension:'Being',source:'fixture:observed-frame'}});
+  for(const [imageId,term] of [[foreground,'foreground'],[ids[1],'background']])await app.fieldCommand({operation:'teachMeaning',payload:{ref:app.field.semantic.refFor(imageId),term,source:'fixture:contextual-image-use',context:{dominatingStructure:frame}}});
+ }
+ const savedFetch=globalThis.fetch;globalThis.fetch=()=>{throw Error('external service called');};
+ try {
+  app.imageMemory.images.clear();
+  const request={operation:'generate',program:'Pair',terms:['foreground','background'],source:'fixture:same-image-request'};
+  const a=await app.imageCommand({...request,dominatingStructure:'first-frame'});
+  const b=await app.imageCommand({...request,dominatingStructure:'second-frame'});
+  assert.equal(a.ok,true);assert.equal(b.ok,true);
+  assert.notEqual(a.image.pixelSha256,b.image.pixelSha256);
+  assert.deepEqual(Array.from(app.imageMemory.reconstruct(a.image.id).rgba.slice(0,4)),[255,0,0,255]);
+  assert.deepEqual(Array.from(app.imageMemory.reconstruct(b.image.id).rgba.slice(0,4)),[0,0,255,255]);
+  assert.equal(a.image.fieldAddress.dominatingStructure,'first-frame');
+  assert.equal(b.image.fieldAddress.dominatingStructure,'second-frame');
+  const ablated=await app.imageCommand(request);assert.equal(ablated.ok,false);
+  const replay=new Foundation({store:app.store});await replay.ready;
+  assert.deepEqual(replay.field.snapshot(),app.field.snapshot());
+ }finally{globalThis.fetch=savedFetch;}
+});
