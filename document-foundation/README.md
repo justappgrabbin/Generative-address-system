@@ -1,4 +1,4 @@
-# Synthia document foundation 0.4.0
+# Synthia document foundation 0.4.1
 
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
@@ -75,3 +75,7 @@ The full document is **not completed** by this increment. Birth-to-address calcu
 Photo recovery rebuilds stored file bytes; the newer image grammar separately rebuilds decoded pixels and creates source-part compositions. It does not yet construct arbitrary requested scenes from learned semantic primitives or demonstrate universal identity-preserving Morph. Video synthesis, device voice verification and full language understanding are not established by these tests.
 
 See `CAPABILITIES.md`, `CHANGELOG.md` and `provenance/DOCUMENT-BUILD.json`. Original source README/manifest are retained under `provenance` for comparison, not as current capability claims.
+
+## Swarm integration and formation continuity (0.4.1)
+
+[Integration map](INTEGRATION-MAP.md) records inspected implementations and remaining connections against the supplied SWARM-OS / Synthworld specification. `formation({from,to})`, or `{operation:"formation",payload:{from,to}}` through the field panel, reads the existing channel from packet and structural perspectives. Both use the same record and threshold, following the user's correction; neither view creates another crossing or level. The native chat chain, third-interaction stabilization, continued identity and restart continuity are covered by `tests/formation-continuity.test.mjs`. Full game-entity unloading/reactivation and the complete four-primitive path remain integration work.

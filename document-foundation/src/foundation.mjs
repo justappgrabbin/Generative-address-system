@@ -22,6 +22,7 @@ import {sha256Hex} from '../vendor/sha256.mjs';
 import {composeImage} from './image-structure.mjs';
 import {parseAddress} from './operational-address.mjs';
 import {resolveFieldToolInput} from './field-tool-input.mjs';
+import {formationViews} from './formation-views.mjs';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -97,6 +98,7 @@ export class Foundation {
   }
   chat(text, context={}) { return this.transact(String(text),context,'chat'); }
   runTool(command,context={}) { return this.transact(command,context,'tool'); }
+  formation(query) { return formationViews(this.system.engine,query); }
   async ingest(input, context={}) {
     const a = await normalizeArtifact(input,context);
     return this.transact({name:a.name,mime:a.mime,bytes:a.bytes,content:a.text},context,'artifact');
@@ -138,6 +140,7 @@ export class Foundation {
       if(input.operation==='tool')return this.apply(input.payload,context,'tool',id);
       const result=input.operation==='dictionary'
         ? this.system.engine.toolsById.get('diseminer').run(input.payload,{source:id}).output
+        : input.operation==='formation'?this.formation(input.payload)
         : this.field.execute(input);
       const shared=this.system.shareKnowledge({kind:'document-field',entry:id,result},{source:'document-field'});
       return {id,ok:true,field:result,shared};

@@ -1,5 +1,5 @@
 {
-  "descendant": "synthia-document-foundation.v0.4.0",
+  "descendant": "synthia-document-foundation.v0.4.1",
   "sourceArchive": {
     "name": "Synthia-State-Space-Foundation (2).zip",
     "driveId": "19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys",
@@ -44,5 +44,11 @@
     "scope": "Sourced native input bindings over field-owned representations; contextual lexical evidence and learned image construction",
     "tests": "tests/tool-field-wiring.test.mjs; tests/semantic-construction.test.mjs",
     "historicalAlgorithmFidelityVerified": false
+  },
+  "formationViews": {
+    "source": "User clarification, 2026-10-22: same thing, different perspectives",
+    "implementation": "src/formation-views.mjs reads existing engine.channels; no independent counter",
+    "tests": "tests/formation-continuity.test.mjs",
+    "inventory": "INTEGRATION-MAP.md"
   }
 }

@@ -1,3 +1,10 @@
+# 0.4.1 — one formation process, two perspectives
+
+- Preserve the user-defined equivalence between packet crossings and structural levels. Read both views from the existing channel record; add no second counter, mesh or promotion rule.
+- Expose formation inspection through the Foundation and the existing field command panel.
+- Verify real AUTOLING-to-Conversation packet consumption, third-interaction stabilization, continued stable identity and exact restart continuity. Inspecting the relationship does not advance it.
+- Add the source integration map and revision/file-digest inventory for the supplied SWARM-OS / Synthworld developer specification. Preserve the distinction between native formation/restart continuity and still-unfinished complete world entity release, morphing and four-primitive integration.
+
 # 0.4.0 — field-owned contextual meaning and tool handoff
 
 - Add contextual lexical evidence scoped to the dominating structure. The same expression can resolve to different state representations without erasing earlier uses.

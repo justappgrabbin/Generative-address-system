@@ -1716,12 +1716,12 @@
   "modifiedDescendants": [
     {
       "path": "README.md",
-      "sha256": "06b99c4f0748db7f5790c65096d3b48b8c1bf05192da93298279c91504eeb544",
+      "sha256": "f6fc02b9cc744f3e88ba0c68d62341f177f8896aaf7cf24f7eaeaf27ceb269a3",
       "originalSha256": "50860cd83f0900c73ed86ff3f92e587c4120595bd0b7ec35c868f410b38aff2c"
     },
     {
       "path": "Synthia-Foundation-Offline.html",
-      "sha256": "1c8a9d4965dbb12f9fafd1d42e64ac34de91181a4f95012f8d27bda0ebb6f222",
+      "sha256": "61fd8112021516f419b5ae700e7283c9578be17e3d79c55d1a83955dd42bad23",
       "originalSha256": "c0a8893c7a8ddcf127af0dc9f805abc12f12ae2e52d5d91cddb759d66e607edb"
     },
     {
@@ -1731,7 +1731,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "867d18d138396ad26912ef3ffbe7f62b73a14e211e2639d33804217d93403186",
+      "sha256": "da63535e6a62bd596e65e576ff6589e29a2c8ca78de7ad66ff4092eef7dcb17f",
       "originalSha256": "0568de1248d9b0451a4618c495930d5a9d35836969e087c9861f7dbb6fef746b"
     },
     {
@@ -1741,7 +1741,7 @@
     },
     {
       "path": "src/foundation.mjs",
-      "sha256": "9b3f41edbed8316779d39df92fd1ab2efaea2e4db3edbf06d7a2ae001c472977",
+      "sha256": "9e24531cec9cc848b220e3b22e4d5a5dfc7edcea6e1459162dd9160d16f9d48d",
       "originalSha256": "1cd933d1cb1bf127a739e43184c6572d8942ca4f2ce76ec63664556b7c61ff96"
     }
   ],
@@ -1752,7 +1752,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "6f7adb2924a06c9350e1a5154cd60e6da5c7db7a7d6b0bf68374c2176ba005b7"
+      "sha256": "6fa2a4e4299737953f15290f34a88fc96eaf94bee36917a07e949f2860ebd41c"
     },
     {
       "path": "examples/field-demo.mjs",
@@ -1857,6 +1857,16 @@
     {
       "path": "tests/tool-field-wiring.test.mjs",
       "sha256": "4deb4f1b1bf3c27ce81df743a34247cfe3881dec96c4839771a41a985e96910c"
+    }
+  ],
+  "formationViewAdditions": [
+    {
+      "path": "src/formation-views.mjs",
+      "sha256": "f49fe47b95fa7155d0080d997a2e61e26b6ed6f1449a011fb30001687a0e08c2"
+    },
+    {
+      "path": "tests/formation-continuity.test.mjs",
+      "sha256": "816b66f0ee09c4c48eaf9bef7281b531675e7c78e4f99bd4f7d5f639df050179"
     }
   ]
 }
