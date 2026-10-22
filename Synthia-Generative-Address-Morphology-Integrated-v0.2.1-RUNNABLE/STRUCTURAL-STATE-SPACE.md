@@ -54,3 +54,5 @@ HTTP: `GET /api/structure/views`; `POST /api/structure` takes `{subject,context}
 This slice does not implement photo reconstruction, new photo/3D synthesis, universal system execution, a full Bantu morphology/syntax decoder, or the unresolved directional/angle transformations. Those capabilities need executable rules and separate acceptance checks built on this foundation.
 
 Sources: existing repository state-space authority tables; author-supplied Human Design / Juxtaposition Unified Theory charts and contextual interpretation. Source-table identifiers describe the existing authority provenance; they do not imply independently verified pagination of every screenshot. The source graphs are reference layouts, not universal orientations.
+
+Follow-up: [Klein tool audit](KLEIN-TOOL-AUDIT.md) documents the full catalog and shared actual-run state. Structural interactions can now include the learned rules and generated compositions returned by those tools; their source labels and generated/evidence distinctions are preserved.

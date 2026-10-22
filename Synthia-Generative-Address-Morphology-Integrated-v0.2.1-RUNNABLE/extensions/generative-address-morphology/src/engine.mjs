@@ -21,6 +21,7 @@ export class GenerativeAddressMorphologyEngine{
   generate(subject,context={}){return this.generator.generate(subject,context);}
   fork(){
     const probe=new GenerativeAddressMorphologyEngine({...this.options,weightsFile:null,generator:this.generator.fork()});
+    if(this.sharedToolState)probe.sharedToolState={snapshot:()=>structuredClone(this.sharedToolState.snapshot())};
     probe.extensions=this.extensions;probe.channels=this.channels;probe.rules=this.rules;
     probe.morphology=new MorphologyCompiler({extensions:probe.extensions});
     probe.compiler=new ConnectionCompiler({channels:probe.channels,rules:probe.rules,morphology:probe.morphology});
@@ -30,17 +31,18 @@ export class GenerativeAddressMorphologyEngine{
   run(rawAddresses=[],context={}){
     const addressMode=context.addressMode??(context.view||context.frame?'structural':'lexical-prototype');
     if(!['structural','lexical-prototype'].includes(addressMode))throw new RangeError('unknown addressMode');
-    const structure=analyzeStructure(context.subject,{...context,addresses:rawAddresses});
+    const sharedState=this.sharedToolState?.snapshot()??null;
+    const structure=analyzeStructure(context.subject,{...context,addresses:rawAddresses,toolState:sharedState});
     const generation=rawAddresses.length===0&&context.subject!=null?
       addressMode==='lexical-prototype'?this.generate(context.subject,context):
       {status:'structural-analysis',addresses:[],reason:'No established rule selects full numeric coordinates from this field analysis; use structuralAddress for explicit recursive positions.'}:null;
     if(generation)rawAddresses=generation.addresses;
     const addresses=rawAddresses.map(normalizeAddress);this.addresses=new Map(addresses.map(a=>[a.id,a]));const connections=this.compiler.compileAll(addresses,context);
     const activeIds=new Set(addresses.filter(a=>a.active).map(a=>a.id));const graphs=this.runtime.update(connections,activeIds);const ecology=this.ecology.evaluate(graphs,addresses.filter(a=>a.active));const projections=Object.fromEntries(graphs.map(g=>[g.id,projectGraph(g)]));
-    this.last={ok:true,at:Date.now(),addresses,generation,addressMode,structure,connections:connections.map(c=>({id:c.id,a:c.a.id,b:c.b.id,channel:c.channel,validity:c.validity,audit:c.audit,morphology:{id:c.morphology.id,implementation:c.morphology.implementation,evidenceStatus:c.morphology.evidenceStatus}})),graphs,ecology,projections};return this.last;
+    this.last={ok:true,toolState:this.sharedToolState?.snapshot()??null,at:Date.now(),addresses,generation,addressMode,structure,connections:connections.map(c=>({id:c.id,a:c.a.id,b:c.b.id,channel:c.channel,validity:c.validity,audit:c.audit,morphology:{id:c.morphology.id,implementation:c.morphology.implementation,evidenceStatus:c.morphology.evidenceStatus}})),graphs,ecology,projections};return this.last;
   }
   reinforce(graphId,delta,outcome=null){return this.weights.reinforceExisting(graphId,delta,outcome);}
-  snapshot(){return this.last??{ok:true,addresses:[],connections:[],graphs:this.runtime.active(),ecology:{dominantEnergy:null,energies:[],pods:[]},projections:{}};}
+  snapshot(){if(this.last&&this.sharedToolState)return {...this.last,toolState:this.sharedToolState.snapshot()};return this.last??{ok:true,toolState:this.sharedToolState?.snapshot()??null,addresses:[],connections:[],graphs:this.runtime.active(),ecology:{dominantEnergy:null,energies:[],pods:[]},projections:{}};}
 }
 export default GenerativeAddressMorphologyEngine;
 

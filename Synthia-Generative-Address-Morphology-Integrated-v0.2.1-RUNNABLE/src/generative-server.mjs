@@ -28,6 +28,10 @@ const server = http.createServer(async (req, res) => {
     }
     if (req.method === 'GET' && req.url === '/api/audit') return json(res, 200, synthia.wiringAudit());
     if (req.method === 'GET' && req.url === '/api/state') return json(res, 200, synthia.snapshot());
+    if (req.method === 'GET' && req.url === '/api/tools') return json(res,200,{catalog:synthia.kleinToolCatalog,audit:synthia.wiringAudit().morphology.allTools,stateSpace:synthia.toolState.snapshot()});
+    if (req.method === 'POST' && req.url === '/api/tools/run') {
+      const body=await readBody(req);return json(res,200,synthia.runToolTask(body.steps??[],body.context??{}));
+    }
     if (req.method === 'GET' && req.url === '/api/structure/views') return json(res, 200, {views:synthia.generativeMorphology.structuralViews()});
     if (req.method === 'POST' && req.url === '/api/structure') {
       const body = await readBody(req);

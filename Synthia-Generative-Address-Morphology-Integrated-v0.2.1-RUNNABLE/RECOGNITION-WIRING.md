@@ -39,3 +39,7 @@ root.structure({ analogy: {
 `npm run test:all` passes. Nine additional integration tests verify connectivity, output delivery and provenance, changed recognizer output changing the received relationship, failure visibility, actual ATO completion, Morph-MIR acceptance/analysis, explicit-only reference relationships, chat/Klein/outward continuity, and persistent DISEMINER observation. These demonstrate the current tools and wiring work for those cases; unrestricted meaning recognition and visual recognition remain unverified.
 
 The unfinished structural-generation experiment was removed from the active source tree after the user stopped that work. It is not invoked or published by this wiring change.
+
+## Complete tool-set audit
+
+The follow-up [KLEIN-TOOL-AUDIT.md](KLEIN-TOOL-AUDIT.md) expands coverage from the five intake recognizers to all 16 existing tools plus three source-backed adapters found in Drive. Actual runs now contribute to a common bounded shared state, and later tools receive that state as context. `/api/tools` exposes wiring and `/api/tools/run` executes explicit tasks with output-to-input bindings. See the audit for per-tool functional tests, source scope and remaining limitations.

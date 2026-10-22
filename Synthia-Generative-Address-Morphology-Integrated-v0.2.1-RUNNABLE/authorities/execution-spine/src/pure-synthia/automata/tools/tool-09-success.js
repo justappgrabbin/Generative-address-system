@@ -196,7 +196,8 @@ export class SuccessAutomaton extends Automaton {
       alphabet: ['define', 'observe', 'propose', 'summary', 'replay'],
       delta: (state, symbol) => DELTA_TABLE[`${state}|${symbol}`] || { to: state, transition: 'flow' },
       q0: 'attempt',
-      finals: ['reinforce'],
+      // Public operations accept at their own resting states; domain validation still applies.
+      finals: ['attempt', 'score', 'reinforce'],
       ports: SuccessAutomaton.descriptor.ports,
       capabilities: SuccessAutomaton.descriptor.capabilities,
       dimension: 'Being',
@@ -229,3 +230,4 @@ export class SuccessAutomaton extends Automaton {
 }
 
 export default SuccessAutomaton;
+

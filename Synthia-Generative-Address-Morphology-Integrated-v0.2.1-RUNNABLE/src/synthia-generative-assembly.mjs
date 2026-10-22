@@ -1,3 +1,6 @@
+import { TOOL_REGISTRY } from '../authorities/execution-spine/src/pure-synthia/automata/registry.js';
+import { SOURCE_TOOL_CLASSES } from './klein-source-tools.mjs';
+import { KleinToolState } from './klein-tool-state.mjs';
 import { UnifiedSynthiaAssembly } from './unified-synthia-assembly.mjs';
 import { recognizeStructure, RECOGNITION_TOOLS } from './structural-recognition.mjs';
 import { toolOntology } from '../authorities/execution-spine/src/pure-synthia/engine/triples.js';
@@ -31,6 +34,7 @@ function mergeMeshState(existing, morphologyOutput) {
       sourceView: morphologyOutput.snapshot.structure.view.view,
       matches: morphologyOutput.snapshot.structure.matches,
       recognition: morphologyOutput.snapshot.structure.recognition,
+      toolState: morphologyOutput.snapshot.toolState,
       space: morphologyOutput.snapshot.structure.space,
     } : null),
   };
@@ -48,7 +52,23 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     super(options);
     this.activeMorphologyAddresses = clone(options.morphologyAddresses ?? []);
     this.morphologyAutomaton = new GenerativeMorphologyAutomaton(options.morphology ?? {});
+    for (const Tool of SOURCE_TOOL_CLASSES) {
+      const tool = new Tool();
+      this.engine.mesh.register(tool);this.engine.tools.push(tool);this.engine.toolsById.set(tool.id,tool);
+      this.engine.tripleStore.addAll(toolOntology(tool));
+    }
+    this.kleinToolCatalog = Object.freeze([...TOOL_REGISTRY,...SOURCE_TOOL_CLASSES.map(T=>T.descriptor)]);
+    this.toolState = new KleinToolState(this.kleinToolCatalog);
+    this.engine.sharedStateProvider = () => this.toolState.snapshot();
     this.#mountMorphology();
+    this.generativeMorphology.sharedToolState = this.toolState;
+    this.toolSubscriptions = new Map();
+    for (const descriptor of this.kleinToolCatalog) {
+      const tool=this.engine.mesh.get(descriptor.id);
+      const stopContext=tool.provideContext((input,context)=>({stateSpace:context.stateSpace ?? this.toolState.snapshot()}));
+      const stopResults=tool.observeRuns((input,result,context)=>this.toolState.record(tool.id,input,result,context));
+      this.toolSubscriptions.set(tool.id,{stopContext,stopResults});
+    }
   }
 
   get generativeMorphology() { return this.morphologyAutomaton.morphology; }
@@ -75,6 +95,10 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     if (this.engine.mesh.get('media-field')) {
       links.push(['media-field', a.id, 'media-to-morphology'], [a.id, 'media-field', 'morphology-to-media']);
     }
+    for (const descriptor of this.kleinToolCatalog) {
+      if (!links.some(([from,to])=>from===descriptor.id&&to===a.id)) links.push([descriptor.id,a.id,'tool-result-to-state']);
+      links.push([a.id,descriptor.id,'state-context-to-tool']);
+    }
     for (const [from, to, operator] of links) this.engine.mesh.connectTransport(from, to, { operator });
     this.engine.klein.syncOperators();
   }
@@ -83,6 +107,28 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     if (!Array.isArray(addresses)) throw new TypeError('addresses must be an array');
     this.activeMorphologyAddresses = clone(addresses);
     return this.activeMorphologyAddresses.length;
+  }
+
+  runToolTask(steps = [], context = {}) {
+    if (!Array.isArray(steps) || steps.length > 32) throw new TypeError('tool task requires at most 32 steps');
+    const runs=[];
+    for (const step of steps) {
+      if (!step || !this.kleinToolCatalog.some(d=>d.id===step.toolId)) throw new TypeError('task tool must belong to the Klein catalog');
+      const input=clone(step.input ?? {});
+      for (const [key,binding] of Object.entries(step.bindings ?? {})) {
+        if (['__proto__','constructor','prototype'].includes(key) || !Number.isInteger(binding.step) || binding.step<0 || binding.step>=runs.length || !Array.isArray(binding.path)) throw new TypeError('binding must reference an earlier tool result');
+        let value=runs[binding.step].derivation.output;
+        for (const part of binding.path) {
+          if (['__proto__','constructor','prototype'].includes(String(part)) || value==null || !Object.hasOwn(value,part)) throw new TypeError('binding path is missing from actual tool output');
+          value=value[part];
+        }
+        input[key]=clone(value);
+      }
+      const result=super.invoke(step.toolId,input,{...context,source:'klein-tool-task'});
+      runs.push(result);
+      if (result.derivation.evaluation?.accepted===false || result.derivation.output?.ok===false) return {ok:false,runs,stateSpace:this.toolState.snapshot()};
+    }
+    return {ok:true,runs,stateSpace:this.toolState.snapshot()};
   }
 
   structure(subject = null, context = {}) {
@@ -225,9 +271,14 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
       internetBrowserPath: has('browser-form', 'generative-address-morphology') && has('generative-address-morphology', 'browser-form'),
       recognitionTools: Object.fromEntries(RECOGNITION_TOOLS.map(id => [id, Boolean(this.engine.mesh.get(id) && this.engine.toolsById.get(id) && this.engine.klein.operator(id) && has(id, 'generative-address-morphology'))])),
       lastRecognitionStatus: this.generativeMorphology.snapshot()?.structure?.recognition?.status ?? 'not-invoked',
+      allTools: Object.fromEntries(this.kleinToolCatalog.map(d=>[d.id,{
+        registered:Boolean(this.engine.toolsById.get(d.id)),mounted:Boolean(this.engine.mesh.get(d.id)),
+        kleinWrapped:Boolean(this.engine.klein.operator(d.id)),inputPath:has('generative-address-morphology',d.id),outputPath:has(d.id,'generative-address-morphology'),
+        contextProvider:Boolean(this.engine.mesh.get(d.id)?.contextProviders.size),resultObserver:Boolean(this.engine.mesh.get(d.id)?.runObservers.size),
+      }])),
       activeAddressCount: this.activeMorphologyAddresses.length,
     });
-    return Object.freeze({ ...base, ok: base.ok && Object.values(morphology).slice(0,5).every(Boolean) && Object.values(morphology.recognitionTools).every(Boolean), morphology });
+    return Object.freeze({ ...base, ok: base.ok && Object.values(morphology).slice(0,5).every(Boolean) && Object.values(morphology.recognitionTools).every(Boolean) && Object.values(morphology.allTools).every(t=>Object.values(t).every(Boolean)), morphology });
   }
 
   snapshot() {

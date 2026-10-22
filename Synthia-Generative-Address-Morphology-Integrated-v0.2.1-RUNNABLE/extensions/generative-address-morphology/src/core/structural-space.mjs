@@ -240,7 +240,7 @@ export function analyzeStructure(subject, context = {}) {
     status: 'executed',
   }));
   const recognition = copy(context.recognition ?? {status:'not-invoked',runs:[],issues:[],graph:{nodes:[],relations:[]}});
-  const recognizedRelations = recognition.graph?.relations ?? [];
+  const recognizedRelations = context.toolState?.graph?.relations ?? recognition.graph?.relations ?? [];
   const completeExample = Boolean(context.example) && contributors.length === 4 && relations.length === model.relations.length;
   const space = {
     role: 'emergent', contributors, interactions: context.example ? relations : recognizedRelations,

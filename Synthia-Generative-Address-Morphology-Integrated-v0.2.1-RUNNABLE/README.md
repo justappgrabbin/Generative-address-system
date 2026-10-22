@@ -128,3 +128,5 @@ The original unified root remains available unchanged through `src/index.mjs`.
 The CPU structural layer separates observer perspective from the source chart, derives Space through field relationships, and indexes recursive addresses on demand. Run `npm run start:generative` and open `/structure.html`. See [STRUCTURAL-STATE-SPACE.md](STRUCTURAL-STATE-SPACE.md) for the state equations, API, tested behavior and unresolved rules.
 
 Recognition wiring: [tool capabilities, verified root/Klein paths and limitations](RECOGNITION-WIRING.md). Live tool outputs now reach the structural state; reference relationships require an explicit example.
+
+The [complete Klein tool audit](KLEIN-TOOL-AUDIT.md) covers all 16 canonical tools plus three source-backed adapters, shared-context/result wiring and executable task composition. Inspect `/api/tools` or call `root.runToolTask(steps)`; each tool is tested through a real execution path.
