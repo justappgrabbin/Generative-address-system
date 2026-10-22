@@ -1716,43 +1716,43 @@
   "modifiedDescendants": [
     {
       "path": "README.md",
-      "sha256": "dca74845ee4fb2c52a4b2bc6a3478096d0b2b1282075704f8caf794afa3823b1",
+      "sha256": "2acad3a7b1693d52d7976e0225f8fbae36ac7b65f250bda78a9ccfb559afd539",
       "originalSha256": "50860cd83f0900c73ed86ff3f92e587c4120595bd0b7ec35c868f410b38aff2c"
     },
     {
       "path": "Synthia-Foundation-Offline.html",
-      "sha256": "48dca7ace4dc268951328ea0de785869d40c1d07a208e1eca2680216168eb902",
+      "sha256": "60c438c71a82e1a4d49014ea14698fec32de50e2ff448262a5d412e810ea6cab",
       "originalSha256": "c0a8893c7a8ddcf127af0dc9f805abc12f12ae2e52d5d91cddb759d66e607edb"
     },
     {
       "path": "index.html",
-      "sha256": "b20e84d7cdf7f4006c7f171a552a859ac6a99452864f6a5f5b456f815caedde7",
+      "sha256": "ea9b20244098640818c94fcbf705ac6eb6aeaaed0a42f7e528f32f2a54c426e8",
       "originalSha256": "d54ecb3fd81f913f5ffeab22f0af32df7e5a13e23555feb7188a4dbadef387a3"
     },
     {
       "path": "package.json",
-      "sha256": "af94a937ea82f6a79dac7efa474ae9257b6b08108387606dae333735a7837b95",
+      "sha256": "d6cb2b253340fdb10b868d2c841571214d24a984469910a3f0f8e0369d63a983",
       "originalSha256": "0568de1248d9b0451a4618c495930d5a9d35836969e087c9861f7dbb6fef746b"
     },
     {
       "path": "src/app.mjs",
-      "sha256": "02652c57f81a4f470218381d5ad5f5d9f8d91cf076349e065e92a6a2445d1c00",
+      "sha256": "4bdb1900bcd0008384906aa37bb348dec03ae011e88877dc2488585fd6e0993b",
       "originalSha256": "fe5cc4e015ec630148f5b5308bd2fb30806578909f8027ab69c36a762e82cdff"
     },
     {
       "path": "src/foundation.mjs",
-      "sha256": "5ad13d8e4328f4069ffc0784cb1e1965fe99bd6c0f7c18f72d49dbc22ace60b9",
+      "sha256": "49ef156367a4543b8bb0e6def20f466bd1e6186c4dee67bd4e8576c50141355e",
       "originalSha256": "1cd933d1cb1bf127a739e43184c6572d8942ca4f2ce76ec63664556b7c61ff96"
     }
   ],
   "added": [
     {
       "path": "CAPABILITIES.md",
-      "sha256": "063ff6b0454941300ac33b9267c759ed8dedd92fa36cbf0c2694d5d819ee411a"
+      "sha256": "4470c91a25cdc883015923ccd81568f4bb3c22cd37a34fcd0a03109da5484d8f"
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "fd4ae184d6f611bd761ef5e2e0e493b59bc490f2adc11ea25e3c0739a5646075"
+      "sha256": "121f4f5034f519fe40d649f600ad00dfc380867b5ecd0e649d73ca3ab6b08fed"
     },
     {
       "path": "examples/field-demo.mjs",
@@ -1760,15 +1760,31 @@
     },
     {
       "path": "scripts/browser-qa.mjs",
-      "sha256": "23500901d97e85e6accc33d7743d8f24ce4a57e532b89de738938e46f0c6b4a9"
+      "sha256": "c74734b300914b27d7276ad43c4a9706a4ab00df5b3c3c2d70b043981b97b0a4"
+    },
+    {
+      "path": "scripts/image-browser-qa.mjs",
+      "sha256": "a6d48b94afd4da4c4110144c48404709f891c0b3554dd9169415c34384fba45d"
     },
     {
       "path": "src/addressed-field.mjs",
       "sha256": "35e5cac672594a5fa4458c15d62a09842cd3bc6a858908db60b39c60825c4be5"
     },
     {
+      "path": "src/browser-image-decoder.mjs",
+      "sha256": "1637f98cd80b1ef19aeaf1e142a25f109e8e704967e6964fc3d3ce3d8cf279cc"
+    },
+    {
       "path": "src/document-tool-policy.mjs",
-      "sha256": "04694fc39d6a88d2c31eb855d346fe8759c6327e56d1dd07efa014c1357c7373"
+      "sha256": "fb652611f3ddebc1e89a9357c8d7f7bd4909991632aee165aba2fde5aaa39407"
+    },
+    {
+      "path": "src/image-memory.mjs",
+      "sha256": "9391c2ccdf878e85e68927c1684cb6c5a9c7925daaa9ba44f6f6b142348a1c64"
+    },
+    {
+      "path": "src/image-structure.mjs",
+      "sha256": "1f5731aa7291f01d5ae323287ed80550be7b77a09f3692c2fde6bd548de6bc83"
     },
     {
       "path": "src/operational-address.mjs",
@@ -1779,12 +1795,28 @@
       "sha256": "ae13303a60d45819d8873d8250bc6102a0f460d56f154d6c3d8461567117f825"
     },
     {
+      "path": "src/visual-sensory.mjs",
+      "sha256": "35ce579a82ad5a647b818880c1792c88d0f90be1581e496cee7db9fe6cdcad91"
+    },
+    {
       "path": "tests/addressed-field.test.mjs",
       "sha256": "5ffb2267c9aaf4198959919a79940e9de8113c23a67641e89f8f0256e4b2385e"
     },
     {
       "path": "tests/fixtures/gradient.png",
       "sha256": "af294b42c2fed0af0c992da92566f02617bd1c766544b1a6529731a00a7d76ab"
+    },
+    {
+      "path": "tests/fixtures/photo.jpg",
+      "sha256": "389481fa282d47552cf2f70fc2707818e1f56b6304feeed7e6c18228c36d2cd3"
+    },
+    {
+      "path": "tests/image-structure.test.mjs",
+      "sha256": "8cd7dca21aef2a6177178bce7b8c357a35dc2e8c92e4fc6f0dfcf9c425380fed"
+    },
+    {
+      "path": "vendor/klein-sensory.mjs",
+      "sha256": "b6bb6377350a18a8a167ce96f88c13c900f33e74d0afd9f24b5090ad0d813df4"
     },
     {
       "path": "vendor/morphmir-memory.mjs",

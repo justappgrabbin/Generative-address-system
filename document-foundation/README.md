@@ -1,4 +1,4 @@
-# Synthia document foundation 0.2.0
+# Synthia document foundation 0.3.0
 
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
@@ -15,6 +15,18 @@ The existing chat, file ingestion and tool selector remain. **Operational state 
 - Actual Klein contact evidence enters investigation records. Missing sensors remain unknown. Unknown/unoccupied candidates trigger investigation rather than invented addresses.
 - A dictionary adapter stores explicit sourced definitions; narrative persuasion is unavailable. Historical 1966 algorithm fidelity and full dimension-conditioned routing remain unverified.
 - Exact photo-file recovery, corruption detection, browser preview and refresh persistence through the existing MorphMir chunk memory.
+- Measured image parts, pixel-exact reconstruction at analysis resolution, reusable compositions, user-taught visual examples and corrections, and optional explicitly sourced field bindings. See the image workflow below.
+
+## Image workflow
+
+1. Upload photos under **Photo recovery**, then select **Analyze and reconstruct pixels**. The browser decodes them locally. Analysis defaults to a maximum side of 512 pixels; select 1024 if needed. Resampling is recorded; the original file is retained separately. Animated inputs provide a decoded still frame, not reconstructed animation.
+2. **Reconstruct image** rebuilds the decoded RGBA from retained solid/raster/split primitives, without reading the original encoded file. Its pixel hash is verified. The inspector shows measurements, lineage and the first 64 parts. Saved BMP previews composite transparency over white; the stored RGBA structure retains exact alpha.
+3. Teach a label to an example. Other images receive similarity candidates based on measured visual features and the latest sourced teaching. Corrections change future candidate labels while retaining earlier feedback. This is a bounded appearance-based learner, not general object/scene recognition.
+4. Choose left/right source images and **Create composition**. The new image is rendered from retained parts with explicit placement and scaling. Download the saved, hash-verified artifact with **Save image**. Encoded outputs are stored separately in IndexedDB; recipes and outputs recover identically after refresh. Replay checks existing output hashes instead of silently replacing a landed artifact.
+
+Advanced recipes use `{operation:"image:compose",payload:{recipe:{width,height,background:[r,g,b,a],source,parts:[{imageId,x,y,width,height,crop,quarterTurns,flipX,flipY}]}}}` in the operational command panel. Optional fields may be omitted; crop and placement bounds are checked. Rotations, flips, cropping, nearest-neighbor scaling and source-over composition are geometry operations, not dimensional meaning assignments.
+
+To connect visual measurements to an ontological coordinate, use `{operation:"image:bind",payload:{imageId,address,provenance:{source}}}`. Supply the full address explicitly. Later visual contacts select among these bindings by measured similarity and execute actual field components using mean brightness and local pixel difference as the two documented inputs. This selection is an engineering hypothesis, not a derived birth/design rule. No canonical address is invented from pixels or a filename hash. `{operation:"image:teach",payload:{imageId,label,source,outcome:0.7}}` optionally supplies an explicit numerical training outcome; teaching a label alone updates the visual example memory.
 
 ## Try a field command
 
@@ -48,6 +60,6 @@ Browser QA: install Playwright separately, then `node scripts/browser-qa.mjs`; o
 
 The full document is **not completed** by this increment. Birth-to-address calculation, contextual DMSA/Color/Tone/Base assignment, mesh-frequency center emergence, arc-derived color/sound, Base sharing, language-specific Bantu rules and the four Model Maker placements remain unresolved. Existing legacy chat/ingestion placement remains labeled computational bookkeeping; it is not promoted to semantic derivation.
 
-Photo recovery rebuilds stored bytes. It does not yet reconstruct images from semantic primitives, perform identity-preserving Morph, or create new photographs. Video synthesis, device voice verification and full language understanding are not established by these tests.
+Photo recovery rebuilds stored file bytes; the newer image grammar separately rebuilds decoded pixels and creates source-part compositions. It does not yet construct arbitrary requested scenes from learned semantic primitives or demonstrate universal identity-preserving Morph. Video synthesis, device voice verification and full language understanding are not established by these tests.
 
 See `CAPABILITIES.md`, `CHANGELOG.md` and `provenance/DOCUMENT-BUILD.json`. Original source README/manifest are retained under `provenance` for comparison, not as current capability claims.

@@ -17,8 +17,13 @@ TESTED means the named bounded path has reproducible evidence. USER-VERIFIED rem
 | Learned semantic address selection | SPECIFIED | Explicit candidates required; no new hash-derived meanings |
 | Bantu relational morphology | SPECIFIED | Language-specific attested rule pack still needed |
 | Photo-file recovery/retrieval | TESTED | Real PNG opens after refresh; corruption detected |
-| Semantic photo reconstruction / Morph | SPECIFIED | Exact byte recovery is a separate capability |
-| New-photo / video generation | SPECIFIED | No generative-media engine connected |
+| Decoded-pixel reconstruction | TESTED | Exact RGBA from solid/raster/split primitives, independent of original file; native PNG/JPEG browser tests |
+| Source-part image composition | TESTED | Real downloadable BMP, geometry lineage, replay and invalid-input checks; not arbitrary scene synthesis |
+| Visual teaching and correction | TESTED | Held-out appearance candidates change with feedback; no calibrated scene-understanding claim |
+| Klein sensory → native visual evidence | TESTED | Supplied adapter executes with measured features, ID-hash fallback excluded; dictionary observation receipt |
+| Visual contact → field computation | TESTED | Explicit supplied bindings select real components, numerical outcomes update weights; mapping remains an engineering hypothesis |
+| Semantic photo reconstruction / Morph | SPECIFIED | Pixel hierarchy/composition tested; semantic part discovery and universal identity-preserving Morph remain open |
+| Arbitrary new-scene / video generation | SPECIFIED | Source-part compositions work; arbitrary scene synthesis and video generation remain open |
 | Voice/device interaction | UNVERIFIED | Original sources preserved; no device test here |
 | Code generation / arbitrary execution | UNVERIFIED | Bounded expression/state-machine regression tests only |
 | Four design-specific Model Maker models | SPECIFIED | No replacement checkpoint introduced |

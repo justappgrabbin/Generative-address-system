@@ -1,5 +1,5 @@
 {
-  "descendant": "synthia-document-foundation.v0.2.0",
+  "descendant": "synthia-document-foundation.v0.3.0",
   "sourceArchive": {
     "name": "Synthia-State-Space-Foundation (2).zip",
     "driveId": "19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys",
@@ -19,5 +19,18 @@
       "extensions/translation-layer/src/sha256.mjs"
     ],
     "changes": "Two relative imports adjusted for the preserved foundation vendor layout."
+  },
+  "visualExtension": {
+    "specificationSections": [
+      "II.6: 3-5",
+      "IV.J:22",
+      "IV.J:56"
+    ],
+    "originalSensorySource": "vendor/klein-original/sensory-adapter.js",
+    "wrapper": "vendor/klein-sensory.mjs: original source with ES module wrapper",
+    "versionedAdapter": "src/visual-sensory.mjs: measured appearance; no identifier-hash fallback; deterministic observation metadata",
+    "engineeringRepresentation": "src/image-structure.mjs: solid/raster/split geometry; not asserted as canonical ontological coordinates",
+    "selectionRule": "measured-visual-distance.v1, explicit user-supplied address bindings only",
+    "originalSensorySha256": "c2791425be0221b5143a9cb03e896c446c7405cb039c61af2958890d0e40e822"
   }
 }

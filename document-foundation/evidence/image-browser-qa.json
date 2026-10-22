@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "gpuDisabled": true,
+  "pixelCheck": {
+    "equal": true,
+    "independent": true,
+    "width": 96,
+    "height": 96
+  },
+  "sourceFormats": [
+    "PNG",
+    "JPEG"
+  ],
+  "taughtExamplesChangeCandidates": true,
+  "sourceSuppliedGateActivated": 17,
+  "numericOutcomeLearned": true,
+  "generated": {
+    "id": "image:entry:8",
+    "width": 161,
+    "height": 96,
+    "sha256": "f9859df1fa7235eda7ae9f5310953b1f69c00aaad76add1808203a8a664c2abb"
+  },
+  "artifactDownloaded": true,
+  "corruptInputRecorded": true,
+  "fullReplayExact": true,
+  "mobileOverflow": false,
+  "pageErrors": [],
+  "externalRequests": []
+}

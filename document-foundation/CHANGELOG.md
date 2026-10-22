@@ -1,3 +1,12 @@
+# 0.3.0 — measured visual reconstruction and learning
+
+- Connected the supplied Klein sensory adapter through a versioned adapter using measured pixel features. Hash-based appearance fallbacks and synthetic temporal appearance noise are excluded from this path.
+- Added a source-preserving solid/raster/split image grammar with exact decoded-RGBA reconstruction, integrity checks and inspectable constituents. This is an engineering image representation, not a claimed canonical ontological mapping.
+- Added explicit composition recipes, geometric transforms, real BMP outputs, download, lineage and persistent replay.
+- Added sourced visual teaching, corrected example labels and held-out similarity candidates. Native visual observations reach the dictionary adapter and field without forced transcription.
+- Added explicit image-to-address bindings and real sparse field activation/training from measured visual inputs. The relationship between those features and canonical addresses is supplied explicitly and remains investigable.
+- Tested the complete browser workflow with GPU use disabled, including actual PNG/JPEG decoding, independent pixel comparison, downloaded composition, corrupted-input failure evidence and exact restart recovery.
+
 # 0.2.0 — document-directed descendant
 
 Source: Synthia State-Space Foundation (2).zip, Drive `19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys`; specification: combined architecture/NSNF document dated 2026-10-10. Exact source hashes and selection boundaries are in `provenance/DOCUMENT-BUILD.json`.

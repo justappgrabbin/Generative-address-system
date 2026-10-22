@@ -1,0 +1,36 @@
+
+> synthia-state-space-foundation@0.3.0 test:spine
+> node --test vendor/spine/tests/*.test.mjs
+
+✔ canonical spine remains 13 fields and 12 houses (1.231964ms)
+✔ valid canonical address passes without collapsing degree (0.234365ms)
+✔ resolver descends artifact to actual bit/state primitives (0.933925ms)
+✔ same artifact plus same first-run outcome resolves deterministically (3.63393ms)
+✔ different runtime outcome can move the same artifact to a different execution coordinate (6.203803ms)
+✔ Synthia automatically assigns and appends full address after first execution attempt (57.695104ms)
+✔ explicit creator canonical address is preserved while runtime-derived placement remains visible (6.158816ms)
+✔ fine index cardinality and boundaries (1.278032ms)
+✔ 5000 random fine-index round trips (11.790948ms)
+✔ whole organism is live, not merely present (18.025545ms)
+✔ chat traverses learning/contact and shares with every mounted automaton (38.148027ms)
+✔ execution carries full canonical address and shares first-run outcome (6.35097ms)
+✔ unknown foreign execution failure is observed by learning/grow path, not terminal (10.536712ms)
+✔ agent rewrite is versioned through SelfEditor and shared across mesh (3.832983ms)
+✔ boolean operator family (1.29755ms)
+✔ BUT remains a directional IR node (0.153726ms)
+✔ hamming works for binary strings, arrays, and ints (0.225181ms)
+✔ artifact kind detection covers foreign code and projects (0.784685ms)
+✔ registered foreign runtime executes original artifact before fallback (0.576859ms)
+✔ missing runtime is explicit and does not pretend translation is native (0.157612ms)
+✔ fallback realization is labeled fallback when no runtime exists (0.566905ms)
+✔ bounded predicate search + semantic verification (3.037591ms)
+✔ DAG runs dependencies and exposes dependency results (3.797831ms)
+✔ machine transitions, guards, effects, snapshot and restore (1.719321ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 990.656981

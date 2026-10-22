@@ -1,4 +1,6 @@
-# Verification — 22 October 2026
+# Historical 0.2.0 verification — 22 October 2026
+
+The 0.3.0 image extension is covered separately in `IMAGE-TEST-REPORT.md` and `image-*` evidence.
 
 - `npm test`: 15/15 integration tests pass, including strict coordinates, independent-level transitions, synchronous message effects, held-out numerical transfer, nested composition, field replay, dictionary policy and photo corruption detection.
 - `npm run test:spine`: 24/24 pass.

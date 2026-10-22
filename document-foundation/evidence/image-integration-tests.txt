@@ -1,0 +1,36 @@
+
+> synthia-state-space-foundation@0.3.0 test
+> node --test tests/*.test.mjs
+
+✔ DMSA boundaries reject overflow/coercion and preserve coordinate and calculation evidence (1.947998ms)
+✔ transitions inspect changed levels independently; absent mappings trigger investigation (1.018313ms)
+✔ coactivity creates permitted edges and delivered messages alter receiver computations (2.888517ms)
+✔ learning and explicit transfer change held-out behavior and survive snapshot restoration (21.01038ms)
+✔ nested composition retains lineage, perspective preserves identity, Space cannot allocate weights (2.365771ms)
+✔ actual Klein chat and field commands persist through the same foundation journal with exact replay (94.932008ms)
+✔ photo recovery returns real PNG bytes after restart; corruption fails verification (31.113552ms)
+✔ failed field commands roll back and landed state remains intact (0.730081ms)
+✔ document dictionary adapter retains sourced definitions, refuses persuasion, and replays (13.801055ms)
+✔ chat traverses actual Klein tools, reduction, five fields and the live mesh (62.456649ms)
+✔ spine expression executes and persists with network and Worker disabled (50.015825ms)
+✔ concurrent inputs land in order, failed execution is preserved, earlier history stays intact (27.748365ms)
+✔ relative lineage preserves inherited essence and both consequences at different depths (7.143309ms)
+✔ chat executes a selected Klein tool; upload runs actual guarded machine through every pipeline stage (563.349544ms)
+✔ event cycles obey a budget and journal write failures keep the landed prefix (16.588183ms)
+✔ image grammar reconstructs decoded RGBA exactly across odd, narrow, transparent and irregular images (24.824947ms)
+✔ incomplete, cyclic and altered image structures fail verification (1.882832ms)
+✔ a new composition is rendered from existing primitives with traceable source parts (1.602481ms)
+✔ geometric image operations preserve exact pixels through inverse composition (0.557688ms)
+✔ visual learning uses sourced examples and corrections change held-out candidate labels (1.109908ms)
+✔ supplied Klein sensory adapter receives measured appearance without hash or temporal noise (0.660609ms)
+✔ visual contact, taught meaning, explicit address activation, learning and generated artifacts replay together (38.490592ms)
+✔ failed journal writes leave immutable orphan outputs without blocking a fresh image after recovery (8.991039ms)
+✔ replay refuses changed landed image results instead of silently rerolling them (8.46704ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1285.846585

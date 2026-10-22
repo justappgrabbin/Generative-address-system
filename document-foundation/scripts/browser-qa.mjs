@@ -19,8 +19,8 @@ try{
  const learned=await page.evaluate(()=>globalThis.synthiaFoundation.field.snapshot());
  assert.equal(learned.nodes[0][1].component.version,1);
  await page.locator('#photo-files').setInputFiles(fileURLToPath(new URL('../tests/fixtures/gradient.png',import.meta.url)));
- await page.waitForFunction(()=>document.querySelectorAll('#photo-list button').length===1);
- await page.locator('#photo-list button').click();
+ await page.waitForFunction(()=>document.querySelectorAll('#photo-list button').length===2);
+ await page.locator('#photo-list button').first().click();
  await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
  const image=await page.locator('#photo-preview').evaluate(el=>({width:el.naturalWidth,height:el.naturalHeight}));
  await page.locator('#text').fill('A person builds a tool because it helps.');await page.locator('#chat button').click();
@@ -31,7 +31,7 @@ try{
  const after=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),photos:[...globalThis.synthiaFoundation.photos.values()]}));
  assert.deepEqual(after.field,before.field);assert.deepEqual(after.photos,before.photos);
  assert.match(await page.locator('#messages').textContent(),/A person builds a tool because it helps/);
- await page.locator('#photo-list button').click();await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ await page.locator('#photo-list button').first().click();await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
  await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
