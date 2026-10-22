@@ -28,6 +28,21 @@ const server = http.createServer(async (req, res) => {
     }
     if (req.method === 'GET' && req.url === '/api/audit') return json(res, 200, synthia.wiringAudit());
     if (req.method === 'GET' && req.url === '/api/state') return json(res, 200, synthia.snapshot());
+    if (req.method === 'GET' && req.url === '/api/structure/views') return json(res, 200, {views:synthia.generativeMorphology.structuralViews()});
+    if (req.method === 'POST' && req.url === '/api/structure') {
+      const body = await readBody(req);
+      return json(res, 200, synthia.structure(body.subject ?? null, body.context ?? {}));
+    }
+    if (req.method === 'POST' && req.url === '/api/structure/address') {
+      const body = await readBody(req);
+      return json(res, 200, synthia.generativeMorphology.structuralAddress(body.index ?? '0', {depth:body.depth ?? 1}));
+    }
+    if (req.method === 'POST' && req.url === '/api/structure/trace') {
+      return json(res, 200, synthia.generativeMorphology.traceStructure(await readBody(req)));
+    }
+    if (req.method === 'POST' && req.url === '/api/structure/step') {
+      return json(res, 200, synthia.generativeMorphology.stepStructure(await readBody(req)));
+    }
     if (req.method === 'POST' && req.url === '/api/addresses') {
       const body = await readBody(req);
       const count = synthia.setMorphologyAddresses(body.addresses ?? []);
@@ -82,9 +97,10 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': types[ext] ?? 'text/plain; charset=utf-8' });
     res.end(fs.readFileSync(file));
   } catch (error) {
-    json(res, 500, { error: String(error?.stack ?? error) });
+    json(res, error instanceof TypeError || error instanceof RangeError || error instanceof SyntaxError ? 400 : 500, { error: String(error?.message ?? error) });
   }
 });
 
 const port = Number(process.env.PORT ?? 8787);
 server.listen(port, '127.0.0.1', () => console.log(`Synthia Generative Assembly: http://127.0.0.1:${port}`));
+

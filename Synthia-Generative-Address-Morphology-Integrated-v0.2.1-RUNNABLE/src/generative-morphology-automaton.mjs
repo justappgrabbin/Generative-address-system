@@ -12,6 +12,10 @@ function summarize(snapshot = {}) {
   return Object.freeze({
     addressCount: snapshot?.addresses?.length ?? 0,
     generationStatus: snapshot?.generation?.status ?? 'explicit-addresses',
+    structuralView: snapshot?.structure?.view?.view ?? null,
+    symbolicWorkers: snapshot?.structure?.swarm?.count ?? 0,
+    observer: safeClone(snapshot?.structure?.view?.observer ?? null),
+    spaceStatus: snapshot?.structure?.space?.status ?? null,
     activeGraphCount: snapshot?.graphs?.length ?? 0,
     connectionCount: snapshot?.connections?.length ?? 0,
     dominantEnergy: snapshot?.ecology?.dominantEnergy ?? null,
@@ -35,7 +39,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
     capabilities: Object.freeze([
       'compile-addresses', 'form-connections', 'instantiate-graphs', 'graph-ecology',
       'dominant-energy', 'project-morphology', 'chat-read', 'chat-write',
-      'internet-read', 'internet-write', 'status',
+      'internet-read', 'internet-write', 'status', 'structure',
     ]),
     ports: Object.freeze({
       in: Object.freeze([{ id: 'addressed-state', type: 'json', schemaVersion: '1' }]),
@@ -92,6 +96,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
 
     const snapshot = engine.run(addresses, {
       ...(input.context ?? {}),
+      ...(operation === 'structure' ? {addressMode:'structural'} : {}),
       surface: input.surface ?? operation,
       subject: safeClone(input.subject ?? null),
     });

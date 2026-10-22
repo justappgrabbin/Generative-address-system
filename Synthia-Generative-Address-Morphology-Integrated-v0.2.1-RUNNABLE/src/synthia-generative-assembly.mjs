@@ -25,6 +25,12 @@ function mergeMeshState(existing, morphologyOutput) {
     ...(existing && typeof existing === 'object' ? clone(existing) : {}),
     activation: Number(summary.dominantStrength ?? existing?.activation ?? 0),
     generativeMorphology: clone(summary),
+    structuralMorphology: clone(morphologyOutput?.snapshot?.structure ? {
+      observer: morphologyOutput.snapshot.structure.view.observer,
+      sourceView: morphologyOutput.snapshot.structure.view.view,
+      matches: morphologyOutput.snapshot.structure.matches,
+      space: morphologyOutput.snapshot.structure.space,
+    } : null),
   };
 }
 
@@ -73,6 +79,10 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     if (!Array.isArray(addresses)) throw new TypeError('addresses must be an array');
     this.activeMorphologyAddresses = clone(addresses);
     return this.activeMorphologyAddresses.length;
+  }
+
+  structure(subject = null, context = {}) {
+    return this.morphology('structure', {subject,context,surface:'structural-analysis'});
   }
 
   morphology(operation = 'compile', { addresses = null, subject = null, context = {}, surface = null } = {}) {
