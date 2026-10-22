@@ -11,7 +11,7 @@ export class ImageMemory {
     const record={id,width,height,source,decode:structuredClone(decode),lineage:structuredClone(lineage),pixelSha256,structure};
     this.images.set(id,record);return this.summary(id);
   }
-  summary(id){const r=this.images.get(id);if(!r)throw new Error('Unknown image');return {id:r.id,width:r.width,height:r.height,source:r.source,decode:structuredClone(r.decode),lineage:structuredClone(r.lineage),artifact:structuredClone(r.artifact??null),pixelSha256:r.pixelSha256,metrics:structuredClone(r.structure.metrics),measurements:structuredClone(r.structure.measurements),reconstruction:'exact-decoded-RGBA',sceneMeaning:'UNKNOWN'};}
+  summary(id){const r=this.images.get(id);if(!r)throw new Error('Unknown image');return {id:r.id,width:r.width,height:r.height,source:r.source,decode:structuredClone(r.decode),lineage:structuredClone(r.lineage),fieldAddress:structuredClone(r.fieldAddress??null),artifact:structuredClone(r.artifact??null),pixelSha256:r.pixelSha256,metrics:structuredClone(r.structure.metrics),measurements:structuredClone(r.structure.measurements),reconstruction:'exact-decoded-RGBA',sceneMeaning:'UNKNOWN'};}
   reconstruct(id){const r=this.images.get(id);if(!r)throw new Error('Unknown image');const result=reconstructImage(r.structure);if(sha256Hex(result.rgba)!==r.pixelSha256)throw new Error('Image structure failed pixel integrity verification');return result;}
   artifact(id){
     const frame=this.reconstruct(id),opaque=new Uint8ClampedArray(frame.rgba);
@@ -30,7 +30,7 @@ export class ImageMemory {
     const image=this.images.get(id);if(!image)throw new Error('Unknown image');
     if(!Number.isInteger(limit)||limit<1||limit>20)throw new RangeError('Recognition limit must be 1..20');
     const latest=new Map();for(const feedback of this.feedback)latest.set(feedback.imageId,feedback);
-    const candidates=[...latest.values()].filter(f=>f.imageId!==id).map(feedback=>{
+    const candidates=[...latest.values()].filter(f=>f.imageId!==id&&this.images.has(f.imageId)).map(feedback=>{
       const example=this.images.get(feedback.imageId),a=image.structure.measurements.descriptor,b=example.structure.measurements.descriptor;
       const distance=Math.sqrt(a.reduce((s,v,i)=>s+(v-b[i])**2,0)/a.length);
       return {imageId:feedback.imageId,label:feedback.label,distance,evidence:feedback.id,source:feedback.source};

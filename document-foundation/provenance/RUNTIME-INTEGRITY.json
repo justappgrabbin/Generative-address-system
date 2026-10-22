@@ -1721,12 +1721,12 @@
     },
     {
       "path": "Synthia-Foundation-Offline.html",
-      "sha256": "60c438c71a82e1a4d49014ea14698fec32de50e2ff448262a5d412e810ea6cab",
+      "sha256": "50494589c1abd114e7a6d7373c54367cd0c9bf8a310d3c5f903a0866c94e379c",
       "originalSha256": "c0a8893c7a8ddcf127af0dc9f805abc12f12ae2e52d5d91cddb759d66e607edb"
     },
     {
       "path": "index.html",
-      "sha256": "ea9b20244098640818c94fcbf705ac6eb6aeaaed0a42f7e528f32f2a54c426e8",
+      "sha256": "e270cd775c6b1907d0352f5568281879065612a126cf7aba916aa89c92019b7c",
       "originalSha256": "d54ecb3fd81f913f5ffeab22f0af32df7e5a13e23555feb7188a4dbadef387a3"
     },
     {
@@ -1736,12 +1736,12 @@
     },
     {
       "path": "src/app.mjs",
-      "sha256": "4bdb1900bcd0008384906aa37bb348dec03ae011e88877dc2488585fd6e0993b",
+      "sha256": "467ed533de243ca86168864fa3a7f7b369cbda69b79cdc85a7168004b9aaf06e",
       "originalSha256": "fe5cc4e015ec630148f5b5308bd2fb30806578909f8027ab69c36a762e82cdff"
     },
     {
       "path": "src/foundation.mjs",
-      "sha256": "49ef156367a4543b8bb0e6def20f466bd1e6186c4dee67bd4e8576c50141355e",
+      "sha256": "aaa62ed63620ee0e407571293ec4720c78e649f5882930fb0cc8620990092ade",
       "originalSha256": "1cd933d1cb1bf127a739e43184c6572d8942ca4f2ce76ec63664556b7c61ff96"
     }
   ],
@@ -1752,7 +1752,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "121f4f5034f519fe40d649f600ad00dfc380867b5ecd0e649d73ca3ab6b08fed"
+      "sha256": "9ec9d8f2c9d9f8e2ff69286b7a83a26f7f8d0f5b39b70c38a44be9c26f9004a5"
     },
     {
       "path": "examples/field-demo.mjs",
@@ -1768,7 +1768,7 @@
     },
     {
       "path": "src/addressed-field.mjs",
-      "sha256": "35e5cac672594a5fa4458c15d62a09842cd3bc6a858908db60b39c60825c4be5"
+      "sha256": "2c5825447f127e667994985e5a11142baf9132ba115850b1bb31723635fdfde2"
     },
     {
       "path": "src/browser-image-decoder.mjs",
@@ -1780,7 +1780,7 @@
     },
     {
       "path": "src/image-memory.mjs",
-      "sha256": "9391c2ccdf878e85e68927c1684cb6c5a9c7925daaa9ba44f6f6b142348a1c64"
+      "sha256": "cde425fedea36a12f20232b29d3b2e21f91d401dfa7809a43faae47010277697"
     },
     {
       "path": "src/image-structure.mjs",
@@ -1825,6 +1825,28 @@
     {
       "path": "vendor/sha256.mjs",
       "sha256": "4a4494a91ba180e9d1fa7dd0b131c7d3be9afbfec44ec7358f177091ce42bb00"
+    }
+  ],
+  "addressedConstructionAdditions": [
+    {
+      "path": "src/semantic-state.mjs",
+      "sha256": "0360dbd7bf8e89d119a4d3983bbc9a441b8c352c7cee9377f8344c007d6d79d5"
+    },
+    {
+      "path": "src/proportional-position.mjs",
+      "sha256": "84f24a0db8f40d3067578ca57afa750b1457ac3c59d1b8bb1f976176b506cdcf"
+    },
+    {
+      "path": "src/structural-frames.mjs",
+      "sha256": "829919e13381c0f3c0bce897053db030ca95cc93efa7205b86608099aa01a2c4"
+    },
+    {
+      "path": "tests/semantic-construction.test.mjs",
+      "sha256": "f51d22272f9755b0f8c4d0f8f8f60a91c9591c3bec9e7779875c8c6c28fe8451"
+    },
+    {
+      "path": "tests/document-rules.test.mjs",
+      "sha256": "fd1e673cd5e72e7c21ccbebcaf834271499b2bd1c5804716c57479619d55b463"
     }
   ]
 }

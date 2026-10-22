@@ -1,3 +1,11 @@
+# In development — addressed construction and document corrections
+
+- Use the two supplied documents together, retaining the user’s corrections. Record the additional document’s identifier and extracted-text hash without publishing its private contents.
+- Keep degree/minute/second ranges at 0–29 / 0–59 / 0–59. Resolve exact nested proportions inside a 5°37′30″ span from a supplied origin; retain fractional precision and allow a previously unregistered coordinate to be admitted. This does not infer chart origins or semantic meanings from numeric subdivisions.
+- Add sourced structural identities and separate, append-only contextual placements. Entering a contained structure establishes its local frame. Preserve the documented Being-led order without guessing other read orders.
+- Store image representations and taught meanings inside the addressed field. Learn construction layouts from demonstrated compositions and construct new combinations from resolved, sourced operands; recursively reuse a constructed whole as a constituent. Unknown or ambiguous terms require investigation.
+- Validation: 30 automated tests pass; offline module graph executes; existing PNG/JPEG reconstruction, downloaded composition, exact restart replay and mobile browser checks pass. New construction forms have automated engine coverage but have not yet received dedicated browser interaction coverage. Arbitrary photorealistic text-to-image generation is not established by these checks.
+
 # 0.3.0 — measured visual reconstruction and learning
 
 - Connected the supplied Klein sensory adapter through a versioned adapter using measured pixel features. Hash-based appearance fallbacks and synthetic temporal appearance noise are excluded from this path.

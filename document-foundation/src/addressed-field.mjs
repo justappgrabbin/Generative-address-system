@@ -1,10 +1,13 @@
 import {parseAddress,serializeAddress,compareAddresses,evaluateTransition,PERSPECTIVES} from './operational-address.mjs';
 import {TrainableComponent} from './trainable-component.mjs';
+import {SemanticState} from './semantic-state.mjs';
+import {StructuralFrames} from './structural-frames.mjs';
+import {resolveProportionalAddress} from './proportional-position.mjs';
 const clone=structuredClone;
 // Perspective is a view of the same occupied coordinates, not a second identity.
 export function coordinateKey(address){const a=JSON.parse(serializeAddress(address));delete a.dimension;return JSON.stringify(a);}
 export class AddressedField {
-  constructor(){this.nodes=new Map();this.edges=[];this.runs=[];this.compositions=[];this.observations=[];this.rules=new Map();}
+  constructor(){this.nodes=new Map();this.edges=[];this.runs=[];this.compositions=[];this.observations=[];this.rules=new Map();this.semantic=new SemanticState();this.structures=new StructuralFrames();}
   register({address,provenance}){
     address=parseAddress(address,provenance);
     if(!provenance?.source)throw new TypeError('Component registration requires source provenance');
@@ -96,19 +99,28 @@ export class AddressedField {
     const mask=slots.reduce((bits,s)=>s.active.length?bits|(1n<<BigInt(s.gate-1)):bits,0n).toString(16).padStart(16,'0');
     return {dimension,kind:dimension==='Space'?'derived-view':'perspective-view',slots,activationMaskHex:mask,encoding:'64 slot-occupancy bits, separate from six-line codes and parameters'};
   }
+  defineStructure(payload){return this.structures.define(payload);}
+  placeStructure(payload){return this.structures.place(payload);}
+  readStructure(payload){return this.structures.read(payload);}
+  enterStructure(payload){return this.structures.enter(payload);}
+  resolveAddress(payload){
+    const resolved=resolveProportionalAddress(payload);
+    if(payload.admit)resolved.registration=this.register({address:resolved.address,provenance:{source:payload.source,calculation:resolved.calculation}});
+    return resolved;
+  }
   execute(command){
-    const before=this.snapshot();
+    const semantic=this.semantic,before=this.snapshot({includeSemantic:false});
     try {
-      if(!['register','observe','installRule','run','compose','transfer','view','slots'].includes(command?.operation))throw new TypeError('Unknown field operation');
+      if(!['register','observe','installRule','run','compose','transfer','view','slots','resolveAddress','defineStructure','placeStructure','readStructure','enterStructure'].includes(command?.operation))throw new TypeError('Unknown field operation');
       if(command.operation==='view')return this.view(command.address,command.dimension);
       return this[command.operation](command.payload);
-    }catch(error){this.restore(before);throw error;}
+    }catch(error){this.restore(before);this.semantic=semantic;throw error;}
   }
-  snapshot(){return clone({schema:'synthia.addressed-field.v1',nodes:[...this.nodes].map(([key,n])=>[key,{...n,component:n.component.snapshot()}]),edges:this.edges,runs:this.runs,compositions:this.compositions,observations:this.observations,rules:[...this.rules]});}
+  snapshot({includeSemantic=true}={}){return clone({schema:'synthia.addressed-field.v1',nodes:[...this.nodes].map(([key,n])=>[key,{...n,component:n.component.snapshot()}]),edges:this.edges,runs:this.runs,compositions:this.compositions,observations:this.observations,rules:[...this.rules],structures:this.structures.snapshot(),semantic:includeSemantic?this.semantic.snapshot():null});}
   restore(s){
     if(s?.schema!=='synthia.addressed-field.v1')throw new TypeError('Unsupported field snapshot');
     const nodes=new Map(s.nodes.map(([key,n])=>{if(coordinateKey(n.address)!==key)throw new TypeError('Snapshot address mismatch');return [key,{...clone(n),component:new TrainableComponent(n.component)}];}));
-    this.nodes=nodes;this.edges=clone(s.edges);this.runs=clone(s.runs);this.compositions=clone(s.compositions);this.observations=clone(s.observations);this.rules=new Map(clone(s.rules));return this;
+    this.nodes=nodes;this.edges=clone(s.edges);this.runs=clone(s.runs);this.compositions=clone(s.compositions);this.observations=clone(s.observations);this.rules=new Map(clone(s.rules));this.semantic=new SemanticState(s.semantic);this.structures=new StructuralFrames(s.structures);return this;
   }
   audit(){return {schema:'synthia.addressed-field.v1',slots:Object.fromEntries(PERSPECTIVES.map(d=>[d,{available:64,kind:d==='Space'?'derived-view':'perspective-view'}])),components:this.nodes.size,edges:this.edges.length,runs:this.runs.length,compositions:this.compositions.length,observations:this.observations.length,rules:[...this.rules.keys()],externalModelRequired:false,gpuRequired:false,unknown:['birth-to-address','nine-center-reference-selection','arc-to-color-sound','DMSA-CTB-assignment','Base-sharing','Bantu-language-rule-pack','four-Model-Maker-positions']};}
 }

@@ -32,5 +32,11 @@
     "engineeringRepresentation": "src/image-structure.mjs: solid/raster/split geometry; not asserted as canonical ontological coordinates",
     "selectionRule": "measured-visual-distance.v1, explicit user-supplied address bindings only",
     "originalSensorySha256": "c2791425be0221b5143a9cb03e896c446c7405cb039c61af2958890d0e40e822"
+  },
+  "additionalSpecification": {
+    "driveId": "1pRXTJGn5gwZvYuX2NQwKinM72HM2pU8arUS7KKK-nh0",
+    "extractedTextSha256": "71464de27e63bf04c9b32c4da70d363af1f5db7dcdfac5412eaeeb6ea0334cb4",
+    "application": "Use documents together: operational mechanism and represented structure. Final recap clarifies intrinsic identity versus contextual placement; dominating structures; Being-led read order; retained occurrence history. User corrections retain priority.",
+    "dmsClarification": "Degree 0\u201329, minute 0\u201359, second 0\u201359; 5\u00b037\u203230\u2033 is a span expressed in this notation, not replacement field ranges."
   }
 }

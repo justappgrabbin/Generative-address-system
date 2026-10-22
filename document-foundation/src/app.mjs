@@ -3,7 +3,7 @@ const app=new Foundation();globalThis.synthiaFoundation=app;
 const el=id=>document.getElementById(id);
 const show=v=>JSON.stringify(v,(_,x)=>typeof x==='bigint'?x.toString():x instanceof Uint8Array?{__synthiaBytes:Array.from(x)}:x,2);
 const append=(target,title,content)=>{const box=document.createElement('article');const heading=document.createElement('strong');heading.textContent=title;const pre=document.createElement('pre');pre.textContent=typeof content==='string'?content:show(content);box.append(heading,pre);el(target).append(box);};
-const describe=r=>r.field??r.image??r.imageFeedback??r.imageFailure??r.imageBinding??r.photo??{address:r.record?.address?.id,path:r.record?.execution?.path,fiveW:r.fiveW,fieldContact:r.fieldContact};
+const describe=r=>r.field??r.image??r.semanticProgram??r.semantic??r.imageFeedback??r.imageFailure??r.imageBinding??r.photo??{address:r.record?.address?.id,path:r.record?.execution?.path,fiveW:r.fiveW,fieldContact:r.fieldContact};
 const refresh=()=>{el('audit').textContent=show(app.audit());el('status').textContent=`Foundation ready · ${app.history.length} landed entries`;};
 async function run(task){el('status').textContent='Processing through the foundation…';try{const r=await task();append('activity',`${r.id} · ${r.ok?'Executed':'Execution evidence recorded'}`,describe(r));refresh();return r;}catch(e){el('status').textContent=`Processing issue: ${e.message}`;throw e;}}
 await app.ready;refresh();const storage=await app.store.audit();el('status').textContent+=` · ${storage.durable?'Saved on this device':'Memory session; export to retain history'}`;
@@ -32,7 +32,8 @@ async function showImageArtifact(id,download=false){
 }
 function recognition(){const id=el('image-source').value;el('recognition').textContent=id?show(app.imageMemory.recognize(id)):'Upload a photo and analyze its pixels, then teach an example.';}
 function renderImages(){
- for(const name of ['image-source','compose-left','compose-right']){const select=el(name),previous=select.value;select.replaceChildren();for(const image of app.imageMemory.images.values()){const option=document.createElement('option');option.value=image.id;option.textContent=`${image.id} · ${image.width} × ${image.height}`;select.append(option);}if(app.imageMemory.images.has(previous))select.value=previous;}
+ for(const name of ['image-source','compose-left','compose-right','program-example']){const select=el(name),previous=select.value;select.replaceChildren();for(const image of app.imageMemory.images.values()){if(name==='program-example'&&!image.lineage?.parts?.length)continue;const option=document.createElement('option');option.value=image.id;option.textContent=`${image.id} · ${image.width} × ${image.height}`;select.append(option);}if([...select.options].some(o=>o.value===previous))select.value=previous;}
+ const programs=el('generation-program'),previous=programs.value;programs.replaceChildren();for(const name of app.field.semantic.programs.keys()){const option=document.createElement('option');option.value=name;option.textContent=name;programs.append(option);}if([...programs.options].some(o=>o.value===previous))programs.value=previous;
  el('image-list').replaceChildren();for(const image of app.imageMemory.images.values()){
   const row=document.createElement('article'),label=document.createElement('span'),open=document.createElement('button'),save=document.createElement('button');
   label.textContent=`${image.id} · ${image.width} × ${image.height}${image.decode?.resampled?' · resized analysis':''} `;
@@ -48,3 +49,5 @@ el('compose-images').onsubmit=async event=>{event.preventDefault();try{
  const result=await run(()=>app.imageCommand({operation:'compose',recipe:{width:lw+rw,height,background:[255,255,255,255],source:'user:side-by-side-composition',parts:[{imageId:left.id,x:0,y:0,width:lw,height},{imageId:right.id,x:lw,y:0,width:rw,height}]}}));renderImages();showImageArtifact(result.image.id);
  }catch(error){el('status').textContent=error.message;}};
 renderImages();
+el('learn-construction').onsubmit=async event=>{event.preventDefault();try{const result=await run(()=>app.imageCommand({operation:'learn-program',imageId:el('program-example').value,name:el('program-name').value,source:'user:demonstrated-construction'}));el('semantic-trace').textContent=show(result.semanticProgram??result.semantic);renderImages();}catch{}};
+el('generate-state-image').onsubmit=async event=>{event.preventDefault();try{const terms=el('generation-terms').value.split(/\r?\n/u).map(s=>s.trim()).filter(Boolean);const result=await run(()=>app.imageCommand({operation:'generate',program:el('generation-program').value,terms,source:'user:semantic-request'}));el('semantic-trace').textContent=show(result.construction??result.semantic);renderImages();if(result.image)await showImageArtifact(result.image.id);}catch{}};

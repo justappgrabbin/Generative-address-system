@@ -19,6 +19,7 @@ import {ImageMemory} from './image-memory.mjs';
 import {VisualSensory} from './visual-sensory.mjs';
 import {decodeImageBytes} from './browser-image-decoder.mjs';
 import {sha256Hex} from '../vendor/sha256.mjs';
+import {composeImage} from './image-structure.mjs';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -175,7 +176,13 @@ export class Foundation {
     catch(error){return this.imageCommand({operation:'decode-failure',photoId,error:String(error.message),decoderTrace:copy(error.decoderTrace??[])});}
     return this.imageCommand({operation:'analyze',source:photoId,frame});
   }
-  imageArtifact(imageId){const artifact=this.imageMemory.artifact(imageId),saved=this.imageMemory.images.get(imageId)?.artifact;if(saved&&artifact.sha256!==saved.sha256)throw new Error('Reconstructed artifact differs from landed output');return {...artifact,location:saved?.location??null};}
+  imageArtifact(imageId){
+    const ref=this.field.semantic.refFor(imageId);let reader=this.imageMemory;
+    if(ref){reader=new ImageMemory();reader.images.set(imageId,this.field.semantic.read(ref).representation);}
+    const artifact=reader.artifact(imageId),saved=this.imageMemory.images.get(imageId)?.artifact;
+    if(saved&&artifact.sha256!==saved.sha256)throw new Error('Reconstructed artifact differs from landed output');
+    return {...artifact,location:saved?.location??null,renderSource:ref?'ADDRESSED_FIELD_REPRESENTATION':'LOCAL_IMAGE_GRAMMAR'};
+  }
   async readImageArtifact(imageId){
     await this.ready;const metadata=this.imageMemory.images.get(imageId)?.artifact;if(!metadata)throw new Error('No saved image artifact');
     const artifact=await this.store.get(metadata.location);if(!artifact||sha256Hex(artifact.bytes)!==metadata.sha256)throw new Error('Saved image artifact failed integrity verification');
@@ -189,10 +196,12 @@ export class Foundation {
     if(input.operation==='teach'){
       if(input.outcome!==undefined&&!Number.isFinite(input.outcome))throw new TypeError('Finite numeric outcome required');
       const feedback=this.imageMemory.teach(input);
+      const ref=this.field.semantic.refFor(feedback.imageId);
+      const semanticEvidence=ref?this.field.semantic.teach({ref,term:feedback.label,source:feedback.source}):null;
       const dictionary=this.system.engine.toolsById.get('diseminer').run({operation:'extract',entries:[{term:feedback.label,definition:`User-supplied label for measured image ${feedback.imageId}`,source:feedback.source}]},{source:id}).output;
       const autoling=this.system.engine.toolsById.get('autoling').run({operation:'pipeline',text:feedback.label},{source:id}).output;
       const fieldExecution=input.outcome===undefined?null:this.runVisualField(feedback.imageId,input.outcome);
-      return {id,ok:true,imageFeedback:feedback,dictionary,autoling,fieldExecution};
+      return {id,ok:true,imageFeedback:feedback,semanticEvidence,dictionary,autoling,fieldExecution};
     }
     if(input.operation==='bind'){
       const image=this.imageMemory.images.get(input.imageId);if(!image||!input.provenance?.source)throw new TypeError('Stored image and explicit address provenance required');
@@ -200,13 +209,31 @@ export class Foundation {
       const key=coordinateKey(input.address);
       if(input.address.dimension==='Space')throw new Error('Bind an active perspective; Space remains a derived view');
       if(!this.field.nodes.has(key))this.field.register({address:input.address,provenance:input.provenance});
+      const ref=this.field.semantic.attach({coordinate:input.address,representation:{format:'image-grammar.v1',structure:image.structure,pixelSha256:image.pixelSha256},source:input.imageId,provenance:input.provenance});
+      const latest=this.imageMemory.feedback.filter(f=>f.imageId===input.imageId).at(-1);
+      if(latest)this.field.semantic.teach({ref,term:latest.label,source:latest.source});
       this.imageMemory.bindings.set(input.imageId,{address:copy(input.address),provenance:copy(input.provenance)});
-      return {id,ok:true,imageBinding:{imageId:input.imageId,key,provenance:input.provenance},fieldExecution:this.runVisualField(input.imageId)};
+      return {id,ok:true,imageBinding:{imageId:input.imageId,key,ref,provenance:input.provenance},fieldExecution:this.runVisualField(input.imageId)};
     }
+    if(input.operation==='learn-program')return this.learnImageProgram(input,id);
     let image;
     const imageId=`image:${id}`;
+    let construction=null;
     if(input.operation==='analyze')image=this.imageMemory.store({id:imageId,...input.frame,source:input.source});
     else if(input.operation==='compose')image=this.imageMemory.compose(input.recipe,imageId);
+    else if(input.operation==='generate'){
+      const autoling=this.system.engine.toolsById.get('autoling').run({operation:'pipeline',text:input.terms.map(t=>typeof t==='string'?t:t.text).join('\n')},{source:id}).output;
+      construction=this.field.semantic.plan(input);
+      if(construction.status!=='PLANNED')return {id,ok:false,semantic:construction,autoling};
+      const {template}=construction.program;
+      const parts=template.slots.map((slot,i)=>({...slot,imageId:`operand:${i}`}));
+      const frame=composeImage({width:template.width,height:template.height,background:template.background,parts,source:`field-program:${construction.program.name}@${construction.program.version}`},key=>construction.operands[Number(key.split(':')[1])]?.representation.structure);
+      frame.lineage.parts=frame.lineage.parts.map((part,i)=>({...part,imageId:construction.operands[i].source,stateRef:copy(construction.address.operands[i])}));
+      image=this.imageMemory.store({id:imageId,...frame,source:frame.lineage.source,lineage:frame.lineage});
+      const landedState=this.field.semantic.land({plan:construction,representation:{format:'image-grammar.v1',structure:this.imageMemory.images.get(imageId).structure,pixelSha256:image.pixelSha256},source:imageId,provenance:{source:input.source??id,calculation:'learned-addressed-construction.v1'}});
+      this.imageMemory.images.get(imageId).fieldAddress=landedState.address;
+      construction={...construction,...landedState,autoling,renderSource:'ADDRESSED_FIELD_REPRESENTATIONS'};
+    }
     else throw new TypeError('Unknown image operation');
     // Content-addressed artifact storage is integrity bookkeeping, not meaning.
     // An unacknowledged orphan from a failed journal write cannot block a new
@@ -220,10 +247,31 @@ export class Foundation {
     image=this.imageMemory.summary(imageId);
     const frame=this.imageMemory.reconstruct(imageId),sensory=this.visualSensory.observe({id:imageId,...frame,measurements:image.measurements});
     const dictionary=this.system.engine.toolsById.get('diseminer').run({operation:'observe',observation:{source_ref:imageId,modality:'visual',observed_features:{sensory,measurements:image.measurements}}},{source:id}).output;
-    const fieldContact=this.field.observe({modality:'visual',source_ref:imageId,observed_features:{visual:{measurements:image.measurements,sensory,structureRef:imageId}},relation_edges:image.lineage?.parts.map(p=>({subject:p.imageId,predicate:'contributed-pixels-to',object:imageId,source:input.recipe.source}))??[],uncertainty:{sceneMeaning:'UNKNOWN',ontologicalAddress:'UNRESOLVED'}});
-    const recognition=this.imageMemory.recognize(imageId),fieldExecution=this.runVisualField(imageId);
+    const fieldContact=this.field.observe({modality:'visual',source_ref:imageId,observed_features:{visual:{measurements:image.measurements,sensory,structureRef:imageId}},relation_edges:image.lineage?.parts.map(p=>({subject:p.imageId,predicate:'contributed-pixels-to',object:imageId,source:image.lineage.source}))??[],uncertainty:{sceneMeaning:'UNKNOWN',ontologicalAddress:construction?'LEARNED_RECURSIVE_CONSTRUCTION':'UNRESOLVED'}});
+    const recognition=this.imageMemory.recognize(imageId),fieldExecution=construction?this.runConstructionField(construction,imageId):this.runVisualField(imageId);
     const shared=this.system.shareKnowledge({kind:'measured-visual-contact',image,sensory,recognition,fieldExecution},{source:'image-grammar.v1'});
-    return {id,ok:true,image,recognition,dictionary,fieldContact,fieldExecution,shared};
+    return {id,ok:true,image,construction,recognition,dictionary,fieldContact,fieldExecution,shared};
+  }
+  learnImageProgram(input,id){
+    const example=this.imageMemory.images.get(input.imageId),parts=example?.lineage?.parts;
+    if(!parts?.length)return {id,ok:false,semantic:{status:'INVESTIGATE',reason:'Choose an observed composition to learn its construction'}};
+    const refs=parts.map(p=>p.stateRef??this.field.semantic.refFor(p.imageId));
+    if(refs.some(r=>!r))return {id,ok:false,semantic:{status:'INVESTIGATE',reason:'Source constituents need sourced address bindings',sources:parts.filter((p,i)=>!refs[i]).map(p=>p.imageId)}};
+    const slots=parts.map((part,i)=>{
+      const record=this.field.semantic.read(refs[i]),structure=record.representation.structure;
+      if(part.node!==undefined&&part.node!==structure.root)throw new Error('Sub-part transfer requires a learned correspondence; whole-constituent examples are supported');
+      const crop=part.crop??{width:structure.width,height:structure.height},odd=(part.quarterTurns??0)%2;
+      return {x:part.x,y:part.y,width:part.width??(odd?crop.height:crop.width),height:part.height??(odd?crop.width:crop.height),...(part.crop?{crop:copy(part.crop)}:{}),quarterTurns:part.quarterTurns??0,flipX:part.flipX??false,flipY:part.flipY??false};
+    });
+    const owner=input.owner??this.field.semantic.refFor(input.imageId)??refs[0];
+    const program=this.field.semantic.learnProgram({name:input.name,owner,template:{width:example.width,height:example.height,background:example.lineage.background,slots},source:input.source,evidence:[{image:input.imageId,pixelSha256:example.pixelSha256,constituents:refs,governingPrimitive:owner,basis:'Observed composition; leading qualified primitive (document Rules §8) unless explicit owner supplied'}]});
+    return {id,ok:true,semanticProgram:program};
+  }
+  runConstructionField(construction,imageId){
+    const coordinates=construction.address.operands.map(ref=>this.field.semantic.owner(ref));
+    const image=this.imageMemory.images.get(imageId);
+    const run=this.field.execute({operation:'run',payload:{candidates:coordinates,input:image.structure.measurements.fieldInput,tier:5,budgets:[1,4,8,16,64],provenance:{source:imageId,calculation:'sourced-semantic-evidence.v1',program:construction.address.program},context:{modality:'visual',addressedConstruction:construction.address}}});
+    return {selection:{method:'RESOLVED_SEMANTIC_OPERANDS',operands:copy(construction.address.operands)},run};
   }
   runVisualField(imageId,feedback){
     const image=this.imageMemory.images.get(imageId),descriptor=image.structure.measurements.descriptor;
