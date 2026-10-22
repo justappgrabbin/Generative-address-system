@@ -32,4 +32,6 @@ const solid=await app.imageCommand({operation:'analyze',source:'offline:solid',f
 const composed=await app.imageCommand({operation:'compose',recipe:{width:2,height:1,background:[0,0,0,255],source:'offline:new-layout',parts:[{imageId:solid.image.id,x:0,y:0},{imageId:solid.image.id,x:1,y:0}]}});
 const rendered=app.imageMemory.reconstruct(composed.image.id).rgba;
 if(Array.from(rendered).join(',')!=='10,20,30,255,10,20,30,255')throw Error('Offline image construction differs');
-console.log(`Offline module graph: ${modules.size} modules parsed; expression, native learning, generated tool, four source languages, exact RGBA reconstruction and new image composition passed with optional facilities unavailable.`);
+const primitive=await app.ingest({primitiveProgram:{nodes:[{id:'a',op:'const',value:[[1,2]]},{id:'b',op:'const',value:[[3],[4]]},{id:'product',op:'matmul',inputs:['a','b']}],outputs:['product']}},{name:'network.json'});
+if(primitive.outcome.path!=='synthia-primitive-vm'||primitive.outcome.result.returnValue.product[0][0]!==11)throw Error('Restored offline primitive bridge failed');
+console.log(`Offline module graph: ${modules.size} modules parsed; expression, primitive VM, native learning, generated tool, four source languages, exact RGBA reconstruction and new image composition passed with optional facilities unavailable.`);

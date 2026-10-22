@@ -1,4 +1,5 @@
 import { normalizeArtifact } from './artifact-normalizer.mjs';
+import { decomposeForeignStructure } from './foreign-structure-decomposer.mjs';
 
 const decoder = new TextDecoder();
 
@@ -213,7 +214,7 @@ async function reduceNormalized(normalized, { depth = 0 } = {}) {
     }
   }
 
-  if (normalized.kind === 'zip') {
+  if (['zip','jar','apk','aar'].includes(normalized.kind)) {
     const archive = await unpackZip(normalized.bytes);
     const units = [];
     if (depth < 2) {
@@ -230,13 +231,15 @@ async function reduceNormalized(normalized, { depth = 0 } = {}) {
         warnings: Object.freeze(archive.warnings),
       }),
       units: Object.freeze(units),
+      format: normalized.format ?? null,
       structure: Object.freeze({
         dependencies: Object.freeze([]),
         moduleSyntax: false,
+        archiveKind: normalized.kind,
         archiveEntries: archive.entries.length,
       }),
       primitives: Object.freeze([
-        canonicalAtom('artifact-kind', 'zip'),
+        canonicalAtom('artifact-kind', normalized.kind),
         canonicalAtom('archive-entry-count', archive.entries.length),
         ...archive.entries.slice(0, LIMITS.maxZipEntries).map((entry) => canonicalAtom('archive-entry', entry.name)),
       ]),
@@ -255,10 +258,15 @@ async function reduceNormalized(normalized, { depth = 0 } = {}) {
     });
   }
 
+  const foreign = decomposeForeignStructure(normalized);
   return Object.freeze({
     ...base,
-    structure: Object.freeze({ dependencies: Object.freeze([]), moduleSyntax: false }),
-    primitives: Object.freeze([canonicalAtom('artifact-kind', normalized.kind), ...binaryAtoms(normalized.bytes)]),
+    format: normalized.format ?? null,
+    structure: foreign.structure ?? Object.freeze({ dependencies: Object.freeze([]), moduleSyntax: false }),
+    loweringHints: foreign.loweringHints ?? null,
+    primitives: foreign.primitives?.length
+      ? foreign.primitives
+      : Object.freeze([canonicalAtom('artifact-kind', normalized.kind), ...binaryAtoms(normalized.bytes)]),
   });
 }
 
@@ -266,8 +274,8 @@ export class PrimitiveReducer {
   async reduce(input) {
     const normalized = input?.kind && input?.bytes instanceof Uint8Array ? input : await normalizeArtifact(input);
     const root = await reduceNormalized(normalized);
-    const units = root.kind === 'zip' ? root.units : Object.freeze([root]);
-    const primitiveCount = units.reduce((sum, unit) => sum + (unit.primitives?.length ?? 0), root.kind === 'zip' ? root.primitives.length : 0);
+    const units = Array.isArray(root.units) ? root.units : Object.freeze([root]);
+    const primitiveCount = units.reduce((sum, unit) => sum + (unit.primitives?.length ?? 0), Array.isArray(root.units) ? root.primitives.length : 0);
     return Object.freeze({
       schema: 'synthia.primitive-decomposition.v1',
       artifact: Object.freeze({ name: normalized.name, kind: normalized.kind, mime: normalized.mime, size: normalized.size }),

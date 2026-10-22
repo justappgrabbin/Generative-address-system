@@ -5,3 +5,6 @@ export { OntologicalAddressSigner, digest, stableStringify } from './ontological
 export { BrowserAutomataStore } from './browser-automata-store.mjs';
 export { BrowserExecutionSurface } from './browser-execution-surface.mjs';
 export { AutomataIngestionExecutionKernel } from './ingestion-execution-kernel.mjs';
+export * from './foreign-format-registry.mjs';
+export * from './foreign-structure-decomposer.mjs';
+export * from './universal-primitive-execution-bridge.mjs';

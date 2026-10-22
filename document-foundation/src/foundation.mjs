@@ -27,6 +27,7 @@ import {KleinContextRuntime} from '../../Synthia-Generative-Address-Morphology-I
 import {FeatureSpace} from '../vendor/spine/src/pure-synthia/engine/boolean-ato.js';
 import {stableStringify} from '../vendor/spine/src/pure-synthia/engine/derivation.js';
 import {registerTranslationLayer} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/translation-layer/src/index.mjs';
+import {KleinSituationRouter} from '../vendor/ingestion/src/klein/klein-situation-router.mjs';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -50,7 +51,7 @@ export class Foundation {
     const chamber = {
       executeJavaScript: async (source, options={}) => {
         const artifact = await normalizeArtifact(source, {name:'realization.js'});
-        const out = await this.surface.execute(artifact, {globals:options.context});
+        const out = await this.surface.execute(artifact, {globals:options.context,localOnly:true});
         if (!out.ok) throw new Error(out.error);
         return {ok:true, ...out.result};
       },
@@ -62,10 +63,15 @@ export class Foundation {
     };
     this.system = new SynthiaSystem({engine:new SynthiaAutomata(),executionBridge:new UniversalExecutionBridge({sandbox:chamber})});
     registerTranslationLayer(this.system.execution);
+    this.surface.executionBridge=this.system.execution;
     this.system.engine.klein = new KleinContextRuntime({engine:this.system.engine});
     this.documentToolPolicy = installDocumentToolPolicy(this.system.engine);
     this.lineage = new LineageAdapter(this.system.engine);
     this.kernel = new AutomataIngestionExecutionKernel({store,executionSurface:this.surface});
+    // Route memory is rebuilt from the same input journal, avoiding future
+    // persisted cache entries influencing the replay of earlier decisions.
+    this.routeMemory=new Map();
+    this.situationRouter=new KleinSituationRouter({engine:this.system.engine,store:{get:async key=>copy(this.routeMemory.get(key)??null),put:async(key,value)=>{this.routeMemory.set(key,copy(value));}}});
     this.pipeline = new ExecutionPipeline({addressResolver:this.system.addressResolver,mesh:this.system.mesh,store:new MemoryExecutionPipelineStore(),executeArtifactCore:(artifact,context)=>this.executeCore(artifact,context)});
     this.klein = new KleinEngine();
     this.ato = new AtoEngine({latentResolution:[1,1],numEmbeddings:64,embeddingDim:64});
@@ -87,7 +93,7 @@ export class Foundation {
     return this;
   }
   transact(input, context, kind) {
-    context={toolPolicyVersion:'native-learning.v3',...context};
+    context={toolPolicyVersion:'native-learning.v3',executionRoutingVersion:'situation-router.v1',...context};
     const operation = this.queue.then(async () => {
       await this.ready;
       if(this.storageFault)throw new Error('Reload the foundation from its landed journal after the storage failure');
@@ -220,10 +226,14 @@ export class Foundation {
       return {id,ok:true,consequence};
     }
     if (context.canonicalAddress) validateCanonicalAddress(context.canonicalAddress);
+    const router=context.executionRoutingVersion==='situation-router.v1'?this.situationRouter:null;
+    this.kernel.kleinRouter=router;
+    this.surface.kleinRouter=router;
+    this.surface.primitiveBridge.kleinRouter=router;
     const session = await this.kernel.prepare(input,context);
     // Address-first observation before the operation; execution placement follows.
     const admission = this.system.engine.intake(session.normalized.text || session.fingerprint,context);
-    const outcome = await this.pipeline.execute({name:session.normalized.name,content:session.normalized.text,bytes:session.normalized.bytes,type:session.normalized.kind},{...context,foundationKind:kind});
+    const outcome = await this.pipeline.execute({name:session.normalized.name,content:session.normalized.text,bytes:session.normalized.bytes,type:session.normalized.kind},{...context,foundationKind:kind,kleinRoute:session.kleinRoute,automataFingerprint:session.fingerprint});
     const execution = {...outcome,backendUsed:false,workerUsed:false};
     const record = await this.kernel.finalize(session,execution);
     const text = session.normalized.text;
@@ -252,7 +262,15 @@ export class Foundation {
         outcome = {...outcome,kind:'state-space-spec',path:'spine-realization',result:{engine:outcome.realizer,stdout:[],returnValue:outcome.value}};
         this.system.shareKnowledge({kind:'state-space-execution',outcome},{source:'execution'});
       } else {
-        outcome = await this.system.executeArtifact(artifact,context);
+        // Restore the supplied primitive VM/lowerer path before attempting a
+        // language-specific runtime. Missing lowerers fall through unchanged.
+        const normalized=await normalizeArtifact(artifact);
+        let primitiveContext=context;
+        if(normalized.kind==='json'){
+          try{const parsed=JSON.parse(normalized.text);if(parsed.primitiveProgram)primitiveContext={...context,primitiveProgram:parsed.primitiveProgram};}catch{}
+        }
+        outcome = await this.surface.primitiveBridge.execute(normalized,primitiveContext)
+          ?? await this.system.executeArtifact(artifact,context);
       }
     }
     if (!outcome.canonicalAddressKey) {

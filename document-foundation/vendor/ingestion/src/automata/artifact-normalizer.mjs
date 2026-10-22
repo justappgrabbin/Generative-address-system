@@ -1,13 +1,11 @@
+
+import { detectForeignFormat } from './foreign-format-registry.mjs';
+
 const textDecoder = new TextDecoder();
 const textEncoder = new TextEncoder();
 
 function isBlobLike(value) {
   return value && typeof value === 'object' && typeof value.arrayBuffer === 'function';
-}
-
-function extension(name = '') {
-  const match = String(name).toLowerCase().match(/\.([a-z0-9_-]+)$/);
-  return match?.[1] ?? '';
 }
 
 function looksUtf8(bytes) {
@@ -22,13 +20,8 @@ function looksUtf8(bytes) {
 }
 
 export function detectArtifactKind({ name = '', mime = '', bytes = new Uint8Array(), text = '' } = {}) {
-  const ext = extension(name);
-  if (bytes.length >= 4 && bytes[0] === 0x00 && bytes[1] === 0x61 && bytes[2] === 0x73 && bytes[3] === 0x6d) return 'wasm';
-  if (bytes.length >= 4 && bytes[0] === 0x50 && bytes[1] === 0x4b && [0x03, 0x05, 0x07].includes(bytes[2]) && [0x04, 0x06, 0x08].includes(bytes[3])) return 'zip';
-  if (ext === 'wasm' || mime.includes('wasm')) return 'wasm';
-  if (['zip', 'jar', 'apk'].includes(ext) || mime.includes('zip')) return 'zip';
-  if (['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx'].includes(ext) || /javascript|typescript/.test(mime)) return 'javascript';
-  if (ext === 'json' || mime.includes('json')) return 'json';
+  const descriptor = detectForeignFormat({ name, mime, bytes, text });
+  if (descriptor.kind !== 'unknown') return descriptor.kind;
   const trimmed = String(text ?? '').trim();
   if (trimmed && (trimmed.startsWith('{') || trimmed.startsWith('['))) {
     try { JSON.parse(trimmed); return 'json'; } catch {}
@@ -55,7 +48,13 @@ export async function normalizeArtifact(input, { name = null, mime = null } = {}
     bytes = new Uint8Array(await input.arrayBuffer());
   } else if (input?.bytes instanceof Uint8Array) {
     bytes = input.bytes;
-    text = typeof input.content === 'string' ? input.content : typeof input.originalContent === 'string' ? input.originalContent : '';
+    text = typeof input.content === 'string'
+      ? input.content
+      : typeof input.originalContent === 'string'
+        ? input.originalContent
+        : typeof input.text === 'string'
+          ? input.text
+          : '';
   } else if (input?.bytes instanceof ArrayBuffer) {
     bytes = new Uint8Array(input.bytes);
     text = typeof input.content === 'string' ? input.content : '';
@@ -63,6 +62,7 @@ export async function normalizeArtifact(input, { name = null, mime = null } = {}
     text = input.content;
     bytes = textEncoder.encode(text);
   } else if (input && typeof input === 'object') {
+    // Structured objects are a legitimate primitive input, not just a filename class.
     text = JSON.stringify(input);
     bytes = textEncoder.encode(text);
     if (!resolvedMime) resolvedMime = 'application/json';
@@ -75,11 +75,49 @@ export async function normalizeArtifact(input, { name = null, mime = null } = {}
     try { text = textDecoder.decode(bytes); } catch {}
   }
 
-  const kind = detectArtifactKind({ name: resolvedName, mime: resolvedMime, bytes, text });
+  let format = detectForeignFormat({
+    name: resolvedName,
+    mime: resolvedMime,
+    bytes,
+    text,
+  });
+  let kind = format.kind;
+  if (kind === 'unknown') {
+    const trimmed = String(text ?? '').trim();
+    if (trimmed && (trimmed.startsWith('{') || trimmed.startsWith('['))) {
+      try {
+        JSON.parse(trimmed);
+        kind = 'json';
+        format = Object.freeze({
+          kind:'json', family:'data', executable:false, container:false,
+          confidence:0.85, evidence:Object.freeze(['content:json']),
+          sourceLanguage:null, model:false, media:false, database:false,
+        });
+      } catch {}
+    }
+  }
+  if (kind === 'unknown' && (text || looksUtf8(bytes))) {
+    kind = 'text';
+    format = Object.freeze({
+      kind:'text', family:'data', executable:false, container:false,
+      confidence:0.7, evidence:Object.freeze(['content:utf8']),
+      sourceLanguage:null, model:false, media:false, database:false,
+    });
+  }
+  if (kind === 'unknown') {
+    kind = 'binary';
+    format = Object.freeze({
+      kind:'binary', family:'binary', executable:false, container:false,
+      confidence:0.25, evidence:Object.freeze(['fallback:binary']),
+      sourceLanguage:null, model:false, media:false, database:false,
+    });
+  }
+
   return Object.freeze({
     name: String(resolvedName),
     mime: String(resolvedMime || 'application/octet-stream'),
     kind,
+    format,
     size: bytes.byteLength,
     bytes,
     text,

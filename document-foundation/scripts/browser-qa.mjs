@@ -48,10 +48,16 @@ try{
  });
  assert.equal(reconstruction.width,96);assert.equal(reconstruction.height,96);assert.equal(reconstruction.bytes,96*96*4);
  await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===9);
+ const primitiveProgram={nodes:[{id:'left',op:'const',value:[[1,2]]},{id:'right',op:'const',value:[[3],[4]]},{id:'product',op:'matmul',inputs:['left','right']}],outputs:['product']};
+ await page.locator('#files').setInputFiles({name:'network.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({primitiveProgram}))});
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===10);
+ const primitive=await page.evaluate(()=>{const r=globalThis.synthiaFoundation.history.at(-1).result;return {ok:r.ok,path:r.outcome.path,output:r.outcome.result.returnValue};});
+ assert.equal(primitive.ok,true);assert.equal(primitive.path,'synthia-primitive-vm');assert.deepEqual(primitive.output.product,[[11]]);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===10);
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
  await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
- const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,mobileOverflow:false,externalRequests:network,pageErrors:errors};
+ const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,primitive,mobileOverflow:false,externalRequests:network,pageErrors:errors};
  await writeFile(new URL('../evidence/document-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 }finally{await browser.close();}

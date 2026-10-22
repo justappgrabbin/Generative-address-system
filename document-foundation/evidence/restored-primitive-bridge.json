@@ -1,0 +1,134 @@
+{
+  "sourceArchive": "Synthia-v0.5.1-UNIVERSAL-PRIMITIVE-BRIDGE-PATCH.zip",
+  "archiveSha256": "0bd29c58288e43e543de4558714b24c6cc8ba00c96ab9fa90b47f8eff1f388cd",
+  "files": [
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/index.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/index.mjs",
+      "sourceSha256": "2193552f2a11d22db71135d67f25f8a54a9303c71e3c0c5746a30ff73d4244f8"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/artifact-normalizer.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/artifact-normalizer.mjs",
+      "sourceSha256": "85ab4810d4b36796758f1aff7542d4605355ab30143ac9724a740be280b6fd1b"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/primitive-reducer.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/primitive-reducer.mjs",
+      "sourceSha256": "a7918acb57c7dd37513554ce2e84188b8479e2a9125401520980d1715e73ea81"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/five-field-compiler.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/five-field-compiler.mjs",
+      "sourceSha256": "fb2821645023c3c6ad737ab15831162c7a7574670085accbec96ff866c6bdfd2"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/browser-execution-surface.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/browser-execution-surface.mjs",
+      "sourceSha256": "92543c8fc43e4aaa6cc18ff0de5279b37389da9e84549894b193d699f6d9166c"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/ingestion-execution-kernel.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/ingestion-execution-kernel.mjs",
+      "sourceSha256": "e61b46ae01fc57bd619bbabe410a1f815a9738f33914c540d75699b320a3cf2b"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/foreign-format-registry.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/foreign-format-registry.mjs",
+      "sourceSha256": "e4f537ff42556f5c3be52795395f9c43b1798d529cf78ff0acf064fe42a65e38"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/foreign-structure-decomposer.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/foreign-structure-decomposer.mjs",
+      "sourceSha256": "eef3f2e84848ec9269b5958b062f45afca1894b947e0219d96d3bb03c31d28fc"
+    },
+    {
+      "archivePath": "Synthia-Universal-Primitive-Bridge-v0.5.1/src/automata/universal-primitive-execution-bridge.mjs",
+      "restoredPath": "document-foundation/vendor/ingestion/src/automata/universal-primitive-execution-bridge.mjs",
+      "sourceSha256": "b550d213dec858c26289aa843dc4df49fd2fa1a2d7a25a402515db4e8fddcb1e"
+    }
+  ],
+  "integrationChanges": [
+    "browser surface localOnly guard prevents delegate recursion",
+    "foundation connects restored primitive bridge and existing foreign execution registry",
+    "try supplied primitive lowering before native WebAssembly"
+  ],
+  "laterOverlay": {
+    "archive": "Synthia-v0.5.1-KLEIN-SITUATION-ROUTER-AUTOLING-PATCH.zip",
+    "archiveSha256": "143da8892890d01eec2f694c281f726710b028e69720af098bb874a18588924f",
+    "files": [
+      {
+        "sourcePath": "Synthia-Klein-Situation-Router-Autoling-v0.5.1/src/klein/klein-situation-router.mjs",
+        "destination": "document-foundation/vendor/ingestion/src/klein/klein-situation-router.mjs",
+        "sha256": "bc5e23f4b421527475370b5ca877fdff2052f8acad52662dfa953fad09ecb5f7",
+        "adjustment": "registry import points to the existing mounted registry"
+      },
+      {
+        "sourcePath": "Synthia-Klein-Situation-Router-Autoling-v0.5.1/src/automata/five-field-compiler.mjs",
+        "destination": "document-foundation/vendor/ingestion/src/automata/five-field-compiler.mjs",
+        "sha256": "23647406441f476a86afdcba98697b41e28f1975242e07c436759f51b2ba18a3"
+      },
+      {
+        "sourcePath": "Synthia-Klein-Situation-Router-Autoling-v0.5.1/src/automata/universal-primitive-execution-bridge.mjs",
+        "destination": "document-foundation/vendor/ingestion/src/automata/universal-primitive-execution-bridge.mjs",
+        "sha256": "fb93181deac595f79295074008431336f24dde622e12414f85dce9e542358784"
+      },
+      {
+        "sourcePath": "Synthia-Klein-Situation-Router-Autoling-v0.5.1/src/automata/browser-execution-surface.mjs",
+        "destination": "document-foundation/vendor/ingestion/src/automata/browser-execution-surface.mjs",
+        "sha256": "08bfebffb93870790ded5289638ede822aac99a21f97d5adb718816aecd86d8d"
+      },
+      {
+        "sourcePath": "Synthia-Klein-Situation-Router-Autoling-v0.5.1/src/automata/ingestion-execution-kernel.mjs",
+        "destination": "document-foundation/vendor/ingestion/src/automata/ingestion-execution-kernel.mjs",
+        "sha256": "d47d42279c8786fe0a3f6d792768c37a98d8dcc580ddffa8ade8cdcb32e06c55"
+      }
+    ]
+  },
+  "originalCheckpoint": {
+    "file": "Synthia-v0.5.1-AUTOMATA-KERNEL-PATCHED-CHECKPOINT.zip",
+    "sha256": "65caa3f2c5b1530a962ff6cb409fb04550f24cf99c9a1ba3f2d8f8abe68fa009",
+    "files": [
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/ontological-address.mjs",
+        "originalSha256": "ccf76d1ddc77273224cfb682ec13c8279c22679a8acb606c2414ab46f36bb413",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/index.mjs",
+        "originalSha256": "25f757712ac251187a01dff0c541a839b4e16c41df0ab092c9f4f3b9b0ffecc6",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/artifact-normalizer.mjs",
+        "originalSha256": "8767fdc316bd7c02aa7f06aa69793e7bb42e45d6acafd25392150ec0b1b96769",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/browser-execution-surface.mjs",
+        "originalSha256": "41a55224b7c87e2811baf04b96a6e25c158b6e8d3ec90b28f06f05e81c9e370b",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/primitive-reducer.mjs",
+        "originalSha256": "917e86746fa7ec16fca539777d8c6028ff901bf87e6fb51355e85114b9ade76d",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/ingestion-execution-kernel.mjs",
+        "originalSha256": "a1fa73df51c0fe9c2b26f901bbd02be2f7fba2981a4bc461b147cc7dff9f1882",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/browser-automata-store.mjs",
+        "originalSha256": "2153439dea359337d67454388c78e59a3a15f77f35259cc167a45db90e6aeb9d",
+        "currentFileExists": true
+      },
+      {
+        "path": "Synthia-Integrated-Automata-v0.5.0/src/automata/five-field-compiler.mjs",
+        "originalSha256": "f50914ab5fc7dcd40363f2913e08d7ac0990aa5134a59a4318a3b41d7d6eaaec",
+        "currentFileExists": true
+      }
+    ]
+  }
+}

@@ -14,6 +14,19 @@ function safeExecution(execution = {}) {
     workerUsed: execution.workerUsed ?? null,
     error: execution.ok ? null : execution.error ?? null,
     unresolvedDependencies: [...(execution.unresolvedDependencies ?? [])],
+    kleinRoute: execution.kleinRoute ? {
+      useKlein: Boolean(execution.kleinRoute.useKlein),
+      primary: execution.kleinRoute.primary?.id ?? null,
+      selected: (execution.kleinRoute.selected ?? []).map((x) => x.id),
+      remembered: Boolean(execution.kleinRoute.remembered),
+    } : null,
+    kleinLearning: execution.kleinLearning ? {
+      kind: execution.kleinLearning.kind ?? null,
+      lowering: execution.kleinLearning.lowering ?? null,
+      path: execution.kleinLearning.path ?? null,
+      operators: [...(execution.kleinLearning.operators ?? [])],
+      autolingLearned: execution.kleinLearning.autoling != null,
+    } : null,
     result: execution.result == null ? null : {
       engine: execution.result.engine ?? null,
       stdout: Array.isArray(execution.result.stdout) ? execution.result.stdout.slice(-128) : [],
@@ -64,12 +77,21 @@ export class AutomataIngestionExecutionKernel {
     signer = new OntologicalAddressSigner(),
     store = new BrowserAutomataStore(),
     executionSurface = new BrowserExecutionSurface(),
+    kleinRouter = null,
   } = {}) {
     this.reducer = reducer;
     this.compiler = compiler;
     this.signer = signer;
     this.store = store;
     this.executionSurface = executionSurface;
+    this.kleinRouter = kleinRouter;
+    if (this.kleinRouter?.bindStore) this.kleinRouter.bindStore(this.store);
+    if (this.executionSurface && !this.executionSurface.kleinRouter && this.kleinRouter) {
+      this.executionSurface.kleinRouter = this.kleinRouter;
+    }
+    if (this.executionSurface?.primitiveBridge && !this.executionSurface.primitiveBridge.kleinRouter && this.kleinRouter) {
+      this.executionSurface.primitiveBridge.kleinRouter = this.kleinRouter;
+    }
     this.history = [];
   }
 
@@ -100,6 +122,17 @@ export class AutomataIngestionExecutionKernel {
       });
     }
 
+    const kleinRoute = this.kleinRouter?.choose
+      ? await this.kleinRouter.choose({
+          phase: 'compile',
+          task: input,
+          normalized,
+          decomposition,
+          fieldMap,
+          context: { ...context, fingerprint, reusedCompiledForm: reused },
+        })
+      : null;
+
     return Object.freeze({
       schema: 'synthia.automata-session.v1',
       fingerprint,
@@ -107,24 +140,50 @@ export class AutomataIngestionExecutionKernel {
       decomposition,
       fieldMap,
       plan,
+      kleinRoute,
       reusedCompiledForm: reused,
     });
   }
 
   async finalize(session, execution = {}) {
     if (!session?.fingerprint) throw new TypeError('finalize requires a prepared automata session');
-    const observedFields = this.compiler.observe(session.fieldMap, execution);
+
+    let kleinLearning = execution.kleinLearning ?? null;
+    if (execution.ok && !kleinLearning && this.kleinRouter?.learnExecutionPattern) {
+      kleinLearning = await this.kleinRouter.learnExecutionPattern({
+        normalized: session.normalized,
+        fingerprint: session.fingerprint,
+        program: null,
+        lowering: execution.lowering ?? execution.runtimeAdapter ?? null,
+        execution,
+        route: session.kleinRoute,
+        context: { phase: 'post-execution' },
+      });
+    } else if (!execution.ok && this.kleinRouter?.observeFailure) {
+      await this.kleinRouter.observeFailure({
+        normalized: session.normalized,
+        route: session.kleinRoute,
+      });
+    }
+
+    const executionWithKlein = {
+      ...execution,
+      kleinRoute: session.kleinRoute ?? execution.kleinRoute ?? null,
+      kleinLearning,
+    };
+
+    const observedFields = this.compiler.observe(session.fieldMap, executionWithKlein);
     const address = await this.signer.sign({
       fingerprint: session.fingerprint,
       fieldMap: observedFields,
-      execution,
+      execution: executionWithKlein,
       artifact: session.decomposition.artifact,
     });
     const note = makeNote({
       fingerprint: session.fingerprint,
       reused: session.reusedCompiledForm,
       plan: session.plan,
-      execution,
+      execution: executionWithKlein,
       address,
     });
     const record = Object.freeze({
@@ -135,7 +194,8 @@ export class AutomataIngestionExecutionKernel {
       decomposition: session.decomposition,
       fields: observedFields,
       plan: session.plan,
-      execution: safeExecution(execution),
+      kleinRoute: session.kleinRoute,
+      execution: safeExecution(executionWithKlein),
       address,
       note,
     });
@@ -147,6 +207,8 @@ export class AutomataIngestionExecutionKernel {
       decomposition: session.decomposition,
       fieldMap: session.fieldMap,
       plan: session.plan,
+      lastKleinRoute: session.kleinRoute,
+      lastKleinLearning: kleinLearning,
       lastAddress: address,
       lastNote: note,
     });
@@ -156,18 +218,31 @@ export class AutomataIngestionExecutionKernel {
     return record;
   }
 
-  async process(input, context = {}) {
-    const session = await this.prepare(input, context);
-    const execution = context.execute === false
-      ? {
+  async executePrepared(session, context = {}) {
+    if (!session?.fingerprint) throw new TypeError('executePrepared requires a prepared automata session');
+    if (context.execute === false) {
+      return {
         ok: true,
         kind: session.normalized.kind,
         path: 'compiled-without-execution',
         backendUsed: false,
         workerUsed: false,
         result: { engine: 'synthia-automata-kernel', stdout: [], returnValue: null },
-      }
-      : await this.executionSurface.execute(session.normalized, context);
+      };
+    }
+    return this.executionSurface.execute(session.normalized, {
+      ...context,
+      kleinRoute: session.kleinRoute,
+      automataFingerprint: session.fingerprint,
+      automataDecomposition: session.decomposition,
+      automataFields: session.fieldMap,
+      automataPlan: session.plan,
+    });
+  }
+
+  async process(input, context = {}) {
+    const session = await this.prepare(input, context);
+    const execution = await this.executePrepared(session, context);
     return this.finalize(session, execution);
   }
 
@@ -191,6 +266,7 @@ export class AutomataIngestionExecutionKernel {
       backendRequiredForCore: false,
       fields: Object.freeze(['shared', 'knowledge', 'causal', 'dependency', 'stateSpace']),
       history: this.history.length,
+      kleinRouter: this.kleinRouter?.audit ? await this.kleinRouter.audit() : null,
       storage: await this.store.audit(),
     });
   }

@@ -24,7 +24,7 @@ export class FiveFieldCompiler {
     const dependency = [];
     const stateSpace = [];
 
-    const allUnits = decomposition.root?.kind === 'zip'
+    const allUnits = Array.isArray(decomposition.root?.units)
       ? [decomposition.root, ...(decomposition.units ?? [])]
       : (decomposition.units ?? [decomposition.root]).filter(Boolean);
 
@@ -32,12 +32,21 @@ export class FiveFieldCompiler {
       const source = unit.name ?? decomposition.artifact?.name ?? 'artifact';
       shared.push(fieldRecord('artifact-kind', unit.kind, source));
       for (const primitive of unit.primitives ?? []) {
-        if (['js-operator', 'artifact-kind', 'text-token'].includes(primitive.type)) {
-          shared.push(fieldRecord(primitive.type, primitive.value, source));
+        const type = primitive.type;
+        if (
+          ['js-operator','operator','control','artifact-kind','text-token','media-kind'].includes(type)
+          || /(?:magic|version|format|kind)$/.test(type)
+        ) {
+          shared.push(fieldRecord(type, primitive.value, source));
         }
-        if (['js-token', 'js-literal', 'json-value', 'json-object-keys', 'archive-entry'].includes(primitive.type)) {
-          knowledge.push(fieldRecord(primitive.type, primitive.value, source));
+        if (
+          ['js-token','source-token','js-literal','literal','json-value','json-object-keys','archive-entry',
+           'binary-string','jvm-symbol','protobuf-string','tensor-name','tensor-dtype','tensor-shape'].includes(type)
+          || /(?:count|length|shape|dtype|symbol|header)$/.test(type)
+        ) {
+          knowledge.push(fieldRecord(type, primitive.value, source));
         }
+        if (['control'].includes(type)) causal.push(fieldRecord(type, primitive.value, source));
       }
 
       const structure = unit.structure ?? {};
@@ -45,14 +54,24 @@ export class FiveFieldCompiler {
       for (const name of structure.exports ?? []) knowledge.push(fieldRecord('export', name, source));
       for (const name of structure.calls ?? []) causal.push(fieldRecord('call', name, source));
       for (const name of structure.assignments ?? []) causal.push(fieldRecord('assignment', name, source));
+      for (const name of structure.controls ?? []) causal.push(fieldRecord('control', name, source));
       for (const specifier of structure.dependencies ?? []) dependency.push(fieldRecord('module', specifier, source));
       if (structure.moduleSyntax) dependency.push(fieldRecord('runtime-capability', 'module-loader', source));
+      if (unit.loweringHints?.preferredProvider) {
+        dependency.push(fieldRecord('execution-provider', unit.loweringHints.preferredProvider, source));
+      }
+      if (unit.loweringHints?.requiresArchitectureRuntime) {
+        dependency.push(fieldRecord('architecture-runtime', unit.loweringHints.machine ?? unit.loweringHints.cpuType ?? 'native', source));
+      }
 
       stateSpace.push(fieldRecord('artifact-state', {
         name: source,
         kind: unit.kind,
+        family: unit.format?.family ?? null,
         size: unit.size,
         moduleSyntax: Boolean(structure.moduleSyntax),
+        executable: Boolean(unit.format?.executable),
+        model: Boolean(unit.format?.model),
       }, source));
     }
 
@@ -91,6 +110,46 @@ export class FiveFieldCompiler {
         fields.dependency.push(fieldRecord('unresolved', requirement, source));
       }
     }
+
+    const kleinRoute = execution.kleinRoute ?? null;
+    if (kleinRoute?.useKlein) {
+      for (const selection of kleinRoute.selected ?? []) {
+        fields.shared.push(fieldRecord('klein-tool', selection.id, source));
+        fields.knowledge.push(fieldRecord('klein-tool-reason', {
+          tool: selection.id,
+          reasons: [...(selection.reasons ?? [])],
+          capabilities: [...(selection.capabilities ?? [])],
+        }, source));
+        fields.dependency.push(fieldRecord('klein-capability-route', {
+          tool: selection.id,
+          gate: selection.gate ?? null,
+          channels: [...(selection.channels ?? [])],
+        }, source));
+      }
+      fields.causal.push(fieldRecord('klein-routing-decision', {
+        primary: kleinRoute.primary?.id ?? null,
+        selected: (kleinRoute.selected ?? []).map((item) => item.id),
+        remembered: Boolean(kleinRoute.remembered),
+      }, source));
+    }
+
+    if (execution.kleinLearning) {
+      fields.knowledge.push(fieldRecord('learned-execution-grammar', {
+        kind: execution.kleinLearning.kind ?? null,
+        lowering: execution.kleinLearning.lowering ?? null,
+        operators: [...(execution.kleinLearning.operators ?? [])],
+        autoling: execution.kleinLearning.autoling ?? null,
+      }, source));
+      fields.causal.push(fieldRecord('execution-learning', {
+        path: execution.kleinLearning.path ?? execution.path ?? null,
+        kind: execution.kleinLearning.kind ?? execution.kind ?? null,
+      }, source));
+      fields.stateSpace.push(fieldRecord('learned-route-state', {
+        kind: execution.kleinLearning.kind ?? execution.kind ?? null,
+        reusable: true,
+      }, source));
+    }
+
     const frozen = Object.freeze(Object.fromEntries(EXECUTION_FIELDS.map((field) => [field, dedupeRecords(fields[field])])));
     return Object.freeze({
       schema: fieldMap.schema,

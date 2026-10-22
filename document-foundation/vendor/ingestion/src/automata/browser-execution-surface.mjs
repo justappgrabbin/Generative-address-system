@@ -1,3 +1,6 @@
+
+import { UniversalPrimitiveExecutionBridge } from './universal-primitive-execution-bridge.mjs';
+
 function safeValue(value) {
   try { return structuredClone(value); } catch { return String(value); }
 }
@@ -85,7 +88,7 @@ async function executeJavascriptInSandbox(normalized, { timeoutMs = 2500, global
   const iframe = document.createElement('iframe');
   iframe.setAttribute('sandbox', 'allow-scripts');
   iframe.style.display = 'none';
-  iframe.srcdoc = `<!doctype html><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'"><script>
+  iframe.srcdoc = `<!doctype html><meta charset="utf-8"><script>
     addEventListener('message', async (event) => {
       const data = event.data || {};
       if (data.type !== 'synthia-execute') return;
@@ -144,9 +147,32 @@ async function executeJavascriptInSandbox(normalized, { timeoutMs = 2500, global
   });
 }
 
+function bridgeArtifact(normalized) {
+  return {
+    name: normalized.name,
+    type: normalized.mime,
+    kind: normalized.kind,
+    content: normalized.text,
+    originalContent: normalized.text,
+    bytes: normalized.bytes,
+    original: normalized.original,
+  };
+}
+
 export class BrowserExecutionSurface {
-  constructor({ providers = [] } = {}) {
+  constructor({
+    providers = [],
+    primitiveBridge = null,
+    executionBridge = null,
+    kleinRouter = null,
+  } = {}) {
     this.providers = [...providers];
+    this.kleinRouter = kleinRouter;
+    this.primitiveBridge = primitiveBridge ?? new UniversalPrimitiveExecutionBridge({ kleinRouter });
+    if (this.primitiveBridge && !this.primitiveBridge.kleinRouter && kleinRouter) {
+      this.primitiveBridge.kleinRouter = kleinRouter;
+    }
+    this.executionBridge = executionBridge;
   }
 
   register(provider) {
@@ -157,10 +183,44 @@ export class BrowserExecutionSurface {
     return provider;
   }
 
+  registerPrimitiveLowerer(lowerer) {
+    return this.primitiveBridge.registerLowerer(lowerer);
+  }
+
+  async #delegate(normalized, context) {
+    if (context.localOnly) return null;
+    if (!this.executionBridge?.execute) return null;
+    try {
+      const delegated = await this.executionBridge.execute(bridgeArtifact(normalized), {
+        ...context,
+        automataDecomposition: context.automataDecomposition ?? null,
+      });
+      if (!delegated) return null;
+      return {
+        ...delegated,
+        kind: delegated.kind ?? normalized.kind,
+        path: `automata-delegate:${delegated.path ?? 'runtime'}`,
+        backendUsed: delegated.backendUsed ?? null,
+        workerUsed: delegated.workerUsed ?? false,
+      };
+    } catch (error) {
+      return {
+        ok:false,
+        kind:normalized.kind,
+        path:'automata-delegate-threw',
+        error:String(error?.message ?? error),
+        backendUsed:null,
+        workerUsed:false,
+      };
+    }
+  }
+
   async execute(normalized, context = {}) {
     for (const provider of this.providers) {
       if (await provider.canExecute(normalized, context)) return provider.execute(normalized, context);
     }
+
+    // Direct browser primitives.
     if (normalized.kind === 'json') return executeJson(normalized);
     if (normalized.kind === 'text') {
       return {
@@ -172,13 +232,31 @@ export class BrowserExecutionSurface {
         result: { engine: 'TextDecoder', stdout: [], returnValue: normalized.text },
       };
     }
+    // Canonical primitive programs are source-language independent.
+    const primitiveResult = await this.primitiveBridge.execute(normalized, context);
+    if (primitiveResult) return primitiveResult;
     if (normalized.kind === 'wasm') return executeWasm(normalized, context.wasmImports ?? {});
-    if (normalized.kind === 'javascript') return executeJavascriptInSandbox(normalized, context);
+
+    // JavaScript has a stricter browser sandbox first; if unavailable, use the
+    // already mounted execution bridge so Node/test hosts still have a path.
+    if (normalized.kind === 'javascript' || normalized.kind === 'typescript') {
+      const local = await executeJavascriptInSandbox(normalized, context);
+      if (local.ok || !this.executionBridge || context.localOnly) return local;
+      const delegated = await this.#delegate(normalized, context);
+      return delegated ?? local;
+    }
+
+    // Python and every other registered foreign runtime are routed through the
+    // existing UniversalExecutionBridge/RuntimeAdapterRegistry. This is the
+    // pre-existing Python capability that the earlier normalizer failed to reach.
+    const delegated = await this.#delegate(normalized, context);
+    if (delegated) return delegated;
+
     return {
       ok: false,
       kind: normalized.kind,
       path: 'browser-provider-required',
-      error: `no browser-local execution provider registered for ${normalized.kind}`,
+      error: `no browser-local execution provider or lowerer is mounted for ${normalized.kind}`,
       unresolvedDependencies: [`provider:${normalized.kind}`],
       backendUsed: false,
       workerUsed: false,

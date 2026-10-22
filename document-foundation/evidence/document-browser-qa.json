@@ -48,6 +48,17 @@
     "bytes": 36864,
     "pixelSha256": "fe90748ba48848204e38363f636bbd5bc0b3cdafa075a8a1bf1e505a6fec713a"
   },
+  "primitive": {
+    "ok": true,
+    "path": "synthia-primitive-vm",
+    "output": {
+      "product": [
+        [
+          11
+        ]
+      ]
+    }
+  },
   "mobileOverflow": false,
   "externalRequests": [],
   "pageErrors": []
