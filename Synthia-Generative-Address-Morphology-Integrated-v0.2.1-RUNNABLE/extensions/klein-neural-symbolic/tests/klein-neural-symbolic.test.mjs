@@ -57,3 +57,13 @@ test('never fabricates addresses or forward references', async () => {
   assert.equal(result.ok, false);
   assert.match(result.execution[0].error, /UNRESOLVED_RESULT/);
 });
+
+test('a rejected Klein context cannot execute a factory', async () => {
+  const { bridge } = harness();
+  let calls = 0;
+  bridge.assembly.klein.evaluate = () => ({ evaluationId: 'no', result: { direction: 'away' }, perInvocation: [{ accepted: false }] });
+  bridge.capabilities.set('neural.build', { sideEffect: true, execute: async () => { calls++; return {}; } });
+  await assert.rejects(() => bridge.execute({ intent: 'build', address,
+    steps: [{ id: 'net', op: 'neural.build', input: {} }] }), /KLEIN_CONTEXT_REJECTED/);
+  assert.equal(calls, 0);
+});
