@@ -616,7 +616,9 @@ export class MorphMirAutomaton extends Automaton {
       alphabet: ['ingest', 'analyze', 'remember', 'regenerate', 'snapshot'],
       delta: (state, symbol) => DELTA_TABLE[`${state}|${symbol}`] || { to: state, transition: 'flow' },
       q0: 'ingest',
-      finals: ['regenerate'],
+      // Each public operation can finish independently at its resting state.
+      // Valid ingest/analyze/snapshot results must not be marked rejected.
+      finals: ['ingest', 'analyze', 'remember', 'regenerate'],
       ports: MorphMirAutomaton.descriptor.ports,
       capabilities: MorphMirAutomaton.descriptor.capabilities,
       dimension: 'Space',
@@ -648,3 +650,4 @@ export class MorphMirAutomaton extends Automaton {
 }
 
 export default MorphMirAutomaton;
+

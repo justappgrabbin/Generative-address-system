@@ -1,4 +1,5 @@
 import { UnifiedSynthiaAssembly } from './unified-synthia-assembly.mjs';
+import { recognizeStructure, RECOGNITION_TOOLS } from './structural-recognition.mjs';
 import { toolOntology } from '../authorities/execution-spine/src/pure-synthia/engine/triples.js';
 import { GenerativeMorphologyAutomaton } from './generative-morphology-automaton.mjs';
 
@@ -29,6 +30,7 @@ function mergeMeshState(existing, morphologyOutput) {
       observer: morphologyOutput.snapshot.structure.view.observer,
       sourceView: morphologyOutput.snapshot.structure.view.view,
       matches: morphologyOutput.snapshot.structure.matches,
+      recognition: morphologyOutput.snapshot.structure.recognition,
       space: morphologyOutput.snapshot.structure.space,
     } : null),
   };
@@ -61,6 +63,8 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     const links = [
       ['diseminer', a.id, 'meaning-to-morphology'],
       ['autoling', a.id, 'language-to-morphology'],
+      ['computational-grammar-coder', a.id, 'grammar-to-morphology'],
+      ['klein-analogy', a.id, 'analogy-to-morphology'],
       ['morph-mir', a.id, 'artifact-morphology-contact'],
       ['research-browser', a.id, 'internet-to-morphology'],
       ['browser-form', a.id, 'browser-state-to-morphology'],
@@ -89,12 +93,18 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
     const resolved = Array.isArray(addresses) && addresses.length
       ? clone(addresses)
       : clone(this.activeMorphologyAddresses);
+    // Invoke recognizers once at intake, outside morphology's Klein probes.
+    // Output passes retain the input evidence rather than learn generated wording as observation.
+    const recognition = ['chat-write','internet-write'].includes(operation)
+      ? clone(context.meshState?.structuralMorphology?.recognition ?? null)
+      : operation === 'status' ? null : recognizeStructure(subject, (toolId,input) =>
+          super.invoke(toolId,input,{source:'structural-recognition',surface:surface ?? operation}));
     return super.invoke('generative-address-morphology', {
       operation,
       addresses: resolved,
       subject: clone(subject),
       surface: surface ?? operation,
-      context: clone(context),
+      context: { ...clone(context), recognition },
     }, {
       ...context,
       dimension: context.dimension ?? null,
@@ -213,9 +223,11 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
       chatReadPath: has('diseminer', 'generative-address-morphology') && has('generative-address-morphology', 'conversation'),
       internetResearchPath: has('research-browser', 'generative-address-morphology') && has('generative-address-morphology', 'research-browser'),
       internetBrowserPath: has('browser-form', 'generative-address-morphology') && has('generative-address-morphology', 'browser-form'),
+      recognitionTools: Object.fromEntries(RECOGNITION_TOOLS.map(id => [id, Boolean(this.engine.mesh.get(id) && this.engine.toolsById.get(id) && this.engine.klein.operator(id) && has(id, 'generative-address-morphology'))])),
+      lastRecognitionStatus: this.generativeMorphology.snapshot()?.structure?.recognition?.status ?? 'not-invoked',
       activeAddressCount: this.activeMorphologyAddresses.length,
     });
-    return Object.freeze({ ...base, ok: base.ok && Object.values(morphology).slice(0,5).every(Boolean), morphology });
+    return Object.freeze({ ...base, ok: base.ok && Object.values(morphology).slice(0,5).every(Boolean) && Object.values(morphology.recognitionTools).every(Boolean), morphology });
   }
 
   snapshot() {

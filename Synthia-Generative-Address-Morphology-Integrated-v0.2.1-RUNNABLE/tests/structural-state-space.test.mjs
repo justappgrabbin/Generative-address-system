@@ -40,14 +40,14 @@ test('recursive coordinates round-trip exactly beyond safe integer and generate 
 });
 test('field workers compose supplied topology and respect reduced pathways',()=>{
   assert.equal(JUT_TOPOLOGY.relations.length,6);
-  const full=analyzeStructure('Mind Ego Body Individuality');
+  const full=analyzeStructure('Mind Ego Body Individuality',{example:'jut'});
   assert.equal(full.space.status,'complete-example-interplay');
   assert.equal(full.swarm.count,5);
   assert.equal(full.space.expression,null);
-  const reduced=analyzeStructure('',{activeFields:['M','I']});
+  const reduced=analyzeStructure('',{example:'jut',activeFields:['M','I']});
   assert.deepEqual(reduced.space.interactions.map(e=>e.id),['diagonal-MI']);
   assert.equal(reduced.space.status,'partial-example-interplay');
-  assert.equal(analyzeStructure('',{activeFields:['M','I'],openEdges:[]}).space.interactions.length,0);
+  assert.equal(analyzeStructure('',{example:'jut',activeFields:['M','I'],openEdges:[]}).space.interactions.length,0);
   assert.throws(()=>analyzeStructure('',{activeFields:['P']}));
   assert.equal(analyzeStructure('unknownword').unresolvedTokens[0].value,'unknownword');
   const song=analyzeStructure('Mind Ego Body Individuality',{example:'song'});

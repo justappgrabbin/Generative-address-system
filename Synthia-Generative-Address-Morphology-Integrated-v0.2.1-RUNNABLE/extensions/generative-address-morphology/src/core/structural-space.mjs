@@ -214,7 +214,8 @@ function leaves(value, path = []) {
 export function analyzeStructure(subject, context = {}) {
   const view = applyStructuralFrame(structuralView(context.view ?? 'being'), context.frame);
   if (context.example != null && !['song', 'jut'].includes(context.example)) throw new RangeError('Unknown structural example');
-  const text = typeof subject === 'string' ? subject : subject?.text ?? '';
+  const input = subject?.input ?? subject ?? {};
+  const text = typeof subject === 'string' ? subject : subject?.text ?? [input.title,input.question,input.query,input.text,input.page?.title,input.page?.text].filter(v=>typeof v==='string').join(' ');
   const tokens = words(text).map((value, index) => ({ value, index, initial: [...value][0], codePoints: [...value].map(c => c.codePointAt(0)) }));
   const observed = new Set(tokens.map(t => lower(t.value)));
   const model = context.example === 'song' ? copy(SONG) : copy(JUT_TOPOLOGY);
@@ -228,7 +229,8 @@ export function analyzeStructure(subject, context = {}) {
       if (!['is', 'the', 'a', 'an', 'of', 'and', 'or', 'to', 'in', 'i'].includes(lower(token.value)) && words(item.value).some(w => lower(w) === lower(token.value))) matches.push({ dimension: f.dimension, token: token.value, tokenIndex: token.index, propertyPath: item.path, sourceValue: item.value, source: item.source ?? f.source });
     }
   }
-  const relations = model.relations.filter(r => (!open || open.has(r.id)) && (!active || [r.from, r.to].every(d => active.has(d))) && (
+  // The reference graph is only an explicit example, never inferred recognition.
+  const relations = (context.example ? model.relations : []).filter(r => (!open || open.has(r.id)) && (!active || [r.from, r.to].every(d => active.has(d))) && (
     observed.has(lower(r.label)) || [r.from, r.to].every(d => active ? active.has(d) : matches.some(m => m.dimension === d))));
   const contributors = [...new Set([...(active ?? []), ...matches.map(m => m.dimension), ...relations.flatMap(r => [r.from, r.to])])].filter(d => primitive.includes(d) && (!active || active.has(d)));
   const agents = contributors.map(dimension => ({
@@ -237,16 +239,19 @@ export function analyzeStructure(subject, context = {}) {
     output: {field:copy(view.fields.find(f => f.dimension === dimension)), topology:copy(model.nodes.find(n => n.id === dimension))},
     status: 'executed',
   }));
-  const completeExample = contributors.length === 4 && relations.length === model.relations.length;
+  const recognition = copy(context.recognition ?? {status:'not-invoked',runs:[],issues:[],graph:{nodes:[],relations:[]}});
+  const recognizedRelations = recognition.graph?.relations ?? [];
+  const completeExample = Boolean(context.example) && contributors.length === 4 && relations.length === model.relations.length;
   const space = {
-    role: 'emergent', contributors, interactions: relations,
+    role: 'emergent', contributors, interactions: context.example ? relations : recognizedRelations,
     expression: completeExample ? copy(model.expression) : null,
-    status: completeExample ? 'complete-example-interplay' : relations.length ? 'partial-example-interplay' : 'interplay-rule-required',
-    source: model?.source ?? null,
-    derivation: 'explicit example relations joined over their contributing fields; no numeric emergence law asserted',
+    status: completeExample ? 'complete-example-interplay' : relations.length ? 'partial-example-interplay' : recognizedRelations.length ? 'tool-recognized-relations' : 'interplay-rule-required',
+    source: context.example ? model.source : 'live recognition tools',
+    derivation: context.example ? 'explicit reference example; not a recognized relationship' : 'preserved tool relationships; no field coupling inferred from matching words',
   };
   if (relations.length) agents.push({ id: 'interplay:Space', operation: 'compose-explicit-relations', status: 'executed', evidence: copy(relations), output: copy(space) });
-  return { view, tokens, matches, interpretations: (context.coordinates ?? context.addresses ?? []).map(a => interpretCoordinates(a, { ...context, view: view.view })),
+  for (const run of recognition.runs ?? []) agents.push({id:`recognition:${run.toolId}:${run.operation}`,operation:run.operation,status:run.status,derivationId:run.derivationId ?? null});
+  return { view, tokens, matches, recognition, interpretations: (context.coordinates ?? context.addresses ?? []).map(a => interpretCoordinates(a, { ...context, view: view.view })),
     model, space, swarm: { kind: 'bounded-symbolic-field-workers', agents, count: agents.length },
     spaceCapacity: new FractalAddressSpace({ depth: context.depth ?? 1 }).snapshot(),
     unresolvedTokens: tokens.filter(t => !matches.some(m => m.tokenIndex === t.index) && !relations.some(r => lower(r.label) === lower(t.value))),

@@ -6,7 +6,7 @@ This implements a first executable structural layer from the author's supplied d
 
 Write the contributing state as `X = (M, E, B, I)`: Mind/Evolution, Ego/Design, Body/Being, Individuality/Movement. The full reported state is `S = (X, P)`, with `P = Φ(X, active relationships, observer context)`. P/Space is a derived condition, never a fifth independent input.
 
-The reference graph contains Speed (M–E), Material (M–B), Force (B–I), Position (E–I), and the M–I / E–B diagonals. Each relationship can be opened or closed; contributing fields can be filtered. The supplied song chart is a separate labeled example. Its center reports Song/Music/Rhythm only when its full example graph is active.
+When explicitly selected using `context.example`, the reference graph contains Speed (M–E), Material (M–B), Force (B–I), Position (E–I), and the M–I / E–B diagonals. Each relationship can be opened or closed; contributing fields can be filtered. The supplied song chart is a separate labeled example. Its center reports Song/Music/Rhythm only when its full example graph is active.
 
 Six source views preserve all five fields and their source ordering: motivation, movement, evolution, being/phase space, design, space. `frame` is separate from `view`: a starting question, governing field, individual, environment, explicit field roles and ordering belong to the observer. There is no universal question-to-field mapping. Choosing a starting question alone does not invent the remaining perspective transformation.
 
@@ -14,7 +14,7 @@ Color/Tone/Base meanings currently come from the existing motivation table, only
 
 ## CPU execution
 
-`analyzeStructure` preserves case, positions within the token stream, and code points, and creates bounded symbolic field lookup workers from observed source properties. A composition worker joins established relationships into the Space result. These workers perform source lookup and relational composition; they do not yet implement a general morphological parser or an autonomous agent swarm.
+`analyzeStructure` preserves case, positions within the token stream, and code points, and creates bounded symbolic field lookup workers from observed source properties. Source-example composition runs only for an explicit example selection. The root also executes the existing recognition tools and preserves their actual syntax/claim relationships in the default Space result; see [RECOGNITION-WIRING.md](RECOGNITION-WIRING.md). These workers perform source lookup and relational composition; they do not yet implement a general morphological parser or an autonomous agent swarm.
 
 `advanceStructuralState` accepts explicit finite vectors and a supplied 4×4 tensor T, ordered M/E/B/I:
 

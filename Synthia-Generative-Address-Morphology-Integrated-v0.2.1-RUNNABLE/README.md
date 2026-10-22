@@ -126,3 +126,5 @@ The original unified root remains available unchanged through `src/index.mjs`.
 ### Structural perspective inspector
 
 The CPU structural layer separates observer perspective from the source chart, derives Space through field relationships, and indexes recursive addresses on demand. Run `npm run start:generative` and open `/structure.html`. See [STRUCTURAL-STATE-SPACE.md](STRUCTURAL-STATE-SPACE.md) for the state equations, API, tested behavior and unresolved rules.
+
+Recognition wiring: [tool capabilities, verified root/Klein paths and limitations](RECOGNITION-WIRING.md). Live tool outputs now reach the structural state; reference relationships require an explicit example.
