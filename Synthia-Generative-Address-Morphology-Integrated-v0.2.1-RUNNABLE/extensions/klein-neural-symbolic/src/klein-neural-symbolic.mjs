@@ -59,6 +59,8 @@ export class KleinNeuralSymbolicBridge {
     });
     const errors = (witness.perInvocation ?? []).filter((x) => x.error);
     if (errors.length) throw new Error('KLEIN_EVALUATION_FAILED:' + errors.map((x) => x.error).join(';'));
+    if (witness.result?.direction === 'away' || (witness.perInvocation ?? []).some((x) => x.accepted === false))
+      throw new Error('KLEIN_CONTEXT_REJECTED');
     const results = new Map();
     const execution = [];
     for (const step of steps) {
