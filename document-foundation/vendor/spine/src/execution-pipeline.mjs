@@ -146,7 +146,7 @@ async function executePrimitiveSchedule(graph) {
       }),
       forwarded,
     });
-  }, { concurrency: DIMENSIONS.length, continueOnError: true });
+  }, { concurrency: DIMENSIONS.length, continueOnError: true, compact: true });
 
   const fieldSummaries = Object.freeze(Object.fromEntries(DIMENSIONS.map((field) => [
     field,

@@ -26,6 +26,7 @@ import {formationViews} from './formation-views.mjs';
 import {KleinContextRuntime} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/src/pure-synthia/engine/klein-context-runtime.js';
 import {FeatureSpace} from '../vendor/spine/src/pure-synthia/engine/boolean-ato.js';
 import {stableStringify} from '../vendor/spine/src/pure-synthia/engine/derivation.js';
+import {registerTranslationLayer} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/translation-layer/src/index.mjs';
 
 const copy = v => structuredClone(v);
 // Only adapters are added here. Calculus, automata, Klein, ATO, factory,
@@ -60,6 +61,7 @@ export class Foundation {
       }
     };
     this.system = new SynthiaSystem({engine:new SynthiaAutomata(),executionBridge:new UniversalExecutionBridge({sandbox:chamber})});
+    registerTranslationLayer(this.system.execution);
     this.system.engine.klein = new KleinContextRuntime({engine:this.system.engine});
     this.documentToolPolicy = installDocumentToolPolicy(this.system.engine);
     this.lineage = new LineageAdapter(this.system.engine);

@@ -3,9 +3,13 @@ import assert from 'node:assert/strict';
 import {writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE??'playwright');
-const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox','--disable-gpu']});
 try{
  const context=await browser.newContext({viewport:{width:1100,height:900}}),page=await context.newPage(),errors=[],network=[];
+ await context.addInitScript(()=>{
+  for(const name of ['fetch','XMLHttpRequest','WebSocket','EventSource','Worker','SharedWorker','WebAssembly','GPU'])Object.defineProperty(globalThis,name,{configurable:true,value:undefined});
+  Object.defineProperty(navigator,'gpu',{configurable:true,value:undefined});
+ });
  page.on('pageerror',error=>errors.push(error.message));
  const appUrl=process.env.FOUNDATION_URL??new URL('../Synthia-Foundation-Offline.html',import.meta.url).href;
  await page.route(/^https?:/,route=>{if(process.env.FOUNDATION_URL&&route.request().url().startsWith(new URL(appUrl).origin+'/'))return route.continue();network.push(route.request().url());return route.abort();});
@@ -32,10 +36,22 @@ try{
  assert.deepEqual(after.field,before.field);assert.deepEqual(after.photos,before.photos);
  assert.match(await page.locator('#messages').textContent(),/A person builds a tool because it helps/);
  await page.locator('#photo-list button').first().click();await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ const sourceCases=[['answer.py','print(42)'],['answer.rb','puts 42'],['answer.lua','print(42)'],['answer.c','#include <stdio.h>\nint main(){printf("%d\\n",42);return 0;}']];
+ await page.locator('#files').setInputFiles(sourceCases.map(([name,content])=>({name,mimeType:'text/plain',buffer:Buffer.from(content)})));
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===8);
+ const languages=await page.evaluate(()=>globalThis.synthiaFoundation.history.slice(-4).map(entry=>({ok:entry.result.ok,adapter:entry.result.outcome.runtimeAdapter,stdout:entry.result.outcome.result.stdout})));
+ for(const result of languages){assert.equal(result.ok,true);assert.equal(result.adapter,'synthia-translation-layer');assert.deepEqual(result.stdout,['42']);}
+ const reconstruction=await page.evaluate(async()=>{
+  const app=globalThis.synthiaFoundation,photoId=app.photos.keys().next().value;
+  const result=await app.analyzePhoto(photoId),pixels=app.imageMemory.reconstruct(result.image.id);
+  return {width:pixels.width,height:pixels.height,bytes:pixels.rgba.length,pixelSha256:result.image.pixelSha256};
+ });
+ assert.equal(reconstruction.width,96);assert.equal(reconstruction.height,96);assert.equal(reconstruction.bytes,96*96*4);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===9);
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
  await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
- const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,mobileOverflow:false,externalRequests:network,pageErrors:errors};
+ const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,mobileOverflow:false,externalRequests:network,pageErrors:errors};
  await writeFile(new URL('../evidence/document-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 }finally{await browser.close();}

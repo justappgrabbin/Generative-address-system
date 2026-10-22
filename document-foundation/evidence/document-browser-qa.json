@@ -11,6 +11,43 @@
   },
   "photoReload": true,
   "chatSubmitted": true,
+  "optionalFacilitiesUnavailable": true,
+  "sourceUploads": [
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    }
+  ],
+  "reconstruction": {
+    "width": 96,
+    "height": 96,
+    "bytes": 36864,
+    "pixelSha256": "fe90748ba48848204e38363f636bbd5bc0b3cdafa075a8a1bf1e505a6fec713a"
+  },
   "mobileOverflow": false,
   "externalRequests": [],
   "pageErrors": []

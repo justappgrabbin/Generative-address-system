@@ -2,7 +2,13 @@
 
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
-Open `Synthia-Foundation-Offline.html`. It embeds the runtime modules. If your browser blocks local-file modules, serve this directory with any static-file server and open the same HTML. The server serves bytes only; computation and IndexedDB persistence run in the browser. Python is an optional existing build/static-serving utility, not a runtime dependency.
+Open `Synthia-Foundation-Offline.html`. It embeds the runtime modules. If your browser blocks local-file modules, use `npm run serve` and open the same HTML over local static HTTP. The server serves bytes only; computation and IndexedDB persistence run in the browser. Offline packaging and the provided static server now use JavaScript; Python is not required for either.
+
+## JavaScript fallback connection
+
+The foundation registers the existing translation-layer adapter directly. Uploaded Python, Ruby, Lua and C source can execute through its JavaScript interpreters when optional backends are absent. These interpreters support the subsets documented in `extensions/translation-layer/README.md`; unsupported syntax, libraries and host operations remain explicit failures. This does not establish arbitrary binary execution or complete implementations of those languages.
+
+The bundled offline verifier disables network access, workers, WebAssembly and GPU facilities and checks all four source languages, exact decoded-RGBA reconstruction, native learning and a generated tool. Original encoded photo decoding is a separate browser capability. The file-analysis DAG uses compact scheduling: dependency outputs remain available, but per-node copies of all previous results/checkpoints are omitted. Default DAG callers retain their existing full checkpoint behavior.
 
 For the source entry point, run `npm run serve` and open `http://localhost:8080/document-foundation/index.html`. The server serves the repository root because the source now imports the existing Klein context runtime directly from the integrated assembly. The offline HTML bundles that same runtime and remains self-contained.
 

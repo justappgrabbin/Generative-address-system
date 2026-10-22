@@ -7,9 +7,9 @@
     "test": "node --test tests/*.test.mjs",
     "test:spine": "node --test vendor/spine/tests/*.test.mjs",
     "test:browser": "npm --prefix vendor/browser test",
-    "build:offline": "python3 scripts/build-offline.py",
+    "build:offline": "node scripts/build-offline.mjs",
     "test:offline": "node --experimental-vm-modules scripts/check-offline.mjs",
-    "serve": "python3 -m http.server 8080 --directory ..",
+    "serve": "node scripts/serve.mjs",
     "demo:field": "node examples/field-demo.mjs"
   }
 }
