@@ -96,6 +96,7 @@ export function kleinOperator(toolAutomaton) {
     try {
       result = tool.run(context.input, {
         klein: true,
+        stateSpace: context.stateSpace ?? null,
         address: context.address || null,
         dimension: context.dimension || tool.dimension || null,
         meshState: context.meshState || null,
@@ -226,3 +227,4 @@ export function kleinInvariants(K, context, samples = [], { composeWith = null }
 export const KLEIN_DIRECTIONS = Object.freeze([...DIRECTIONS]);
 
 export default kleinOperator;
+

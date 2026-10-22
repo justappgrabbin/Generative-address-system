@@ -10,6 +10,15 @@ function summarize(snapshot = {}) {
   const energies = snapshot?.ecology?.energies ?? [];
   const dominant = energies[0] ?? null;
   return Object.freeze({
+    addressCount: snapshot?.addresses?.length ?? 0,
+    generationStatus: snapshot?.generation?.status ?? 'explicit-addresses',
+    structuralView: snapshot?.structure?.view?.view ?? null,
+    recognitionStatus: snapshot?.structure?.recognition?.status ?? 'not-invoked',
+    recognizedRelationshipCount: snapshot?.structure?.recognition?.graph?.relations?.length ?? 0,
+    recognitionToolIds: Object.freeze([...new Set((snapshot?.structure?.recognition?.runs ?? []).filter(r=>r.status==='executed').map(r=>r.toolId))]),
+    symbolicWorkers: snapshot?.structure?.swarm?.count ?? 0,
+    observer: safeClone(snapshot?.structure?.view?.observer ?? null),
+    spaceStatus: snapshot?.structure?.space?.status ?? null,
     activeGraphCount: snapshot?.graphs?.length ?? 0,
     connectionCount: snapshot?.connections?.length ?? 0,
     dominantEnergy: snapshot?.ecology?.dominantEnergy ?? null,
@@ -33,7 +42,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
     capabilities: Object.freeze([
       'compile-addresses', 'form-connections', 'instantiate-graphs', 'graph-ecology',
       'dominant-energy', 'project-morphology', 'chat-read', 'chat-write',
-      'internet-read', 'internet-write', 'status',
+      'internet-read', 'internet-write', 'status', 'structure',
     ]),
     ports: Object.freeze({
       in: Object.freeze([{ id: 'addressed-state', type: 'json', schemaVersion: '1' }]),
@@ -71,7 +80,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
     // ephemeral engine gives Klein a real run shape while preserving the live
     // organism until enactment.
     if (context?.klein === true || context?.kleinJoint === true) {
-      return new GenerativeAddressMorphologyEngine({ weightsFile: null });
+      return this.morphology.fork();
     }
     return this.morphology;
   }
@@ -90,6 +99,7 @@ export class GenerativeMorphologyAutomaton extends Automaton {
 
     const snapshot = engine.run(addresses, {
       ...(input.context ?? {}),
+      ...(operation === 'structure' ? {addressMode:'structural'} : {}),
       surface: input.surface ?? operation,
       subject: safeClone(input.subject ?? null),
     });
@@ -121,3 +131,4 @@ export class GenerativeMorphologyAutomaton extends Automaton {
 
 export { summarize as summarizeMorphology };
 export default GenerativeMorphologyAutomaton;
+

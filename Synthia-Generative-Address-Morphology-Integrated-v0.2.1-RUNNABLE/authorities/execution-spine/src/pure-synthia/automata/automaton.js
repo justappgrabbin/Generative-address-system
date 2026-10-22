@@ -107,6 +107,8 @@ export class Automaton {
     this.ownedState = state; // persistent memory (contract hard rule 7)
     this.lifecycle = 'ready';
     this.calls = 0;
+    this.runObservers = new Set();
+    this.contextProviders = new Set();
     this._trace = null; // run-scoped trace buffer
     this._ledger = null; // run-scoped ledger buffer
   }
@@ -143,7 +145,21 @@ export class Automaton {
     return { ...result, to };
   }
 
+  observeRuns(listener) {
+    if (typeof listener !== 'function') throw new TypeError('run observer must be a function');
+    this.runObservers.add(listener);
+    return () => this.runObservers.delete(listener);
+  }
+
+  provideContext(provider) {
+    if (typeof provider !== 'function') throw new TypeError('context provider must be a function');
+    this.contextProviders.add(provider);
+    return () => this.contextProviders.delete(provider);
+  }
+
   run(input, context = {}) {
+    const probe = context.klein === true || context.kleinJoint === true;
+    for (const provider of this.contextProviders) context = { ...context, ...provider(input, context) };
     this.lifecycle = 'active';
     this.calls += 1;
     const trace = [];
@@ -194,9 +210,12 @@ export class Automaton {
       const reachedFinal = this.finals.length === 0 || this.finals.includes(finalState);
       const accepted = reachedFinal && !(output && typeof output === 'object' && output.ok === false);
       this.lifecycle = 'ready';
-      return { output, trace, ledger, accepted, finalState };
+      const result = { output, trace, ledger, accepted, finalState };
+      if (!probe) for (const observer of this.runObservers) observer(input, result, context);
+      return result;
     } catch (error) {
       this.lifecycle = 'error';
+      if (!probe) for (const observer of this.runObservers) observer(input, { accepted: false, error: String(error.message ?? error), trace, ledger }, context);
       throw error;
     } finally {
       this._trace = null;
@@ -255,3 +274,4 @@ export class Automaton {
     });
   }
 }
+

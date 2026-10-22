@@ -224,7 +224,8 @@ export class ResearchBrowserAutomaton extends Automaton {
       alphabet: ['create', 'source', 'claim', 'note', 'hypothesis', 'experiment', 'draft', 'snapshot'],
       delta: (state, symbol) => DELTA_TABLE[`${state}|${symbol}`] || { to: state, transition: 'flow' },
       q0: 'query',
-      finals: ['cite'],
+      // Public operations accept at their own resting states; domain validation still applies.
+      finals: ['query', 'fetch', 'extract', 'cite'],
       ports: ResearchBrowserAutomaton.descriptor.ports,
       capabilities: ResearchBrowserAutomaton.descriptor.capabilities,
       dimension: 'Space',
@@ -256,3 +257,4 @@ export class ResearchBrowserAutomaton extends Automaton {
 }
 
 export default ResearchBrowserAutomaton;
+

@@ -43,7 +43,11 @@ The integrated core URL is configurable in the same menu under **CORE** and defa
 
 ## Address behavior in Morph mode
 
-Morph uses the explicit active/canonical addresses already loaded into the integrated engine. It does **not** manufacture an address from chat text when none has been supplied. The morphology state can therefore be empty while the chat path still runs, which is preferable to fabricating structure.
+Morph preserves explicit active/canonical addresses when supplied. With no supplied addresses, it now derives candidate addresses from the subject's morphological and semantic features, validates them, and registers them before compiling connections. Chat and research work from an empty address registry; new candidates do not need to exist beforehand.
+
+The included interpretable feature model uses AUTOLING morphology, the existing gate names/themes and line descriptions, and the source dimension chains. Cosine similarity measures candidate fit; Boolean ATO completes explicitly requested analogies over shared named features. Channel IDs and names no longer seed morphology parameters. SHA-256 remains only for stable address identifiers.
+
+These mappings are **experimental**. This is a source-vocabulary prototype model, not a trained general-language model. Unknown meanings remain unresolved and can be taught explicitly. Planetary and fine-coordinate defaults are recorded as symbolic defaults, not inferred astronomical facts. See [semantic generation and model extension](docs/SEMANTIC-ADDRESS-GENERATION.md).
 
 ## Internet / browser integration
 
@@ -117,3 +121,12 @@ const morph = await synthia.chat('hello');
 ```
 
 The original unified root remains available unchanged through `src/index.mjs`.
+
+
+### Structural perspective inspector
+
+The CPU structural layer separates observer perspective from the source chart, derives Space through field relationships, and indexes recursive addresses on demand. Run `npm run start:generative` and open `/structure.html`. See [STRUCTURAL-STATE-SPACE.md](STRUCTURAL-STATE-SPACE.md) for the state equations, API, tested behavior and unresolved rules.
+
+Recognition wiring: [tool capabilities, verified root/Klein paths and limitations](RECOGNITION-WIRING.md). Live tool outputs now reach the structural state; reference relationships require an explicit example.
+
+The [complete Klein tool audit](KLEIN-TOOL-AUDIT.md) covers all 16 canonical tools plus three source-backed adapters, shared-context/result wiring and executable task composition. Inspect `/api/tools` or call `root.runToolTask(steps)`; each tool is tested through a real execution path.
