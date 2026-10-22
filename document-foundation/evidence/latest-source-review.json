@@ -1,0 +1,35 @@
+{
+  "status": "source review and donor tests; not a completed integration",
+  "files": [
+    {
+      "url": "https://drive.google.com/file/d/1JVZRJ_3aWDntGvmmCbV4QZj31klQPXz_/view",
+      "name": "integrated-tool-factory-v1_4_0-6.zip",
+      "sha256": "6f84dffbfbc551a9c9c79e4a9765299e47b64468779f1b463d93f8d3d15210d9",
+      "bytes": 21433
+    },
+    {
+      "url": "https://drive.google.com/file/d/1GRZrgYro7FjH2ypLMbLtQidJ1xn7sKRO/view",
+      "name": "Quantum-master.zip",
+      "sha256": "26ac93bcb7c90770748cd751f6a8bfa860a2bc539e58f1f8168cd7e3e940bd26",
+      "bytes": 542209
+    },
+    {
+      "url": "https://drive.google.com/file/d/1uEshJfP_jw7-opf_Xc-7TfOfTTn_5EkC/view",
+      "name": "FractalJS-master.zip",
+      "sha256": "d4a73f04ebe977b5db6d166865647df551a25b9ed00817697207872bf44095ff",
+      "bytes": 446654
+    },
+    {
+      "url": "https://drive.google.com/file/d/1wnFPBx-J4Jszdo2Bn9Eh6if_ioNylLse/view",
+      "name": "Synthia-Solo-Hover-v0.5.8-ANDROID-HANDS-SOURCE.zip",
+      "sha256": "c73d2bf2c688fc954cb3ac2e273662308a23577c6d29b08509eff85b6983a143",
+      "bytes": 83184881
+    }
+  ],
+  "findings": {
+    "factory": "11 supplied tests pass using repository ATO Core via temporary test-path symlink. Eight bounded structural runtime families; no new factory instance installed. Existing copies differ and require behavior comparison before replacement.",
+    "fractal": "Read renderer, painter, Mandelbrot kernel, scheduler, worker proxy and worker drawing code. Numerical rendering is JavaScript; supplied scheduler constructs Web Workers unconditionally. Not yet connected as a worker-free fallback or image reconstruction.",
+    "quantum": "README and archive structure inspected only. Python Qiskit educational notebooks, not a JavaScript state-space runtime.",
+    "v058": "Release, root README, Android hand executor and browser hand adapter read. Compared state-space source bytes against v0.5.5: movement transport and temporal experience new; semantic genome and DNA perception changed; relational runtime and address module unchanged. Android hand requires loopback Accessibility service, desktop hand uses Chromium CDP. No UI imported."
+  }
+}
