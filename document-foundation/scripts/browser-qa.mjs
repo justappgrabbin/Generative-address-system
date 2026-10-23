@@ -54,10 +54,18 @@ try{
  const primitive=await page.evaluate(()=>{const r=globalThis.synthiaFoundation.history.at(-1).result;return {ok:r.ok,path:r.outcome.path,output:r.outcome.result.returnValue};});
  assert.equal(primitive.ok,true);assert.equal(primitive.path,'synthia-primitive-vm');assert.deepEqual(primitive.output.product,[[11]]);
  await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===10);
+ const positionalText='Trop Sun Vir 6.4.4.4.2 25° 59′ 31.92″ H5';
+ await page.locator('#files').setInputFiles({name:'positional-address.txt',mimeType:'text/plain',buffer:Buffer.from(positionalText)});
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===11);
+ const positional=await page.evaluate(()=>{const r=globalThis.synthiaFoundation.history.at(-1).result;return {status:r.status,raw:r.lexicalFill.raw,address:r.lexicalFill.address,precision:r.lexicalFill.angularPrecision.exact,second:r.lexicalFill.semanticSlots.second};});
+ assert.equal(positional.status,'PARSED_NOT_RESOLVED');assert.equal(positional.raw,positionalText);assert.equal(positional.address.arcsecond,'31.92');assert.equal(positional.second,null);
+ assert.match(await page.locator('#activity').textContent(),/PARSED_NOT_RESOLVED/);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===11);
+ assert.equal(await page.evaluate(()=>globalThis.synthiaFoundation.history.at(-1).result.lexicalFill.raw),positionalText);
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
  await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
- const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,primitive,mobileOverflow:false,externalRequests:network,pageErrors:errors};
+ const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,primitive,positional,mobileOverflow:false,externalRequests:network,pageErrors:errors};
  await writeFile(new URL('../evidence/document-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 }finally{await browser.close();}

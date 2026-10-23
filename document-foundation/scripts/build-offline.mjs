@@ -8,6 +8,7 @@ const roots=[
   [root,'synthia'],
   [path.join(assembly,'authorities/execution-spine/src/pure-synthia/engine'),'synthia-authority'],
   [path.join(assembly,'extensions/translation-layer/src'),'synthia-translation'],
+  [path.join(assembly,'vendor/cynthia-original/r21.21/substrate/mesh072/core'),'synthia-positional-source'],
 ];
 const modules={};
 function collect(filename){

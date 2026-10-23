@@ -27,6 +27,7 @@ import {KleinContextRuntime} from '../../Synthia-Generative-Address-Morphology-I
 import {FeatureSpace} from '../vendor/spine/src/pure-synthia/engine/boolean-ato.js';
 import {SourceStateIntegration} from './source-state-integration.mjs';
 import {renderFractal} from './fractal-renderer.mjs';
+import {PunctuationParser} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/vendor/cynthia-original/r21.21/substrate/mesh072/core/punctuation_parser.mjs';
 import {stableStringify} from '../vendor/spine/src/pure-synthia/engine/derivation.js';
 import {registerTranslationLayer} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/translation-layer/src/index.mjs';
 import {KleinSituationRouter} from '../vendor/ingestion/src/klein/klein-situation-router.mjs';
@@ -43,6 +44,7 @@ export class Foundation {
     this.imageMemory = new ImageMemory();
     this.visualSensory = new VisualSensory();
     this.runtime = new UniversalRuntime();
+    this.positionalParser = new PunctuationParser();
     this.runtime.registerRealizer('state-machine',async spec=>{
       const machine=this.runtime.createMachine(spec.definition);
       for(const event of spec.events??[])await machine.send(event);
@@ -118,9 +120,16 @@ export class Foundation {
   formation(query) { return formationViews(this.system.engine,query); }
   async ingest(input, context={}) {
     const a = await normalizeArtifact(input,context);
+    if(/^\s*Trop(?:ical)?\s/i.test(a.text??''))context={...context,positionalAdmission:this.positionalParser.parsePositionalSource(a.text)};
     return this.transact({name:a.name,mime:a.mime,bytes:a.bytes,content:a.text},context,'artifact');
   }
   async apply(input, context={}, kind, id) {
+    if(kind==='artifact'&&context.positionalAdmission){
+      const lexicalFill=copy(context.positionalAdmission);
+      const fieldContact=this.field.observe({modality:'positional-lexical-fill',source_ref:id,observed_features:{lexicalFill,dimensionalPerspective:context.dimensionalPerspective??null},uncertainty:{sentenceComposition:'NOT_RESOLVED',semanticSecond:'NOT_ASSIGNED'}});
+      const shared=this.system.shareKnowledge({kind:'positional-lexical-fill',entry:id,lexicalFill},{source:id});
+      return {id,ok:lexicalFill.ok,status:lexicalFill.ok?'PARSED_NOT_RESOLVED':'INVALID_POSITIONAL_FORM',lexicalFill,fieldContact,shared};
+    }
     if(kind==='tool') {
       const tool=this.system.engine.toolsById.get(input.tool)??this.system.engine.mesh.get(input.tool);
       if(!tool||typeof input.source!=='string'||!input.source.trim())throw new TypeError('Mounted tool id and source provenance required');

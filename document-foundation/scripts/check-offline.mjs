@@ -42,4 +42,6 @@ const predicted=await app.fieldCommand({operation:'state:predict',payload:{cue:s
 if(predicted.state.address.degree!==29||predicted.state.epistemicStatus!=='prediction-not-fact')throw Error('Offline prediction memory disconnected');
 const fractal=await app.imageCommand({operation:'fractal',source:'offline:fractal',width:8,height:8,iterations:20,palette:[[0,0,0,255],[255,255,255,255]]});
 if(!fractal.ok||fractal.image.lineage.workerUsed!==false)throw Error('Offline fractal generation disconnected');
+const positional=await app.ingest('Trop Sun Vir 6.4.4.4.2 25° 59′ 31.92″ H5',{name:'positional-address.txt'});
+if(positional.status!=='PARSED_NOT_RESOLVED'||positional.lexicalFill.address.arcsecond!=='31.92'||positional.lexicalFill.semanticSlots.second!==null)throw Error('Lossless positional source admission failed');
 console.log(`Offline module graph: ${modules.size} modules parsed; expression, primitive VM, native learning, generated tool, four source languages, exact RGBA reconstruction and new image composition passed with optional facilities unavailable.`);

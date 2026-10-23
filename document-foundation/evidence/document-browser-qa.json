@@ -59,6 +59,30 @@
       ]
     }
   },
+  "positional": {
+    "status": "PARSED_NOT_RESOLVED",
+    "raw": "Trop Sun Vir 6.4.4.4.2 25° 59′ 31.92″ H5",
+    "address": {
+      "zodiacSystem": "Tropical",
+      "planetary": "Sun",
+      "zodiac": "Virgo",
+      "gate": 6,
+      "line": 4,
+      "color": 4,
+      "tone": 4,
+      "base": 2,
+      "degree": 25,
+      "minute": 59,
+      "arcsecond": "31.92",
+      "house": 5
+    },
+    "precision": {
+      "numerator": "3192",
+      "denominator": "100",
+      "decimalPlaces": 2
+    },
+    "second": null
+  },
   "mobileOverflow": false,
   "externalRequests": [],
   "pageErrors": []
