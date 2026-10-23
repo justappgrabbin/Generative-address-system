@@ -1,0 +1,182 @@
+{
+  "preservedBranch": "preservation/source-archives-2026-10-23",
+  "purpose": "Recovery source packages; not required by the current runtime. Extracted implementations remain in the working branch.",
+  "files": [
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/donors/Online-Code-Execution-Engine-main.zip",
+      "bytes": 3154632
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/donors/Synthia-Universal-Browser-Execution-v1.3.7.zip",
+      "bytes": 1421926
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/donors/dagengine-main.zip",
+      "bytes": 534437
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/donors/godot-quickjs-master.zip",
+      "bytes": 991058
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/donors/Pure-Synthia-v0.4.0-FINISHED-BASELINE.zip",
+      "bytes": 1277423
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/donors/Synthia-Universal-Execution-Spine-v0.4.0.zip",
+      "bytes": 6599236
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/donors/Synthia-browser-artifact-handoff-v0.6.9(7).zip",
+      "bytes": 1282065
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/donors/klein-language-contact-model(4).zip",
+      "bytes": 72643
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/donors/klein-mesh-game-engine-v5.1-FIXED(2).zip",
+      "bytes": 143257
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Generative-Morph-Chat.zip",
+      "bytes": 9108650
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Generative-Process-Cluster (1).zip",
+      "bytes": 2460424
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Mesh-Cognition-Network (3).zip",
+      "bytes": 63357742
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Model-Weaver.zip",
+      "bytes": 6399688
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Neural-Network-Builder.zip",
+      "bytes": 31685092
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Primitive-Neural-Network-Foundry.zip",
+      "bytes": 2227740
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/SynthAI-Foundry-QQMOD-Replit-Drop.zip",
+      "bytes": 11126696
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Synthia-Coherent-Autonomy-Hands-v0.2.0.zip",
+      "bytes": 18169130
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Synthia-Coherent-Autonomy-Hands-v0.3.0.zip",
+      "bytes": 18660893
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/Synthia-Top-3-Autonomy-Lineages-PARTIAL.zip",
+      "bytes": 951584
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/alphabet-genealogy-lab.zip",
+      "bytes": 6512
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/cynthia-original/r21.21/00-Synthia-Core-Organism-r21.21.zip",
+      "bytes": 1011909
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Cynthia-Sovereign-v0.5.8-Android-Hands.zip",
+      "bytes": 82535021
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Mesh-Cognition-Network (1).zip",
+      "bytes": 63278150
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Mesh-Cognition-Network (3).zip",
+      "bytes": 63357742
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Mesh-Cognition-Network.zip",
+      "bytes": 63357742
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Coherent-Autonomy-Hands-v0.3.0-1.zip",
+      "bytes": 18660893
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Coherent-Autonomy-v0.1.0.zip",
+      "bytes": 18161628
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Hands-v0.3.0-with-r22-runtime-2/Synthia-Hands-v0.3.0-with-r22-runtime-2.zip.part00",
+      "bytes": 94371840
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Hands-v0.3.0-with-r22-runtime-2/Synthia-Hands-v0.3.0-with-r22-runtime-2.zip.part01",
+      "bytes": 14709098
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Hands-v0.3.0-with-r22-runtime-2/Synthia-Hands-v0.3.0-with-r22-runtime-2.zip.sha256",
+      "bytes": 110
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/extra/Synthia-Solo-Hover-v0.5.8-ANDROID-HANDS-SOURCE.zip",
+      "bytes": 83184881
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/meaning-mesh-64 (3).zip",
+      "bytes": 201594
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/mesh-automaton (2).zip",
+      "bytes": 832224
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/vendor/neural-architecture-generator (7).zip",
+      "bytes": 1640295
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/provenance/original-v0.4.2/Pure-Synthia-Integrated-Assembly-v0.4.2.zip",
+      "bytes": 34046897
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/sources/Kimi_Agent_Automata State Space Merge(1).zip",
+      "bytes": 2000024
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/sources/Pure-Synthia-Trainable-Assembly-v0.4.1.zip",
+      "bytes": 9408990
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/sources/Synthia-Universal-Execution-Spine-v0.4.0.zip",
+      "bytes": 6599236
+    },
+    {
+      "path": "Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/vendor/cynthia-original/r21.21/00-Synthia-Core-Organism-r21.21.zip",
+      "bytes": 1011909
+    },
+    {
+      "path": "document-foundation/vendor/spine/donors/Online-Code-Execution-Engine-main.zip",
+      "bytes": 3154632
+    },
+    {
+      "path": "document-foundation/vendor/spine/donors/Synthia-Universal-Browser-Execution-v1.3.7.zip",
+      "bytes": 1421926
+    },
+    {
+      "path": "document-foundation/vendor/spine/donors/dagengine-main.zip",
+      "bytes": 534437
+    },
+    {
+      "path": "document-foundation/vendor/spine/donors/godot-quickjs-master.zip",
+      "bytes": 991058
+    },
+    {
+      "path": "original-archive/Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE-2.zip",
+      "bytes": 68336860
+    }
+  ]
+}
