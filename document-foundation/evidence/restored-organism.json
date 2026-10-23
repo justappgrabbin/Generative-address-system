@@ -1,0 +1,162 @@
+{
+  "source": "Synthia-Solo-Hover-v0.5.8-ANDROID-HANDS-SOURCE.zip",
+  "sourceSha256": "c73d2bf2c688fc954cb3ac2e273662308a23577c6d29b08509eff85b6983a143",
+  "files": [
+    {
+      "path": "src/state-space/agent-address.mjs",
+      "sha256": "f31a161b443fa3a7a472e5e7942c677117cc76e07232d0dc97e9a79405e5464c"
+    },
+    {
+      "path": "src/primitives/index.mjs",
+      "sha256": "9b297a59067ec3296e11df1241fc0353dfa28754ca68f9300168ec70743ece78"
+    },
+    {
+      "path": "src/util.mjs",
+      "sha256": "796edb523c4a60d9ce36d8fa9394430f10b3701e319d26e68e030eb60f579dae"
+    },
+    {
+      "path": "src/state-space/atomic-coordinate-semantics.mjs",
+      "sha256": "9e55f098e77e7baf745f0558a81f4cf2333b4771fa930a77f02ef585fb60149e"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/chains.js",
+      "sha256": "d2284c907382dd0fde50020e1d79f3c503280a59691714227975ab3e99e376da"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/claim-status.js",
+      "sha256": "092e89e3cdab43f19fa7606654db494241f2257114872ba3359eff2ba2644bfe"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/experiments/scale/controls.js",
+      "sha256": "8d1fbe1ba87f9c37635c3004a6bf741682349347830d7e73efb69180db787372"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/constants.js",
+      "sha256": "950e5d751a7078bb1df3ff129c6b43e68bc90a7c48a3c2484aa0624ed7ecc5f7"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/engine/canon-registry.js",
+      "sha256": "206b1ebcf70d4dce1b0bae4144db5aa95b4044117ef27602e4fe07c3c693085c"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/dimension-canon.js",
+      "sha256": "6be371dc1f2c4caf4c0e08272990327d8c07e307d47027cc9fdf3e973951b1b3"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/dimensions.js",
+      "sha256": "7c08581a981564f85b63bd5ebf66198a262344e4aac79dd77794be813c0e0f09"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/primitive-dimensions.js",
+      "sha256": "541362c6fa937ff61133ec97dcf2f71068b4aef3db905f81d06de62d032e9999"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/features.js",
+      "sha256": "6193e678fd1c75356d84f417d98304d813b6f7828835122157128c7b9c09fdb5"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/letters.js",
+      "sha256": "8b327c644800f0ef0db0c5f0c6bf19951317a37603ebee08ffd7b40c0a32fbb8"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/addressing.js",
+      "sha256": "8ded17f32b55db30b7671749a70e9622b0f85d05ee910ab07f6da0a0c2354704"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/sounds.js",
+      "sha256": "146cecee8e49a20b62849deeb60d36bd31e5f3a9531ed85688783b97936467b9"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/transitions.js",
+      "sha256": "2560e3e0b658d27f918c6d8861ad4fc4974cc51a3344c3047cf175a52bd45a29"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/colors.js",
+      "sha256": "d7cd613040b0a82e22bdf2d49a49f19d1bc6b510a248b1ca6e9b310f48feab64"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/fragments.js",
+      "sha256": "af083ad4b23f58625b064c793c7db96af05bf545ad10ef3c9f3255514de57cfd"
+    },
+    {
+      "path": "src/state-space/dimension-perspective-registry.mjs",
+      "sha256": "f8dc2a9811ca4ec795bde0e9492e6bf8073d3d0467d407e82343a2cc234a07b7"
+    },
+    {
+      "path": "src/state-space/gate-architecture-provider.mjs",
+      "sha256": "db020db764d1b30ee870b8790c7069a73370894d64e4473d369c51c8dfeb683c"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/state-space/human-design.js",
+      "sha256": "d790ae206e799f940995c020ee0199ae2072dfcc6b35ecd8ce27f7666e128f50"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/merged/kingwen.js",
+      "sha256": "ad9902a4cb7298d767d1001e6784e30cbe975bf3eeacc73de76715d8b9741a42"
+    },
+    {
+      "path": "vendor/kimi-agent-automata-state-space-merge/pure-synthia-automata/src/merged/centers-channels.js",
+      "sha256": "d8226bbdf03505bf2a574afb3e4e19ec072574f756a69b8fd5dd5ad5888489d9"
+    },
+    {
+      "path": "src/state-space/dna-state-substrate.mjs",
+      "sha256": "59d6f9cdda9c3aee2cfc84dbc92e085c58beecb10fc066fb8f18eb8a062d8ed2"
+    },
+    {
+      "path": "vendor/trainable-assembly-v0.4.2/src/core/state-space/addressing.js",
+      "sha256": "8ded17f32b55db30b7671749a70e9622b0f85d05ee910ab07f6da0a0c2354704"
+    },
+    {
+      "path": "vendor/trainable-assembly-v0.4.2/src/core/state-space/constants.js",
+      "sha256": "950e5d751a7078bb1df3ff129c6b43e68bc90a7c48a3c2484aa0624ed7ecc5f7"
+    },
+    {
+      "path": "src/state-space/relational-operator-runtime.mjs",
+      "sha256": "6e863f5f4a09afbd8fdbb640f9978f4c99e00e595cba04176c30d07b1a8d39d6"
+    },
+    {
+      "path": "src/state-space/dna-perception-runtime.mjs",
+      "sha256": "24798d20ed18d3da49ab6d459c3c7529d3f4eef21459d06ef2538f586f4fc425"
+    },
+    {
+      "path": "src/state-space/movement-transport-runtime.mjs",
+      "sha256": "f7a1e3ac477e2c053a3d25efc2eeaea37ed0f87e27c40f2e97079ace256dbd27"
+    },
+    {
+      "path": "src/state-space/temporal-experience-runtime.mjs",
+      "sha256": "ca47f0f452f2c8e2e600f1334288a05bd44c57ff31d3bb2a74c2341acc70477a"
+    },
+    {
+      "path": "src/state-space/biological-translation-runtime.mjs",
+      "sha256": "8491cd1b7c30fd0c09442c6736e6a8fe1a17ef142b4e3f605c873eff0df051b0"
+    },
+    {
+      "path": "src/morph/canonical-morph-runtime.mjs",
+      "sha256": "ca58f57b754a83c94806254b58da295550e728954c496a34317528aba6ad4376"
+    },
+    {
+      "path": "src/morph/deep-surface-morph-adapter.mjs",
+      "sha256": "52ee176dfae2df2b57cc798dfc45bbca448be098fd80541450ca2e0d89dec930"
+    },
+    {
+      "path": "src/morph/browser/vendor/deep-surface-morph.js",
+      "sha256": "083fcde156e30386c55e48deae06f4525572ddc538eafefd66d098c84105f0f9"
+    }
+  ],
+  "adaptations": [
+    "primitives/index exports the existing live derivation helpers only",
+    "util imports the existing live derivation helpers",
+    "agent-address imports existing canonical dimension vocabulary",
+    "User directive: remove all hash-generated source identities; retained named serialized source records instead",
+    "User directive: complete-agent normalization requires explicit valid coordinates; no hash filler or lossy inferred coordinates",
+    "User decision: degree 0\u201329 inclusive"
+  ],
+  "scope": "Selected state, relationship, translation, movement, temporal and morph code. No second organism, mesh, resolver or UI instantiated.",
+  "verification": {
+    "foundationTests": 72,
+    "spineTests": 24,
+    "offlineModules": 193,
+    "offlineOptionalFacilities": "network, workers, WebAssembly and GPU unavailable",
+    "browser": "PASS: IndexedDB replay, real photo decoding/reconstruction, four source uploads, primitive VM; no external requests or page errors"
+  }
+}

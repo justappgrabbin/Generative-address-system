@@ -25,6 +25,8 @@ import {resolveFieldToolInput} from './field-tool-input.mjs';
 import {formationViews} from './formation-views.mjs';
 import {KleinContextRuntime} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/src/pure-synthia/engine/klein-context-runtime.js';
 import {FeatureSpace} from '../vendor/spine/src/pure-synthia/engine/boolean-ato.js';
+import {SourceStateIntegration} from './source-state-integration.mjs';
+import {renderFractal} from './fractal-renderer.mjs';
 import {stableStringify} from '../vendor/spine/src/pure-synthia/engine/derivation.js';
 import {registerTranslationLayer} from '../../Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/translation-layer/src/index.mjs';
 import {KleinSituationRouter} from '../vendor/ingestion/src/klein/klein-situation-router.mjs';
@@ -68,6 +70,7 @@ export class Foundation {
     this.documentToolPolicy = installDocumentToolPolicy(this.system.engine);
     this.lineage = new LineageAdapter(this.system.engine);
     this.kernel = new AutomataIngestionExecutionKernel({store,executionSurface:this.surface});
+    this.legacyIntegritySigner=this.kernel.signer;
     // Route memory is rebuilt from the same input journal, avoiding future
     // persisted cache entries influencing the replay of earlier decisions.
     this.routeMemory=new Map();
@@ -77,6 +80,7 @@ export class Foundation {
     this.ato = new AtoEngine({latentResolution:[1,1],numEmbeddings:64,embeddingDim:64});
     this.ato.learnSystem('foundation','State-space foundation','custom');
     this.history = [];
+    this.sourceState = new SourceStateIntegration(this);
     this.queue = Promise.resolve();
     this.ready = this.restore();
   }
@@ -93,7 +97,7 @@ export class Foundation {
     return this;
   }
   transact(input, context, kind) {
-    context={toolPolicyVersion:'native-learning.v3',executionRoutingVersion:'situation-router.v1',...context};
+    context={toolPolicyVersion:'native-learning.v3',executionRoutingVersion:'situation-router.v1',addressPolicyVersion:'explicit-address.v1',...context};
     const operation = this.queue.then(async () => {
       await this.ready;
       if(this.storageFault)throw new Error('Reload the foundation from its landed journal after the storage failure');
@@ -157,6 +161,12 @@ export class Foundation {
       return {id,ok:recovery.isExact,photo,fieldContact,shared};
     }
     if(kind==='field') {
+      if(input.operation.startsWith('state:')){
+        const result=await this.sourceState.execute(input.operation.slice(6),input.payload,id);
+        const fieldContact=this.field.observe({modality:'state-space',source_ref:id,observed_features:{operation:input.operation},tool_evidence:result});
+        const shared=this.system.shareKnowledge({kind:'source-state-space',entry:id,result},{source:input.payload.source});
+        return {id,ok:true,state:result,fieldContact,shared};
+      }
       if(input.operation==='tool')return this.apply(input.payload,context,'tool',id);
       if(input.operation==='factory'){
         const request=input.payload??{};
@@ -235,6 +245,10 @@ export class Foundation {
     const admission = this.system.engine.intake(session.normalized.text || session.fingerprint,context);
     const outcome = await this.pipeline.execute({name:session.normalized.name,content:session.normalized.text,bytes:session.normalized.bytes,type:session.normalized.kind},{...context,foundationKind:kind,kleinRoute:session.kleinRoute,automataFingerprint:session.fingerprint});
     const execution = {...outcome,backendUsed:false,workerUsed:false};
+    // The original signer named an integrity digest an ontological address.
+    // New entries retain an execution receipt and actual supplied address;
+    // an artifact fingerprint remains cache metadata, never a semantic address.
+    this.kernel.signer=context.addressPolicyVersion==='explicit-address.v1'?{sign:async()=>({schema:'synthia.execution-receipt.v1',id:`execution:${id}`,address:copy(context.operationalAddress??context.canonicalAddress??null),addressStatus:context.operationalAddress||context.canonicalAddress?'SUPPLIED':'UNPLACED',semanticAddressDerived:false})}:this.legacyIntegritySigner;
     const record = await this.kernel.finalize(session,execution);
     const text = session.normalized.text;
     const symbol = text ? await this.klein.process(text,id) : null;
@@ -273,7 +287,10 @@ export class Foundation {
           ?? await this.system.executeArtifact(artifact,context);
       }
     }
-    if (!outcome.canonicalAddressKey) {
+    if (!outcome.canonicalAddressKey && context.addressPolicyVersion==='explicit-address.v1') {
+      const address=context.canonicalAddress??null;
+      outcome={...outcome,canonicalAddress:address,canonicalAddressKey:address?canonicalAddressKey(address):null,addressBasis:address?'creator-supplied':'unplaced',addressDerivation:{basis:address?'creator-supplied':'unplaced',status:address?'SUPPLIED_ADDRESS':'AWAITING_ADDRESSED_EVIDENCE',intrinsicSemanticClaim:false}};
+    }else if (!outcome.canonicalAddressKey) {
       const resolved=this.system.addressResolver.resolve({artifact,execution:outcome,decomposition:this.system.addressResolver.descend(artifact)});
       outcome={...outcome,canonicalAddress:context.canonicalAddress ?? resolved.address,canonicalAddressKey:context.canonicalAddress ? canonicalAddressKey(context.canonicalAddress):resolved.key,addressBasis:context.canonicalAddress?'creator-supplied':resolved.derivation.basis,addressDerivation:resolved.derivation};
     }
@@ -337,6 +354,7 @@ export class Foundation {
     const imageId=`image:${id}`;
     let construction=null;
     if(input.operation==='analyze')image=this.imageMemory.store({id:imageId,...input.frame,source:input.source});
+    else if(input.operation==='fractal')image=this.imageMemory.store({id:imageId,...renderFractal(input)});
     else if(input.operation==='compose')image=this.imageMemory.compose(input.recipe,imageId);
     else if(input.operation==='generate'){
       if(input.dominatingStructure&&!this.field.structures.things.has(input.dominatingStructure))return {id,ok:false,semantic:{status:'INVESTIGATE',reason:'Unknown dominating structure'}};
@@ -365,7 +383,7 @@ export class Foundation {
     image=this.imageMemory.summary(imageId);
     const frame=this.imageMemory.reconstruct(imageId),sensory=this.visualSensory.observe({id:imageId,...frame,measurements:image.measurements});
     const dictionary=this.system.engine.toolsById.get('diseminer').run({operation:'observe',observation:{source_ref:imageId,modality:'visual',observed_features:{sensory,measurements:image.measurements}}},{source:id}).output;
-    const fieldContact=this.field.observe({modality:'visual',source_ref:imageId,observed_features:{visual:{measurements:image.measurements,sensory,structureRef:imageId}},relation_edges:image.lineage?.parts.map(p=>({subject:p.imageId,predicate:'contributed-pixels-to',object:imageId,source:image.lineage.source}))??[],uncertainty:{sceneMeaning:'UNKNOWN',ontologicalAddress:construction?'LEARNED_RECURSIVE_CONSTRUCTION':'UNRESOLVED'}});
+    const fieldContact=this.field.observe({modality:'visual',source_ref:imageId,observed_features:{visual:{measurements:image.measurements,sensory,structureRef:imageId}},relation_edges:image.lineage?.parts?.map(p=>({subject:p.imageId,predicate:'contributed-pixels-to',object:imageId,source:image.lineage.source}))??[],uncertainty:{sceneMeaning:'UNKNOWN',ontologicalAddress:construction?'LEARNED_RECURSIVE_CONSTRUCTION':'UNRESOLVED'}});
     const recognition=this.imageMemory.recognize(imageId),fieldExecution=construction?this.runConstructionField(construction,imageId):this.runVisualField(imageId);
     const shared=this.system.shareKnowledge({kind:'measured-visual-contact',image,sensory,recognition,fieldExecution},{source:'image-grammar.v1'});
     return {id,ok:true,image,construction,recognition,dictionary,fieldContact,fieldExecution,shared};
@@ -428,7 +446,7 @@ export class Foundation {
     }),meaningStatus:'SOURCED_CONTEXTUAL_RESOLUTION',generalUnderstandingVerified:false,automaticSemanticRoutingVerified:false};
   }
   audit() {
-    return {toolWiring:this.toolWiringAudit(),system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),kleinContext:this.system.engine.klein.audit(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
+    return {sourceState:this.sourceState.audit(),toolWiring:this.toolWiringAudit(),system:this.system.wiringAudit(),pipeline:this.pipeline.wiringAudit(),klein:this.klein.getStats(),kleinContext:this.system.engine.klein.audit(),toolPolicy:this.documentToolPolicy.audit(),ato:this.ato.getStats(),field:this.field.audit(),visual:{images:this.imageMemory.images.size,taughtExamples:this.imageMemory.feedback.length,explicitBindings:this.imageMemory.bindings.size,sensoryAdapter:'measured-visual-sensory.v1',semanticObjectRecognitionVerified:false},legacyAddressing:{status:'COMPUTATIONAL_BOOKKEEPING',semanticDerivationVerified:false},entries:this.history.length,backendRequired:false,workerRequired:false,modelRequired:false};
   }
   export() { return copy({schema:'synthia.foundation.journal.v1',entries:this.history}); }
 }

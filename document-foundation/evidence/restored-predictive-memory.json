@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "path": "vqvae-generative-memory.js",
+      "sha256": "0197a545aaef0dceb99efb7c9f6a9846dc5a9d94c7f2a57805a23e50cae56ced"
+    },
+    {
+      "path": "predictive-semantic-learning.js",
+      "sha256": "942518efae3b37f02e40441e75e7c2e6b1bfadb982cd3dc3b5523107fedef5c2"
+    }
+  ],
+  "adaptations": [
+    "ES module exports",
+    "13 canonical address fields and Base cardinality 5; no invented center category",
+    "injected initialization RNG and clock for replay",
+    "recursive outcome comparison fixes nested-outcome false equality",
+    "reject repeated prediction resolution"
+  ]
+}

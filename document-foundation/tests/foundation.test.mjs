@@ -60,7 +60,11 @@ test('chat executes a selected Klein tool; upload runs actual guarded machine th
  assert.equal(state.state,'moving');assert.equal(state.data.moves,1);
  assert.equal(state.history[0].type,'rejected');
  assert.equal(machine.outcome.pipeline.stages.length,11);
- assert.equal(machine.outcome.pipeline.stages.find(x=>x.stage==='ontological-address').ok,true);
+ // Execution succeeds without inventing a semantic coordinate for an
+ // unaddressed upload. The unresolved address stage remains explicit.
+ const addressing=machine.outcome.pipeline.stages.find(x=>x.stage==='ontological-address');
+ assert.equal(addressing.ok,false);assert.equal(addressing.evidence.basis,'unplaced');
+ assert.equal(machine.outcome.canonicalAddress,null);
  assert.deepEqual(Object.keys(machine.outcome.pipeline.allocation),['Movement','Evolution','Being','Design','Space']);
 });
 test('event cycles obey a budget and journal write failures keep the landed prefix',async()=>{

@@ -98,7 +98,11 @@ export class SynthiaSystem {
 
     // ASCEND AFTER FIRST ATTEMPT: execution behavior + the original low-level
     // decomposition resolve a complete 13-field computational coordinate.
-    const resolved = this.addressResolver.resolve({
+    const explicitAddressPolicy=context.addressPolicyVersion==='explicit-address.v1';
+    const resolved = explicitAddressPolicy ? {
+      address:suppliedCanonicalAddress,key:suppliedCanonicalAddress?canonicalAddressKey(suppliedCanonicalAddress):null,
+      derivation:{basis:suppliedCanonicalAddress?'creator-supplied':'unplaced',status:suppliedCanonicalAddress?'SUPPLIED_ADDRESS':'AWAITING_ADDRESSED_EVIDENCE',intrinsicSemanticClaim:false},
+    } : this.addressResolver.resolve({
       artifact,
       execution: result,
       decomposition,
@@ -116,7 +120,7 @@ export class SynthiaSystem {
       ok: Boolean(result.ok),
       decomposition: safe(decomposition),
       canonicalAddress,
-      canonicalAddressKey: canonicalAddressKey(canonicalAddress),
+      canonicalAddressKey: canonicalAddress?canonicalAddressKey(canonicalAddress):null,
       addressBasis,
       executionDerivedAddress: safe(resolved.address),
       executionDerivedAddressKey: resolved.key,
@@ -130,7 +134,7 @@ export class SynthiaSystem {
       id: `execution-address-${this.executionAddressRecords.length + 1}`,
       sequence: this.executionAddressRecords.length + 1,
       canonicalAddress: safe(canonicalAddress),
-      canonicalAddressKey: canonicalAddressKey(canonicalAddress),
+      canonicalAddressKey: canonicalAddress?canonicalAddressKey(canonicalAddress):null,
       addressBasis,
       executionDerivedAddress: safe(resolved.address),
       executionDerivedAddressKey: resolved.key,
@@ -157,7 +161,7 @@ export class SynthiaSystem {
       ...result,
       decomposition,
       canonicalAddress,
-      canonicalAddressKey: canonicalAddressKey(canonicalAddress),
+      canonicalAddressKey: canonicalAddress?canonicalAddressKey(canonicalAddress):null,
       addressBasis,
       executionDerivedAddress: safe(resolved.address),
       executionDerivedAddressKey: resolved.key,

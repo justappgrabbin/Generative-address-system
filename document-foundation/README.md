@@ -1,5 +1,26 @@
 # Synthia document foundation 0.4.2
 
+## Current integration and address policy
+
+New journal entries use `explicit-address.v1`. The old artifact signer no longer presents its integrity digest as an ontological address, and the execution resolver does not generate coordinates from hashes. Execution retains an actual supplied coordinate or reports `UNPLACED`. Existing historical entries retain their recorded policy during replay; source archives and existing integrity/cache mechanisms have not been rewritten into claimed semantic addresses.
+
+The restored v0.5.8 state, relationship, translation, temporal and morph-packet modules use explicit named records instead of hash-generated identities. Their complete-agent validator requires supplied coordinates and uses **degree 0–29 inclusive**, minute/second 0–59, and Arc 0–99. Its coordinate filler and lossy legacy degree projection have been removed. The operational `arcFraction` and source `arc` are explicit names for the same retained 0–99 input in this adapter; conflicting supplied values fail.
+
+BHANTUGH is one version of the user's **12-state address**, not a universal serialization or an assertion that there are twelve address fields. Binary, Hexadecimal, ASCII, NATO, Transliteration, Unicode, G and the final diagonal Hash form remain distinct representations. A software checksum does not implement that final H. No final-H semantic formula is asserted here. The current complete-coordinate adapter does not establish all alternate/public address forms.
+
+Source-backed mechanisms are connected to the existing field, mesh sharing and append-only journal through these commands:
+
+- `state:resolve`: `{address, source, agentId?, originAddress?}` resolves the supplied source perspectives, topology, translation and perception. It does not synthesize a birth chart.
+- `state:relate`: `{left, right, source}` uses resolved entry IDs and retains all sixteen operators, directional distinctions and the original 121-value structural vector. The relationship enters the existing field's edge history.
+- `state:movement`: `{gate, options, source}`, or `{value, options, source}`, executes the original reversible binary/decimal/hex transport.
+- `state:visit` and `state:superimpose`: use `{activation, coordinate, source}` and `{activation, coordinates, source}` respectively. First visits remain stable across revisits and journal replay.
+- `state:picture` and `state:recall-picture`: capture/recall addressed configurations through a view of the occupied field. This donor's “picture” means an episodic configuration, not a photograph decoder. No duplicate state-space instance is created.
+- `state:train-prediction`, `state:remember`, `state:predict`, `state:resolve-prediction`: train the supplied local VQ/completion memory on observed addresses, retain outcomes, reactivate cues and compare predictions with subsequent evidence. The categorical encoding preserves all thirteen named coordinate fields, with Base cardinality five. Seeded initialization and journal-relative timestamps reproduce weights on replay. Predictions are not promoted to facts.
+- `state:morph`: preserves a resolved activation and its relationship/temporal context in the supplied canonical morph packet. Without attached surfaces/rendering it explicitly reports `AWAITING_SURFACE_ENDPOINTS`; this does not establish photo-driven 3D morphing.
+- `image:fractal`: uses the supplied FractalJS numerical kernels through the existing image-memory/storage path without workers or a GPU. Supply `{source, kind?, width, height, iterations?, view?, palette}`; palette is an explicit array of RGBA entries, not a dimensional color assignment. Bounded work prevents an oversized request from monopolizing execution. This is mathematical image generation, not learned photorealistic scene synthesis.
+
+The new Quantum archive contains Python/Qiskit educational notebooks. It is not mounted as a JavaScript execution or semantic provider. The Tool Factory donor passes its eleven supplied tests against the existing ATO Core; no duplicate factory has been installed. Source provenance and adaptations are recorded in `evidence/restored-organism.json`, `evidence/restored-predictive-memory.json`, and `evidence/restored-fractaljs.json`.
+
 A JavaScript runtime descendant of the foundation archive supplied by Alexis, built against **Synthia: Architecture and Nested State-Space Neural Field (2026-10-10)**. The previous repository application remains intact. No external language model or GPU is used here.
 
 Open `Synthia-Foundation-Offline.html`. It embeds the runtime modules. If your browser blocks local-file modules, use `npm run serve` and open the same HTML over local static HTTP. The server serves bytes only; computation and IndexedDB persistence run in the browser. Offline packaging and the provided static server now use JavaScript; Python is not required for either.
