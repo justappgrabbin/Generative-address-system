@@ -136,6 +136,10 @@ export class KleinContextRuntime {
       return Object.freeze({ toolId, input: safeClone(invocation.input ?? null) });
     });
 
+    // Shared tool state is part of the witnessed context, not hidden mutable input.
+    if (context.stateSpace == null && typeof this.engine.sharedStateProvider === 'function') {
+      context = { ...context, stateSpace: this.engine.sharedStateProvider() };
+    }
     const activeToolIds = [...new Set(normalized.map((x) => x.toolId))];
     const contextPayload = {
       nodeId,
@@ -298,3 +302,4 @@ export class KleinContextRuntime {
 }
 
 export default KleinContextRuntime;
+

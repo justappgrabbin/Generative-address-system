@@ -422,7 +422,8 @@ export class AutolingAutomaton extends Automaton {
       alphabet: ['pipeline', 'induce', 'transform', 'stats'],
       delta: (state, symbol) => DELTA_TABLE[`${state}|${symbol}`] || { to: state, transition: 'flow' },
       q0: 'listen',
-      finals: ['grammar'],
+      // Public operations accept at their own resting states; domain validation still applies.
+      finals: ['listen', 'grammar'],
       ports: AutolingAutomaton.descriptor.ports,
       capabilities: AutolingAutomaton.descriptor.capabilities,
       dimension: 'Design',
@@ -461,3 +462,4 @@ export class AutolingAutomaton extends Automaton {
 }
 
 export default AutolingAutomaton;
+

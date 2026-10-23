@@ -270,7 +270,8 @@ export class BrowserFormAutomaton extends Automaton {
       alphabet: ['inspect-page', 'draft', 'approve-fields', 'confirm-inferred', 'fill', 'validate', 'request-submission', 'confirm-submission', 'submit', 'snapshot'],
       delta: (state, symbol) => DELTA_TABLE[`${state}|${symbol}`] || { to: state, transition: 'flow' },
       q0: 'see',
-      finals: ['confirm'],
+      // Public operations accept at their own resting states; domain validation still applies.
+      finals: ['see', 'fill', 'submit', 'confirm'],
       ports: BrowserFormAutomaton.descriptor.ports,
       capabilities: BrowserFormAutomaton.descriptor.capabilities,
       dimension: 'Being',
@@ -306,3 +307,4 @@ export class BrowserFormAutomaton extends Automaton {
 }
 
 export default BrowserFormAutomaton;
+
