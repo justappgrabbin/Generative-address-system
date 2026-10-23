@@ -68,7 +68,7 @@ export function auditOverlaySkin(spec, { actionRegistry = null } = {}) {
 export function createSwarmMorphingRuntime({
   assembly, authorize = null, neuralNetBuilder = null, foundry = null,
   imageStore = new GenerativeImageStore(), modelStore = new ModelStore(),
-  renderer = null, actionRegistry = null,
+  renderer = null, actionRegistry = null, capabilities = [],
 } = {}) {
   if (!assembly || typeof assembly.invoke !== 'function' || typeof assembly.klein?.evaluate !== 'function')
     throw new TypeError('Use the existing live Synthia assembly/Klein runtime');
@@ -84,6 +84,17 @@ export function createSwarmMorphingRuntime({
       final: trained.final, heldOut: trained.heldOut, epochs: trained.history.length };
   };
   const bridge = wireNeuralSymbolic({ assembly, authorize, neuralNetBuilder, modelMaker, foundry });
+  // Host-specific executable affordances (such as Simlish phenotype transforms)
+  // enter the SAME witnessed/permissioned runtime, not a duplicate swarm.
+  if (!Array.isArray(capabilities)) throw new TypeError('capabilities must be an array');
+  for (const item of capabilities) {
+    if (!item || typeof item.name !== 'string' || !/^[a-z][a-z0-9.-]*$/.test(item.name) ||
+        typeof item.execute !== 'function' || typeof item.sideEffect !== 'boolean')
+      throw new TypeError('capabilities require a name, callable execute and explicit sideEffect flag');
+    if (['mesh.invoke','model.train','neural.build','foundry.build'].includes(item.name))
+      throw new TypeError('reserved capability must not be replaced');
+    bridge.register(item.name, item.execute, { sideEffect: item.sideEffect });
+  }
   bridge.register('image.store', ({ name, bytes }) => {
     if (typeof name !== 'string' || !name || !Array.isArray(bytes) && !(bytes instanceof Uint8Array))
       throw new TypeError('image.store needs a name and actual PNG/JPEG bytes');
