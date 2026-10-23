@@ -1,0 +1,531 @@
+{
+  "source": "genrec://image/389481fa282d47552cf2f70fc2707818e1f56b6304feeed7e6c18228c36d2cd3",
+  "layersUsed": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "transform": {
+    "lhs": "R3.*",
+    "rhs": "R3'.* (chroma DC rotated 120°)"
+  },
+  "changedBlocks": 160,
+  "diff": {
+    "maxDiffOutside": 0,
+    "maxDiffInside": 61
+  },
+  "learned": {
+    "regions": [
+      {
+        "id": "R0",
+        "blocks": 316,
+        "share": 0.3416,
+        "centroid": {
+          "x": 12.09,
+          "y": 12.88
+        },
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 25,
+          "height": 37
+        },
+        "meanY": 9.5,
+        "meanCb": 4.4,
+        "meanCr": -2.2,
+        "meanTexture": 89.4,
+        "mirrorSymmetry": 0.766
+      },
+      {
+        "id": "R1",
+        "blocks": 229,
+        "share": 0.2476,
+        "centroid": {
+          "x": 12.85,
+          "y": 20.46
+        },
+        "bbox": {
+          "x": 0,
+          "y": 1,
+          "width": 25,
+          "height": 36
+        },
+        "meanY": 63.7,
+        "meanCb": 11.9,
+        "meanCr": -8.1,
+        "meanTexture": 408.6,
+        "mirrorSymmetry": 0.572
+      },
+      {
+        "id": "R2",
+        "blocks": 220,
+        "share": 0.2378,
+        "centroid": {
+          "x": 11.01,
+          "y": 22.48
+        },
+        "bbox": {
+          "x": 2,
+          "y": 3,
+          "width": 19,
+          "height": 34
+        },
+        "meanY": 128.4,
+        "meanCb": 13.1,
+        "meanCr": -8.7,
+        "meanTexture": 353.8,
+        "mirrorSymmetry": 0.491
+      },
+      {
+        "id": "R3",
+        "blocks": 160,
+        "share": 0.173,
+        "centroid": {
+          "x": 11.96,
+          "y": 18.42
+        },
+        "bbox": {
+          "x": 6,
+          "y": 3,
+          "width": 13,
+          "height": 34
+        },
+        "meanY": 187.1,
+        "meanCb": 10.7,
+        "meanCr": -6.9,
+        "meanTexture": 256.6,
+        "mirrorSymmetry": 0.588
+      }
+    ],
+    "relations": [
+      {
+        "subject": "R0",
+        "predicate": "adjacent",
+        "object": "R1",
+        "confidence": 1,
+        "sharedEdges": 156
+      },
+      {
+        "subject": "R0",
+        "predicate": "adjacent",
+        "object": "R2",
+        "confidence": 0.58,
+        "sharedEdges": 29
+      },
+      {
+        "subject": "R1",
+        "predicate": "adjacent",
+        "object": "R3",
+        "confidence": 0.28,
+        "sharedEdges": 14
+      },
+      {
+        "subject": "R0",
+        "predicate": "adjacent",
+        "object": "R3",
+        "confidence": 0.1,
+        "sharedEdges": 5
+      },
+      {
+        "subject": "R1",
+        "predicate": "adjacent",
+        "object": "R2",
+        "confidence": 1,
+        "sharedEdges": 135
+      },
+      {
+        "subject": "R2",
+        "predicate": "adjacent",
+        "object": "R3",
+        "confidence": 1,
+        "sharedEdges": 146
+      },
+      {
+        "subject": "R1",
+        "predicate": "brighter_than",
+        "object": "R0",
+        "confidence": 0.542
+      },
+      {
+        "subject": "R2",
+        "predicate": "brighter_than",
+        "object": "R0",
+        "confidence": 1
+      },
+      {
+        "subject": "R2",
+        "predicate": "brighter_than",
+        "object": "R1",
+        "confidence": 0.647
+      },
+      {
+        "subject": "R3",
+        "predicate": "brighter_than",
+        "object": "R0",
+        "confidence": 1
+      },
+      {
+        "subject": "R3",
+        "predicate": "brighter_than",
+        "object": "R1",
+        "confidence": 1
+      },
+      {
+        "subject": "R3",
+        "predicate": "brighter_than",
+        "object": "R2",
+        "confidence": 0.587
+      },
+      {
+        "subject": "R0",
+        "predicate": "mirror_symmetric",
+        "object": "R0",
+        "confidence": 0.766
+      },
+      {
+        "subject": "R1",
+        "predicate": "mirror_symmetric",
+        "object": "R1",
+        "confidence": 0.572
+      },
+      {
+        "subject": "R3",
+        "predicate": "mirror_symmetric",
+        "object": "R3",
+        "confidence": 0.588
+      }
+    ],
+    "rowGrammarSample": [
+      [
+        "R0.flat.e0",
+        "R0.grain.e0",
+        "R0.rough.eh",
+        "R0.grain.e0",
+        "R0.flat.e0"
+      ],
+      [
+        "R0.flat.e0",
+        "R0.grain.e0",
+        "R0.grain.eh",
+        "R0.rough.eh",
+        "R1.rough.eh",
+        "R1.rough.ev",
+        "R1.rough.e0",
+        "R1.rough.eh",
+        "R1.rough.ev",
+        "R1.rough.eh",
+        "R0.rough.eh",
+        "R0.flat.e0"
+      ],
+      [
+        "R0.flat.e0",
+        "R0.grain.e0",
+        "R0.rough.eh",
+        "R1.rough.eh",
+        "R0.rough.e0",
+        "R1.rough.e0",
+        "R0.rough.eh",
+        "R1.rough.eh",
+        "R1.rough.ev",
+        "R0.grain.e0",
+        "R0.flat.e0"
+      ]
+    ],
+    "compGramCoder": {
+      "distinctTokens": 23,
+      "codes": {
+        "R0.flat.e0": [
+          "MISC"
+        ],
+        "R0.grain.e0": [
+          "MISC"
+        ],
+        "R0.rough.eh": [
+          "MISC"
+        ],
+        "R0.grain.eh": [
+          "MISC"
+        ],
+        "R1.rough.eh": [
+          "MISC"
+        ],
+        "R1.rough.ev": [
+          "MISC"
+        ],
+        "R1.rough.e0": [
+          "MISC"
+        ],
+        "R0.rough.e0": [
+          "MISC"
+        ],
+        "R2.rough.ev": [
+          "MISC"
+        ],
+        "R2.rough.eh": [
+          "MISC"
+        ],
+        "R3.rough.eh": [
+          "MISC"
+        ],
+        "R3.rough.ev": [
+          "MISC"
+        ],
+        "R0.rough.ev": [
+          "MISC"
+        ],
+        "R3.rough.e0": [
+          "MISC"
+        ],
+        "R2.rough.e0": [
+          "MISC"
+        ],
+        "R3.grain.eh": [
+          "MISC"
+        ],
+        "R3.grain.e0": [
+          "MISC"
+        ],
+        "R2.grain.ev": [
+          "MISC"
+        ],
+        "R2.grain.e0": [
+          "MISC"
+        ],
+        "R2.grain.eh": [
+          "MISC"
+        ],
+        "R3.grain.ev": [
+          "MISC"
+        ],
+        "R1.grain.e0": [
+          "MISC"
+        ],
+        "R1.grain.ev": [
+          "MISC"
+        ]
+      },
+      "allMisc": true,
+      "triads": 0
+    },
+    "diseminer": {
+      "stems": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "adjacent",
+        "brighter_than",
+        "mirror_symmetric"
+      ],
+      "links": [
+        {
+          "from": "R0",
+          "to": "R1",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R0",
+          "to": "R2",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.58
+        },
+        {
+          "from": "R1",
+          "to": "R3",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.28
+        },
+        {
+          "from": "R0",
+          "to": "R3",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.1
+        },
+        {
+          "from": "R1",
+          "to": "R2",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R2",
+          "to": "R3",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R1",
+          "to": "R0",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.542
+        },
+        {
+          "from": "R2",
+          "to": "R0",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R2",
+          "to": "R1",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.647
+        },
+        {
+          "from": "R3",
+          "to": "R0",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R3",
+          "to": "R1",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 1
+        },
+        {
+          "from": "R3",
+          "to": "R2",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.587
+        },
+        {
+          "from": "R0",
+          "to": "R0",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.766
+        },
+        {
+          "from": "R1",
+          "to": "R1",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.572
+        },
+        {
+          "from": "R3",
+          "to": "R3",
+          "transitive": true,
+          "source": "image:photo",
+          "weight": 0.588
+        }
+      ],
+      "reachable": {
+        "R0": [
+          "R0",
+          "R1",
+          "R2",
+          "R3"
+        ],
+        "R1": [
+          "R0",
+          "R1",
+          "R2",
+          "R3"
+        ],
+        "R2": [
+          "R0",
+          "R1",
+          "R2",
+          "R3"
+        ],
+        "R3": [
+          "R0",
+          "R1",
+          "R2",
+          "R3"
+        ]
+      }
+    },
+    "autoling": {
+      "stats": {
+        "game": "image:photo",
+        "rules": 37,
+        "illegals": 0,
+        "recycles": 0,
+        "heuristics": {
+          "h1": 37,
+          "h2": 0,
+          "h3": 0,
+          "h4": 0
+        }
+      },
+      "rules": 37,
+      "rowsAlreadyParsable": 0,
+      "firstRules": [
+        {
+          "id": "H1_0",
+          "lhs": "S",
+          "rhs": [
+            "R0.flat.e0",
+            "R0.grain.e0",
+            "R0.rough.eh",
+            "R0.grain.e0",
+            "R0.flat.e0"
+          ],
+          "isRecursive": false,
+          "isSentenceRule": true,
+          "frequency": 0.5
+        },
+        {
+          "id": "H1_1",
+          "lhs": "S",
+          "rhs": [
+            "R0.flat.e0",
+            "R0.grain.e0",
+            "R0.grain.eh",
+            "R0.rough.eh",
+            "R1.rough.eh",
+            "R1.rough.ev",
+            "R1.rough.e0",
+            "R1.rough.eh",
+            "R1.rough.ev",
+            "R1.rough.eh",
+            "R0.rough.eh",
+            "R0.flat.e0"
+          ],
+          "isRecursive": false,
+          "isSentenceRule": true,
+          "frequency": 0.5
+        },
+        {
+          "id": "H1_2",
+          "lhs": "S",
+          "rhs": [
+            "R0.flat.e0",
+            "R0.grain.e0",
+            "R0.rough.eh",
+            "R1.rough.eh",
+            "R0.rough.e0",
+            "R1.rough.e0",
+            "R0.rough.eh",
+            "R1.rough.eh",
+            "R1.rough.ev",
+            "R0.grain.e0",
+            "R0.flat.e0"
+          ],
+          "isRecursive": false,
+          "isSentenceRule": true,
+          "frequency": 0.5
+        }
+      ]
+    }
+  }
+}
