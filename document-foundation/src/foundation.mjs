@@ -99,7 +99,7 @@ export class Foundation {
     return this;
   }
   transact(input, context, kind) {
-    context={toolPolicyVersion:'native-learning.v3',executionRoutingVersion:'situation-router.v1',addressPolicyVersion:'explicit-address.v1',...context};
+    context={toolPolicyVersion:'native-learning.v3',executionRoutingVersion:'situation-router.v1',addressPolicyVersion:'explicit-address.v1',stateContinuityVersion:'origin-relative.v1',...context};
     const operation = this.queue.then(async () => {
       await this.ready;
       if(this.storageFault)throw new Error('Reload the foundation from its landed journal after the storage failure');
@@ -171,10 +171,12 @@ export class Foundation {
     }
     if(kind==='field') {
       if(input.operation.startsWith('state:')){
-        const result=await this.sourceState.execute(input.operation.slice(6),input.payload,id);
+        const result=await this.sourceState.execute(input.operation.slice(6),input.payload,id,context);
         const fieldContact=this.field.observe({modality:'state-space',source_ref:id,observed_features:{operation:input.operation},tool_evidence:result});
         const shared=this.system.shareKnowledge({kind:'source-state-space',entry:id,result},{source:input.payload.source});
-        return {id,ok:true,state:result,fieldContact,shared};
+        const waiting=context.stateContinuityVersion==='origin-relative.v1'&&['AWAITING_SURFACE_ENDPOINTS','READY_FOR_RENDERER'].includes(result.status);
+        const transition=waiting?{status:'BLOCKED',operation:input.operation,sourceActivation:input.payload.activation??null,relationship:'addressed-state-to-surface',reason:result.status,requires:result.status==='READY_FOR_RENDERER'?['renderer']:['sourceSurface','targetSurface','renderer'],preservedPacket:result.packet.id}:null;
+        return {id,ok:!waiting,state:result,fieldContact,shared,...(transition?{transition}:{})};
       }
       if(input.operation==='tool')return this.apply(input.payload,context,'tool',id);
       if(input.operation==='factory'){

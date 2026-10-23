@@ -74,3 +74,29 @@ test('new artifact execution cannot invoke hash-coordinate resolution or label a
  const replay=await create(app.store);
  assert.equal(replay.history[0].result.record.address.schema,'synthia.execution-receipt.v1');
 });
+test('entity movement preserves origin and trajectory across reload',async()=>{
+ const app=await create();
+ const first=await run(app,'resolve',{agentId:'person:test',address});
+ const moved=await run(app,'resolve',{agentId:'person:test',address:{...address,gate:51}});
+ assert.deepEqual(moved.state.resolvedState.originAddress,first.state.address);
+ assert.equal(moved.state.resolvedState.previousActivation,first.id);
+ assert.equal(moved.state.resolvedState.originEvidence,'first-observed');
+ await assert.rejects(run(app,'resolve',{agentId:'person:test',address,originAddress:{...address,gate:2}}),/Origin conflicts/);
+ assert.equal(app.history.length,2);
+ const replay=await create(app.store);
+ assert.deepEqual(replay.sourceState.activation(moved.id),moved.state);
+});
+test('blocked morph retains packet and source without reporting execution success',async()=>{
+ const app=await create();
+ const activation=await run(app,'resolve',{address});
+ const blocked=await run(app,'morph',{activation:activation.id});
+ assert.equal(blocked.ok,false);
+ assert.equal(blocked.transition.status,'BLOCKED');
+ assert.equal(blocked.transition.sourceActivation,activation.id);
+ assert.equal(blocked.transition.preservedPacket,blocked.state.packet.id);
+ assert.deepEqual(blocked.transition.requires,['sourceSurface','targetSurface','renderer']);
+ await run(app,'morph',{activation:activation.id});
+ assert.equal(app.history[1].result.state.packet.id,blocked.state.packet.id);
+ const replay=await create(app.store);
+ assert.deepEqual(replay.history,app.history);
+});

@@ -66,13 +66,19 @@ export class SourceStateIntegration {
   }
   pictureKey(a){const b=operational(a);return ['planetary','dimension','gate','line','color','tone','base','degree','minute','second','arcFraction','zodiac','house'].map(k=>String(b[k])).join('|');}
   activation(ref){const a=this.activations.get(ref);if(!a)throw new Error('Unknown resolved state receipt');return a;}
-  resolve(p,id){
-    const address=sourceAddress(p.address),origin=p.originAddress?sourceAddress(p.originAddress):address;
+  resolve(p,id,policy={}){
+    const address=sourceAddress(p.address);
+    const continuous=policy.stateContinuityVersion==='origin-relative.v1';
+    const prior=continuous&&p.agentId?[...this.activations.values()].filter(a=>a.agentId===p.agentId).at(-1):null;
+    const declared=p.originAddress?sourceAddress(p.originAddress):null;
+    const anchored=prior?.resolvedState.originAddress;
+    if(anchored&&declared&&serializeAddress(operational(anchored))!==serializeAddress(operational(declared)))throw new TypeError('Origin conflicts with the existing entity history');
+    const origin=anchored??declared??address;
     const resolved=this.substrate.resolve({address,originAddress:origin,context:{...p.context,source:p.source}});
     // Retain the full named coordinate as identity, rather than the donor's
     // short hash. Original source identity remains traceable in provenance.
     const named=`state:${serializeAddress(operational(origin))}=>${serializeAddress(operational(address))}`;
-    const state={...resolved,stateId:named};
+    const state={...resolved,stateId:named,...(continuous?{originAddress:copy(origin),originEvidence:prior?.resolvedState.originEvidence??(declared?'declared':'first-observed'),previousActivation:prior?.id??null}:{})};
     const translation=this.translation.translateActivation({agentId:p.agentId??'local',sourceActivationId:id,resolvedState:state,address,context:{source:p.source}});
     const movementTransport=address.dimension==='Movement'?this.movement.transportGate(address.gate,{direction:p.direction??'up',sourceStateId:named}):null;
     const activation={id,agentId:p.agentId??'local',address,resolvedState:state,structuralVector:structuralNeuralVector(address),translation,movementTransport};
@@ -82,11 +88,11 @@ export class SourceStateIntegration {
     this.perception.enqueueActivation(activation);this.morph.observeActivation(activation);
     return activation;
   }
-  async execute(operation,p={},id){
+  async execute(operation,p={},id,policy={}){
     if(typeof p.source!=='string'||!p.source.trim())throw new TypeError('State integration requires source provenance');
     this.clock=Number(id.split(':').at(-1));
     let result;
-    if(operation==='resolve')result=this.resolve(p,id);
+    if(operation==='resolve')result=this.resolve(p,id,policy);
     else if(operation==='perspective')result=this.perspectives.project(p.observer,p.subject);
     else if(operation==='relate'){
       const left=this.activation(p.left),right=this.activation(p.right);
