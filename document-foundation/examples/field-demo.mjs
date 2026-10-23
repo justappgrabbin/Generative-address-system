@@ -1,0 +1,10 @@
+import {Foundation} from '../src/foundation.mjs';
+const app=new Foundation();await app.ready;
+const address={planetary:1,dimension:'Movement',gate:1,line:1,color:1,tone:1,base:1,degree:0,minute:0,second:0,arcFraction:0,zodiac:1,house:1};
+const provenance={source:'engineering-demo:explicit-numerical-fixture',calculation:'Not a birth chart or semantic correspondence'};
+await app.fieldCommand({operation:'register',payload:{address,provenance}});
+const command={operation:'run',payload:{candidates:[address],input:[0.7,0.2],feedback:0.8,provenance}};
+const first=(await app.fieldCommand(command)).field;
+for(let i=0;i<29;i++)await app.fieldCommand(command);
+const last=app.field.runs.at(-1),restored=new Foundation({store:app.store});await restored.ready;
+console.log(JSON.stringify({task:'synthetic constant-target learning; not language understanding',first:first.learned[0],last:last.learned[0],replayExact:JSON.stringify(restored.field.snapshot())===JSON.stringify(app.field.snapshot()),audit:app.field.audit()},null,2));

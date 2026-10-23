@@ -1,0 +1,9 @@
+# Preserve recovery sources in Git, but never include them in source downloads.
+*.zip export-ignore
+*.zip.* export-ignore
+*.tar export-ignore
+*.tar.gz export-ignore
+*.tgz export-ignore
+*.7z export-ignore
+*.rar export-ignore
+original-archive/ export-ignore

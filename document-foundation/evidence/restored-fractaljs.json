@@ -1,0 +1,38 @@
+{
+  "source": "FractalJS-master.zip",
+  "adaptation": "Original numerical kernels with TypeScript-only imports/assertion removed; sequential renderer uses the live image-memory path without the donor UI or worker scheduler.",
+  "files": [
+    {
+      "path": "FractalJS-master/src/engine/fractals/burningbird.ts",
+      "sha256": "266550fa77e2cb6bf1d9ec5605e52f470fd0fd4ba827b86f07de49a5aa1a237d"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/burningship.ts",
+      "sha256": "419a49dad4e71777f8c8a6030c9667162949795fd84ce3bab5a1426608b92449"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/julia.ts",
+      "sha256": "fa80227f8d24852a2db09076c5b15144b0f9147ee3b6c461df56edbb72188d5c"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/mandelbrot.ts",
+      "sha256": "213a71291042ff26f72866f0245e135221577eb72c8d70441a01d32be3430bbb"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/mandelbrot3.ts",
+      "sha256": "c8459ce3c04550066d98de8ba7329c70370d85be0cd5f3ea7c0456862aac05b9"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/mandelbrot4.ts",
+      "sha256": "a10aff2d950e2398e153cff366f0e22590b259be7d745287127681c6f237da95"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/phoenix.ts",
+      "sha256": "14f05454165adcd206d86a97a23700093d635fc139a62801fe8423cac1135ff5"
+    },
+    {
+      "path": "FractalJS-master/src/engine/fractals/tippetts.ts",
+      "sha256": "27d0a933711eb6029f0fffa1f481af39303d08fef69bcbe5511b5026bc0d02f0"
+    }
+  ]
+}

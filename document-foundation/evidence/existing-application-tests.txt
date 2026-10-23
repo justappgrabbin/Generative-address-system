@@ -1,0 +1,23 @@
+
+> synthia-generative-address-morphology-integrated@0.2.1 test
+> node --test tests/*.test.mjs
+
+✔ generative morphology mounts as a live mesh organ without replacing v0.4.2 organs (20.007212ms)
+✔ chat reads inward through active addressed graph ecology and writes outward through morphology (27.814837ms)
+✔ research browser uses the same morphology field rather than a separate interpretation stack (10.121168ms)
+✔ graph dissolves when its connection conditions stop being satisfied (6.971032ms)
+✔ browser/form surface receives the same morphology field while retaining its existing consent gates (9.232338ms)
+✔ Klein chat form stays distinct from morphology chat form (24.049883ms)
+✔ root assembles the Klein-connected spine and every trainable organ (18.812565ms)
+✔ root chat carries one witnessed Klein evaluation into the training journal (19.999371ms)
+✔ root tool invocation uses the same intake + Klein + provenance path (4.948605ms)
+✔ book ingestion uses live AutoLing and DISEMINER via engine.invoke and then shares fragments to the mesh (9.402597ms)
+✔ root preserves address authority boundary instead of silently converting arc <-> arcAxis (2.207447ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 337.147949

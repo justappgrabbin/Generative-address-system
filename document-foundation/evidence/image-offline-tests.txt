@@ -1,0 +1,7 @@
+
+> synthia-state-space-foundation@0.3.0 test:offline
+> node --experimental-vm-modules scripts/check-offline.mjs
+
+(node:16730) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Offline module graph: 124 modules parsed; foundation linked and executed 42.

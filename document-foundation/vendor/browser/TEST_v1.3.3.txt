@@ -1,0 +1,28 @@
+Synthia v1.3.3 execution synthesis test
+
+Full suite: PASS
+Core: 866 passed / 0 failed
+Merged: 42 passed / 0 failed
+Govinda: PASS
+Focal weight: PASS
+Focal integration: PASS
+Universal execution bridge: PASS
+
+Foreign non-JS test:
+- Python import math
+- list + append
+- mutable state
+- range loop
+- conditional branch
+- math.sqrt/math.floor
+- len builtin
+- exact output: NONJS_SYNTH_OK 5 30
+- path: state-space-runtime-synthesis
+- second run: learned-synthesized-runtime
+
+Heavy execution test:
+- Python source
+- 1,000,000 loop iterations
+- math + branch + mutation
+- exact output: HEAVY_FOREIGN_OK 250000500000
+- path: state-space-runtime-synthesis

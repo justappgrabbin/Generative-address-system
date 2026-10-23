@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "entry": "Synthia-Foundation-Offline.html",
+  "transport": "static-http",
+  "fileNavigation": "NOT_TESTED: managed Chromium blocks file navigation",
+  "storage": "indexeddb",
+  "fieldLearningAndReload": true,
+  "actualPhotoOpened": {
+    "width": 96,
+    "height": 96
+  },
+  "photoReload": true,
+  "chatSubmitted": true,
+  "optionalFacilitiesUnavailable": true,
+  "sourceUploads": [
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    },
+    {
+      "ok": true,
+      "adapter": "synthia-translation-layer",
+      "stdout": [
+        "42"
+      ]
+    }
+  ],
+  "reconstruction": {
+    "width": 96,
+    "height": 96,
+    "bytes": 36864,
+    "pixelSha256": "fe90748ba48848204e38363f636bbd5bc0b3cdafa075a8a1bf1e505a6fec713a"
+  },
+  "primitive": {
+    "ok": true,
+    "path": "synthia-primitive-vm",
+    "output": {
+      "product": [
+        [
+          11
+        ]
+      ]
+    }
+  },
+  "positional": {
+    "status": "PARSED_NOT_RESOLVED",
+    "raw": "Trop Sun Vir 6.4.4.4.2 25° 59′ 31.92″ H5",
+    "address": {
+      "zodiacSystem": "Tropical",
+      "planetary": "Sun",
+      "zodiac": "Virgo",
+      "gate": 6,
+      "line": 4,
+      "color": 4,
+      "tone": 4,
+      "base": 2,
+      "degree": 25,
+      "minute": 59,
+      "arcsecond": "31.92",
+      "house": 5
+    },
+    "precision": {
+      "numerator": "3192",
+      "denominator": "100",
+      "decimalPlaces": 2
+    },
+    "second": null
+  },
+  "mobileOverflow": false,
+  "externalRequests": [],
+  "pageErrors": []
+}

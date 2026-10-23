@@ -1,0 +1,77 @@
+{
+  "schema": "synthia.swarm-source-inventory.v1",
+  "requirements": "User-supplied SWARM-OS / SYNTHWORLD / INDIVERSE Integrated Developer Specification v1.0, 2026-10-22",
+  "formationEquivalence": "User correction: packet crossings and structural levels are the same process viewed from different perspectives.",
+  "sources": [
+    {
+      "repository": "justappgrabbin/SYNTHWORLD-",
+      "revision": "d40066bc71613aab426efb5172a2faef85c6a88b",
+      "inspection": "read-only source inspection; not an integrated runtime verification",
+      "files": [
+        {
+          "path": "game/Scripts/Systems/World.gd",
+          "sha256": "2b1b8b620de55b37d1041f9629ba7c0d9bfb448d89f59e7a01a7fbde53c0c983"
+        },
+        {
+          "path": "game/Scripts/Engine/SentenceExecutor.gd",
+          "sha256": "a0b5e2b3179ffe16370f7ca4ebd4fb707f956ee907d80e21d87d677e95a6a994"
+        },
+        {
+          "path": "game/project.godot",
+          "sha256": "256105ca55dc3b9f42bdee7175304740b03bfb7385b5f401ffe6094bd6b0e2bf"
+        }
+      ]
+    },
+    {
+      "repository": "justappgrabbin/Swarm",
+      "revision": "ccc99aa03b27ff9777d1efed282998c57499558c",
+      "inspection": "read-only source inspection; not an integrated runtime verification",
+      "files": [
+        {
+          "path": "Index.html",
+          "sha256": "8076ffea5d495512392fb1e9e19918058a39ede7e3ab432273bec1fd3e209bfa"
+        }
+      ]
+    },
+    {
+      "repository": "justappgrabbin/World-engine-",
+      "revision": "3f731a3aa3dfee2155fc71af48028bd3aa62e980",
+      "inspection": "read-only source inspection; not an integrated runtime verification",
+      "files": [
+        {
+          "path": "Index.html",
+          "sha256": "b2507f088116dfc8fbf4efb97c73fea45a29e453b9174067e1be79e359b9bfb6"
+        }
+      ]
+    },
+    {
+      "repository": "justappgrabbin/Resonance-Network",
+      "revision": "db3cb09e597f0383c731d6300c91886af2b10ba3",
+      "inspection": "read-only source inspection; not an integrated runtime verification",
+      "files": [
+        {
+          "path": "Core/SystemBootstrap.js",
+          "sha256": "b3ac53546c8fb6102a56f031e944ce2def2276e9c578b7cefb38dd879828cde4"
+        },
+        {
+          "path": "Core/LabEngine.js",
+          "sha256": "ac60dfc2f6e6a1575365c012d55a0b2bd0cfb1e2c8db5c14653ce09f7e6436e6"
+        }
+      ]
+    }
+  ],
+  "additionalDriveSources": [
+    {
+      "driveId": "11VrcozcbxpP4YiyljWnfbBnsnejTNWzMX9GsDem0tTU",
+      "title": "SWARM-OS \u2014 Audit & Assembly Checkpoint \u2014 2026-10-16",
+      "extractedTextSha256": "6b71e77ef3078ff003afc61009be06c3e4eecf8490fa7ed55a329e4fb8d97fb7",
+      "status": "Read for source recovery; current user instructions govern implementation. Original text not published."
+    },
+    {
+      "driveId": "1qxNrFwuV9sHBM-yQapy37ESYFQ2sO3NL",
+      "title": "Synthia_Semantic_Swarm_Master_Spec_v3.docx",
+      "extractedTextSha256": "d0e0f86ca7c6878f000493ceb407acde9199c1b5af75f6fa488f7b786ed5dca4",
+      "status": "Read for source recovery; current user instructions govern implementation. Original text not published."
+    }
+  ]
+}

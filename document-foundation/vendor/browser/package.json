@@ -1,0 +1,12 @@
+{
+  "name": "pure-synthia-automata",
+  "version": "1.3.7",
+  "description": "Synthia browser execution substrate with runtime-first adapter registry, Worker/VFS JS/WASM chamber, mesh synthesis fallback",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "demo": "node demo.mjs",
+    "test": "node tests/run.mjs && node test/merged.smoke.mjs && node test/govinda-structure.test.mjs && node test/focal-weight-calculator.test.mjs && node test/focal-integration.test.mjs && node test/universal-execution-bridge.test.mjs && node test/mesh-rule-synthesizer.test.mjs && node test/execution-loop-orchestrator.test.mjs && node test/paper-runtime-sandbox.test.mjs && node test/runtime-adapter-registry.test.mjs",
+    "test:focal": "node test/govinda-structure.test.mjs && node test/focal-weight-calculator.test.mjs && node test/focal-integration.test.mjs"
+  }
+}

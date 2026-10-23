@@ -1,0 +1,91 @@
+{
+  "patch": "Synthia Automata Ingestion & Execution Kernel",
+  "targetPackageVersion": "0.5.1",
+  "preservesVendorAuthorities": true,
+  "coreBackendRequired": false,
+  "webWorkerRequired": false,
+  "executionFields": [
+    "shared",
+    "knowledge",
+    "causal",
+    "dependency",
+    "stateSpace"
+  ],
+  "tests": {
+    "total": 37,
+    "passed": 37,
+    "failed": 0
+  },
+  "files": [
+    {
+      "path": "src/index.mjs",
+      "sha256": "7aeb2fdb9959dc6ebac3e3d050135e81c5923f3d59efd5884d38b820ad0082a9",
+      "bytes": 3418
+    },
+    {
+      "path": "src/integrated-synthia-system.mjs",
+      "sha256": "97c8c983a338eb9f0837b0b725442b64fb621c7a13ef70b3dbaa8039124b7a7c",
+      "bytes": 26797
+    },
+    {
+      "path": "src/execution/execution-pipeline.mjs",
+      "sha256": "59d33ea291e7af3af70416a98d1eb322e9b647479d83fd02ab4f2843a136a2fe",
+      "bytes": 11759
+    },
+    {
+      "path": "src/automata/index.mjs",
+      "sha256": "25f757712ac251187a01dff0c541a839b4e16c41df0ab092c9f4f3b9b0ffecc6",
+      "bytes": 587
+    },
+    {
+      "path": "src/automata/artifact-normalizer.mjs",
+      "sha256": "8767fdc316bd7c02aa7f06aa69793e7bb42e45d6acafd25392150ec0b1b96769",
+      "bytes": 3506
+    },
+    {
+      "path": "src/automata/primitive-reducer.mjs",
+      "sha256": "917e86746fa7ec16fca539777d8c6028ff901bf87e6fb51355e85114b9ade76d",
+      "bytes": 11421
+    },
+    {
+      "path": "src/automata/five-field-compiler.mjs",
+      "sha256": "f50914ab5fc7dcd40363f2913e08d7ac0990aa5134a59a4318a3b41d7d6eaaec",
+      "bytes": 4160
+    },
+    {
+      "path": "src/automata/ontological-address.mjs",
+      "sha256": "ccf76d1ddc77273224cfb682ec13c8279c22679a8acb606c2414ab46f36bb413",
+      "bytes": 3115
+    },
+    {
+      "path": "src/automata/browser-automata-store.mjs",
+      "sha256": "2153439dea359337d67454388c78e59a3a15f77f35259cc167a45db90e6aeb9d",
+      "bytes": 2652
+    },
+    {
+      "path": "src/automata/browser-execution-surface.mjs",
+      "sha256": "41a55224b7c87e2811baf04b96a6e25c158b6e8d3ec90b28f06f05e81c9e370b",
+      "bytes": 6961
+    },
+    {
+      "path": "src/automata/ingestion-execution-kernel.mjs",
+      "sha256": "a1fa73df51c0fe9c2b26f901bbd02be2f7fba2981a4bc461b147cc7dff9f1882",
+      "bytes": 6646
+    },
+    {
+      "path": "test/12-automata-ingestion-execution.test.mjs",
+      "sha256": "0bdbf4cbe2c14fe54154ee93b763472f188d1eccceeb99d101e40050558b51b3",
+      "bytes": 4042
+    },
+    {
+      "path": "docs/AUTOMATA_INGESTION_EXECUTION_PATCH.md",
+      "sha256": "5a23693f53ea0ec28134f5c8a64f8bb77f41c3c76853a1c880d1dd9e9bc91db5",
+      "bytes": 4248
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "6ec0aa5bc4c6597c48e114cd88854603fd12b2e92414c442d9c1f974119c802b",
+      "bytes": 6489
+    }
+  ]
+}

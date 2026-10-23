@@ -1,0 +1,5 @@
+
+> synthia-state-space-foundation@0.3.0 build:offline
+> python3 scripts/build-offline.py
+
+Embedded 124 source modules; 1,330,221 bytes

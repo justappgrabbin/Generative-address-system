@@ -1,0 +1,29 @@
+name: Build phone download
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'document-foundation/**'
+      - '.github/workflows/phone-download.yml'
+permissions:
+  contents: read
+jobs:
+  phone-download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and verify standalone application
+        working-directory: document-foundation
+        run: |
+          npm run build:offline
+          npm run test:offline
+      - name: Package only the executable application
+        uses: actions/upload-artifact@v4
+        with:
+          name: Synthia-Phone-Download
+          path: document-foundation/Synthia-Foundation-Offline.html
+          if-no-files-found: error
+          compression-level: 9

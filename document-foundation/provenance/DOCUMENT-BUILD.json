@@ -1,0 +1,54 @@
+{
+  "descendant": "synthia-document-foundation.v0.4.1",
+  "sourceArchive": {
+    "name": "Synthia-State-Space-Foundation (2).zip",
+    "driveId": "19vpMZv9R-xlqhnuGg6zfYjj80_Q1t_Ys",
+    "sha256": "4c9611a0e4b2b2b8423556cabaff48ff3101249774921621d4fd398e01db3392"
+  },
+  "specification": {
+    "title": "Synthia: Architecture and Nested State-Space Neural Field (combined, 2026-10-10)",
+    "driveId": "1a4-4qM_dOJSaUUokRA68s1g0KeUkxUX5-YWnuS11bFs",
+    "extractedTextSha256": "7348571a1c20d989d8a5bef0a5f73b3585b78debf2eb7e23f34cc497bdcc80f9"
+  },
+  "preservation": "Original archive retained unchanged; vendor runtime files copied unchanged. This selected runtime descendant omits private northstar documents and inactive model-building packages; no upstream files deleted.",
+  "additionalDonor": {
+    "repository": "justappgrabbin/Generative-address-system",
+    "commit": "04d0227",
+    "paths": [
+      "extensions/morphmir-memory/src/index.mjs",
+      "extensions/translation-layer/src/sha256.mjs"
+    ],
+    "changes": "Two relative imports adjusted for the preserved foundation vendor layout."
+  },
+  "visualExtension": {
+    "specificationSections": [
+      "II.6: 3-5",
+      "IV.J:22",
+      "IV.J:56"
+    ],
+    "originalSensorySource": "vendor/klein-original/sensory-adapter.js",
+    "wrapper": "vendor/klein-sensory.mjs: original source with ES module wrapper",
+    "versionedAdapter": "src/visual-sensory.mjs: measured appearance; no identifier-hash fallback; deterministic observation metadata",
+    "engineeringRepresentation": "src/image-structure.mjs: solid/raster/split geometry; not asserted as canonical ontological coordinates",
+    "selectionRule": "measured-visual-distance.v1, explicit user-supplied address bindings only",
+    "originalSensorySha256": "c2791425be0221b5143a9cb03e896c446c7405cb039c61af2958890d0e40e822"
+  },
+  "additionalSpecification": {
+    "driveId": "1pRXTJGn5gwZvYuX2NQwKinM72HM2pU8arUS7KKK-nh0",
+    "extractedTextSha256": "71464de27e63bf04c9b32c4da70d363af1f5db7dcdfac5412eaeeb6ea0334cb4",
+    "application": "Use documents together: operational mechanism and represented structure. Final recap clarifies intrinsic identity versus contextual placement; dominating structures; Being-led read order; retained occurrence history. User corrections retain priority.",
+    "dmsClarification": "Degree 0\u201329, minute 0\u201359, second 0\u201359; 5\u00b037\u203230\u2033 is a span expressed in this notation, not replacement field ranges."
+  },
+  "contextualHandoff": {
+    "module": "src/field-tool-input.mjs",
+    "scope": "Sourced native input bindings over field-owned representations; contextual lexical evidence and learned image construction",
+    "tests": "tests/tool-field-wiring.test.mjs; tests/semantic-construction.test.mjs",
+    "historicalAlgorithmFidelityVerified": false
+  },
+  "formationViews": {
+    "source": "User clarification, 2026-10-22: same thing, different perspectives",
+    "implementation": "src/formation-views.mjs reads existing engine.channels; no independent counter",
+    "tests": "tests/formation-continuity.test.mjs",
+    "inventory": "INTEGRATION-MAP.md"
+  }
+}

@@ -1,0 +1,71 @@
+// npm install --no-save playwright; PLAYWRIGHT_MODULE can point to an existing installation.
+import assert from 'node:assert/strict';
+import {writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE??'playwright');
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',args:['--no-sandbox','--disable-gpu']});
+try{
+ const context=await browser.newContext({viewport:{width:1100,height:900}}),page=await context.newPage(),errors=[],network=[];
+ await context.addInitScript(()=>{
+  for(const name of ['fetch','XMLHttpRequest','WebSocket','EventSource','Worker','SharedWorker','WebAssembly','GPU'])Object.defineProperty(globalThis,name,{configurable:true,value:undefined});
+  Object.defineProperty(navigator,'gpu',{configurable:true,value:undefined});
+ });
+ page.on('pageerror',error=>errors.push(error.message));
+ const appUrl=process.env.FOUNDATION_URL??new URL('../Synthia-Foundation-Offline.html',import.meta.url).href;
+ await page.route(/^https?:/,route=>{if(process.env.FOUNDATION_URL&&route.request().url().startsWith(new URL(appUrl).origin+'/'))return route.continue();network.push(route.request().url());return route.abort();});
+ await page.goto(appUrl);
+ await page.waitForFunction(()=>globalThis.synthiaFoundation?.history!==undefined&&document.getElementById('status').textContent.includes('ready'));
+ const a={planetary:1,dimension:'Movement',gate:1,line:1,color:1,tone:1,base:1,degree:0,minute:0,second:0,arcFraction:0,zodiac:1,house:1};
+ const provenance={source:'browser-QA:synthetic-fixture'};
+ const commands=[{operation:'register',payload:{address:a,provenance}},{operation:'run',payload:{candidates:[a],input:[0.5,0.2],feedback:0.8,provenance}}];
+ await page.locator('#command').fill(JSON.stringify(commands));await page.locator('#field-command button').click();
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.field.runs.length===1);
+ const learned=await page.evaluate(()=>globalThis.synthiaFoundation.field.snapshot());
+ assert.equal(learned.nodes[0][1].component.version,1);
+ await page.locator('#photo-files').setInputFiles(fileURLToPath(new URL('../tests/fixtures/gradient.png',import.meta.url)));
+ await page.waitForFunction(()=>document.querySelectorAll('#photo-list button').length===2);
+ await page.locator('#photo-list button').first().click();
+ await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ const image=await page.locator('#photo-preview').evaluate(el=>({width:el.naturalWidth,height:el.naturalHeight}));
+ await page.locator('#text').fill('A person builds a tool because it helps.');await page.locator('#chat button').click();
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===4);
+ const before=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),photos:[...globalThis.synthiaFoundation.photos.values()],storage:globalThis.synthiaFoundation.store.mode}));
+ assert.equal(before.storage,'indexeddb');
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===4);
+ const after=await page.evaluate(()=>({field:globalThis.synthiaFoundation.field.snapshot(),photos:[...globalThis.synthiaFoundation.photos.values()]}));
+ assert.deepEqual(after.field,before.field);assert.deepEqual(after.photos,before.photos);
+ assert.match(await page.locator('#messages').textContent(),/A person builds a tool because it helps/);
+ await page.locator('#photo-list button').first().click();await page.waitForFunction(()=>document.getElementById('photo-preview').naturalWidth>0);
+ const sourceCases=[['answer.py','print(42)'],['answer.rb','puts 42'],['answer.lua','print(42)'],['answer.c','#include <stdio.h>\nint main(){printf("%d\\n",42);return 0;}']];
+ await page.locator('#files').setInputFiles(sourceCases.map(([name,content])=>({name,mimeType:'text/plain',buffer:Buffer.from(content)})));
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===8);
+ const languages=await page.evaluate(()=>globalThis.synthiaFoundation.history.slice(-4).map(entry=>({ok:entry.result.ok,adapter:entry.result.outcome.runtimeAdapter,stdout:entry.result.outcome.result.stdout})));
+ for(const result of languages){assert.equal(result.ok,true);assert.equal(result.adapter,'synthia-translation-layer');assert.deepEqual(result.stdout,['42']);}
+ const reconstruction=await page.evaluate(async()=>{
+  const app=globalThis.synthiaFoundation,photoId=app.photos.keys().next().value;
+  const result=await app.analyzePhoto(photoId),pixels=app.imageMemory.reconstruct(result.image.id);
+  return {width:pixels.width,height:pixels.height,bytes:pixels.rgba.length,pixelSha256:result.image.pixelSha256};
+ });
+ assert.equal(reconstruction.width,96);assert.equal(reconstruction.height,96);assert.equal(reconstruction.bytes,96*96*4);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===9);
+ const primitiveProgram={nodes:[{id:'left',op:'const',value:[[1,2]]},{id:'right',op:'const',value:[[3],[4]]},{id:'product',op:'matmul',inputs:['left','right']}],outputs:['product']};
+ await page.locator('#files').setInputFiles({name:'network.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({primitiveProgram}))});
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===10);
+ const primitive=await page.evaluate(()=>{const r=globalThis.synthiaFoundation.history.at(-1).result;return {ok:r.ok,path:r.outcome.path,output:r.outcome.result.returnValue};});
+ assert.equal(primitive.ok,true);assert.equal(primitive.path,'synthia-primitive-vm');assert.deepEqual(primitive.output.product,[[11]]);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===10);
+ const positionalText='Trop Sun Vir 6.4.4.4.2 25° 59′ 31.92″ H5';
+ await page.locator('#files').setInputFiles({name:'positional-address.txt',mimeType:'text/plain',buffer:Buffer.from(positionalText)});
+ await page.waitForFunction(()=>globalThis.synthiaFoundation.history.length===11);
+ const positional=await page.evaluate(()=>{const r=globalThis.synthiaFoundation.history.at(-1).result;return {status:r.status,raw:r.lexicalFill.raw,address:r.lexicalFill.address,precision:r.lexicalFill.angularPrecision.exact,second:r.lexicalFill.semanticSlots.second};});
+ assert.equal(positional.status,'PARSED_NOT_RESOLVED');assert.equal(positional.raw,positionalText);assert.equal(positional.address.arcsecond,'31.92');assert.equal(positional.second,null);
+ assert.match(await page.locator('#activity').textContent(),/PARSED_NOT_RESOLVED/);
+ await page.reload();await page.waitForFunction(()=>globalThis.synthiaFoundation?.history.length===11);
+ assert.equal(await page.evaluate(()=>globalThis.synthiaFoundation.history.at(-1).result.lexicalFill.raw),positionalText);
+ await page.setViewportSize({width:390,height:844});
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),false);
+ await page.screenshot({path:fileURLToPath(new URL('../evidence/document-browser.png',import.meta.url)),fullPage:true});
+ assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
+ const report={status:'PASS',entry:'Synthia-Foundation-Offline.html',transport:process.env.FOUNDATION_URL?'static-http':'file',fileNavigation:process.env.FOUNDATION_URL?'NOT_TESTED: managed Chromium blocks file navigation':'PASS',storage:before.storage,fieldLearningAndReload:true,actualPhotoOpened:image,photoReload:true,chatSubmitted:true,optionalFacilitiesUnavailable:true,sourceUploads:languages,reconstruction,primitive,positional,mobileOverflow:false,externalRequests:network,pageErrors:errors};
+ await writeFile(new URL('../evidence/document-browser-qa.json',import.meta.url),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+}finally{await browser.close();}

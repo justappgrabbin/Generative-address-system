@@ -1,0 +1,64 @@
+
+> synthia-state-space-foundation@0.2.0 demo:field
+> node examples/field-demo.mjs
+
+{
+  "task": "synthetic constant-target learning; not language understanding",
+  "first": {
+    "key": "{\"planetary\":1,\"gate\":1,\"line\":1,\"color\":1,\"tone\":1,\"base\":1,\"degree\":0,\"minute\":0,\"second\":0,\"arcFraction\":0,\"zodiac\":1,\"house\":1}",
+    "before": 0.0012950774139805585,
+    "after": 0.042750707697265286,
+    "loss": 0.31896477668156964,
+    "version": 1
+  },
+  "last": {
+    "key": "{\"planetary\":1,\"gate\":1,\"line\":1,\"color\":1,\"tone\":1,\"base\":1,\"degree\":0,\"minute\":0,\"second\":0,\"arcFraction\":0,\"zodiac\":1,\"house\":1}",
+    "before": 0.6356235960031468,
+    "after": 0.6445752783938553,
+    "loss": 0.01350980109546836,
+    "version": 30
+  },
+  "replayExact": true,
+  "audit": {
+    "schema": "synthia.addressed-field.v1",
+    "slots": {
+      "Movement": {
+        "available": 64,
+        "kind": "perspective-view"
+      },
+      "Evolution": {
+        "available": 64,
+        "kind": "perspective-view"
+      },
+      "Being": {
+        "available": 64,
+        "kind": "perspective-view"
+      },
+      "Design": {
+        "available": 64,
+        "kind": "perspective-view"
+      },
+      "Space": {
+        "available": 64,
+        "kind": "derived-view"
+      }
+    },
+    "components": 1,
+    "edges": 0,
+    "runs": 30,
+    "compositions": 0,
+    "observations": 0,
+    "rules": [],
+    "externalModelRequired": false,
+    "gpuRequired": false,
+    "unknown": [
+      "birth-to-address",
+      "nine-center-reference-selection",
+      "arc-to-color-sound",
+      "DMSA-CTB-assignment",
+      "Base-sharing",
+      "Bantu-language-rule-pack",
+      "four-Model-Maker-positions"
+    ]
+  }
+}

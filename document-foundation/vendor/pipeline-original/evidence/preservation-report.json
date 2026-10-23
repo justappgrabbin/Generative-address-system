@@ -1,0 +1,34 @@
+{
+  "baselineArchive": "Synthia-Unified-Capacitor-v0.5.1.zip",
+  "baselineArchiveSha256": "3ec10122d0e35aa9022aaceb4db4f6df795f5ae256d16a84922c05c75f049f82",
+  "baselineFiles": 517,
+  "workingFiles": 527,
+  "unchangedBaselineFiles": 508,
+  "modifiedBaselineFiles": 9,
+  "addedFiles": 10,
+  "deletedBaselineFiles": 0,
+  "deleted": [],
+  "modified": [
+    "apps/mobile/src/App.jsx",
+    "apps/mobile/src/SynthiaMobileModule.jsx",
+    "apps/mobile/src/runtime/synthia-mobile-bridge.mjs",
+    "apps/mobile/tests/source.test.mjs",
+    "package.json",
+    "packages/execution-spine/src/index.mjs",
+    "packages/execution-spine/src/synthia-system.mjs",
+    "src/synthia-unified-system.mjs",
+    "tests/unified.test.mjs"
+  ],
+  "added": [
+    "EXECUTION_PIPELINE_CHANGE_RECORD.md",
+    "evidence/baseline-sha256.txt",
+    "evidence/changed-from-baseline.txt",
+    "evidence/final-test-all.txt",
+    "evidence/mobile-build-attempt.txt",
+    "evidence/preservation-report.json",
+    "evidence/verify-execution-pipeline.json",
+    "packages/execution-spine/src/execution-pipeline.mjs",
+    "packages/execution-spine/tests/execution-pipeline.test.mjs",
+    "scripts/verify-execution-pipeline.mjs"
+  ]
+}
