@@ -1,3 +1,4 @@
+import { createSwarmMorphingRuntime } from './swarm-morph-runtime.mjs';
 import { TOOL_REGISTRY } from '../authorities/execution-spine/src/pure-synthia/automata/registry.js';
 import { SOURCE_TOOL_CLASSES } from './klein-source-tools.mjs';
 import { KleinToolState } from './klein-tool-state.mjs';
@@ -69,6 +70,10 @@ export class SynthiaGenerativeAssembly extends UnifiedSynthiaAssembly {
       const stopResults=tool.observeRuns((input,result,context)=>this.toolState.record(tool.id,input,result,context));
       this.toolSubscriptions.set(tool.id,{stopContext,stopResults});
     }
+  }
+
+  createSwarmRuntime(options = {}) {
+    return createSwarmMorphingRuntime({ assembly: this, ...options });
   }
 
   get generativeMorphology() { return this.morphologyAutomaton.morphology; }
