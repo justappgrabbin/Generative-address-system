@@ -29,7 +29,7 @@ test('structural analysis delegates to the existing authority', () => {
 });
 test('swarm never executes with an unresolved canonical address', async () => {
   const { swarm } = harness({ neuralNetBuilder: async () => ({ ok: true }) });
-  await assert.rejects(() => swarm.execute({ intent: 'build', address: { gate: 3 },
+  assert.throws(() => swarm.execute({ intent: 'build', address: { gate: 3 },
     steps: [{ id: 'net', op: 'neural.build', input: {} }] }), /missing canonical address field/);
 });
 test('factory formation is Klein witnessed and owner gated', async () => {
