@@ -1,6 +1,6 @@
 # Generative address system
 
-**Phone download:** [Download the standalone application](https://github.com/justappgrabbin/Generative-address-system/releases/download/phone-runtime-2026-10-23/Synthia-Foundation-Offline.html) (about 2.5 MB). This file contains the current bundled runtime; no source archives are needed. Keep using the same browser and origin to retain existing browser-local history. This is an HTML application, not an Android APK.
+**Phone download:** [Download the standalone application](https://github.com/justappgrabbin/Generative-address-system/raw/refs/heads/codex/document-state-space/document-foundation/Synthia-Foundation-Offline.html) (about 2.5 MB). This file contains the current bundled runtime; no source archives are needed. Keep using the same browser and origin to retain existing browser-local history. This is an HTML application, not an Android APK.
 
 Source ZIP downloads exclude recovery archives. The originals remain preserved in Git; developers needing those donors should clone the repository. The phone build workflow packages only the standalone HTML.
 
