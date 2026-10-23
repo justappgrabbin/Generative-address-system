@@ -1,0 +1,61 @@
+name: Synthia State Space integration
+on:
+  push:
+    branches: ['integration/morphing-state-space-20261022']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/workflows/state-space-integration.yml
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/package.json
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/examples/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/public-generative/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/config/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/translation-layer/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/morphmir-memory/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-reconstruction/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-reconstruction/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-reconstruction/fixtures/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-neural-symbolic/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-neural-symbolic/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-visual-grammar/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-visual-grammar/vendor/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-visual-grammar/data/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/klein-visual-grammar/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/modelmaker-image-trainer/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/modelmaker-image-trainer/vendor/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/modelmaker-image-trainer/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/moving-photo/src/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/moving-photo/vendor/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/moving-photo/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/package.json
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/trainable-core/package.json
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/extensions/generative-address-morphology/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run existing source tests
+        working-directory: Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE
+        run: npm run test:all
+      - name: Verify shared swarm execution
+        working-directory: Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE
+        run: node --test tests/swarm-morph-runtime.test.mjs
+      - name: Verify Klein neural-symbolic bridge
+        working-directory: Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE
+        run: node --test extensions/klein-neural-symbolic/tests/*.test.mjs
