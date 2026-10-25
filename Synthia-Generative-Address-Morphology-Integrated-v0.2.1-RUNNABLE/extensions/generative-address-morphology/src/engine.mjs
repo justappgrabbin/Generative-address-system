@@ -4,6 +4,7 @@ import {analyzeStructure,structuralView,FractalAddressSpace,traceStructuralPath}
 import {advanceStructuralState} from './core/structural-dynamics.mjs';
 import {decodeNumericAddress,encodeNumericAddress,numericAddressSnapshot} from './core/numeric-address.mjs';
 import {applyChoice,createChoiceState} from './core/choice-transition.mjs';
+import {adaptPerspective,createPerspectiveState,evaluatePerspective} from './core/perspective.mjs';
 import {normalizeAddress} from './core/address.mjs';import {ChannelRegistry} from './registries/channel-registry.mjs';import {RuleRegistry,installCoreRules} from './registries/rule-registry.mjs';import {ExtensionRegistry} from './extensions/registry.mjs';import {MorphologyCompiler} from './graph/morphology-compiler.mjs';import {ConnectionCompiler} from './graph/connection-compiler.mjs';import {GraphRuntime} from './graph/graph-runtime.mjs';import {GraphEcology} from './graph/ecology.mjs';import {GraphWeightStore} from './graph/weight-store.mjs';import {projectGraph} from './projections/multimodal.mjs';
 const here=path.dirname(fileURLToPath(import.meta.url));const root=path.resolve(here,'..');
 export class GenerativeAddressMorphologyEngine{
@@ -23,6 +24,9 @@ export class GenerativeAddressMorphologyEngine{
   numericAddressContract(){return numericAddressSnapshot();}
   choiceState(options){return createChoiceState(options);}
   choose(state,choice){return applyChoice(state,choice);}
+  perspectiveState(options){return createPerspectiveState(options);}
+  evaluatePerspective(state,input){return evaluatePerspective(state,input);}
+  adaptPerspective(state,input){return adaptPerspective(state,input);}
   traceStructure(spec){return traceStructuralPath(spec);}
   stepStructure(spec){return advanceStructuralState(spec);}
   generate(subject,context={}){return this.generator.generate(subject,context);}

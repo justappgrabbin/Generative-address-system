@@ -60,4 +60,4 @@ const { state, event } = engine.choose(initial, {
 
 Supported value operations are `set`, `add`, and `transfer`. They are explicit numeric operations, not inferred universal laws. Every choice requires a selected connection, creates a new immutable revision, and emits a deterministic provenance event linked to the previous state and event. Existing state is never mutated.
 
-Words and semantic labels can later bind to addresses, connections, value patterns, or choice histories without changing this numeric execution layer.
+Canonical coordinates remain stable, but words are not merely post-hoc labels. Through the adaptive perspective contract, personal words and positions can change effective values, proportions, and subsequent choices. See `perspective-v1.md`.
