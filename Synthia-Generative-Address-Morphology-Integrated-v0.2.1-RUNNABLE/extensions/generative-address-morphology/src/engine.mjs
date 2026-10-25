@@ -5,6 +5,8 @@ import {advanceStructuralState} from './core/structural-dynamics.mjs';
 import {decodeNumericAddress,encodeNumericAddress,numericAddressSnapshot} from './core/numeric-address.mjs';
 import {applyChoice,createChoiceState} from './core/choice-transition.mjs';
 import {adaptPerspective,createPerspectiveState,evaluatePerspective} from './core/perspective.mjs';
+import {addSocialAgent,connectSocialAgents,createSocialWorld,expressSocialIntent,queueSocialIntent,queueSocialMessage,removeSocialAgent,restoreSocialWorld,stepSocialWorld} from './core/social-runtime.mjs';
+import {createMission,createMissionRunner,createSequencePlanner,missionSnapshot,restoreMission,runMission} from './core/mission-runtime.mjs';
 import {normalizeAddress} from './core/address.mjs';import {ChannelRegistry} from './registries/channel-registry.mjs';import {RuleRegistry,installCoreRules} from './registries/rule-registry.mjs';import {ExtensionRegistry} from './extensions/registry.mjs';import {MorphologyCompiler} from './graph/morphology-compiler.mjs';import {ConnectionCompiler} from './graph/connection-compiler.mjs';import {GraphRuntime} from './graph/graph-runtime.mjs';import {GraphEcology} from './graph/ecology.mjs';import {GraphWeightStore} from './graph/weight-store.mjs';import {projectGraph} from './projections/multimodal.mjs';
 const here=path.dirname(fileURLToPath(import.meta.url));const root=path.resolve(here,'..');
 export class GenerativeAddressMorphologyEngine{
@@ -27,6 +29,21 @@ export class GenerativeAddressMorphologyEngine{
   perspectiveState(options){return createPerspectiveState(options);}
   evaluatePerspective(state,input){return evaluatePerspective(state,input);}
   adaptPerspective(state,input){return adaptPerspective(state,input);}
+  socialWorld(options){return createSocialWorld(options);}
+  addSocialAgent(world,specification){return addSocialAgent(world,specification);}
+  removeSocialAgent(world,id){return removeSocialAgent(world,id);}
+  connectSocialAgents(world,connection){return connectSocialAgents(world,connection);}
+  queueSocialMessage(world,message){return queueSocialMessage(world,message);}
+  queueSocialIntent(world,intent){return queueSocialIntent(world,intent);}
+  expressSocialIntent(perspective,intent){return expressSocialIntent(perspective,intent);}
+  stepSocialWorld(world,options){return stepSocialWorld(world,options);}
+  restoreSocialWorld(snapshot){return restoreSocialWorld(snapshot);}
+  mission(options){return createMission(options);}
+  missionRunner(options){return createMissionRunner(options);}
+  sequencePlanner(actions){return createSequencePlanner(actions);}
+  runMission(runner,mission,options){return runMission(runner,mission,options);}
+  missionSnapshot(mission){return missionSnapshot(mission);}
+  restoreMission(snapshot,verifier){return restoreMission(snapshot,verifier);}
   traceStructure(spec){return traceStructuralPath(spec);}
   stepStructure(spec){return advanceStructuralState(spec);}
   generate(subject,context={}){return this.generator.generate(subject,context);}
@@ -56,5 +73,6 @@ export class GenerativeAddressMorphologyEngine{
   snapshot(){if(this.last&&this.sharedToolState)return {...this.last,toolState:this.sharedToolState.snapshot()};return this.last??{ok:true,toolState:this.sharedToolState?.snapshot()??null,addresses:[],connections:[],graphs:this.runtime.active(),ecology:{dominantEnergy:null,energies:[],pods:[]},projections:{}};}
 }
 export default GenerativeAddressMorphologyEngine;
+
 
 

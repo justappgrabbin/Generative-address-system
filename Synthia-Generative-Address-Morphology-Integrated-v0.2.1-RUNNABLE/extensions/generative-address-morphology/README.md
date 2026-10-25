@@ -19,6 +19,13 @@ This is the **full additive integration chassis**, not a one-off gate-pair demo.
 - local web/API dashboard
 - donor archive/provenance manifest
 - extension registry for future connection rules, morphologies, projections and processes
+- lossless thirteen-coordinate numeric addresses and immutable choice transitions
+- adaptive personal word/position valuation with explicit-feedback learning
+- social agents with private vocabularies, directed connections, bounded scheduling, and provenance
+- capability-scoped missions with observation-dependent planning and independent completion verification
+- digest-checked social/mission snapshots that preserve the latest execution state
+
+See `docs/numeric-address-choice-v1.md`, `docs/perspective-v1.md`, and `docs/social-mission-runtime-v1.md` for the executable contracts and autonomy boundaries.
 
 ## Run
 
