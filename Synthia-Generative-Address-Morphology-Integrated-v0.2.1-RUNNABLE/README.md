@@ -21,6 +21,12 @@ The previous r21.21 lineage is not the active chassis.
 
 Generic morphology math and current dominance metrics remain marked experimental until replaced by source-supported laws.
 
+## Added: adaptive social and verified mission runtimes
+
+The morphology organ now includes lossless thirteen-coordinate numeric addresses, immutable choices, and personal perspectives whose word/position associations adapt from explicit observed values. The social runtime connects isolated agents through directed relationships, selects expressions from private vocabularies for requested numeric intentions, schedules bounded message ticks, and can apply immutable choices on delivery. The mission runtime connects observation-dependent planners to explicitly registered host actuators, requires exact capability grants, and verifies completion independently from planner claims.
+
+Social and mission snapshots preserve the latest state and digest-checked provenance. No operating-system actuator is enabled by default, and arbitrary prose is not represented as a verified program or completion predicate. See `extensions/generative-address-morphology/docs/social-mission-runtime-v1.md`.
+
 ## Added: three explicit chat processing forms
 
 The modified v14 UI is at:
@@ -92,13 +98,13 @@ Run the morphology engine's own tests:
 npm --prefix extensions/generative-address-morphology test
 ```
 
-Current verified totals in v0.2.1:
+Current verified totals on the additive numeric/social/mission branch:
 
-- integration/root: 11/11
+- integration/root: 66/66
 - preserved execution spine: 29/29
 - preserved trainable core: 6/6
-- morphology engine: 5/5
-- total: **51/51 passing checks**
+- morphology engine, including social and mission runtimes: 57/57
+- total: **158/158 passing checks**
 - modified v14 inline JavaScript: syntax parse passed
 - live `/api/chat` smoke: Klein distinct, Morph distinct, Communication intentionally rejected by the core because it remains owned by v14's existing direct route
 
