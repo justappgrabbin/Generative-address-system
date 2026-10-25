@@ -2,6 +2,8 @@ import path from 'node:path';import {fileURLToPath} from 'node:url';
 import {SemanticAddressGenerator} from './core/semantic-address.mjs';
 import {analyzeStructure,structuralView,FractalAddressSpace,traceStructuralPath} from './core/structural-space.mjs';
 import {advanceStructuralState} from './core/structural-dynamics.mjs';
+import {decodeNumericAddress,encodeNumericAddress,numericAddressSnapshot} from './core/numeric-address.mjs';
+import {applyChoice,createChoiceState} from './core/choice-transition.mjs';
 import {normalizeAddress} from './core/address.mjs';import {ChannelRegistry} from './registries/channel-registry.mjs';import {RuleRegistry,installCoreRules} from './registries/rule-registry.mjs';import {ExtensionRegistry} from './extensions/registry.mjs';import {MorphologyCompiler} from './graph/morphology-compiler.mjs';import {ConnectionCompiler} from './graph/connection-compiler.mjs';import {GraphRuntime} from './graph/graph-runtime.mjs';import {GraphEcology} from './graph/ecology.mjs';import {GraphWeightStore} from './graph/weight-store.mjs';import {projectGraph} from './projections/multimodal.mjs';
 const here=path.dirname(fileURLToPath(import.meta.url));const root=path.resolve(here,'..');
 export class GenerativeAddressMorphologyEngine{
@@ -16,6 +18,11 @@ export class GenerativeAddressMorphologyEngine{
   registerRule(rule){return this.rules.register(rule);}
   structuralViews(){return ['motivation','movement','evolution','being','design','space'].map(structuralView);}
   structuralAddress(index,options={}){return new FractalAddressSpace(options).at(index);}
+  numericAddress(index){return decodeNumericAddress(index);}
+  numericAddressIndex(address){return encodeNumericAddress(address);}
+  numericAddressContract(){return numericAddressSnapshot();}
+  choiceState(options){return createChoiceState(options);}
+  choose(state,choice){return applyChoice(state,choice);}
   traceStructure(spec){return traceStructuralPath(spec);}
   stepStructure(spec){return advanceStructuralState(spec);}
   generate(subject,context={}){return this.generator.generate(subject,context);}
@@ -45,4 +52,5 @@ export class GenerativeAddressMorphologyEngine{
   snapshot(){if(this.last&&this.sharedToolState)return {...this.last,toolState:this.sharedToolState.snapshot()};return this.last??{ok:true,toolState:this.sharedToolState?.snapshot()??null,addresses:[],connections:[],graphs:this.runtime.active(),ecology:{dominantEnergy:null,energies:[],pods:[]},projections:{}};}
 }
 export default GenerativeAddressMorphologyEngine;
+
 
