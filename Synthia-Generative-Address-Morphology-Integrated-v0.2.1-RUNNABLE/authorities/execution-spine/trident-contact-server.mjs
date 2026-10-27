@@ -36,7 +36,22 @@ const server = http.createServer(async (req, res) => {
       ok: true, utterance,
       mode: result.mode,
       delivered: result.transport?.delivered === true,
-      evaluationId: result.kleinEvaluation?.evaluationId ?? null
+      evaluationId: result.kleinEvaluation?.evaluationId ?? null,
+      interpretation: {
+        claims: result.stages?.diseminer?.extracted?.claims ?? result.stages?.diseminer?.extracted ?? null,
+        distributionalObservation: result.stages?.diseminer?.observed ?? null,
+        grammar: result.stages?.autoling?.learned ?? null,
+        grammaticalCoding: result.stages?.grammarCoder ?? null,
+        analogicalRelation: result.kleinEvaluation?.result ?? null
+      },
+      distribution: {
+        path: result.transport?.path ?? [],
+        receipts: result.transport?.receipts ?? [],
+        delivered: result.transport?.delivered === true,
+        languageContact: result.stages?.languageContact ?? null,
+        historicalVariation: result.stages?.historicalMonteCarlo ?? null
+      },
+      learnedCapabilityCandidate: result.learnedCapabilityCandidate ?? null
     });
   } catch (error) {
     respond(500, { error: 'contact-failed', detail: String(error?.message || error) });
