@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#091019"><title>Synthia · Semantic swarm observatory</title><link rel="stylesheet" href="./src/style.css"></head>
+<body>
+  <header><h1>SYNTHIA</h1><span class="subtitle">Semantic swarm observatory</span><span class="local"><i></i>Local runtime</span></header>
+  <nav class="toolbar" aria-label="Simulation controls">
+    <div class="transport"><button id="run" class="primary">▶ Run</button><button id="pause">Ⅱ Pause</button><button id="step">▷ Step</button><button id="reset">↺ Reset</button></div>
+    <label class="speed">Simulation speed <input id="speed" type="range" min="1" max="5" step="1" value="1"><output id="speed-value">1×</output></label>
+    <div class="files"><button id="save">Save</button><button id="restore">Restore</button><button id="export">Export</button><label class="file-button">Import<input id="import" type="file" accept="application/json,.json"></label></div>
+  </nav>
+  <main>
+    <section class="field panel" aria-label="Live semantic substrate">
+      <div class="field-top"><label class="mode-control">Display <select id="display"><option value="scene">Swarm scene</option><option value="structure">Inspect structure</option></select></label><label class="overlay-control"><input type="checkbox" id="overlay"> Selection overlay</label><span class="small" id="palette-label">Experimental pigment · painted from live relations</span><div id="legend" class="legend" hidden></div></div>
+      <div class="canvas-wrap"><canvas id="field" tabindex="0" aria-label="Scene painted from live particles and persistent relations. Click to inspect a constituent."></canvas><div class="canvas-hint" id="canvas-hint">The particles paint this surface · no target image</div></div>
+      <div class="field-footer"><div id="metrics">Initializing worker…</div><label>View <select id="view"><option value="all">All five dimensions</option></select></label><label>Scale <select id="scale"><option value="particles">Particles</option><option value="bonds">Subassemblies</option><option value="meshes">Formations</option></select></label><button id="fit" class="quiet">Fit</button></div>
+    </section>
+    <aside>
+      <section class="panel inspector"><h2>Formation inspector</h2><div class="inspector-body">
+        <label class="control-label">Selection<select id="selection"></select></label>
+        <div id="identity"></div>
+        <h3>Dimensional frame</h3><div id="frames"></div>
+        <h3>Governing expression</h3><form id="expression-form"><label class="control-label">Case-preserved expression<input id="expression" type="text" maxlength="2000" placeholder="No expression assigned"></label><label class="control-label">Reference frame<select id="expression-frame"></select></label><button type="submit">Set expression</button></form><p id="direction-status" class="hint"></p>
+        <details><summary>Black Book morphology · five tracks</summary><div id="morphology"></div><p class="hint">Source-attested Being order. Keynote + hexagram title is a provisional grammatical composition. Other frame orders and exact BANTU vertical/diagonal traversals remain unresolved.</p></details>
+        <div class="unresolved"><span>Leading dimension</span><strong>Unresolved</strong></div>
+        <h3>Six potential expressions</h3><div id="potentials" class="potentials"></div><p class="hint">Action-capable pair and realization rules remain unresolved.</p>
+        <div class="actions"><label>Line<select id="line"></select></label><button id="transition">Change line</button><button id="stimulate">Stimulate view</button><button id="force">Apply force</button></div>
+        <h3>Directed connections</h3><div id="connections" class="connections"></div>
+      </div></section>
+      <section class="panel settings"><h2>Experimental dynamics</h2><div class="settings-body">
+        <div id="parameters"></div><p class="hint">Numerical settings are engineering hypotheses, not source-derived physical laws. Connections train a scalar predictor.</p>
+      </div></section>
+    </aside>
+    <section class="panel history"><div class="section-header"><h2>Event history</h2><label>Show <select id="event-filter"><option value="all">All events</option><option value="selected">Selected particle</option><option value="transition">Transitions</option><option value="comparison">Comparisons</option><option value="formation">Formations</option></select></label><span id="event-count"></span><button id="replay">Verify replay</button></div>
+      <div class="table-scroll"><table><thead><tr><th>Tick</th><th>Type</th><th>Source</th><th>Target</th><th>Details</th></tr></thead><tbody id="events"></tbody></table></div>
+      <details id="event-detail"><summary>Event evidence</summary><pre id="evidence">Select an event row to inspect its full record.</pre></details>
+    </section>
+    <section class="panel research"><div class="section-header"><h2>Comparisons & source rules</h2><span class="small">One identity · many representations</span></div>
+      <div class="research-grid"><div><h3>Klein comparison</h3><div class="comparison-form"><label>X<select id="compare-a"></select></label><label>Y<select id="compare-b"></select></label><label>Z<select id="compare-c"></select></label><button id="compare">Compare</button></div><pre id="comparison-result">X : Y :: Z : ? — compares actual six-line patterns.</pre><button id="model-propose">Ask attached local model</button><span id="model-status" class="hint">No language model attached</span><p class="hint">Attach through window.synthia.attachModel(model). No model downloads or external requests occur automatically.</p></div>
+      <div><label class="control-label">Source perspective<select id="source-view"><option>being</option><option>movement</option><option>evolution</option><option>design</option><option>space</option></select></label><div id="source-rules"></div><a href="./docs/SOURCES.md" target="_blank" rel="noopener">Read source provenance and open rules ↗</a></div></div>
+    </section>
+  </main>
+  <footer><span>Experimental dynamics · no backend required</span><output id="status" role="status" aria-live="polite">Ready</output></footer>
+  <script type="module" src="./src/app.mjs"></script>
+</body></html>
