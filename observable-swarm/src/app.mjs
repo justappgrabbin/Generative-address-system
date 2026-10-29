@@ -3,10 +3,11 @@ import { saveSnapshot, loadSnapshot } from './storage.mjs';
 import { LocalModelAdapter } from './model-adapter.mjs';
 import { renderScene } from './scene.mjs';
 import { morphologyFor } from './morphology.mjs';
+import { LocalRuntime } from './runtime.mjs';
 
 const $=id=>document.getElementById(id);
 const COLORS=['#80e1c0','#ad91ec','#f1c77a','#f49aa6','#77aaf5'];
-const worker=new Worker(new URL('./worker.mjs',import.meta.url),{type:'module'});
+const runtime=new LocalRuntime();
 const pending=new Map();let requestId=0,state=null,selected='p001',running=false,initialized=false;
 let eventMap=new Map(),inspectedEvents=[],zoom=1,canvasWidth=0,canvasHeight=0,frame=0;
 const camera={x:.5,y:.5};
@@ -16,11 +17,11 @@ const setStatus=message=>{$('status').textContent=message;};
 function request(type,payload={}) {
   const id=++requestId;
   return new Promise((resolve,reject)=>{
-    const timeout=setTimeout(()=>{pending.delete(id);reject(Error('Worker response timed out'));},60000);
-    pending.set(id,{resolve,reject,timeout});worker.postMessage({id,type,payload});
+    const timeout=setTimeout(()=>{pending.delete(id);reject(Error('Runtime response timed out'));},60000);
+    pending.set(id,{resolve,reject,timeout});runtime.postMessage({id,type,payload});
   });
 }
-worker.onmessage=({data})=>{
+runtime.onmessage=({data})=>{
   if(data.type==='state'){
     state=data.state;running=data.running;
     if(!initialized){initialize();initialized=true;}
@@ -29,7 +30,7 @@ worker.onmessage=({data})=>{
   const waiter=pending.get(data.id);if(!waiter)return;clearTimeout(waiter.timeout);pending.delete(data.id);
   if(data.ok)waiter.resolve(data);else waiter.reject(Error(data.error));
 };
-worker.onerror=error=>{setStatus(`Runtime error: ${error.message}`);for(const {reject,timeout} of pending.values()){clearTimeout(timeout);reject(Error(error.message));}pending.clear();};
+runtime.onerror=error=>{setStatus(`Runtime error: ${error.message}`);for(const {reject,timeout} of pending.values()){clearTimeout(timeout);reject(Error(error.message));}pending.clear();};
 const safe=fn=>async event=>{try{await fn(event);}catch(error){setStatus(error.message);}};
 const command=(type,data)=>request('action',{type,data});
 const selectedParticle=()=>state?.particles.find(p=>p.id===selected);
@@ -51,7 +52,7 @@ function initialize(){
   }
   sourceRules();resize();
   $('scale').disabled=$('display').value==='scene';$('view').disabled=$('display').value==='scene';
-  setStatus(reducedMotion?'Ready · motion paused for reduced-motion preference':'Ready · press Run to observe formation');
+  setStatus(reducedMotion?'Ready · CPU runtime paused for reduced-motion preference':'Ready · local CPU runtime · no worker or GPU');
 }
 function fieldColor(p){const view=$('view').value;return COLORS[view==='all'?(Number(p.id.slice(1))-1)%5:DIMENSIONS.indexOf(view)];}
 function coords(p){return {x:canvasWidth/2+(p.x-camera.x)*canvasWidth*zoom,y:canvasHeight/2+(p.y-camera.y)*canvasHeight*zoom};}

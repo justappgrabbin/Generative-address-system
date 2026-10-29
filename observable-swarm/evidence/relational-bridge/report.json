@@ -1,0 +1,231 @@
+{
+  "experiment": "context-weighted relational variation and geometric realization",
+  "proposal": {
+    "id": "b->result",
+    "weight": -0.24202093789353968,
+    "cause": "experimental context-weighted variation",
+    "distribution": [
+      {
+        "id": "b->result",
+        "score": 0.001308251580578484,
+        "instability": 3.053113317719181e-17,
+        "usage": 767,
+        "probability": 0.49375484085078075
+      },
+      {
+        "id": "a->result",
+        "score": 0.0013413458964290478,
+        "instability": 5.551115123125783e-18,
+        "usage": 635,
+        "probability": 0.5062451591492193
+      }
+    ]
+  },
+  "before": {
+    "constituents": [
+      {
+        "id": "a",
+        "position": [
+          -0.14,
+          0
+        ],
+        "value": 0.82
+      },
+      {
+        "id": "b",
+        "position": [
+          0.14,
+          0
+        ],
+        "value": -0.37
+      },
+      {
+        "id": "distant",
+        "position": [
+          3,
+          3
+        ],
+        "value": 0.2
+      },
+      {
+        "id": "result",
+        "position": [
+          0.6472026821084157,
+          0.058824832828422526
+        ],
+        "value": 0.9219999999999999
+      }
+    ],
+    "segments": [
+      {
+        "from": "b",
+        "to": "result"
+      },
+      {
+        "from": "a",
+        "to": "result"
+      }
+    ]
+  },
+  "after": {
+    "constituents": [
+      {
+        "id": "a",
+        "position": [
+          -0.14,
+          0
+        ],
+        "value": 0.82
+      },
+      {
+        "id": "b",
+        "position": [
+          0.14,
+          0
+        ],
+        "value": -0.37
+      },
+      {
+        "id": "distant",
+        "position": [
+          3,
+          3
+        ],
+        "value": 0.2
+      },
+      {
+        "id": "result",
+        "position": [
+          0.5710104687445255,
+          0.000014736389268050649
+        ],
+        "value": 0.9219999999999999
+      }
+    ],
+    "segments": [
+      {
+        "from": "b",
+        "to": "result"
+      },
+      {
+        "from": "a",
+        "to": "result"
+      }
+    ]
+  },
+  "settled": {
+    "constituents": [
+      {
+        "id": "a",
+        "position": [
+          -0.14,
+          0
+        ],
+        "value": 0.82
+      },
+      {
+        "id": "b",
+        "position": [
+          0.14,
+          0
+        ],
+        "value": -0.37
+      },
+      {
+        "id": "distant",
+        "position": [
+          3,
+          3
+        ],
+        "value": 0.2
+      },
+      {
+        "id": "result",
+        "position": [
+          0.5710104689467166,
+          -2.390101939251803e-7
+        ],
+        "value": 0.8635477470206097
+      }
+    ],
+    "segments": [
+      {
+        "from": "b",
+        "to": "result"
+      },
+      {
+        "from": "a",
+        "to": "result"
+      }
+    ]
+  },
+  "geometryChange": 0.09624905620561279,
+  "stabilityDrift": 0.000014975399463340774,
+  "beforeValue": 0.9219999999999999,
+  "afterValue": 0.8635477470206097,
+  "behaviorChange": 0.05845225297939027,
+  "restartSameGeometry": true,
+  "causeEvent": {
+    "id": 1536,
+    "tick": 822,
+    "kind": "relational-variation",
+    "from": "b",
+    "to": "result",
+    "before": -0.4,
+    "after": -0.24202093789353968,
+    "cause": "experimental context-weighted variation",
+    "potentialExpressions": [
+      {
+        "id": 0,
+        "actionCapable": null
+      },
+      {
+        "id": 1,
+        "actionCapable": null
+      },
+      {
+        "id": 2,
+        "actionCapable": null
+      },
+      {
+        "id": 3,
+        "actionCapable": null
+      },
+      {
+        "id": 4,
+        "actionCapable": null
+      },
+      {
+        "id": 5,
+        "actionCapable": null
+      }
+    ],
+    "leadingDimension": null,
+    "leadershipStatus": "unresolved: no derived identification rule",
+    "provenance": "native/PRIMARY-CONDITIONS.md"
+  },
+  "limits": "Supplied mutation policy and elastic realization rule; learned weights determine both signal transport and rest lengths under this convention. Not a derived I Ching dimensional mapping, biological mutation law, recognizable world or emerged mutation policy. Observer omission is interface scope, not a security boundary.",
+  "diskRestartSame": true,
+  "resources": {
+    "wallMilliseconds": 429.678723,
+    "cpuMicroseconds": {
+      "user": 614841,
+      "system": 37582
+    },
+    "memoryBytes": {
+      "rss": 103428096,
+      "heapTotal": 57417728,
+      "heapUsed": 33467488,
+      "external": 2047052,
+      "arrayBuffers": 137490
+    },
+    "executionCounts": {
+      "evaluations": 823,
+      "layouts": 823,
+      "gatheredSignals": 1404,
+      "multiplications": 1404,
+      "accumulations": 1404,
+      "constituentTasks": 3292
+    }
+  }
+}

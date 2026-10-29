@@ -1,0 +1,108 @@
+{
+  "traces": true,
+  "heldOutMSE": 8.079276116704455e-33,
+  "disruptedMSE": 0.20092279640707478,
+  "recoveredMSE": 8.079276116704455e-33,
+  "restartDifference": 0,
+  "learnedRelations": [
+    {
+      "id": "signal->result",
+      "weight": 0.5999999999999999
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "signal->result",
+      "from": "signal",
+      "to": "result",
+      "correlation": 3.1249332634277355e-12,
+      "encounters": 500,
+      "origin": "environmental-trace",
+      "firstContact": 2,
+      "trace": "trace-1"
+    }
+  ],
+  "trace": [
+    {
+      "from": "signal",
+      "to": "result",
+      "source": 0.8684693870600313,
+      "weight": 0.5999999999999999,
+      "contribution": 0.5210816322360187
+    }
+  ],
+  "traceRecords": 92,
+  "activeTraces": 2,
+  "observedEvents": [
+    {
+      "id": 7,
+      "tick": 2,
+      "kind": "trace-observed",
+      "from": "signal",
+      "to": "result",
+      "trace": "trace-1",
+      "strength": 0.8,
+      "potentialExpressions": [
+        {
+          "id": 0,
+          "actionCapable": null
+        },
+        {
+          "id": 1,
+          "actionCapable": null
+        },
+        {
+          "id": 2,
+          "actionCapable": null
+        },
+        {
+          "id": 3,
+          "actionCapable": null
+        },
+        {
+          "id": 4,
+          "actionCapable": null
+        },
+        {
+          "id": 5,
+          "actionCapable": null
+        }
+      ],
+      "leadingDimension": null,
+      "leadershipStatus": "unresolved: no derived identification rule",
+      "provenance": "native/PRIMARY-CONDITIONS.md"
+    }
+  ],
+  "manualConnections": 0,
+  "limits": "Externally arranged sequential visits; supplied trace-contact and feedback rules. Trace references permit subsequent ordinary signals between separated constituents. No diffusion, autonomous navigation, semantic dimensional law or learned trace policy is established.",
+  "control": {
+    "traces": false,
+    "heldOutMSE": 0.23071056492324718,
+    "disruptedMSE": 0.23071056492324718,
+    "recoveredMSE": 0.23071056492324718,
+    "restartDifference": 0,
+    "learnedRelations": [],
+    "opportunities": [],
+    "trace": [],
+    "traceRecords": 0,
+    "activeTraces": 0,
+    "observedEvents": [],
+    "manualConnections": 0,
+    "limits": "Externally arranged sequential visits; supplied trace-contact and feedback rules. Trace references permit subsequent ordinary signals between separated constituents. No diffusion, autonomous navigation, semantic dimensional law or learned trace policy is established."
+  },
+  "diskRestartDifference": 0,
+  "resources": {
+    "wallMilliseconds": 216.511821,
+    "cpuMicroseconds": {
+      "user": 250939,
+      "system": 44514
+    },
+    "memoryBytes": {
+      "rss": 82571264,
+      "heapTotal": 47271936,
+      "heapUsed": 14405552,
+      "external": 2047260,
+      "arrayBuffers": 137698
+    }
+  }
+}

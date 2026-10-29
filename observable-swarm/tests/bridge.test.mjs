@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { bridgeExperiment } from '../native/bridge-experiment.mjs';
+import { proposeVariation } from '../native/variation.mjs';
+test('relationship variation changes realized geometry and execution with causal persistence', () => {
+  const { substrate: s, report: r } = bridgeExperiment();
+  assert.ok(r.geometryChange > 0.01); assert.ok(r.behaviorChange > 0.01);
+  assert.ok(r.stabilityDrift < 0.0001); assert.equal(r.restartSameGeometry, true);
+  assert.equal(r.causeEvent.kind, 'relational-variation');
+  assert.equal('cause' in r.after, false);
+  const p = proposeVariation(s, () => 0.25);
+  assert.ok(Math.abs(p.distribution.reduce((v,c) => v+c.probability,0)-1)<1e-12);
+  const uniform = proposeVariation(s, () => 0.25, { uniform: true });
+  assert.ok(uniform.distribution.every(c => c.probability === 1/uniform.distribution.length));
+  const e = [...s.edges.values()][0], originalUsage = e.usage;
+  const prior = p.distribution.find(c=>c.id===e.id).probability;
+  e.usage += 100000;
+  const protectedProbability=proposeVariation(s,()=>0.25).distribution.find(c=>c.id===e.id).probability;
+  e.usage=originalUsage;
+  assert.ok(protectedProbability < prior);
+});

@@ -1,0 +1,217 @@
+{
+  "experiment": "encounter-grown computational relations",
+  "initial": {
+    "opportunities": 0,
+    "connections": 0,
+    "positions": [
+      {
+        "id": "a",
+        "position": [
+          -0.14,
+          0
+        ]
+      },
+      {
+        "id": "b",
+        "position": [
+          0.14,
+          0
+        ]
+      },
+      {
+        "id": "distant",
+        "position": [
+          3,
+          3
+        ]
+      },
+      {
+        "id": "result",
+        "position": [
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "seed": 19718,
+  "trainingExamples": 700,
+  "heldOutExamples": 40,
+  "heldOutMSE": 4.400749922924834e-33,
+  "disruptedMSE": 0.4282145358767167,
+  "recoveredMSE": 4.400749922924834e-33,
+  "restartError": 0,
+  "opportunities": [
+    {
+      "id": "a->result",
+      "from": "a",
+      "to": "result",
+      "correlation": 4.824660131203172e-16,
+      "encounters": 687,
+      "origin": "local-encounter",
+      "firstContact": 14
+    },
+    {
+      "id": "b->result",
+      "from": "b",
+      "to": "result",
+      "correlation": -2.974329872874386e-16,
+      "encounters": 687,
+      "origin": "local-encounter",
+      "firstContact": 14
+    }
+  ],
+  "contacts": [
+    {
+      "from": "a",
+      "to": "result",
+      "count": 215,
+      "firstTick": 11,
+      "lastTick": 692
+    },
+    {
+      "from": "b",
+      "to": "result",
+      "count": 215,
+      "firstTick": 11,
+      "lastTick": 692
+    }
+  ],
+  "connections": [
+    {
+      "id": "b->result",
+      "weight": -0.4,
+      "updates": 688
+    },
+    {
+      "id": "a->result",
+      "weight": 0.7,
+      "updates": 687
+    }
+  ],
+  "formationCount": 1,
+  "trace": [
+    {
+      "from": "b",
+      "to": "result",
+      "source": 0.720224003540352,
+      "weight": -0.4,
+      "contribution": -0.2880896014161408
+    },
+    {
+      "from": "a",
+      "to": "result",
+      "source": 0.648619282990694,
+      "weight": 0.7,
+      "contribution": 0.4540334980934858
+    }
+  ],
+  "firstOffers": [
+    {
+      "id": 31,
+      "tick": 14,
+      "kind": "offer-accepted",
+      "from": "a",
+      "to": "result",
+      "relationType": "signal",
+      "reason": "repeated local encounter",
+      "potentialExpressions": [
+        {
+          "id": 0,
+          "actionCapable": null
+        },
+        {
+          "id": 1,
+          "actionCapable": null
+        },
+        {
+          "id": 2,
+          "actionCapable": null
+        },
+        {
+          "id": 3,
+          "actionCapable": null
+        },
+        {
+          "id": 4,
+          "actionCapable": null
+        },
+        {
+          "id": 5,
+          "actionCapable": null
+        }
+      ],
+      "leadingDimension": null,
+      "leadershipStatus": "unresolved: no derived identification rule",
+      "provenance": "native/PRIMARY-CONDITIONS.md"
+    },
+    {
+      "id": 33,
+      "tick": 14,
+      "kind": "offer-accepted",
+      "from": "b",
+      "to": "result",
+      "relationType": "signal",
+      "reason": "repeated local encounter",
+      "potentialExpressions": [
+        {
+          "id": 0,
+          "actionCapable": null
+        },
+        {
+          "id": 1,
+          "actionCapable": null
+        },
+        {
+          "id": 2,
+          "actionCapable": null
+        },
+        {
+          "id": 3,
+          "actionCapable": null
+        },
+        {
+          "id": 4,
+          "actionCapable": null
+        },
+        {
+          "id": 5,
+          "actionCapable": null
+        }
+      ],
+      "leadingDimension": null,
+      "leadershipStatus": "unresolved: no derived identification rule",
+      "provenance": "native/PRIMARY-CONDITIONS.md"
+    }
+  ],
+  "manualOffers": 0,
+  "suppliedExecutionRanks": false,
+  "executionOrder": [
+    "a",
+    "b",
+    "distant",
+    "result"
+  ],
+  "milliseconds": 117.47650800000001,
+  "limits": "Encounter-developed connections and topology-derived ordering in an adaptive linear DAG. Not a demonstrated emergent neural architecture or computational mesh. Input/output contacts, encounter geometry, feedback and acyclicity are supplied experimental conditions.",
+  "diskRestartDifference": 0,
+  "executionCounts": {
+    "evaluations": 822,
+    "layouts": 822,
+    "gatheredSignals": 1533,
+    "multiplications": 1533,
+    "accumulations": 1533,
+    "constituentTasks": 3288
+  },
+  "resources": {
+    "wallMilliseconds": 211.81512800000002,
+    "cpuUserMicroseconds": 264618,
+    "cpuSystemMicroseconds": 38467,
+    "rssBytes": 84676608,
+    "heapUsedBytes": 25645520,
+    "heapChangeBytes": 20895160,
+    "peakRSSKiB": 82692
+  },
+  "measurementScope": "Training, held-out assessment, disruption, restoration, provenance replay, disk save/load and probe. RSS/heap include JavaScript runtime and histories; counts are logical operations, not hardware instructions.",
+  "acceptance": "Learned sparse linear transformation, not proof of semantic understanding, emergent hidden neural architecture, mesh formation or full dimensional realization."
+}

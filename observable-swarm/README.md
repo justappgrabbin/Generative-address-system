@@ -1,5 +1,9 @@
 # Synthia · Semantic Swarm Observatory
 
+**Current entry point: the backend-free Linux substrate.** Run `npm start` for its in-process terminal inspector or `npm run experiment -- ./swarm-data` for held-out learning, image reconstruction, disruption, recovery, and restart experiments. See [native/README.md](native/README.md) and [the primary-condition ledger](native/PRIMARY-CONDITIONS.md). The source-derived five-dimensional rules and emergent geometry remain incomplete; this is an experimental adaptive graph baseline.
+
+The sections below describe the **older browser prototype**, retained for reference. Start it with `npm run legacy:browser`, not `npm start`. It is separate from the new native runtime.
+
 A local JavaScript research prototype for inspecting how semantic particles, directed relationships, and persistent formations can share one changing substrate.
 
 **Five dimensions are not five layers.** Being, Movement, Design, Evolution, and Space are interpretive dimensions. Each dimension can carry its own qualitative layers, with different depths, nesting, and arrangements. No universal five-layer stack is imposed.
@@ -10,10 +14,10 @@ Requires Node.js 22 or newer for the optional static file server and tests. No n
 
 ```sh
 cd observable-swarm
-npm start
+npm run legacy:browser
 ```
 
-Open **http://localhost:4173**. If this folder has another local name, enter that folder instead. The Node process only serves files; simulation and learning run in a browser Web Worker. You can also serve this directory with any static HTTP server. Opening `index.html` directly with `file://` will not work reliably with module workers.
+Open **http://localhost:4173**. If this folder has another local name, enter that folder instead. The legacy Node process only serves files; the prototype currently uses its cooperative browser runtime. This browser display is not the native substrate or its execution foundation.
 
 ## Observe
 

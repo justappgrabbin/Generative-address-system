@@ -1,0 +1,5216 @@
+{
+  "report": {
+    "experiment": "functional reorganization after changed conditions",
+    "seed": 17946231,
+    "trainingExamplesPerPhase": 650,
+    "heldOutExamples": 50,
+    "feedbackAfterChange": true,
+    "bringNewContact": true,
+    "originalMSE": 1.1617209424543807e-32,
+    "beforeChangedMSE": 0.34016838564052704,
+    "adaptedMSE": 9.341723195250288e-33,
+    "disruptedMSE": 0.22986968038171401,
+    "recoveredMSE": 9.341723195250288e-33,
+    "restartMSE": 9.341723195250288e-33,
+    "before": {
+      "tick": 700,
+      "edges": [
+        "b->result",
+        "a->result"
+      ],
+      "formations": [
+        {
+          "id": "formation-2",
+          "members": [
+            "a",
+            "b",
+            "result"
+          ],
+          "createdAt": 5,
+          "predecessors": [
+            "formation-1"
+          ],
+          "dimensionalParticipation": [
+            "Movement",
+            "Evolution",
+            "Being",
+            "Design",
+            "Space"
+          ]
+        }
+      ]
+    },
+    "after": {
+      "tick": 1450,
+      "edges": [
+        "b->result",
+        "c->result"
+      ],
+      "formations": [
+        {
+          "id": "formation-4",
+          "members": [
+            "b",
+            "c",
+            "result"
+          ],
+          "createdAt": 836,
+          "predecessors": [
+            "formation-3"
+          ],
+          "dimensionalParticipation": [
+            "Movement",
+            "Evolution",
+            "Being",
+            "Design",
+            "Space"
+          ]
+        }
+      ]
+    },
+    "changeTick": 750,
+    "learnedTrace": [
+      {
+        "from": "b",
+        "to": "result",
+        "source": 0.7207529675215483,
+        "weight": -0.3999999999999999,
+        "contribution": -0.28830118700861923
+      },
+      {
+        "from": "c",
+        "to": "result",
+        "source": -0.1946002491749823,
+        "weight": 0.8000000000000002,
+        "contribution": -0.15568019933998586
+      }
+    ],
+    "retiredRelations": [
+      {
+        "id": "a->result",
+        "from": "a",
+        "to": "result",
+        "weight": 0.006194532660055986,
+        "trainable": true,
+        "enabled": true,
+        "usage": 831,
+        "strength": 1,
+        "history": [
+          {
+            "tick": 5,
+            "before": 0,
+            "after": 0.14603727884788892,
+            "cause": "feedback"
+          },
+          {
+            "tick": 6,
+            "before": 0.14603727884788892,
+            "after": 0.23122111004642912,
+            "cause": "feedback"
+          },
+          {
+            "tick": 7,
+            "before": 0.23122111004642912,
+            "after": 0.25549305030775227,
+            "cause": "feedback"
+          },
+          {
+            "tick": 8,
+            "before": 0.25549305030775227,
+            "after": 0.31894636772274276,
+            "cause": "feedback"
+          },
+          {
+            "tick": 9,
+            "before": 0.31894636772274276,
+            "after": 0.32833234480543133,
+            "cause": "feedback"
+          },
+          {
+            "tick": 10,
+            "before": 0.32833234480543133,
+            "after": 0.36985746903492506,
+            "cause": "feedback"
+          },
+          {
+            "tick": 11,
+            "before": 0.36985746903492506,
+            "after": 0.41229880900289706,
+            "cause": "feedback"
+          },
+          {
+            "tick": 12,
+            "before": 0.41229880900289706,
+            "after": 0.4168156332245278,
+            "cause": "feedback"
+          },
+          {
+            "tick": 13,
+            "before": 0.4168156332245278,
+            "after": 0.4310921104739613,
+            "cause": "feedback"
+          },
+          {
+            "tick": 14,
+            "before": 0.4310921104739613,
+            "after": 0.4652633837624852,
+            "cause": "feedback"
+          },
+          {
+            "tick": 15,
+            "before": 0.4652633837624852,
+            "after": 0.4819750738131678,
+            "cause": "feedback"
+          },
+          {
+            "tick": 16,
+            "before": 0.4819750738131678,
+            "after": 0.4859354608784431,
+            "cause": "feedback"
+          },
+          {
+            "tick": 17,
+            "before": 0.4859354608784431,
+            "after": 0.4902487672335432,
+            "cause": "feedback"
+          },
+          {
+            "tick": 18,
+            "before": 0.4902487672335432,
+            "after": 0.5190666643958571,
+            "cause": "feedback"
+          },
+          {
+            "tick": 19,
+            "before": 0.5190666643958571,
+            "after": 0.5396078434149423,
+            "cause": "feedback"
+          },
+          {
+            "tick": 20,
+            "before": 0.5396078434149423,
+            "after": 0.5428912322979038,
+            "cause": "feedback"
+          },
+          {
+            "tick": 21,
+            "before": 0.5428912322979038,
+            "after": 0.5652113292562935,
+            "cause": "feedback"
+          },
+          {
+            "tick": 22,
+            "before": 0.5652113292562935,
+            "after": 0.5695706911444305,
+            "cause": "feedback"
+          },
+          {
+            "tick": 23,
+            "before": 0.5695706911444305,
+            "after": 0.5696185326861581,
+            "cause": "feedback"
+          },
+          {
+            "tick": 24,
+            "before": 0.5696185326861581,
+            "after": 0.5766143417450837,
+            "cause": "feedback"
+          },
+          {
+            "tick": 25,
+            "before": 0.5766143417450837,
+            "after": 0.5899202158610978,
+            "cause": "feedback"
+          },
+          {
+            "tick": 26,
+            "before": 0.5899202158610978,
+            "after": 0.614248452262099,
+            "cause": "feedback"
+          },
+          {
+            "tick": 27,
+            "before": 0.614248452262099,
+            "after": 0.6156240593702252,
+            "cause": "feedback"
+          },
+          {
+            "tick": 28,
+            "before": 0.6156240593702252,
+            "after": 0.6192361065259776,
+            "cause": "feedback"
+          },
+          {
+            "tick": 29,
+            "before": 0.6192361065259776,
+            "after": 0.6280477046171228,
+            "cause": "feedback"
+          },
+          {
+            "tick": 30,
+            "before": 0.6280477046171228,
+            "after": 0.6280026499562379,
+            "cause": "feedback"
+          },
+          {
+            "tick": 31,
+            "before": 0.6280026499562379,
+            "after": 0.6335350461465491,
+            "cause": "feedback"
+          },
+          {
+            "tick": 32,
+            "before": 0.6335350461465491,
+            "after": 0.6355736307001094,
+            "cause": "feedback"
+          },
+          {
+            "tick": 33,
+            "before": 0.6355736307001094,
+            "after": 0.6424375520564699,
+            "cause": "feedback"
+          },
+          {
+            "tick": 34,
+            "before": 0.6424375520564699,
+            "after": 0.6429443267339674,
+            "cause": "feedback"
+          },
+          {
+            "tick": 35,
+            "before": 0.6429443267339674,
+            "after": 0.6487682447956723,
+            "cause": "feedback"
+          },
+          {
+            "tick": 36,
+            "before": 0.6487682447956723,
+            "after": 0.648796381316518,
+            "cause": "feedback"
+          },
+          {
+            "tick": 37,
+            "before": 0.648796381316518,
+            "after": 0.6490048931763771,
+            "cause": "feedback"
+          },
+          {
+            "tick": 38,
+            "before": 0.6490048931763771,
+            "after": 0.6563579809485883,
+            "cause": "feedback"
+          },
+          {
+            "tick": 39,
+            "before": 0.6563579809485883,
+            "after": 0.6585565080662157,
+            "cause": "feedback"
+          },
+          {
+            "tick": 40,
+            "before": 0.6585565080662157,
+            "after": 0.6595243705698072,
+            "cause": "feedback"
+          },
+          {
+            "tick": 41,
+            "before": 0.6595243705698072,
+            "after": 0.6594070115521243,
+            "cause": "feedback"
+          },
+          {
+            "tick": 42,
+            "before": 0.6594070115521243,
+            "after": 0.6591096612154349,
+            "cause": "feedback"
+          },
+          {
+            "tick": 43,
+            "before": 0.6591096612154349,
+            "after": 0.6608698640672477,
+            "cause": "feedback"
+          },
+          {
+            "tick": 44,
+            "before": 0.6608698640672477,
+            "after": 0.6613340059990489,
+            "cause": "feedback"
+          },
+          {
+            "tick": 45,
+            "before": 0.6613340059990489,
+            "after": 0.6615522304785864,
+            "cause": "feedback"
+          },
+          {
+            "tick": 46,
+            "before": 0.6615522304785864,
+            "after": 0.6626833099888425,
+            "cause": "feedback"
+          },
+          {
+            "tick": 47,
+            "before": 0.6626833099888425,
+            "after": 0.6696220607275425,
+            "cause": "feedback"
+          },
+          {
+            "tick": 48,
+            "before": 0.6696220607275425,
+            "after": 0.6702814377105588,
+            "cause": "feedback"
+          },
+          {
+            "tick": 49,
+            "before": 0.6702814377105588,
+            "after": 0.6706963005070835,
+            "cause": "feedback"
+          },
+          {
+            "tick": 50,
+            "before": 0.6706963005070835,
+            "after": 0.6708670770018351,
+            "cause": "feedback"
+          },
+          {
+            "tick": 51,
+            "before": 0.6708670770018351,
+            "after": 0.6708713635879344,
+            "cause": "feedback"
+          },
+          {
+            "tick": 52,
+            "before": 0.6708713635879344,
+            "after": 0.6731916687585707,
+            "cause": "feedback"
+          },
+          {
+            "tick": 53,
+            "before": 0.6731916687585707,
+            "after": 0.6759907027380666,
+            "cause": "feedback"
+          },
+          {
+            "tick": 54,
+            "before": 0.6759907027380666,
+            "after": 0.677201108046382,
+            "cause": "feedback"
+          },
+          {
+            "tick": 55,
+            "before": 0.677201108046382,
+            "after": 0.6773398530896864,
+            "cause": "feedback"
+          },
+          {
+            "tick": 56,
+            "before": 0.6773398530896864,
+            "after": 0.6773123674703998,
+            "cause": "feedback"
+          },
+          {
+            "tick": 57,
+            "before": 0.6773123674703998,
+            "after": 0.678813259496682,
+            "cause": "feedback"
+          },
+          {
+            "tick": 58,
+            "before": 0.678813259496682,
+            "after": 0.6786998467936887,
+            "cause": "feedback"
+          },
+          {
+            "tick": 59,
+            "before": 0.6786998467936887,
+            "after": 0.6789008191948019,
+            "cause": "feedback"
+          },
+          {
+            "tick": 60,
+            "before": 0.6789008191948019,
+            "after": 0.681476620288182,
+            "cause": "feedback"
+          },
+          {
+            "tick": 61,
+            "before": 0.681476620288182,
+            "after": 0.6814441579880656,
+            "cause": "feedback"
+          },
+          {
+            "tick": 62,
+            "before": 0.6814441579880656,
+            "after": 0.6841021482637357,
+            "cause": "feedback"
+          },
+          {
+            "tick": 63,
+            "before": 0.6841021482637357,
+            "after": 0.6860141658882499,
+            "cause": "feedback"
+          },
+          {
+            "tick": 64,
+            "before": 0.6860141658882499,
+            "after": 0.6860894976894966,
+            "cause": "feedback"
+          },
+          {
+            "tick": 65,
+            "before": 0.6860894976894966,
+            "after": 0.6861591621103473,
+            "cause": "feedback"
+          },
+          {
+            "tick": 66,
+            "before": 0.6861591621103473,
+            "after": 0.6879142054733496,
+            "cause": "feedback"
+          },
+          {
+            "tick": 67,
+            "before": 0.6879142054733496,
+            "after": 0.6880098910954586,
+            "cause": "feedback"
+          },
+          {
+            "tick": 68,
+            "before": 0.6880098910954586,
+            "after": 0.689691933862337,
+            "cause": "feedback"
+          },
+          {
+            "tick": 69,
+            "before": 0.689691933862337,
+            "after": 0.6901849175261253,
+            "cause": "feedback"
+          },
+          {
+            "tick": 70,
+            "before": 0.6901849175261253,
+            "after": 0.6901213714948524,
+            "cause": "feedback"
+          },
+          {
+            "tick": 71,
+            "before": 0.6901213714948524,
+            "after": 0.6903440746196365,
+            "cause": "feedback"
+          },
+          {
+            "tick": 72,
+            "before": 0.6903440746196365,
+            "after": 0.6913781891522993,
+            "cause": "feedback"
+          },
+          {
+            "tick": 73,
+            "before": 0.6913781891522993,
+            "after": 0.6917800576409389,
+            "cause": "feedback"
+          },
+          {
+            "tick": 74,
+            "before": 0.6917800576409389,
+            "after": 0.6924742368080097,
+            "cause": "feedback"
+          },
+          {
+            "tick": 75,
+            "before": 0.6924742368080097,
+            "after": 0.6928021652001436,
+            "cause": "feedback"
+          },
+          {
+            "tick": 76,
+            "before": 0.6928021652001436,
+            "after": 0.6931433656158814,
+            "cause": "feedback"
+          },
+          {
+            "tick": 77,
+            "before": 0.6931433656158814,
+            "after": 0.6939140511000335,
+            "cause": "feedback"
+          },
+          {
+            "tick": 78,
+            "before": 0.6939140511000335,
+            "after": 0.6949379152692904,
+            "cause": "feedback"
+          },
+          {
+            "tick": 79,
+            "before": 0.6949379152692904,
+            "after": 0.6956851884908081,
+            "cause": "feedback"
+          },
+          {
+            "tick": 80,
+            "before": 0.6956851884908081,
+            "after": 0.6959954921439306,
+            "cause": "feedback"
+          },
+          {
+            "tick": 81,
+            "before": 0.6959954921439306,
+            "after": 0.6961432666024995,
+            "cause": "feedback"
+          },
+          {
+            "tick": 82,
+            "before": 0.6961432666024995,
+            "after": 0.6961727707985357,
+            "cause": "feedback"
+          },
+          {
+            "tick": 83,
+            "before": 0.6961727707985357,
+            "after": 0.6965929475768655,
+            "cause": "feedback"
+          },
+          {
+            "tick": 84,
+            "before": 0.6965929475768655,
+            "after": 0.6967542047182382,
+            "cause": "feedback"
+          },
+          {
+            "tick": 85,
+            "before": 0.6967542047182382,
+            "after": 0.6971105692059882,
+            "cause": "feedback"
+          },
+          {
+            "tick": 86,
+            "before": 0.6971105692059882,
+            "after": 0.6971595358544886,
+            "cause": "feedback"
+          },
+          {
+            "tick": 87,
+            "before": 0.6971595358544886,
+            "after": 0.697399800945898,
+            "cause": "feedback"
+          },
+          {
+            "tick": 88,
+            "before": 0.697399800945898,
+            "after": 0.6977836543879616,
+            "cause": "feedback"
+          },
+          {
+            "tick": 89,
+            "before": 0.6977836543879616,
+            "after": 0.6982747336222461,
+            "cause": "feedback"
+          },
+          {
+            "tick": 90,
+            "before": 0.6982747336222461,
+            "after": 0.69852683140587,
+            "cause": "feedback"
+          },
+          {
+            "tick": 91,
+            "before": 0.69852683140587,
+            "after": 0.6985703488580064,
+            "cause": "feedback"
+          },
+          {
+            "tick": 92,
+            "before": 0.6985703488580064,
+            "after": 0.6986963299038877,
+            "cause": "feedback"
+          },
+          {
+            "tick": 93,
+            "before": 0.6986963299038877,
+            "after": 0.6987845371417747,
+            "cause": "feedback"
+          },
+          {
+            "tick": 94,
+            "before": 0.6987845371417747,
+            "after": 0.6988062424599006,
+            "cause": "feedback"
+          },
+          {
+            "tick": 95,
+            "before": 0.6988062424599006,
+            "after": 0.698866862520718,
+            "cause": "feedback"
+          },
+          {
+            "tick": 96,
+            "before": 0.698866862520718,
+            "after": 0.6989317842383425,
+            "cause": "feedback"
+          },
+          {
+            "tick": 97,
+            "before": 0.6989317842383425,
+            "after": 0.6990608651505157,
+            "cause": "feedback"
+          },
+          {
+            "tick": 98,
+            "before": 0.6990608651505157,
+            "after": 0.6991313044213362,
+            "cause": "feedback"
+          },
+          {
+            "tick": 99,
+            "before": 0.6991313044213362,
+            "after": 0.6992436813479022,
+            "cause": "feedback"
+          },
+          {
+            "tick": 100,
+            "before": 0.6992436813479022,
+            "after": 0.699284139123847,
+            "cause": "feedback"
+          },
+          {
+            "tick": 101,
+            "before": 0.699284139123847,
+            "after": 0.699333449676226,
+            "cause": "feedback"
+          },
+          {
+            "tick": 102,
+            "before": 0.699333449676226,
+            "after": 0.6993919883346661,
+            "cause": "feedback"
+          },
+          {
+            "tick": 103,
+            "before": 0.6993919883346661,
+            "after": 0.6994958146496327,
+            "cause": "feedback"
+          },
+          {
+            "tick": 104,
+            "before": 0.6994958146496327,
+            "after": 0.6995566842962772,
+            "cause": "feedback"
+          },
+          {
+            "tick": 105,
+            "before": 0.6995566842962772,
+            "after": 0.6995906904928311,
+            "cause": "feedback"
+          },
+          {
+            "tick": 106,
+            "before": 0.6995906904928311,
+            "after": 0.6996524218139911,
+            "cause": "feedback"
+          },
+          {
+            "tick": 107,
+            "before": 0.6996524218139911,
+            "after": 0.6996924183214013,
+            "cause": "feedback"
+          },
+          {
+            "tick": 108,
+            "before": 0.6996924183214013,
+            "after": 0.6997147217987577,
+            "cause": "feedback"
+          },
+          {
+            "tick": 109,
+            "before": 0.6997147217987577,
+            "after": 0.6997214825852399,
+            "cause": "feedback"
+          },
+          {
+            "tick": 110,
+            "before": 0.6997214825852399,
+            "after": 0.6997405079936777,
+            "cause": "feedback"
+          },
+          {
+            "tick": 111,
+            "before": 0.6997405079936777,
+            "after": 0.6997405861047583,
+            "cause": "feedback"
+          },
+          {
+            "tick": 112,
+            "before": 0.6997405861047583,
+            "after": 0.6997893248558138,
+            "cause": "feedback"
+          },
+          {
+            "tick": 113,
+            "before": 0.6997893248558138,
+            "after": 0.6998201453073912,
+            "cause": "feedback"
+          },
+          {
+            "tick": 114,
+            "before": 0.6998201453073912,
+            "after": 0.6998248192504408,
+            "cause": "feedback"
+          },
+          {
+            "tick": 115,
+            "before": 0.6998248192504408,
+            "after": 0.6998243130932894,
+            "cause": "feedback"
+          },
+          {
+            "tick": 116,
+            "before": 0.6998243130932894,
+            "after": 0.6998451502320343,
+            "cause": "feedback"
+          },
+          {
+            "tick": 117,
+            "before": 0.6998451502320343,
+            "after": 0.6998458584483305,
+            "cause": "feedback"
+          },
+          {
+            "tick": 118,
+            "before": 0.6998458584483305,
+            "after": 0.6998690332656633,
+            "cause": "feedback"
+          },
+          {
+            "tick": 119,
+            "before": 0.6998690332656633,
+            "after": 0.6998795871018787,
+            "cause": "feedback"
+          },
+          {
+            "tick": 120,
+            "before": 0.6998795871018787,
+            "after": 0.6998798135099367,
+            "cause": "feedback"
+          },
+          {
+            "tick": 121,
+            "before": 0.6998798135099367,
+            "after": 0.6998930250266281,
+            "cause": "feedback"
+          },
+          {
+            "tick": 122,
+            "before": 0.6998930250266281,
+            "after": 0.6998961499722527,
+            "cause": "feedback"
+          },
+          {
+            "tick": 123,
+            "before": 0.6998961499722527,
+            "after": 0.6998984464239164,
+            "cause": "feedback"
+          },
+          {
+            "tick": 124,
+            "before": 0.6998984464239164,
+            "after": 0.6998996970681242,
+            "cause": "feedback"
+          },
+          {
+            "tick": 125,
+            "before": 0.6998996970681242,
+            "after": 0.6999028753751884,
+            "cause": "feedback"
+          },
+          {
+            "tick": 126,
+            "before": 0.6999028753751884,
+            "after": 0.6999099784581382,
+            "cause": "feedback"
+          },
+          {
+            "tick": 127,
+            "before": 0.6999099784581382,
+            "after": 0.6999082185174534,
+            "cause": "feedback"
+          },
+          {
+            "tick": 128,
+            "before": 0.6999082185174534,
+            "after": 0.6999067073854622,
+            "cause": "feedback"
+          },
+          {
+            "tick": 129,
+            "before": 0.6999067073854622,
+            "after": 0.699907064307424,
+            "cause": "feedback"
+          },
+          {
+            "tick": 130,
+            "before": 0.699907064307424,
+            "after": 0.6999144299313644,
+            "cause": "feedback"
+          },
+          {
+            "tick": 131,
+            "before": 0.6999144299313644,
+            "after": 0.6999144836037393,
+            "cause": "feedback"
+          },
+          {
+            "tick": 132,
+            "before": 0.6999144836037393,
+            "after": 0.6999191765630952,
+            "cause": "feedback"
+          },
+          {
+            "tick": 133,
+            "before": 0.6999191765630952,
+            "after": 0.6999262658804548,
+            "cause": "feedback"
+          },
+          {
+            "tick": 134,
+            "before": 0.6999262658804548,
+            "after": 0.699931107926039,
+            "cause": "feedback"
+          },
+          {
+            "tick": 135,
+            "before": 0.699931107926039,
+            "after": 0.6999353342368465,
+            "cause": "feedback"
+          },
+          {
+            "tick": 136,
+            "before": 0.6999353342368465,
+            "after": 0.6999444371043612,
+            "cause": "feedback"
+          },
+          {
+            "tick": 137,
+            "before": 0.6999444371043612,
+            "after": 0.6999450520661789,
+            "cause": "feedback"
+          },
+          {
+            "tick": 138,
+            "before": 0.6999450520661789,
+            "after": 0.6999482094243297,
+            "cause": "feedback"
+          },
+          {
+            "tick": 139,
+            "before": 0.6999482094243297,
+            "after": 0.6999514242178074,
+            "cause": "feedback"
+          },
+          {
+            "tick": 140,
+            "before": 0.6999514242178074,
+            "after": 0.6999580454832496,
+            "cause": "feedback"
+          },
+          {
+            "tick": 141,
+            "before": 0.6999580454832496,
+            "after": 0.6999583042896569,
+            "cause": "feedback"
+          },
+          {
+            "tick": 142,
+            "before": 0.6999583042896569,
+            "after": 0.6999644156601599,
+            "cause": "feedback"
+          },
+          {
+            "tick": 143,
+            "before": 0.6999644156601599,
+            "after": 0.6999676712250235,
+            "cause": "feedback"
+          },
+          {
+            "tick": 144,
+            "before": 0.6999676712250235,
+            "after": 0.6999687731475118,
+            "cause": "feedback"
+          },
+          {
+            "tick": 145,
+            "before": 0.6999687731475118,
+            "after": 0.6999726266016332,
+            "cause": "feedback"
+          },
+          {
+            "tick": 146,
+            "before": 0.6999726266016332,
+            "after": 0.6999725509564483,
+            "cause": "feedback"
+          },
+          {
+            "tick": 147,
+            "before": 0.6999725509564483,
+            "after": 0.6999739667786925,
+            "cause": "feedback"
+          },
+          {
+            "tick": 148,
+            "before": 0.6999739667786925,
+            "after": 0.6999747380755066,
+            "cause": "feedback"
+          },
+          {
+            "tick": 149,
+            "before": 0.6999747380755066,
+            "after": 0.6999747296133142,
+            "cause": "feedback"
+          },
+          {
+            "tick": 150,
+            "before": 0.6999747296133142,
+            "after": 0.6999747363045074,
+            "cause": "feedback"
+          },
+          {
+            "tick": 151,
+            "before": 0.6999747363045074,
+            "after": 0.6999752511338537,
+            "cause": "feedback"
+          },
+          {
+            "tick": 152,
+            "before": 0.6999752511338537,
+            "after": 0.6999769836502509,
+            "cause": "feedback"
+          },
+          {
+            "tick": 153,
+            "before": 0.6999769836502509,
+            "after": 0.699978220784481,
+            "cause": "feedback"
+          },
+          {
+            "tick": 154,
+            "before": 0.699978220784481,
+            "after": 0.6999806584267201,
+            "cause": "feedback"
+          },
+          {
+            "tick": 155,
+            "before": 0.6999806584267201,
+            "after": 0.69998078973503,
+            "cause": "feedback"
+          },
+          {
+            "tick": 156,
+            "before": 0.69998078973503,
+            "after": 0.6999833387107158,
+            "cause": "feedback"
+          },
+          {
+            "tick": 157,
+            "before": 0.6999833387107158,
+            "after": 0.6999832423607345,
+            "cause": "feedback"
+          },
+          {
+            "tick": 158,
+            "before": 0.6999832423607345,
+            "after": 0.6999844018421518,
+            "cause": "feedback"
+          },
+          {
+            "tick": 159,
+            "before": 0.6999844018421518,
+            "after": 0.6999854867185693,
+            "cause": "feedback"
+          },
+          {
+            "tick": 160,
+            "before": 0.6999854867185693,
+            "after": 0.6999867888560525,
+            "cause": "feedback"
+          },
+          {
+            "tick": 161,
+            "before": 0.6999867888560525,
+            "after": 0.6999871340338105,
+            "cause": "feedback"
+          },
+          {
+            "tick": 162,
+            "before": 0.6999871340338105,
+            "after": 0.6999872615746285,
+            "cause": "feedback"
+          },
+          {
+            "tick": 163,
+            "before": 0.6999872615746285,
+            "after": 0.6999876546498912,
+            "cause": "feedback"
+          },
+          {
+            "tick": 164,
+            "before": 0.6999876546498912,
+            "after": 0.6999877428373088,
+            "cause": "feedback"
+          },
+          {
+            "tick": 165,
+            "before": 0.6999877428373088,
+            "after": 0.6999877000249961,
+            "cause": "feedback"
+          },
+          {
+            "tick": 166,
+            "before": 0.6999877000249961,
+            "after": 0.6999883585195151,
+            "cause": "feedback"
+          },
+          {
+            "tick": 167,
+            "before": 0.6999883585195151,
+            "after": 0.6999890569267695,
+            "cause": "feedback"
+          },
+          {
+            "tick": 168,
+            "before": 0.6999890569267695,
+            "after": 0.6999889787644298,
+            "cause": "feedback"
+          },
+          {
+            "tick": 169,
+            "before": 0.6999889787644298,
+            "after": 0.6999896112150543,
+            "cause": "feedback"
+          },
+          {
+            "tick": 170,
+            "before": 0.6999896112150543,
+            "after": 0.699989597319503,
+            "cause": "feedback"
+          },
+          {
+            "tick": 171,
+            "before": 0.699989597319503,
+            "after": 0.6999899715443164,
+            "cause": "feedback"
+          },
+          {
+            "tick": 172,
+            "before": 0.6999899715443164,
+            "after": 0.69999093093856,
+            "cause": "feedback"
+          },
+          {
+            "tick": 173,
+            "before": 0.69999093093856,
+            "after": 0.699990923670896,
+            "cause": "feedback"
+          },
+          {
+            "tick": 174,
+            "before": 0.699990923670896,
+            "after": 0.6999914391336546,
+            "cause": "feedback"
+          },
+          {
+            "tick": 175,
+            "before": 0.6999914391336546,
+            "after": 0.6999915522615254,
+            "cause": "feedback"
+          },
+          {
+            "tick": 176,
+            "before": 0.6999915522615254,
+            "after": 0.6999925823978244,
+            "cause": "feedback"
+          },
+          {
+            "tick": 177,
+            "before": 0.6999925823978244,
+            "after": 0.699993125971377,
+            "cause": "feedback"
+          },
+          {
+            "tick": 178,
+            "before": 0.699993125971377,
+            "after": 0.6999932321986713,
+            "cause": "feedback"
+          },
+          {
+            "tick": 179,
+            "before": 0.6999932321986713,
+            "after": 0.6999932272593559,
+            "cause": "feedback"
+          },
+          {
+            "tick": 180,
+            "before": 0.6999932272593559,
+            "after": 0.6999939937509249,
+            "cause": "feedback"
+          },
+          {
+            "tick": 181,
+            "before": 0.6999939937509249,
+            "after": 0.6999943115683815,
+            "cause": "feedback"
+          },
+          {
+            "tick": 182,
+            "before": 0.6999943115683815,
+            "after": 0.6999946387694648,
+            "cause": "feedback"
+          },
+          {
+            "tick": 183,
+            "before": 0.6999946387694648,
+            "after": 0.6999953016056747,
+            "cause": "feedback"
+          },
+          {
+            "tick": 184,
+            "before": 0.6999953016056747,
+            "after": 0.6999953016636905,
+            "cause": "feedback"
+          },
+          {
+            "tick": 185,
+            "before": 0.6999953016636905,
+            "after": 0.6999957370910452,
+            "cause": "feedback"
+          },
+          {
+            "tick": 186,
+            "before": 0.6999957370910452,
+            "after": 0.6999957512836447,
+            "cause": "feedback"
+          },
+          {
+            "tick": 187,
+            "before": 0.6999957512836447,
+            "after": 0.6999958204088998,
+            "cause": "feedback"
+          },
+          {
+            "tick": 188,
+            "before": 0.6999958204088998,
+            "after": 0.6999961004301223,
+            "cause": "feedback"
+          },
+          {
+            "tick": 189,
+            "before": 0.6999961004301223,
+            "after": 0.6999967913101459,
+            "cause": "feedback"
+          },
+          {
+            "tick": 190,
+            "before": 0.6999967913101459,
+            "after": 0.6999967839342724,
+            "cause": "feedback"
+          },
+          {
+            "tick": 191,
+            "before": 0.6999967839342724,
+            "after": 0.6999969015335411,
+            "cause": "feedback"
+          },
+          {
+            "tick": 192,
+            "before": 0.6999969015335411,
+            "after": 0.6999972456507841,
+            "cause": "feedback"
+          },
+          {
+            "tick": 193,
+            "before": 0.6999972456507841,
+            "after": 0.6999974995771934,
+            "cause": "feedback"
+          },
+          {
+            "tick": 194,
+            "before": 0.6999974995771934,
+            "after": 0.6999974964035095,
+            "cause": "feedback"
+          },
+          {
+            "tick": 195,
+            "before": 0.6999974964035095,
+            "after": 0.699997568260575,
+            "cause": "feedback"
+          },
+          {
+            "tick": 196,
+            "before": 0.699997568260575,
+            "after": 0.6999976087087939,
+            "cause": "feedback"
+          },
+          {
+            "tick": 197,
+            "before": 0.6999976087087939,
+            "after": 0.6999976126232976,
+            "cause": "feedback"
+          },
+          {
+            "tick": 198,
+            "before": 0.6999976126232976,
+            "after": 0.6999976144291954,
+            "cause": "feedback"
+          },
+          {
+            "tick": 199,
+            "before": 0.6999976144291954,
+            "after": 0.6999978793825777,
+            "cause": "feedback"
+          },
+          {
+            "tick": 200,
+            "before": 0.6999978793825777,
+            "after": 0.6999978840657719,
+            "cause": "feedback"
+          },
+          {
+            "tick": 201,
+            "before": 0.6999978840657719,
+            "after": 0.6999979968028993,
+            "cause": "feedback"
+          },
+          {
+            "tick": 202,
+            "before": 0.6999979968028993,
+            "after": 0.6999979965419989,
+            "cause": "feedback"
+          },
+          {
+            "tick": 203,
+            "before": 0.6999979965419989,
+            "after": 0.6999979977814266,
+            "cause": "feedback"
+          },
+          {
+            "tick": 204,
+            "before": 0.6999979977814266,
+            "after": 0.6999981816869002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 205,
+            "before": 0.6999981816869002,
+            "after": 0.6999983085103316,
+            "cause": "feedback"
+          },
+          {
+            "tick": 206,
+            "before": 0.6999983085103316,
+            "after": 0.6999984835528661,
+            "cause": "feedback"
+          },
+          {
+            "tick": 207,
+            "before": 0.6999984835528661,
+            "after": 0.6999985884108689,
+            "cause": "feedback"
+          },
+          {
+            "tick": 208,
+            "before": 0.6999985884108689,
+            "after": 0.6999987576037642,
+            "cause": "feedback"
+          },
+          {
+            "tick": 209,
+            "before": 0.6999987576037642,
+            "after": 0.6999988767589839,
+            "cause": "feedback"
+          },
+          {
+            "tick": 210,
+            "before": 0.6999988767589839,
+            "after": 0.6999989405410569,
+            "cause": "feedback"
+          },
+          {
+            "tick": 211,
+            "before": 0.6999989405410569,
+            "after": 0.699999160460751,
+            "cause": "feedback"
+          },
+          {
+            "tick": 212,
+            "before": 0.699999160460751,
+            "after": 0.6999992550586748,
+            "cause": "feedback"
+          },
+          {
+            "tick": 213,
+            "before": 0.6999992550586748,
+            "after": 0.6999992558224422,
+            "cause": "feedback"
+          },
+          {
+            "tick": 214,
+            "before": 0.6999992558224422,
+            "after": 0.6999993571824139,
+            "cause": "feedback"
+          },
+          {
+            "tick": 215,
+            "before": 0.6999993571824139,
+            "after": 0.6999994464775101,
+            "cause": "feedback"
+          },
+          {
+            "tick": 216,
+            "before": 0.6999994464775101,
+            "after": 0.6999994387010222,
+            "cause": "feedback"
+          },
+          {
+            "tick": 217,
+            "before": 0.6999994387010222,
+            "after": 0.6999994802154628,
+            "cause": "feedback"
+          },
+          {
+            "tick": 218,
+            "before": 0.6999994802154628,
+            "after": 0.6999994948987647,
+            "cause": "feedback"
+          },
+          {
+            "tick": 219,
+            "before": 0.6999994948987647,
+            "after": 0.6999995563956427,
+            "cause": "feedback"
+          },
+          {
+            "tick": 220,
+            "before": 0.6999995563956427,
+            "after": 0.6999995893496089,
+            "cause": "feedback"
+          },
+          {
+            "tick": 221,
+            "before": 0.6999995893496089,
+            "after": 0.6999995881035415,
+            "cause": "feedback"
+          },
+          {
+            "tick": 222,
+            "before": 0.6999995881035415,
+            "after": 0.699999646788205,
+            "cause": "feedback"
+          },
+          {
+            "tick": 223,
+            "before": 0.699999646788205,
+            "after": 0.6999996643584466,
+            "cause": "feedback"
+          },
+          {
+            "tick": 224,
+            "before": 0.6999996643584466,
+            "after": 0.6999996903808544,
+            "cause": "feedback"
+          },
+          {
+            "tick": 225,
+            "before": 0.6999996903808544,
+            "after": 0.6999996907323228,
+            "cause": "feedback"
+          },
+          {
+            "tick": 226,
+            "before": 0.6999996907323228,
+            "after": 0.6999997042898356,
+            "cause": "feedback"
+          },
+          {
+            "tick": 227,
+            "before": 0.6999997042898356,
+            "after": 0.6999997313835945,
+            "cause": "feedback"
+          },
+          {
+            "tick": 228,
+            "before": 0.6999997313835945,
+            "after": 0.6999997326234955,
+            "cause": "feedback"
+          },
+          {
+            "tick": 229,
+            "before": 0.6999997326234955,
+            "after": 0.699999748752012,
+            "cause": "feedback"
+          },
+          {
+            "tick": 230,
+            "before": 0.699999748752012,
+            "after": 0.6999997560268112,
+            "cause": "feedback"
+          },
+          {
+            "tick": 231,
+            "before": 0.6999997560268112,
+            "after": 0.6999997800144402,
+            "cause": "feedback"
+          },
+          {
+            "tick": 232,
+            "before": 0.6999997800144402,
+            "after": 0.6999997764315629,
+            "cause": "feedback"
+          },
+          {
+            "tick": 233,
+            "before": 0.6999997764315629,
+            "after": 0.6999997885553301,
+            "cause": "feedback"
+          },
+          {
+            "tick": 234,
+            "before": 0.6999997885553301,
+            "after": 0.6999997908777854,
+            "cause": "feedback"
+          },
+          {
+            "tick": 235,
+            "before": 0.6999997908777854,
+            "after": 0.6999997999758517,
+            "cause": "feedback"
+          },
+          {
+            "tick": 236,
+            "before": 0.6999997999758517,
+            "after": 0.6999997973844023,
+            "cause": "feedback"
+          },
+          {
+            "tick": 237,
+            "before": 0.6999997973844023,
+            "after": 0.6999998123140138,
+            "cause": "feedback"
+          },
+          {
+            "tick": 238,
+            "before": 0.6999998123140138,
+            "after": 0.6999998245931752,
+            "cause": "feedback"
+          },
+          {
+            "tick": 239,
+            "before": 0.6999998245931752,
+            "after": 0.6999998245475917,
+            "cause": "feedback"
+          },
+          {
+            "tick": 240,
+            "before": 0.6999998245475917,
+            "after": 0.6999998339772466,
+            "cause": "feedback"
+          },
+          {
+            "tick": 241,
+            "before": 0.6999998339772466,
+            "after": 0.6999998375589986,
+            "cause": "feedback"
+          },
+          {
+            "tick": 242,
+            "before": 0.6999998375589986,
+            "after": 0.6999998389415419,
+            "cause": "feedback"
+          },
+          {
+            "tick": 243,
+            "before": 0.6999998389415419,
+            "after": 0.6999998460514887,
+            "cause": "feedback"
+          },
+          {
+            "tick": 244,
+            "before": 0.6999998460514887,
+            "after": 0.6999998462462365,
+            "cause": "feedback"
+          },
+          {
+            "tick": 245,
+            "before": 0.6999998462462365,
+            "after": 0.6999998638775998,
+            "cause": "feedback"
+          },
+          {
+            "tick": 246,
+            "before": 0.6999998638775998,
+            "after": 0.6999998687895898,
+            "cause": "feedback"
+          },
+          {
+            "tick": 247,
+            "before": 0.6999998687895898,
+            "after": 0.6999998854016722,
+            "cause": "feedback"
+          },
+          {
+            "tick": 248,
+            "before": 0.6999998854016722,
+            "after": 0.6999998852609997,
+            "cause": "feedback"
+          },
+          {
+            "tick": 249,
+            "before": 0.6999998852609997,
+            "after": 0.6999998914776356,
+            "cause": "feedback"
+          },
+          {
+            "tick": 250,
+            "before": 0.6999998914776356,
+            "after": 0.6999999074419274,
+            "cause": "feedback"
+          },
+          {
+            "tick": 251,
+            "before": 0.6999999074419274,
+            "after": 0.699999915214321,
+            "cause": "feedback"
+          },
+          {
+            "tick": 252,
+            "before": 0.699999915214321,
+            "after": 0.6999999157799363,
+            "cause": "feedback"
+          },
+          {
+            "tick": 253,
+            "before": 0.6999999157799363,
+            "after": 0.6999999228446584,
+            "cause": "feedback"
+          },
+          {
+            "tick": 254,
+            "before": 0.6999999228446584,
+            "after": 0.6999999289601442,
+            "cause": "feedback"
+          },
+          {
+            "tick": 255,
+            "before": 0.6999999289601442,
+            "after": 0.6999999390998692,
+            "cause": "feedback"
+          },
+          {
+            "tick": 256,
+            "before": 0.6999999390998692,
+            "after": 0.6999999462974467,
+            "cause": "feedback"
+          },
+          {
+            "tick": 257,
+            "before": 0.6999999462974467,
+            "after": 0.6999999498595101,
+            "cause": "feedback"
+          },
+          {
+            "tick": 258,
+            "before": 0.6999999498595101,
+            "after": 0.6999999499391618,
+            "cause": "feedback"
+          },
+          {
+            "tick": 259,
+            "before": 0.6999999499391618,
+            "after": 0.6999999507072276,
+            "cause": "feedback"
+          },
+          {
+            "tick": 260,
+            "before": 0.6999999507072276,
+            "after": 0.6999999514219085,
+            "cause": "feedback"
+          },
+          {
+            "tick": 261,
+            "before": 0.6999999514219085,
+            "after": 0.6999999559052573,
+            "cause": "feedback"
+          },
+          {
+            "tick": 262,
+            "before": 0.6999999559052573,
+            "after": 0.6999999560119077,
+            "cause": "feedback"
+          },
+          {
+            "tick": 263,
+            "before": 0.6999999560119077,
+            "after": 0.6999999617483328,
+            "cause": "feedback"
+          },
+          {
+            "tick": 264,
+            "before": 0.6999999617483328,
+            "after": 0.6999999638410332,
+            "cause": "feedback"
+          },
+          {
+            "tick": 265,
+            "before": 0.6999999638410332,
+            "after": 0.6999999639690473,
+            "cause": "feedback"
+          },
+          {
+            "tick": 266,
+            "before": 0.6999999639690473,
+            "after": 0.6999999640570804,
+            "cause": "feedback"
+          },
+          {
+            "tick": 267,
+            "before": 0.6999999640570804,
+            "after": 0.6999999654518327,
+            "cause": "feedback"
+          },
+          {
+            "tick": 268,
+            "before": 0.6999999654518327,
+            "after": 0.699999966173951,
+            "cause": "feedback"
+          },
+          {
+            "tick": 269,
+            "before": 0.699999966173951,
+            "after": 0.6999999661318901,
+            "cause": "feedback"
+          },
+          {
+            "tick": 270,
+            "before": 0.6999999661318901,
+            "after": 0.6999999681595558,
+            "cause": "feedback"
+          },
+          {
+            "tick": 271,
+            "before": 0.6999999681595558,
+            "after": 0.6999999709111732,
+            "cause": "feedback"
+          },
+          {
+            "tick": 272,
+            "before": 0.6999999709111732,
+            "after": 0.6999999761482504,
+            "cause": "feedback"
+          },
+          {
+            "tick": 273,
+            "before": 0.6999999761482504,
+            "after": 0.6999999766393984,
+            "cause": "feedback"
+          },
+          {
+            "tick": 274,
+            "before": 0.6999999766393984,
+            "after": 0.6999999770211275,
+            "cause": "feedback"
+          },
+          {
+            "tick": 275,
+            "before": 0.6999999770211275,
+            "after": 0.6999999774768413,
+            "cause": "feedback"
+          },
+          {
+            "tick": 276,
+            "before": 0.6999999774768413,
+            "after": 0.6999999781330877,
+            "cause": "feedback"
+          },
+          {
+            "tick": 277,
+            "before": 0.6999999781330877,
+            "after": 0.6999999801116866,
+            "cause": "feedback"
+          },
+          {
+            "tick": 278,
+            "before": 0.6999999801116866,
+            "after": 0.6999999800156534,
+            "cause": "feedback"
+          },
+          {
+            "tick": 279,
+            "before": 0.6999999800156534,
+            "after": 0.6999999802987763,
+            "cause": "feedback"
+          },
+          {
+            "tick": 280,
+            "before": 0.6999999802987763,
+            "after": 0.6999999803481777,
+            "cause": "feedback"
+          },
+          {
+            "tick": 281,
+            "before": 0.6999999803481777,
+            "after": 0.6999999824461794,
+            "cause": "feedback"
+          },
+          {
+            "tick": 282,
+            "before": 0.6999999824461794,
+            "after": 0.6999999821039472,
+            "cause": "feedback"
+          },
+          {
+            "tick": 283,
+            "before": 0.6999999821039472,
+            "after": 0.6999999828347806,
+            "cause": "feedback"
+          },
+          {
+            "tick": 284,
+            "before": 0.6999999828347806,
+            "after": 0.6999999848200336,
+            "cause": "feedback"
+          },
+          {
+            "tick": 285,
+            "before": 0.6999999848200336,
+            "after": 0.6999999852737471,
+            "cause": "feedback"
+          },
+          {
+            "tick": 286,
+            "before": 0.6999999852737471,
+            "after": 0.6999999889247336,
+            "cause": "feedback"
+          },
+          {
+            "tick": 287,
+            "before": 0.6999999889247336,
+            "after": 0.6999999910573613,
+            "cause": "feedback"
+          },
+          {
+            "tick": 288,
+            "before": 0.6999999910573613,
+            "after": 0.6999999910875053,
+            "cause": "feedback"
+          },
+          {
+            "tick": 289,
+            "before": 0.6999999910875053,
+            "after": 0.6999999909064153,
+            "cause": "feedback"
+          },
+          {
+            "tick": 290,
+            "before": 0.6999999909064153,
+            "after": 0.6999999909516844,
+            "cause": "feedback"
+          },
+          {
+            "tick": 291,
+            "before": 0.6999999909516844,
+            "after": 0.6999999924401721,
+            "cause": "feedback"
+          },
+          {
+            "tick": 292,
+            "before": 0.6999999924401721,
+            "after": 0.699999993493313,
+            "cause": "feedback"
+          },
+          {
+            "tick": 293,
+            "before": 0.699999993493313,
+            "after": 0.6999999935275422,
+            "cause": "feedback"
+          },
+          {
+            "tick": 294,
+            "before": 0.6999999935275422,
+            "after": 0.6999999938479169,
+            "cause": "feedback"
+          },
+          {
+            "tick": 295,
+            "before": 0.6999999938479169,
+            "after": 0.6999999942555085,
+            "cause": "feedback"
+          },
+          {
+            "tick": 296,
+            "before": 0.6999999942555085,
+            "after": 0.6999999940180599,
+            "cause": "feedback"
+          },
+          {
+            "tick": 297,
+            "before": 0.6999999940180599,
+            "after": 0.6999999942297718,
+            "cause": "feedback"
+          },
+          {
+            "tick": 298,
+            "before": 0.6999999942297718,
+            "after": 0.6999999950424634,
+            "cause": "feedback"
+          },
+          {
+            "tick": 299,
+            "before": 0.6999999950424634,
+            "after": 0.6999999948795738,
+            "cause": "feedback"
+          },
+          {
+            "tick": 300,
+            "before": 0.6999999948795738,
+            "after": 0.6999999949355068,
+            "cause": "feedback"
+          },
+          {
+            "tick": 301,
+            "before": 0.6999999949355068,
+            "after": 0.699999995465609,
+            "cause": "feedback"
+          },
+          {
+            "tick": 302,
+            "before": 0.699999995465609,
+            "after": 0.699999996141311,
+            "cause": "feedback"
+          },
+          {
+            "tick": 303,
+            "before": 0.699999996141311,
+            "after": 0.6999999961164939,
+            "cause": "feedback"
+          },
+          {
+            "tick": 304,
+            "before": 0.6999999961164939,
+            "after": 0.6999999960357594,
+            "cause": "feedback"
+          },
+          {
+            "tick": 305,
+            "before": 0.6999999960357594,
+            "after": 0.6999999968914388,
+            "cause": "feedback"
+          },
+          {
+            "tick": 306,
+            "before": 0.6999999968914388,
+            "after": 0.6999999974057879,
+            "cause": "feedback"
+          },
+          {
+            "tick": 307,
+            "before": 0.6999999974057879,
+            "after": 0.699999997489148,
+            "cause": "feedback"
+          },
+          {
+            "tick": 308,
+            "before": 0.699999997489148,
+            "after": 0.6999999978827404,
+            "cause": "feedback"
+          },
+          {
+            "tick": 309,
+            "before": 0.6999999978827404,
+            "after": 0.6999999978994268,
+            "cause": "feedback"
+          },
+          {
+            "tick": 310,
+            "before": 0.6999999978994268,
+            "after": 0.699999997819258,
+            "cause": "feedback"
+          },
+          {
+            "tick": 311,
+            "before": 0.699999997819258,
+            "after": 0.6999999978502375,
+            "cause": "feedback"
+          },
+          {
+            "tick": 312,
+            "before": 0.6999999978502375,
+            "after": 0.699999997882111,
+            "cause": "feedback"
+          },
+          {
+            "tick": 313,
+            "before": 0.699999997882111,
+            "after": 0.6999999982205151,
+            "cause": "feedback"
+          },
+          {
+            "tick": 314,
+            "before": 0.6999999982205151,
+            "after": 0.6999999982090231,
+            "cause": "feedback"
+          },
+          {
+            "tick": 315,
+            "before": 0.6999999982090231,
+            "after": 0.6999999981510845,
+            "cause": "feedback"
+          },
+          {
+            "tick": 316,
+            "before": 0.6999999981510845,
+            "after": 0.6999999982682841,
+            "cause": "feedback"
+          },
+          {
+            "tick": 317,
+            "before": 0.6999999982682841,
+            "after": 0.6999999982461336,
+            "cause": "feedback"
+          },
+          {
+            "tick": 318,
+            "before": 0.6999999982461336,
+            "after": 0.6999999985393646,
+            "cause": "feedback"
+          },
+          {
+            "tick": 319,
+            "before": 0.6999999985393646,
+            "after": 0.699999998934163,
+            "cause": "feedback"
+          },
+          {
+            "tick": 320,
+            "before": 0.699999998934163,
+            "after": 0.6999999993486699,
+            "cause": "feedback"
+          },
+          {
+            "tick": 321,
+            "before": 0.6999999993486699,
+            "after": 0.6999999995245116,
+            "cause": "feedback"
+          },
+          {
+            "tick": 322,
+            "before": 0.6999999995245116,
+            "after": 0.69999999942887,
+            "cause": "feedback"
+          },
+          {
+            "tick": 323,
+            "before": 0.69999999942887,
+            "after": 0.6999999994490661,
+            "cause": "feedback"
+          },
+          {
+            "tick": 324,
+            "before": 0.6999999994490661,
+            "after": 0.6999999996577881,
+            "cause": "feedback"
+          },
+          {
+            "tick": 325,
+            "before": 0.6999999996577881,
+            "after": 0.6999999996160079,
+            "cause": "feedback"
+          },
+          {
+            "tick": 326,
+            "before": 0.6999999996160079,
+            "after": 0.6999999997712844,
+            "cause": "feedback"
+          },
+          {
+            "tick": 327,
+            "before": 0.6999999997712844,
+            "after": 0.6999999999062578,
+            "cause": "feedback"
+          },
+          {
+            "tick": 328,
+            "before": 0.6999999999062578,
+            "after": 0.6999999999130492,
+            "cause": "feedback"
+          },
+          {
+            "tick": 329,
+            "before": 0.6999999999130492,
+            "after": 0.6999999998839703,
+            "cause": "feedback"
+          },
+          {
+            "tick": 330,
+            "before": 0.6999999998839703,
+            "after": 0.6999999999090254,
+            "cause": "feedback"
+          },
+          {
+            "tick": 331,
+            "before": 0.6999999999090254,
+            "after": 0.6999999998599168,
+            "cause": "feedback"
+          },
+          {
+            "tick": 332,
+            "before": 0.6999999998599168,
+            "after": 0.699999999897543,
+            "cause": "feedback"
+          },
+          {
+            "tick": 333,
+            "before": 0.699999999897543,
+            "after": 0.6999999999271581,
+            "cause": "feedback"
+          },
+          {
+            "tick": 334,
+            "before": 0.6999999999271581,
+            "after": 0.6999999999722015,
+            "cause": "feedback"
+          },
+          {
+            "tick": 335,
+            "before": 0.6999999999722015,
+            "after": 0.6999999998699086,
+            "cause": "feedback"
+          },
+          {
+            "tick": 336,
+            "before": 0.6999999998699086,
+            "after": 0.6999999998692015,
+            "cause": "feedback"
+          },
+          {
+            "tick": 337,
+            "before": 0.6999999998692015,
+            "after": 0.6999999998350679,
+            "cause": "feedback"
+          },
+          {
+            "tick": 338,
+            "before": 0.6999999998350679,
+            "after": 0.6999999998774882,
+            "cause": "feedback"
+          },
+          {
+            "tick": 339,
+            "before": 0.6999999998774882,
+            "after": 0.6999999998887182,
+            "cause": "feedback"
+          },
+          {
+            "tick": 340,
+            "before": 0.6999999998887182,
+            "after": 0.6999999998558117,
+            "cause": "feedback"
+          },
+          {
+            "tick": 341,
+            "before": 0.6999999998558117,
+            "after": 0.6999999998349169,
+            "cause": "feedback"
+          },
+          {
+            "tick": 342,
+            "before": 0.6999999998349169,
+            "after": 0.699999999878416,
+            "cause": "feedback"
+          },
+          {
+            "tick": 343,
+            "before": 0.699999999878416,
+            "after": 0.699999999910173,
+            "cause": "feedback"
+          },
+          {
+            "tick": 344,
+            "before": 0.699999999910173,
+            "after": 0.6999999999227627,
+            "cause": "feedback"
+          },
+          {
+            "tick": 345,
+            "before": 0.6999999999227627,
+            "after": 0.6999999999194417,
+            "cause": "feedback"
+          },
+          {
+            "tick": 346,
+            "before": 0.6999999999194417,
+            "after": 0.6999999999015153,
+            "cause": "feedback"
+          },
+          {
+            "tick": 347,
+            "before": 0.6999999999015153,
+            "after": 0.6999999999436365,
+            "cause": "feedback"
+          },
+          {
+            "tick": 348,
+            "before": 0.6999999999436365,
+            "after": 0.6999999999470246,
+            "cause": "feedback"
+          },
+          {
+            "tick": 349,
+            "before": 0.6999999999470246,
+            "after": 0.6999999999411501,
+            "cause": "feedback"
+          },
+          {
+            "tick": 350,
+            "before": 0.6999999999411501,
+            "after": 0.6999999999320428,
+            "cause": "feedback"
+          },
+          {
+            "tick": 351,
+            "before": 0.6999999999320428,
+            "after": 0.6999999999464813,
+            "cause": "feedback"
+          },
+          {
+            "tick": 352,
+            "before": 0.6999999999464813,
+            "after": 0.6999999999571263,
+            "cause": "feedback"
+          },
+          {
+            "tick": 353,
+            "before": 0.6999999999571263,
+            "after": 0.6999999999665665,
+            "cause": "feedback"
+          },
+          {
+            "tick": 354,
+            "before": 0.6999999999665665,
+            "after": 0.6999999999925746,
+            "cause": "feedback"
+          },
+          {
+            "tick": 355,
+            "before": 0.6999999999925746,
+            "after": 0.7000000000061184,
+            "cause": "feedback"
+          },
+          {
+            "tick": 356,
+            "before": 0.7000000000061184,
+            "after": 0.7000000000109933,
+            "cause": "feedback"
+          },
+          {
+            "tick": 357,
+            "before": 0.7000000000109933,
+            "after": 0.7000000000156001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 358,
+            "before": 0.7000000000156001,
+            "after": 0.7000000000232082,
+            "cause": "feedback"
+          },
+          {
+            "tick": 359,
+            "before": 0.7000000000232082,
+            "after": 0.7000000000324612,
+            "cause": "feedback"
+          },
+          {
+            "tick": 360,
+            "before": 0.7000000000324612,
+            "after": 0.7000000000348422,
+            "cause": "feedback"
+          },
+          {
+            "tick": 361,
+            "before": 0.7000000000348422,
+            "after": 0.700000000024252,
+            "cause": "feedback"
+          },
+          {
+            "tick": 362,
+            "before": 0.700000000024252,
+            "after": 0.700000000025068,
+            "cause": "feedback"
+          },
+          {
+            "tick": 363,
+            "before": 0.700000000025068,
+            "after": 0.7000000000279026,
+            "cause": "feedback"
+          },
+          {
+            "tick": 364,
+            "before": 0.7000000000279026,
+            "after": 0.7000000000204109,
+            "cause": "feedback"
+          },
+          {
+            "tick": 365,
+            "before": 0.7000000000204109,
+            "after": 0.7000000000203315,
+            "cause": "feedback"
+          },
+          {
+            "tick": 366,
+            "before": 0.7000000000203315,
+            "after": 0.7000000000215396,
+            "cause": "feedback"
+          },
+          {
+            "tick": 367,
+            "before": 0.7000000000215396,
+            "after": 0.7000000000244716,
+            "cause": "feedback"
+          },
+          {
+            "tick": 368,
+            "before": 0.7000000000244716,
+            "after": 0.7000000000229456,
+            "cause": "feedback"
+          },
+          {
+            "tick": 369,
+            "before": 0.7000000000229456,
+            "after": 0.7000000000255796,
+            "cause": "feedback"
+          },
+          {
+            "tick": 370,
+            "before": 0.7000000000255796,
+            "after": 0.7000000000190357,
+            "cause": "feedback"
+          },
+          {
+            "tick": 371,
+            "before": 0.7000000000190357,
+            "after": 0.7000000000169779,
+            "cause": "feedback"
+          },
+          {
+            "tick": 372,
+            "before": 0.7000000000169779,
+            "after": 0.700000000019689,
+            "cause": "feedback"
+          },
+          {
+            "tick": 373,
+            "before": 0.700000000019689,
+            "after": 0.7000000000148215,
+            "cause": "feedback"
+          },
+          {
+            "tick": 374,
+            "before": 0.7000000000148215,
+            "after": 0.7000000000175791,
+            "cause": "feedback"
+          },
+          {
+            "tick": 375,
+            "before": 0.7000000000175791,
+            "after": 0.7000000000171782,
+            "cause": "feedback"
+          },
+          {
+            "tick": 376,
+            "before": 0.7000000000171782,
+            "after": 0.7000000000148029,
+            "cause": "feedback"
+          },
+          {
+            "tick": 377,
+            "before": 0.7000000000148029,
+            "after": 0.7000000000155738,
+            "cause": "feedback"
+          },
+          {
+            "tick": 378,
+            "before": 0.7000000000155738,
+            "after": 0.7000000000160601,
+            "cause": "feedback"
+          },
+          {
+            "tick": 379,
+            "before": 0.7000000000160601,
+            "after": 0.7000000000140756,
+            "cause": "feedback"
+          },
+          {
+            "tick": 380,
+            "before": 0.7000000000140756,
+            "after": 0.7000000000149111,
+            "cause": "feedback"
+          },
+          {
+            "tick": 381,
+            "before": 0.7000000000149111,
+            "after": 0.7000000000130745,
+            "cause": "feedback"
+          },
+          {
+            "tick": 382,
+            "before": 0.7000000000130745,
+            "after": 0.7000000000137886,
+            "cause": "feedback"
+          },
+          {
+            "tick": 383,
+            "before": 0.7000000000137886,
+            "after": 0.7000000000143901,
+            "cause": "feedback"
+          },
+          {
+            "tick": 384,
+            "before": 0.7000000000143901,
+            "after": 0.7000000000148768,
+            "cause": "feedback"
+          },
+          {
+            "tick": 385,
+            "before": 0.7000000000148768,
+            "after": 0.7000000000148933,
+            "cause": "feedback"
+          },
+          {
+            "tick": 386,
+            "before": 0.7000000000148933,
+            "after": 0.7000000000149058,
+            "cause": "feedback"
+          },
+          {
+            "tick": 387,
+            "before": 0.7000000000149058,
+            "after": 0.7000000000151801,
+            "cause": "feedback"
+          },
+          {
+            "tick": 388,
+            "before": 0.7000000000151801,
+            "after": 0.7000000000154755,
+            "cause": "feedback"
+          },
+          {
+            "tick": 389,
+            "before": 0.7000000000154755,
+            "after": 0.7000000000146286,
+            "cause": "feedback"
+          },
+          {
+            "tick": 390,
+            "before": 0.7000000000146286,
+            "after": 0.7000000000150083,
+            "cause": "feedback"
+          },
+          {
+            "tick": 391,
+            "before": 0.7000000000150083,
+            "after": 0.7000000000129302,
+            "cause": "feedback"
+          },
+          {
+            "tick": 392,
+            "before": 0.7000000000129302,
+            "after": 0.7000000000132836,
+            "cause": "feedback"
+          },
+          {
+            "tick": 393,
+            "before": 0.7000000000132836,
+            "after": 0.7000000000116713,
+            "cause": "feedback"
+          },
+          {
+            "tick": 394,
+            "before": 0.7000000000116713,
+            "after": 0.7000000000109202,
+            "cause": "feedback"
+          },
+          {
+            "tick": 395,
+            "before": 0.7000000000109202,
+            "after": 0.7000000000081087,
+            "cause": "feedback"
+          },
+          {
+            "tick": 396,
+            "before": 0.7000000000081087,
+            "after": 0.7000000000074714,
+            "cause": "feedback"
+          },
+          {
+            "tick": 397,
+            "before": 0.7000000000074714,
+            "after": 0.7000000000073237,
+            "cause": "feedback"
+          },
+          {
+            "tick": 398,
+            "before": 0.7000000000073237,
+            "after": 0.7000000000068625,
+            "cause": "feedback"
+          },
+          {
+            "tick": 399,
+            "before": 0.7000000000068625,
+            "after": 0.7000000000069097,
+            "cause": "feedback"
+          },
+          {
+            "tick": 400,
+            "before": 0.7000000000069097,
+            "after": 0.7000000000071731,
+            "cause": "feedback"
+          },
+          {
+            "tick": 401,
+            "before": 0.7000000000071731,
+            "after": 0.7000000000057686,
+            "cause": "feedback"
+          },
+          {
+            "tick": 402,
+            "before": 0.7000000000057686,
+            "after": 0.7000000000046206,
+            "cause": "feedback"
+          },
+          {
+            "tick": 403,
+            "before": 0.7000000000046206,
+            "after": 0.7000000000045453,
+            "cause": "feedback"
+          },
+          {
+            "tick": 404,
+            "before": 0.7000000000045453,
+            "after": 0.7000000000046929,
+            "cause": "feedback"
+          },
+          {
+            "tick": 405,
+            "before": 0.7000000000046929,
+            "after": 0.7000000000045297,
+            "cause": "feedback"
+          },
+          {
+            "tick": 406,
+            "before": 0.7000000000045297,
+            "after": 0.7000000000040549,
+            "cause": "feedback"
+          },
+          {
+            "tick": 407,
+            "before": 0.7000000000040549,
+            "after": 0.7000000000042711,
+            "cause": "feedback"
+          },
+          {
+            "tick": 408,
+            "before": 0.7000000000042711,
+            "after": 0.7000000000042417,
+            "cause": "feedback"
+          },
+          {
+            "tick": 409,
+            "before": 0.7000000000042417,
+            "after": 0.7000000000038398,
+            "cause": "feedback"
+          },
+          {
+            "tick": 410,
+            "before": 0.7000000000038398,
+            "after": 0.7000000000031672,
+            "cause": "feedback"
+          },
+          {
+            "tick": 411,
+            "before": 0.7000000000031672,
+            "after": 0.700000000002774,
+            "cause": "feedback"
+          },
+          {
+            "tick": 412,
+            "before": 0.700000000002774,
+            "after": 0.7000000000029174,
+            "cause": "feedback"
+          },
+          {
+            "tick": 413,
+            "before": 0.7000000000029174,
+            "after": 0.7000000000025822,
+            "cause": "feedback"
+          },
+          {
+            "tick": 414,
+            "before": 0.7000000000025822,
+            "after": 0.7000000000027874,
+            "cause": "feedback"
+          },
+          {
+            "tick": 415,
+            "before": 0.7000000000027874,
+            "after": 0.700000000002388,
+            "cause": "feedback"
+          },
+          {
+            "tick": 416,
+            "before": 0.700000000002388,
+            "after": 0.7000000000024708,
+            "cause": "feedback"
+          },
+          {
+            "tick": 417,
+            "before": 0.7000000000024708,
+            "after": 0.700000000002431,
+            "cause": "feedback"
+          },
+          {
+            "tick": 418,
+            "before": 0.700000000002431,
+            "after": 0.7000000000024968,
+            "cause": "feedback"
+          },
+          {
+            "tick": 419,
+            "before": 0.7000000000024968,
+            "after": 0.7000000000018959,
+            "cause": "feedback"
+          },
+          {
+            "tick": 420,
+            "before": 0.7000000000018959,
+            "after": 0.7000000000019815,
+            "cause": "feedback"
+          },
+          {
+            "tick": 421,
+            "before": 0.7000000000019815,
+            "after": 0.7000000000018295,
+            "cause": "feedback"
+          },
+          {
+            "tick": 422,
+            "before": 0.7000000000018295,
+            "after": 0.7000000000016705,
+            "cause": "feedback"
+          },
+          {
+            "tick": 423,
+            "before": 0.7000000000016705,
+            "after": 0.70000000000125,
+            "cause": "feedback"
+          },
+          {
+            "tick": 424,
+            "before": 0.70000000000125,
+            "after": 0.7000000000011694,
+            "cause": "feedback"
+          },
+          {
+            "tick": 425,
+            "before": 0.7000000000011694,
+            "after": 0.7000000000007965,
+            "cause": "feedback"
+          },
+          {
+            "tick": 426,
+            "before": 0.7000000000007965,
+            "after": 0.7000000000007812,
+            "cause": "feedback"
+          },
+          {
+            "tick": 427,
+            "before": 0.7000000000007812,
+            "after": 0.7000000000007943,
+            "cause": "feedback"
+          },
+          {
+            "tick": 428,
+            "before": 0.7000000000007943,
+            "after": 0.7000000000006487,
+            "cause": "feedback"
+          },
+          {
+            "tick": 429,
+            "before": 0.7000000000006487,
+            "after": 0.7000000000006424,
+            "cause": "feedback"
+          },
+          {
+            "tick": 430,
+            "before": 0.7000000000006424,
+            "after": 0.7000000000006869,
+            "cause": "feedback"
+          },
+          {
+            "tick": 431,
+            "before": 0.7000000000006869,
+            "after": 0.7000000000006029,
+            "cause": "feedback"
+          },
+          {
+            "tick": 432,
+            "before": 0.7000000000006029,
+            "after": 0.7000000000004873,
+            "cause": "feedback"
+          },
+          {
+            "tick": 433,
+            "before": 0.7000000000004873,
+            "after": 0.7000000000003513,
+            "cause": "feedback"
+          },
+          {
+            "tick": 434,
+            "before": 0.7000000000003513,
+            "after": 0.7000000000002718,
+            "cause": "feedback"
+          },
+          {
+            "tick": 435,
+            "before": 0.7000000000002718,
+            "after": 0.7000000000003654,
+            "cause": "feedback"
+          },
+          {
+            "tick": 436,
+            "before": 0.7000000000003654,
+            "after": 0.7000000000003889,
+            "cause": "feedback"
+          },
+          {
+            "tick": 437,
+            "before": 0.7000000000003889,
+            "after": 0.7000000000004126,
+            "cause": "feedback"
+          },
+          {
+            "tick": 438,
+            "before": 0.7000000000004126,
+            "after": 0.7000000000003579,
+            "cause": "feedback"
+          },
+          {
+            "tick": 439,
+            "before": 0.7000000000003579,
+            "after": 0.7000000000003247,
+            "cause": "feedback"
+          },
+          {
+            "tick": 440,
+            "before": 0.7000000000003247,
+            "after": 0.7000000000003793,
+            "cause": "feedback"
+          },
+          {
+            "tick": 441,
+            "before": 0.7000000000003793,
+            "after": 0.7000000000004198,
+            "cause": "feedback"
+          },
+          {
+            "tick": 442,
+            "before": 0.7000000000004198,
+            "after": 0.700000000000389,
+            "cause": "feedback"
+          },
+          {
+            "tick": 443,
+            "before": 0.700000000000389,
+            "after": 0.7000000000003319,
+            "cause": "feedback"
+          },
+          {
+            "tick": 444,
+            "before": 0.7000000000003319,
+            "after": 0.7000000000002667,
+            "cause": "feedback"
+          },
+          {
+            "tick": 445,
+            "before": 0.7000000000002667,
+            "after": 0.7000000000002928,
+            "cause": "feedback"
+          },
+          {
+            "tick": 446,
+            "before": 0.7000000000002928,
+            "after": 0.7000000000003108,
+            "cause": "feedback"
+          },
+          {
+            "tick": 447,
+            "before": 0.7000000000003108,
+            "after": 0.7000000000002892,
+            "cause": "feedback"
+          },
+          {
+            "tick": 448,
+            "before": 0.7000000000002892,
+            "after": 0.7000000000002555,
+            "cause": "feedback"
+          },
+          {
+            "tick": 449,
+            "before": 0.7000000000002555,
+            "after": 0.700000000000217,
+            "cause": "feedback"
+          },
+          {
+            "tick": 450,
+            "before": 0.700000000000217,
+            "after": 0.700000000000163,
+            "cause": "feedback"
+          },
+          {
+            "tick": 451,
+            "before": 0.700000000000163,
+            "after": 0.7000000000001839,
+            "cause": "feedback"
+          },
+          {
+            "tick": 452,
+            "before": 0.7000000000001839,
+            "after": 0.7000000000001567,
+            "cause": "feedback"
+          },
+          {
+            "tick": 453,
+            "before": 0.7000000000001567,
+            "after": 0.7000000000001618,
+            "cause": "feedback"
+          },
+          {
+            "tick": 454,
+            "before": 0.7000000000001618,
+            "after": 0.7000000000001337,
+            "cause": "feedback"
+          },
+          {
+            "tick": 455,
+            "before": 0.7000000000001337,
+            "after": 0.7000000000000991,
+            "cause": "feedback"
+          },
+          {
+            "tick": 456,
+            "before": 0.7000000000000991,
+            "after": 0.7000000000000963,
+            "cause": "feedback"
+          },
+          {
+            "tick": 457,
+            "before": 0.7000000000000963,
+            "after": 0.7000000000000591,
+            "cause": "feedback"
+          },
+          {
+            "tick": 458,
+            "before": 0.7000000000000591,
+            "after": 0.7000000000000498,
+            "cause": "feedback"
+          },
+          {
+            "tick": 459,
+            "before": 0.7000000000000498,
+            "after": 0.7000000000000512,
+            "cause": "feedback"
+          },
+          {
+            "tick": 460,
+            "before": 0.7000000000000512,
+            "after": 0.7000000000000485,
+            "cause": "feedback"
+          },
+          {
+            "tick": 461,
+            "before": 0.7000000000000485,
+            "after": 0.7000000000000464,
+            "cause": "feedback"
+          },
+          {
+            "tick": 462,
+            "before": 0.7000000000000464,
+            "after": 0.70000000000004,
+            "cause": "feedback"
+          },
+          {
+            "tick": 463,
+            "before": 0.70000000000004,
+            "after": 0.700000000000038,
+            "cause": "feedback"
+          },
+          {
+            "tick": 464,
+            "before": 0.700000000000038,
+            "after": 0.7000000000000464,
+            "cause": "feedback"
+          },
+          {
+            "tick": 465,
+            "before": 0.7000000000000464,
+            "after": 0.7000000000000499,
+            "cause": "feedback"
+          },
+          {
+            "tick": 466,
+            "before": 0.7000000000000499,
+            "after": 0.700000000000051,
+            "cause": "feedback"
+          },
+          {
+            "tick": 467,
+            "before": 0.700000000000051,
+            "after": 0.7000000000000504,
+            "cause": "feedback"
+          },
+          {
+            "tick": 468,
+            "before": 0.7000000000000504,
+            "after": 0.7000000000000539,
+            "cause": "feedback"
+          },
+          {
+            "tick": 469,
+            "before": 0.7000000000000539,
+            "after": 0.7000000000000567,
+            "cause": "feedback"
+          },
+          {
+            "tick": 470,
+            "before": 0.7000000000000567,
+            "after": 0.7000000000000498,
+            "cause": "feedback"
+          },
+          {
+            "tick": 471,
+            "before": 0.7000000000000498,
+            "after": 0.7000000000000492,
+            "cause": "feedback"
+          },
+          {
+            "tick": 472,
+            "before": 0.7000000000000492,
+            "after": 0.7000000000000354,
+            "cause": "feedback"
+          },
+          {
+            "tick": 473,
+            "before": 0.7000000000000354,
+            "after": 0.7000000000000319,
+            "cause": "feedback"
+          },
+          {
+            "tick": 474,
+            "before": 0.7000000000000319,
+            "after": 0.7000000000000333,
+            "cause": "feedback"
+          },
+          {
+            "tick": 475,
+            "before": 0.7000000000000333,
+            "after": 0.7000000000000316,
+            "cause": "feedback"
+          },
+          {
+            "tick": 476,
+            "before": 0.7000000000000316,
+            "after": 0.7000000000000326,
+            "cause": "feedback"
+          },
+          {
+            "tick": 477,
+            "before": 0.7000000000000326,
+            "after": 0.7000000000000326,
+            "cause": "feedback"
+          },
+          {
+            "tick": 478,
+            "before": 0.7000000000000326,
+            "after": 0.7000000000000323,
+            "cause": "feedback"
+          },
+          {
+            "tick": 479,
+            "before": 0.7000000000000323,
+            "after": 0.7000000000000296,
+            "cause": "feedback"
+          },
+          {
+            "tick": 480,
+            "before": 0.7000000000000296,
+            "after": 0.7000000000000228,
+            "cause": "feedback"
+          },
+          {
+            "tick": 481,
+            "before": 0.7000000000000228,
+            "after": 0.7000000000000228,
+            "cause": "feedback"
+          },
+          {
+            "tick": 482,
+            "before": 0.7000000000000228,
+            "after": 0.7000000000000223,
+            "cause": "feedback"
+          },
+          {
+            "tick": 483,
+            "before": 0.7000000000000223,
+            "after": 0.7000000000000184,
+            "cause": "feedback"
+          },
+          {
+            "tick": 484,
+            "before": 0.7000000000000184,
+            "after": 0.7000000000000156,
+            "cause": "feedback"
+          },
+          {
+            "tick": 485,
+            "before": 0.7000000000000156,
+            "after": 0.7000000000000164,
+            "cause": "feedback"
+          },
+          {
+            "tick": 486,
+            "before": 0.7000000000000164,
+            "after": 0.7000000000000145,
+            "cause": "feedback"
+          },
+          {
+            "tick": 487,
+            "before": 0.7000000000000145,
+            "after": 0.7000000000000143,
+            "cause": "feedback"
+          },
+          {
+            "tick": 488,
+            "before": 0.7000000000000143,
+            "after": 0.7000000000000147,
+            "cause": "feedback"
+          },
+          {
+            "tick": 489,
+            "before": 0.7000000000000147,
+            "after": 0.7000000000000134,
+            "cause": "feedback"
+          },
+          {
+            "tick": 490,
+            "before": 0.7000000000000134,
+            "after": 0.700000000000013,
+            "cause": "feedback"
+          },
+          {
+            "tick": 491,
+            "before": 0.700000000000013,
+            "after": 0.7000000000000137,
+            "cause": "feedback"
+          },
+          {
+            "tick": 492,
+            "before": 0.7000000000000137,
+            "after": 0.7000000000000137,
+            "cause": "feedback"
+          },
+          {
+            "tick": 493,
+            "before": 0.7000000000000137,
+            "after": 0.7000000000000128,
+            "cause": "feedback"
+          },
+          {
+            "tick": 494,
+            "before": 0.7000000000000128,
+            "after": 0.7000000000000104,
+            "cause": "feedback"
+          },
+          {
+            "tick": 495,
+            "before": 0.7000000000000104,
+            "after": 0.7000000000000077,
+            "cause": "feedback"
+          },
+          {
+            "tick": 496,
+            "before": 0.7000000000000077,
+            "after": 0.7000000000000063,
+            "cause": "feedback"
+          },
+          {
+            "tick": 497,
+            "before": 0.7000000000000063,
+            "after": 0.7000000000000067,
+            "cause": "feedback"
+          },
+          {
+            "tick": 498,
+            "before": 0.7000000000000067,
+            "after": 0.7000000000000051,
+            "cause": "feedback"
+          },
+          {
+            "tick": 499,
+            "before": 0.7000000000000051,
+            "after": 0.700000000000005,
+            "cause": "feedback"
+          },
+          {
+            "tick": 500,
+            "before": 0.700000000000005,
+            "after": 0.7000000000000041,
+            "cause": "feedback"
+          },
+          {
+            "tick": 501,
+            "before": 0.7000000000000041,
+            "after": 0.7000000000000028,
+            "cause": "feedback"
+          },
+          {
+            "tick": 502,
+            "before": 0.7000000000000028,
+            "after": 0.7000000000000021,
+            "cause": "feedback"
+          },
+          {
+            "tick": 503,
+            "before": 0.7000000000000021,
+            "after": 0.7000000000000018,
+            "cause": "feedback"
+          },
+          {
+            "tick": 504,
+            "before": 0.7000000000000018,
+            "after": 0.7000000000000022,
+            "cause": "feedback"
+          },
+          {
+            "tick": 505,
+            "before": 0.7000000000000022,
+            "after": 0.7000000000000024,
+            "cause": "feedback"
+          },
+          {
+            "tick": 506,
+            "before": 0.7000000000000024,
+            "after": 0.7000000000000021,
+            "cause": "feedback"
+          },
+          {
+            "tick": 507,
+            "before": 0.7000000000000021,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 508,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 509,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 510,
+            "before": 0.7000000000000017,
+            "after": 0.700000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 511,
+            "before": 0.700000000000002,
+            "after": 0.700000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 512,
+            "before": 0.700000000000002,
+            "after": 0.700000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 513,
+            "before": 0.700000000000002,
+            "after": 0.7000000000000018,
+            "cause": "feedback"
+          },
+          {
+            "tick": 514,
+            "before": 0.7000000000000018,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 515,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 516,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 517,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 518,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 519,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000018,
+            "cause": "feedback"
+          },
+          {
+            "tick": 520,
+            "before": 0.7000000000000018,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 521,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 522,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 523,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000017,
+            "cause": "feedback"
+          },
+          {
+            "tick": 524,
+            "before": 0.7000000000000017,
+            "after": 0.7000000000000016,
+            "cause": "feedback"
+          },
+          {
+            "tick": 525,
+            "before": 0.7000000000000016,
+            "after": 0.7000000000000014,
+            "cause": "feedback"
+          },
+          {
+            "tick": 526,
+            "before": 0.7000000000000014,
+            "after": 0.7000000000000014,
+            "cause": "feedback"
+          },
+          {
+            "tick": 527,
+            "before": 0.7000000000000014,
+            "after": 0.7000000000000013,
+            "cause": "feedback"
+          },
+          {
+            "tick": 528,
+            "before": 0.7000000000000013,
+            "after": 0.7000000000000013,
+            "cause": "feedback"
+          },
+          {
+            "tick": 529,
+            "before": 0.7000000000000013,
+            "after": 0.7000000000000014,
+            "cause": "feedback"
+          },
+          {
+            "tick": 530,
+            "before": 0.7000000000000014,
+            "after": 0.7000000000000014,
+            "cause": "feedback"
+          },
+          {
+            "tick": 531,
+            "before": 0.7000000000000014,
+            "after": 0.7000000000000012,
+            "cause": "feedback"
+          },
+          {
+            "tick": 532,
+            "before": 0.7000000000000012,
+            "after": 0.7000000000000012,
+            "cause": "feedback"
+          },
+          {
+            "tick": 533,
+            "before": 0.7000000000000012,
+            "after": 0.700000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 534,
+            "before": 0.700000000000001,
+            "after": 0.700000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 535,
+            "before": 0.700000000000001,
+            "after": 0.7000000000000007,
+            "cause": "feedback"
+          },
+          {
+            "tick": 536,
+            "before": 0.7000000000000007,
+            "after": 0.7000000000000006,
+            "cause": "feedback"
+          },
+          {
+            "tick": 537,
+            "before": 0.7000000000000006,
+            "after": 0.7000000000000006,
+            "cause": "feedback"
+          },
+          {
+            "tick": 538,
+            "before": 0.7000000000000006,
+            "after": 0.7000000000000005,
+            "cause": "feedback"
+          },
+          {
+            "tick": 539,
+            "before": 0.7000000000000005,
+            "after": 0.7000000000000004,
+            "cause": "feedback"
+          },
+          {
+            "tick": 540,
+            "before": 0.7000000000000004,
+            "after": 0.7000000000000004,
+            "cause": "feedback"
+          },
+          {
+            "tick": 541,
+            "before": 0.7000000000000004,
+            "after": 0.7000000000000004,
+            "cause": "feedback"
+          },
+          {
+            "tick": 542,
+            "before": 0.7000000000000004,
+            "after": 0.7000000000000004,
+            "cause": "feedback"
+          },
+          {
+            "tick": 543,
+            "before": 0.7000000000000004,
+            "after": 0.7000000000000003,
+            "cause": "feedback"
+          },
+          {
+            "tick": 544,
+            "before": 0.7000000000000003,
+            "after": 0.7000000000000003,
+            "cause": "feedback"
+          },
+          {
+            "tick": 545,
+            "before": 0.7000000000000003,
+            "after": 0.7000000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 546,
+            "before": 0.7000000000000002,
+            "after": 0.7000000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 547,
+            "before": 0.7000000000000002,
+            "after": 0.7000000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 548,
+            "before": 0.7000000000000002,
+            "after": 0.7000000000000002,
+            "cause": "feedback"
+          },
+          {
+            "tick": 549,
+            "before": 0.7000000000000002,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 550,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 551,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 552,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 553,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 554,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 555,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 556,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 557,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 558,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 559,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 560,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 561,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 562,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 563,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 564,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 565,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 566,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 567,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 568,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 569,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 570,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 571,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 572,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 573,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 574,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 575,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 576,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 577,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 578,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 579,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 580,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 581,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 582,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 583,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 584,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 585,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 586,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 587,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 588,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 589,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 590,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 591,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 592,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 593,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 594,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 595,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 596,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 597,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 598,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 599,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 600,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 601,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 602,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 603,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 604,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 605,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 606,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 607,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 608,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 609,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 610,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 611,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 612,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 613,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 614,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 615,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 616,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 617,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 618,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 619,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 620,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 621,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 622,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 623,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 624,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 625,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 626,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 627,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 628,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 629,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 630,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 631,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 632,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 633,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 634,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 635,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 636,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 637,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 638,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 639,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 640,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 641,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 642,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 643,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 644,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 645,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 646,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 647,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 648,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 649,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 650,
+            "before": 0.7000000000000001,
+            "after": 0.7000000000000001,
+            "cause": "feedback"
+          },
+          {
+            "tick": 751,
+            "before": 0.7000000000000001,
+            "after": 0.729436193200396,
+            "cause": "feedback"
+          },
+          {
+            "tick": 752,
+            "before": 0.729436193200396,
+            "after": 0.6411209909846807,
+            "cause": "feedback"
+          },
+          {
+            "tick": 753,
+            "before": 0.6411209909846807,
+            "after": 0.6249138682237992,
+            "cause": "feedback"
+          },
+          {
+            "tick": 754,
+            "before": 0.6249138682237992,
+            "after": 0.578332459565615,
+            "cause": "feedback"
+          },
+          {
+            "tick": 755,
+            "before": 0.578332459565615,
+            "after": 0.5680634593792108,
+            "cause": "feedback"
+          },
+          {
+            "tick": 756,
+            "before": 0.5680634593792108,
+            "after": 0.550665505873933,
+            "cause": "feedback"
+          },
+          {
+            "tick": 757,
+            "before": 0.550665505873933,
+            "after": 0.5376290061241417,
+            "cause": "feedback"
+          },
+          {
+            "tick": 758,
+            "before": 0.5376290061241417,
+            "after": 0.38914454120769393,
+            "cause": "feedback"
+          },
+          {
+            "tick": 759,
+            "before": 0.38914454120769393,
+            "after": 0.41248065689157093,
+            "cause": "feedback"
+          },
+          {
+            "tick": 760,
+            "before": 0.41248065689157093,
+            "after": 0.43738840894178693,
+            "cause": "feedback"
+          },
+          {
+            "tick": 761,
+            "before": 0.43738840894178693,
+            "after": 0.44374979546536036,
+            "cause": "feedback"
+          },
+          {
+            "tick": 762,
+            "before": 0.44374979546536036,
+            "after": 0.4284593608285711,
+            "cause": "feedback"
+          },
+          {
+            "tick": 763,
+            "before": 0.4284593608285711,
+            "after": 0.4369600546300434,
+            "cause": "feedback"
+          },
+          {
+            "tick": 764,
+            "before": 0.4369600546300434,
+            "after": 0.43106974132252274,
+            "cause": "feedback"
+          },
+          {
+            "tick": 765,
+            "before": 0.43106974132252274,
+            "after": 0.4110364099166947,
+            "cause": "feedback"
+          },
+          {
+            "tick": 766,
+            "before": 0.4110364099166947,
+            "after": 0.4090834885619881,
+            "cause": "feedback"
+          },
+          {
+            "tick": 767,
+            "before": 0.4090834885619881,
+            "after": 0.3758470386590869,
+            "cause": "feedback"
+          },
+          {
+            "tick": 768,
+            "before": 0.3758470386590869,
+            "after": 0.4043424903520834,
+            "cause": "feedback"
+          },
+          {
+            "tick": 769,
+            "before": 0.4043424903520834,
+            "after": 0.4094932076783157,
+            "cause": "feedback"
+          },
+          {
+            "tick": 770,
+            "before": 0.4094932076783157,
+            "after": 0.37127967280291263,
+            "cause": "feedback"
+          },
+          {
+            "tick": 771,
+            "before": 0.37127967280291263,
+            "after": 0.33132994327557763,
+            "cause": "feedback"
+          },
+          {
+            "tick": 772,
+            "before": 0.33132994327557763,
+            "after": 0.3332347250530309,
+            "cause": "feedback"
+          },
+          {
+            "tick": 773,
+            "before": 0.3332347250530309,
+            "after": 0.3214067147897409,
+            "cause": "feedback"
+          },
+          {
+            "tick": 774,
+            "before": 0.3214067147897409,
+            "after": 0.26320450638511556,
+            "cause": "feedback"
+          },
+          {
+            "tick": 775,
+            "before": 0.26320450638511556,
+            "after": 0.276646567476368,
+            "cause": "feedback"
+          },
+          {
+            "tick": 776,
+            "before": 0.276646567476368,
+            "after": 0.27770401533978945,
+            "cause": "feedback"
+          },
+          {
+            "tick": 777,
+            "before": 0.27770401533978945,
+            "after": 0.288190989986182,
+            "cause": "feedback"
+          },
+          {
+            "tick": 778,
+            "before": 0.288190989986182,
+            "after": 0.2611121521052627,
+            "cause": "feedback"
+          },
+          {
+            "tick": 779,
+            "before": 0.2611121521052627,
+            "after": 0.215350061575378,
+            "cause": "feedback"
+          },
+          {
+            "tick": 780,
+            "before": 0.215350061575378,
+            "after": 0.17657845302897382,
+            "cause": "feedback"
+          },
+          {
+            "tick": 781,
+            "before": 0.17657845302897382,
+            "after": 0.14477870688673827,
+            "cause": "feedback"
+          },
+          {
+            "tick": 782,
+            "before": 0.14477870688673827,
+            "after": 0.12738416911869338,
+            "cause": "feedback"
+          },
+          {
+            "tick": 783,
+            "before": 0.12738416911869338,
+            "after": 0.12635610017903928,
+            "cause": "feedback"
+          },
+          {
+            "tick": 784,
+            "before": 0.12635610017903928,
+            "after": 0.13197946279353034,
+            "cause": "feedback"
+          },
+          {
+            "tick": 785,
+            "before": 0.13197946279353034,
+            "after": 0.11377749427179928,
+            "cause": "feedback"
+          },
+          {
+            "tick": 786,
+            "before": 0.11377749427179928,
+            "after": 0.09659103327873793,
+            "cause": "feedback"
+          },
+          {
+            "tick": 787,
+            "before": 0.09659103327873793,
+            "after": 0.09862411023418484,
+            "cause": "feedback"
+          },
+          {
+            "tick": 788,
+            "before": 0.09862411023418484,
+            "after": 0.10041862892705436,
+            "cause": "feedback"
+          },
+          {
+            "tick": 789,
+            "before": 0.10041862892705436,
+            "after": 0.09684270725301854,
+            "cause": "feedback"
+          },
+          {
+            "tick": 790,
+            "before": 0.09684270725301854,
+            "after": 0.09794876156409779,
+            "cause": "feedback"
+          },
+          {
+            "tick": 791,
+            "before": 0.09794876156409779,
+            "after": 0.10092741007682826,
+            "cause": "feedback"
+          },
+          {
+            "tick": 792,
+            "before": 0.10092741007682826,
+            "after": 0.10100959771874947,
+            "cause": "feedback"
+          },
+          {
+            "tick": 793,
+            "before": 0.10100959771874947,
+            "after": 0.09378847035848524,
+            "cause": "feedback"
+          },
+          {
+            "tick": 794,
+            "before": 0.09378847035848524,
+            "after": 0.08233871391476567,
+            "cause": "feedback"
+          },
+          {
+            "tick": 795,
+            "before": 0.08233871391476567,
+            "after": 0.07307795597281422,
+            "cause": "feedback"
+          },
+          {
+            "tick": 796,
+            "before": 0.07307795597281422,
+            "after": 0.0563228439917815,
+            "cause": "feedback"
+          },
+          {
+            "tick": 797,
+            "before": 0.0563228439917815,
+            "after": 0.05598410710337317,
+            "cause": "feedback"
+          },
+          {
+            "tick": 798,
+            "before": 0.05598410710337317,
+            "after": 0.045073478939119796,
+            "cause": "feedback"
+          },
+          {
+            "tick": 799,
+            "before": 0.045073478939119796,
+            "after": 0.040751558255629365,
+            "cause": "feedback"
+          },
+          {
+            "tick": 800,
+            "before": 0.040751558255629365,
+            "after": 0.03658095864776806,
+            "cause": "feedback"
+          },
+          {
+            "tick": 801,
+            "before": 0.03658095864776806,
+            "after": 0.034803428663410726,
+            "cause": "feedback"
+          },
+          {
+            "tick": 802,
+            "before": 0.034803428663410726,
+            "after": 0.03479300031213392,
+            "cause": "feedback"
+          },
+          {
+            "tick": 803,
+            "before": 0.03479300031213392,
+            "after": 0.03464812882267086,
+            "cause": "feedback"
+          },
+          {
+            "tick": 804,
+            "before": 0.03464812882267086,
+            "after": 0.034268941489884,
+            "cause": "feedback"
+          },
+          {
+            "tick": 805,
+            "before": 0.034268941489884,
+            "after": 0.032632250027014593,
+            "cause": "feedback"
+          },
+          {
+            "tick": 806,
+            "before": 0.032632250027014593,
+            "after": 0.03249063128424982,
+            "cause": "feedback"
+          },
+          {
+            "tick": 807,
+            "before": 0.03249063128424982,
+            "after": 0.029063051624759424,
+            "cause": "feedback"
+          },
+          {
+            "tick": 808,
+            "before": 0.029063051624759424,
+            "after": 0.02843219249083234,
+            "cause": "feedback"
+          },
+          {
+            "tick": 809,
+            "before": 0.02843219249083234,
+            "after": 0.025066119066993305,
+            "cause": "feedback"
+          },
+          {
+            "tick": 810,
+            "before": 0.025066119066993305,
+            "after": 0.0249583483349219,
+            "cause": "feedback"
+          },
+          {
+            "tick": 811,
+            "before": 0.0249583483349219,
+            "after": 0.022969731712505555,
+            "cause": "feedback"
+          },
+          {
+            "tick": 812,
+            "before": 0.022969731712505555,
+            "after": 0.019379166822278204,
+            "cause": "feedback"
+          },
+          {
+            "tick": 813,
+            "before": 0.019379166822278204,
+            "after": 0.019278846879490517,
+            "cause": "feedback"
+          },
+          {
+            "tick": 814,
+            "before": 0.019278846879490517,
+            "after": 0.019250023291498688,
+            "cause": "feedback"
+          },
+          {
+            "tick": 815,
+            "before": 0.019250023291498688,
+            "after": 0.016279241411193184,
+            "cause": "feedback"
+          },
+          {
+            "tick": 816,
+            "before": 0.016279241411193184,
+            "after": 0.015156355390072613,
+            "cause": "feedback"
+          },
+          {
+            "tick": 817,
+            "before": 0.015156355390072613,
+            "after": 0.012152958091270732,
+            "cause": "feedback"
+          },
+          {
+            "tick": 818,
+            "before": 0.012152958091270732,
+            "after": 0.011408634967189628,
+            "cause": "feedback"
+          },
+          {
+            "tick": 819,
+            "before": 0.011408634967189628,
+            "after": 0.011407588564024929,
+            "cause": "feedback"
+          },
+          {
+            "tick": 820,
+            "before": 0.011407588564024929,
+            "after": 0.011402094694336616,
+            "cause": "feedback"
+          },
+          {
+            "tick": 821,
+            "before": 0.011402094694336616,
+            "after": 0.010838717491124908,
+            "cause": "feedback"
+          },
+          {
+            "tick": 822,
+            "before": 0.010838717491124908,
+            "after": 0.010724052567652978,
+            "cause": "feedback"
+          },
+          {
+            "tick": 823,
+            "before": 0.010724052567652978,
+            "after": 0.010364169239813861,
+            "cause": "feedback"
+          },
+          {
+            "tick": 824,
+            "before": 0.010364169239813861,
+            "after": 0.010375332478058524,
+            "cause": "feedback"
+          },
+          {
+            "tick": 825,
+            "before": 0.010375332478058524,
+            "after": 0.009311877693735315,
+            "cause": "feedback"
+          },
+          {
+            "tick": 826,
+            "before": 0.009311877693735315,
+            "after": 0.009557696519028713,
+            "cause": "feedback"
+          },
+          {
+            "tick": 827,
+            "before": 0.009557696519028713,
+            "after": 0.009521192613870444,
+            "cause": "feedback"
+          },
+          {
+            "tick": 828,
+            "before": 0.009521192613870444,
+            "after": 0.009304389959825665,
+            "cause": "feedback"
+          },
+          {
+            "tick": 829,
+            "before": 0.009304389959825665,
+            "after": 0.0082597620275024,
+            "cause": "feedback"
+          },
+          {
+            "tick": 830,
+            "before": 0.0082597620275024,
+            "after": 0.007834877850257984,
+            "cause": "feedback"
+          },
+          {
+            "tick": 831,
+            "before": 0.007834877850257984,
+            "after": 0.007826880473773805,
+            "cause": "feedback"
+          },
+          {
+            "tick": 832,
+            "before": 0.007826880473773805,
+            "after": 0.00783745754107408,
+            "cause": "feedback"
+          },
+          {
+            "tick": 833,
+            "before": 0.00783745754107408,
+            "after": 0.0076424128078826,
+            "cause": "feedback"
+          },
+          {
+            "tick": 834,
+            "before": 0.0076424128078826,
+            "after": 0.006845844672658649,
+            "cause": "feedback"
+          },
+          {
+            "tick": 835,
+            "before": 0.006845844672658649,
+            "after": 0.006702496872732878,
+            "cause": "feedback"
+          },
+          {
+            "tick": 836,
+            "before": 0.006702496872732878,
+            "after": 0.006194532660055986,
+            "cause": "feedback"
+          }
+        ],
+        "weakSteps": 12,
+        "retiredAt": 836,
+        "reason": "persistently weak learned contribution"
+      }
+    ],
+    "events": [
+      {
+        "id": 15,
+        "tick": 4,
+        "kind": "relation-created",
+        "from": "b",
+        "to": "result",
+        "reason": "experienced signal/residual correlation",
+        "correlation": -0.010307409034495627,
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      },
+      {
+        "id": 18,
+        "tick": 5,
+        "kind": "relation-created",
+        "from": "a",
+        "to": "result",
+        "reason": "experienced signal/residual correlation",
+        "correlation": 0.0468579708773421,
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      },
+      {
+        "id": 1410,
+        "tick": 750,
+        "kind": "environment-perturbation",
+        "constituent": "a",
+        "before": [
+          -0.1143491695616981,
+          0.12439043483007511
+        ],
+        "position": [
+          3,
+          -3
+        ],
+        "cause": "explicit external condition change",
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      },
+      {
+        "id": 1411,
+        "tick": 750,
+        "kind": "environment-perturbation",
+        "constituent": "c",
+        "before": [
+          2.886836467030865,
+          3.0620230645223057
+        ],
+        "position": [
+          -0.08,
+          0
+        ],
+        "cause": "explicit external condition change",
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      },
+      {
+        "id": 1421,
+        "tick": 754,
+        "kind": "relation-created",
+        "from": "c",
+        "to": "result",
+        "reason": "experienced signal/residual correlation",
+        "correlation": 0.012479256392728191,
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      },
+      {
+        "id": 1586,
+        "tick": 836,
+        "kind": "relation-dissolved",
+        "from": "a",
+        "to": "result",
+        "reason": "persistently weak learned contribution",
+        "potentialExpressions": [
+          {
+            "id": 0,
+            "actionCapable": null
+          },
+          {
+            "id": 1,
+            "actionCapable": null
+          },
+          {
+            "id": 2,
+            "actionCapable": null
+          },
+          {
+            "id": 3,
+            "actionCapable": null
+          },
+          {
+            "id": 4,
+            "actionCapable": null
+          },
+          {
+            "id": 5,
+            "actionCapable": null
+          }
+        ],
+        "leadingDimension": null,
+        "leadershipStatus": "unresolved: no derived identification rule",
+        "provenance": "native/PRIMARY-CONDITIONS.md"
+      }
+    ],
+    "manualConnections": 0,
+    "milliseconds": 482.7940719999999,
+    "limits": "Supervised affine transformations in an encounter-developed DAG. Environmental relocation, scalar credit, pruning thresholds and acyclicity are experimental conditions. Not yet emergent hidden neural architecture, functional meshes, or derived five-dimensional morphology."
+  },
+  "controls": {
+    "noFeedback": {
+      "experiment": "functional reorganization after changed conditions",
+      "seed": 17946231,
+      "trainingExamplesPerPhase": 650,
+      "heldOutExamples": 50,
+      "feedbackAfterChange": false,
+      "bringNewContact": true,
+      "originalMSE": 1.1617209424543807e-32,
+      "beforeChangedMSE": 0.34016838564052704,
+      "adaptedMSE": 0.34016838564052704,
+      "disruptedMSE": 0.31882224800899495,
+      "recoveredMSE": 0.34016838564052704,
+      "restartMSE": 0.34016838564052704,
+      "before": {
+        "tick": 700,
+        "edges": [
+          "b->result",
+          "a->result"
+        ],
+        "formations": [
+          {
+            "id": "formation-2",
+            "members": [
+              "a",
+              "b",
+              "result"
+            ],
+            "createdAt": 5,
+            "predecessors": [
+              "formation-1"
+            ],
+            "dimensionalParticipation": [
+              "Movement",
+              "Evolution",
+              "Being",
+              "Design",
+              "Space"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "tick": 1450,
+        "edges": [
+          "b->result",
+          "a->result"
+        ],
+        "formations": [
+          {
+            "id": "formation-2",
+            "members": [
+              "a",
+              "b",
+              "result"
+            ],
+            "createdAt": 5,
+            "predecessors": [
+              "formation-1"
+            ],
+            "dimensionalParticipation": [
+              "Movement",
+              "Evolution",
+              "Being",
+              "Design",
+              "Space"
+            ]
+          }
+        ]
+      },
+      "changeTick": 750,
+      "learnedTrace": [
+        {
+          "from": "b",
+          "to": "result",
+          "source": 0.7207529675215483,
+          "weight": -0.39999999999999997,
+          "contribution": -0.2883011870086193
+        },
+        {
+          "from": "a",
+          "to": "result",
+          "source": 0.6606883336789906,
+          "weight": 0.7000000000000001,
+          "contribution": 0.4624818335752935
+        }
+      ],
+      "retiredRelations": [],
+      "events": [
+        {
+          "id": 15,
+          "tick": 4,
+          "kind": "relation-created",
+          "from": "b",
+          "to": "result",
+          "reason": "experienced signal/residual correlation",
+          "correlation": -0.010307409034495627,
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        },
+        {
+          "id": 18,
+          "tick": 5,
+          "kind": "relation-created",
+          "from": "a",
+          "to": "result",
+          "reason": "experienced signal/residual correlation",
+          "correlation": 0.0468579708773421,
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        },
+        {
+          "id": 1410,
+          "tick": 750,
+          "kind": "environment-perturbation",
+          "constituent": "a",
+          "before": [
+            -0.1143491695616981,
+            0.12439043483007511
+          ],
+          "position": [
+            3,
+            -3
+          ],
+          "cause": "explicit external condition change",
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        },
+        {
+          "id": 1411,
+          "tick": 750,
+          "kind": "environment-perturbation",
+          "constituent": "c",
+          "before": [
+            2.886836467030865,
+            3.0620230645223057
+          ],
+          "position": [
+            -0.08,
+            0
+          ],
+          "cause": "explicit external condition change",
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        }
+      ],
+      "manualConnections": 0,
+      "milliseconds": 259.03560300000004,
+      "limits": "Supervised affine transformations in an encounter-developed DAG. Environmental relocation, scalar credit, pruning thresholds and acyclicity are experimental conditions. Not yet emergent hidden neural architecture, functional meshes, or derived five-dimensional morphology."
+    },
+    "noNewContact": {
+      "experiment": "functional reorganization after changed conditions",
+      "seed": 17946231,
+      "trainingExamplesPerPhase": 650,
+      "heldOutExamples": 50,
+      "feedbackAfterChange": true,
+      "bringNewContact": false,
+      "originalMSE": 1.1617209424543807e-32,
+      "beforeChangedMSE": 0.34016838564052704,
+      "adaptedMSE": 0.2610168654284602,
+      "disruptedMSE": 0.2962913123127977,
+      "recoveredMSE": 0.2610168654284602,
+      "restartMSE": 0.2610168654284602,
+      "before": {
+        "tick": 700,
+        "edges": [
+          "b->result",
+          "a->result"
+        ],
+        "formations": [
+          {
+            "id": "formation-2",
+            "members": [
+              "a",
+              "b",
+              "result"
+            ],
+            "createdAt": 5,
+            "predecessors": [
+              "formation-1"
+            ],
+            "dimensionalParticipation": [
+              "Movement",
+              "Evolution",
+              "Being",
+              "Design",
+              "Space"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "tick": 1450,
+        "edges": [
+          "b->result",
+          "a->result"
+        ],
+        "formations": [
+          {
+            "id": "formation-2",
+            "members": [
+              "a",
+              "b",
+              "result"
+            ],
+            "createdAt": 5,
+            "predecessors": [
+              "formation-1"
+            ],
+            "dimensionalParticipation": [
+              "Movement",
+              "Evolution",
+              "Being",
+              "Design",
+              "Space"
+            ]
+          }
+        ]
+      },
+      "changeTick": 750,
+      "learnedTrace": [
+        {
+          "from": "b",
+          "to": "result",
+          "source": 0.7207529675215483,
+          "weight": -0.3140450492371068,
+          "contribution": -0.22634890117309547
+        },
+        {
+          "from": "a",
+          "to": "result",
+          "source": 0.6606883336789906,
+          "weight": 0.19543294531013075,
+          "contribution": 0.12912026698292758
+        }
+      ],
+      "retiredRelations": [],
+      "events": [
+        {
+          "id": 15,
+          "tick": 4,
+          "kind": "relation-created",
+          "from": "b",
+          "to": "result",
+          "reason": "experienced signal/residual correlation",
+          "correlation": -0.010307409034495627,
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        },
+        {
+          "id": 18,
+          "tick": 5,
+          "kind": "relation-created",
+          "from": "a",
+          "to": "result",
+          "reason": "experienced signal/residual correlation",
+          "correlation": 0.0468579708773421,
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        },
+        {
+          "id": 1410,
+          "tick": 750,
+          "kind": "environment-perturbation",
+          "constituent": "a",
+          "before": [
+            -0.1143491695616981,
+            0.12439043483007511
+          ],
+          "position": [
+            3,
+            -3
+          ],
+          "cause": "explicit external condition change",
+          "potentialExpressions": [
+            {
+              "id": 0,
+              "actionCapable": null
+            },
+            {
+              "id": 1,
+              "actionCapable": null
+            },
+            {
+              "id": 2,
+              "actionCapable": null
+            },
+            {
+              "id": 3,
+              "actionCapable": null
+            },
+            {
+              "id": 4,
+              "actionCapable": null
+            },
+            {
+              "id": 5,
+              "actionCapable": null
+            }
+          ],
+          "leadingDimension": null,
+          "leadershipStatus": "unresolved: no derived identification rule",
+          "provenance": "native/PRIMARY-CONDITIONS.md"
+        }
+      ],
+      "manualConnections": 0,
+      "milliseconds": 363.08210399999996,
+      "limits": "Supervised affine transformations in an encounter-developed DAG. Environmental relocation, scalar credit, pruning thresholds and acyclicity are experimental conditions. Not yet emergent hidden neural architecture, functional meshes, or derived five-dimensional morphology."
+    }
+  },
+  "timestamp": "2026-10-29T02:51:06.714Z",
+  "node": "v24.19.0"
+}

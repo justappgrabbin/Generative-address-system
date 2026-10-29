@@ -10,3 +10,4 @@ These notes preserve the user's latest working relationships without replacing u
 - Low-level qualities should persist into higher compositions. The measured Boolean visual-feature route is described in BOOLEAN-VISION.md; the live runtime has not completed that route.
 
 The next implementation milestone must validate those relationships against the actual source diagrams and worked comparisons, then connect primitive feature transformations to recognizable morphology. Merely drawing words near particles or counting five rows does not satisfy that milestone.
+

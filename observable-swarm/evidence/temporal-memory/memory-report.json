@@ -1,0 +1,349 @@
+{
+  "report": {
+    "experiment": "encounter-developed delayed-state memory",
+    "trainingExamples": 1800,
+    "heldOutExamples": 100,
+    "selfObservation": true,
+    "heldOutMSE": 4.9469011096272455e-26,
+    "restartMSE": 0,
+    "disruptedMSE": 0.03148843677345588,
+    "recoveredMSE": 4.827397715868073e-26,
+    "samePresentInput": {
+      "left": 0.9142571321910993,
+      "right": -0.853684742807781
+    },
+    "manualConnections": 0,
+    "inspection": {
+      "formation": "entire substrate",
+      "tick": 1900,
+      "members": [
+        "signal",
+        "state"
+      ],
+      "structuralDescription": "recurrent linear signal network",
+      "update": "discrete synchronous one-step delay",
+      "recurrentComponents": [
+        [
+          "state"
+        ]
+      ],
+      "selfConnections": [
+        "state->state"
+      ],
+      "constituentStates": [
+        {
+          "id": "signal",
+          "value": 0.7480965256690979,
+          "position": [
+            -0.051024663679671935,
+            0.00711120895060358
+          ],
+          "input": true,
+          "dimensionalContext": {
+            "Movement": {
+              "present": true,
+              "phase": 0.4513322353837932,
+              "position": [
+                -0.051024663679671935,
+                0.00711120895060358
+              ],
+              "fixedContact": false
+            },
+            "Evolution": {
+              "present": true,
+              "encounters": 1900,
+              "historyCount": 1904,
+              "lastEvent": 3707
+            },
+            "Being": {
+              "present": true,
+              "realizedValue": 0.7480965256690979,
+              "extent": 0.005
+            },
+            "Design": {
+              "present": true,
+              "executionRank": null,
+              "executionPolicy": "synchronous one-step delayed signals",
+              "contactType": "input",
+              "allowedRelation": "directed signal"
+            },
+            "Space": {
+              "present": true,
+              "resultingAdjacency": [
+                "signal->state"
+              ],
+              "formations": [
+                "formation-1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "state",
+          "value": -0.0012481461057282234,
+          "position": [
+            0.051024663679649813,
+            -0.007111208950586552
+          ],
+          "input": false,
+          "dimensionalContext": {
+            "Movement": {
+              "present": true,
+              "phase": 3.592924888973583,
+              "position": [
+                0.051024663679649813,
+                -0.007111208950586552
+              ],
+              "fixedContact": false
+            },
+            "Evolution": {
+              "present": true,
+              "encounters": 1900,
+              "historyCount": 3707,
+              "lastEvent": 3707
+            },
+            "Being": {
+              "present": true,
+              "realizedValue": -0.0012481461057282234,
+              "extent": 0.005
+            },
+            "Design": {
+              "present": true,
+              "executionRank": null,
+              "executionPolicy": "synchronous one-step delayed signals",
+              "contactType": "internal",
+              "allowedRelation": "directed signal"
+            },
+            "Space": {
+              "present": true,
+              "resultingAdjacency": [
+                "signal->state",
+                "state->state"
+              ],
+              "formations": [
+                "formation-1"
+              ]
+            }
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "signal->state",
+          "from": "signal",
+          "to": "state",
+          "weight": 0.35000000000000636,
+          "usage": 1896,
+          "feedbackUpdates": 1797,
+          "origin": "local-encounter"
+        },
+        {
+          "id": "state->state",
+          "from": "state",
+          "to": "state",
+          "weight": 0.6499999999996473,
+          "usage": 1878,
+          "feedbackUpdates": 1779,
+          "origin": "local-self-observation"
+        }
+      ],
+      "executionTrace": [
+        {
+          "from": "signal",
+          "to": "state",
+          "source": -0.33585901325568557,
+          "weight": 0.35000000000000636,
+          "contribution": -0.11755065463949209,
+          "delay": 1,
+          "sourceTick": 1899
+        },
+        {
+          "from": "state",
+          "to": "state",
+          "source": 0.17892693620596903,
+          "weight": 0.6499999999996473,
+          "contribution": 0.11630250853381677,
+          "delay": 1,
+          "sourceTick": 1899
+        }
+      ],
+      "established": {
+        "linearPropagation": true,
+        "delayedSignals": true,
+        "cyclesPresent": true
+      },
+      "notEstablishedByInspection": [
+        "learning generalization",
+        "memory usefulness",
+        "spiking or oscillatory neural behavior",
+        "hidden-layer emergence",
+        "computational mesh",
+        "complete five-dimensional morphology"
+      ],
+      "capabilityEvidence": "Consult held-out and causal-intervention experiments; topology alone does not establish capability."
+    },
+    "limits": "A learned linear recurrence using a supplied one-step delay and local self-observation opportunity. Synchronous scalar updates and supervised feedback are experimental primitives. No spiking network, hidden-layer emergence, computational mesh, or derived dimensional realization law is established."
+  },
+  "control": {
+    "experiment": "encounter-developed delayed-state memory",
+    "trainingExamples": 1800,
+    "heldOutExamples": 100,
+    "selfObservation": false,
+    "heldOutMSE": 0.04422634223693812,
+    "restartMSE": 0,
+    "disruptedMSE": 0.04281841340205648,
+    "recoveredMSE": 0.04281841340205648,
+    "samePresentInput": {
+      "left": 0.22277812559353208,
+      "right": -0.5087048389971582
+    },
+    "manualConnections": 0,
+    "inspection": {
+      "formation": "entire substrate",
+      "tick": 1900,
+      "members": [
+        "signal",
+        "state"
+      ],
+      "structuralDescription": "acyclic linear signal network",
+      "update": "discrete synchronous one-step delay",
+      "recurrentComponents": [],
+      "selfConnections": [],
+      "constituentStates": [
+        {
+          "id": "signal",
+          "value": 0.7480965256690979,
+          "position": [
+            -0.051024663679671935,
+            0.00711120895060358
+          ],
+          "input": true,
+          "dimensionalContext": {
+            "Movement": {
+              "present": true,
+              "phase": 0.4513322353837932,
+              "position": [
+                -0.051024663679671935,
+                0.00711120895060358
+              ],
+              "fixedContact": false
+            },
+            "Evolution": {
+              "present": true,
+              "encounters": 1900,
+              "historyCount": 1904,
+              "lastEvent": 3704
+            },
+            "Being": {
+              "present": true,
+              "realizedValue": 0.7480965256690979,
+              "extent": 0.005
+            },
+            "Design": {
+              "present": true,
+              "executionRank": null,
+              "executionPolicy": "synchronous one-step delayed signals",
+              "contactType": "input",
+              "allowedRelation": "directed signal"
+            },
+            "Space": {
+              "present": true,
+              "resultingAdjacency": [
+                "signal->state"
+              ],
+              "formations": [
+                "formation-1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "state",
+          "value": -0.2658009300521995,
+          "position": [
+            0.051024663679649813,
+            -0.007111208950586552
+          ],
+          "input": false,
+          "dimensionalContext": {
+            "Movement": {
+              "present": true,
+              "phase": 3.592924888973583,
+              "position": [
+                0.051024663679649813,
+                -0.007111208950586552
+              ],
+              "fixedContact": false
+            },
+            "Evolution": {
+              "present": true,
+              "encounters": 1900,
+              "historyCount": 3704,
+              "lastEvent": 3704
+            },
+            "Being": {
+              "present": true,
+              "realizedValue": -0.2658009300521995,
+              "extent": 0.005
+            },
+            "Design": {
+              "present": true,
+              "executionRank": null,
+              "executionPolicy": "synchronous one-step delayed signals",
+              "contactType": "internal",
+              "allowedRelation": "directed signal"
+            },
+            "Space": {
+              "present": true,
+              "resultingAdjacency": [
+                "signal->state"
+              ],
+              "formations": [
+                "formation-1"
+              ]
+            }
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "signal->state",
+          "from": "signal",
+          "to": "state",
+          "weight": 0.36574148229534514,
+          "usage": 1896,
+          "feedbackUpdates": 1797,
+          "origin": "local-encounter"
+        }
+      ],
+      "executionTrace": [
+        {
+          "from": "signal",
+          "to": "state",
+          "source": -0.33585901325568557,
+          "weight": 0.36574148229534514,
+          "contribution": -0.12283757335038642,
+          "delay": 1,
+          "sourceTick": 1899
+        }
+      ],
+      "established": {
+        "linearPropagation": true,
+        "delayedSignals": true,
+        "cyclesPresent": false
+      },
+      "notEstablishedByInspection": [
+        "learning generalization",
+        "memory usefulness",
+        "spiking or oscillatory neural behavior",
+        "hidden-layer emergence",
+        "computational mesh",
+        "complete five-dimensional morphology"
+      ],
+      "capabilityEvidence": "Consult held-out and causal-intervention experiments; topology alone does not establish capability."
+    },
+    "limits": "A learned linear recurrence using a supplied one-step delay and local self-observation opportunity. Synchronous scalar updates and supervised feedback are experimental primitives. No spiking network, hidden-layer emergence, computational mesh, or derived dimensional realization law is established."
+  },
+  "timestamp": "2026-10-29T03:13:12.475Z",
+  "node": "v24.19.0"
+}

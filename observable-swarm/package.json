@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "scripts": {"start": "node scripts/serve.mjs", "test": "node --test tests/*.test.mjs"},
+  "scripts": {"start": "node native/main.mjs inspect", "experiment": "node native/main.mjs experiment", "experiment:encounters": "node native/main.mjs encounter-experiment", "experiment:adaptation": "node native/main.mjs adaptation-experiment", "experiment:memory": "node native/main.mjs memory-experiment", "legacy:browser": "node scripts/serve.mjs", "test": "node --test tests/*.test.mjs"},
   "engines": {"node": ">=22"}
 }

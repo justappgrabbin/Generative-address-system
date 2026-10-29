@@ -1,0 +1,83 @@
+{
+  "experiment": "feedback-driven structural recovery",
+  "faultKnownOnlyToEnvironment": "a->result",
+  "feedbackExamples": 24,
+  "heldOutExamples": 60,
+  "damagedMSE": 0.42894330230426747,
+  "recoveredMSE": 4.314083075427408e-33,
+  "restartedMSE": 4.314083075427408e-33,
+  "unchangedWeights": true,
+  "recovery": {
+    "finalCost": 8.532270889040536e-33,
+    "trials": [
+      {
+        "round": 0,
+        "relation": "b->result",
+        "enabled": false,
+        "cost": 0.4164265929637443
+      },
+      {
+        "round": 0,
+        "relation": "a->result",
+        "enabled": true,
+        "cost": 8.532270889040536e-33
+      },
+      {
+        "round": 1,
+        "relation": "b->result",
+        "enabled": false,
+        "cost": 0.1174301424044115
+      },
+      {
+        "round": 1,
+        "relation": "a->result",
+        "enabled": false,
+        "cost": 0.23803337365669133
+      }
+    ],
+    "accepted": [
+      {
+        "round": 0,
+        "relation": "a->result",
+        "enabled": true,
+        "cost": 8.532270889040536e-33,
+        "previousCost": 0.23803337365669133
+      }
+    ],
+    "policy": "bounded single-relation perturbation with scalar environmental feedback"
+  },
+  "noSignalAcceptedChanges": 0,
+  "noSignalMSE": 0.42894330230426747,
+  "trace": [
+    {
+      "from": "b",
+      "to": "result",
+      "source": -0.20856127864681184,
+      "weight": -0.4,
+      "contribution": 0.08342451145872475
+    },
+    {
+      "from": "a",
+      "to": "result",
+      "source": 1.2120659546926618,
+      "weight": 0.7,
+      "contribution": 0.8484461682848632
+    }
+  ],
+  "limits": "Developer-supplied perturbation search repairs reversible connection disabling using environmental error. Learned relations execute predictions, but diagnosis/search has not itself emerged. No unseen fault class, missing-edge replacement, dimensional medical equivalence, or autonomous mesh repair is established.",
+  "diskRestartDifference": 0,
+  "resources": {
+    "wallMilliseconds": 1044.146598,
+    "cpuMicroseconds": {
+      "user": 1388579,
+      "system": 121969
+    },
+    "memoryBytes": {
+      "rss": 172851200,
+      "heapTotal": 161857536,
+      "heapUsed": 56686320,
+      "external": 3836706,
+      "arrayBuffers": 1927144
+    }
+  }
+}
