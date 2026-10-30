@@ -18,7 +18,7 @@ for (let a = 1; a <= 12; a++) for (let b = a + 1; b <= 12; b++)
 if (faceEdges.length !== 30 || vertexTriples.length !== 20 ||
     Array.from({length:12}, (_,i) => faceEdges.filter(e => e.includes(i + 1)).length).some(n => n !== 5))
   throw new Error('Dodecahedral face topology invariant failed');
-const key = (a, b) => [a, b].sort((x, y) => x - y).join(':');
+const key = (a, b) => JSON.stringify([String(a), String(b)].sort());
 const adjacency = new Set(faceEdges.map(([a, b]) => key(a, b)));
 const junctions = new Set(vertexTriples.map(t => t.join(':')));
 export const DODECAHEDRON = Object.freeze({
