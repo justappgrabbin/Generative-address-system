@@ -49,7 +49,7 @@ export class DiseminerEngine {
     // Keep *all* observed lexical material: short words, Unicode and numeric
     // tokens are valid distributional evidence. The prior length>2 filter
     // silently dropped items before any state-space learning could see them.
-    return String(text).normalize('NFKC').toLowerCase().match(/[\\p{L}\\p{N}]+/gu) ?? [];
+    return String(text).normalize('NFKC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
   }
 
   // ---------- observe: distributional space update (window 5) + familiarity sense ----------
