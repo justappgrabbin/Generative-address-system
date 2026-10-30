@@ -261,14 +261,16 @@ export function analyzeStructure(subject, context = {}) {
     const t = tokens[p.tokenIndex];
     if (!Number.isInteger(p.tokenIndex) || !t ||
         lower(p.surface ?? p.id) !== lower(t.value)) continue;
-    confirmedTokenPositions.set(p.tokenIndex, { face: p.face, source: p.source, placementId: p.id });
+    const placements = confirmedTokenPositions.get(p.tokenIndex) ?? [];
+    placements.push({ face: p.face, source: p.source, placementId: p.id });
+    confirmedTokenPositions.set(p.tokenIndex, placements);
   }
   const wordPlacement = tokens.map(t => ({
     tokenIndex: t.index, word: t.value, normalized: lower(t.value),
     surfaceRecognized: true,
     sourceFieldMatched: matches.some(m => m.tokenIndex === t.index),
     spatial: confirmedTokenPositions.has(t.index)
-      ? { status: 'explicit-source-face', ...confirmedTokenPositions.get(t.index) }
+      ? { status: 'explicit-source-faces', placements: confirmedTokenPositions.get(t.index) }
       : { status: 'unplaced', reason: 'no matching source-backed face incidence' },
   }));
   const placementCoverage = {
