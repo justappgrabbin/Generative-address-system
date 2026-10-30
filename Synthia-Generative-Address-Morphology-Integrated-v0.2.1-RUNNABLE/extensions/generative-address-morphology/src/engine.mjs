@@ -47,8 +47,12 @@ export class GenerativeAddressMorphologyEngine{
       semanticCoverage: generation?.coverage ?? null,
       sourceFieldMatches: new Set(structure.matches.map(m => m.tokenIndex)).size,
       unresolvedSourceFieldTokens: structure.unresolvedTokens.map(t => ({value:t.value,index:t.index})),
-      dodecahedralPlacement: 'not-verified',
-      emergentFormations: 'not-verified',
+      dodecahedralPlacement: structure.geometry.placedWordCount ? 'source-placed; authority-unverified' : 'not-verified',
+      emergentFormations: structure.geometry.placedWordCount ? {
+        triangles: structure.geometry.observedTriangles,
+        faceClosureCandidates: structure.geometry.faceClosureCandidates,
+        nestedDodecahedra: structure.geometry.nestedDodecahedra,
+      } : 'not-verified',
       complete: false,
       reason: 'Token recognition, tool execution and prototype addresses do not verify dodecahedral placement and emergent geometry.',
     };
