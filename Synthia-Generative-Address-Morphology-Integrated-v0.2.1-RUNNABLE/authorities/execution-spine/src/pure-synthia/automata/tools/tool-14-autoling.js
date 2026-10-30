@@ -13,6 +13,11 @@ export class AutolingError extends Error {
   }
 }
 
+// Preserve the same lexical units through morphology, grammar induction,
+// parsing and transformation. Whitespace-only splitting merged punctuation-
+// delimited words and caused corpus counts to disagree with learned tokens.
+const lexicalTokens = text => String(text).normalize('NFKC').match(/[\p{L}\p{N}]+/gu) ?? [];
+
 // Klein's Boolean feature vectors (distributional morphology).
 const extractFeatures = (segment) => ({
   '1st_person': /^(I|me|my|we|us|our)$/i.test(segment),
@@ -43,7 +48,7 @@ export class AutolingEngine {
 
   // ---------- ① Morphology (Klein §2.0) ----------
   analyzeMorphology(input) {
-    const segments = String(input).split(/\s+/).filter(Boolean);
+    const segments = lexicalTokens(input);
     const morphemes = [];
     for (const segment of segments) {
       const features = extractFeatures(segment);
@@ -79,7 +84,7 @@ export class AutolingEngine {
   // ---------- ② Phrase-structure heuristic learning (Klein §3.0) ----------
   learnPhraseStructure(sentence) {
     this.frame++;
-    const tokens = String(sentence).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(sentence);
     const parse = this.attemptParse(tokens);
     if (parse.complete) return { grammar: this.grammar, newRules: [], tests: [] };
     const newRules = this.applyHeuristics(tokens);
@@ -147,7 +152,7 @@ export class AutolingEngine {
   }
 
   validateTestSentence(sentence) {
-    const tokens = String(sentence).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(sentence);
     const features = tokens.map((t) => extractFeatures(t));
     for (let i = 0; i < features.length - 1; i++) {
       if (features[i].singular && features[i + 1].plural && features[i + 1].verb) return false;
@@ -157,7 +162,7 @@ export class AutolingEngine {
 
   // ---------- ③ Semantic parse (modern extension) ----------
   parseSemantic(input, morphology) {
-    const tokens = String(input).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(input);
     const nodes = new Map();
     const edges = [];
     for (let i = 0; i < tokens.length; i++) {
@@ -279,7 +284,7 @@ export class AutolingEngine {
 
   // ---------- Transformation learning (Klein §4.0, deterministic subset) ----------
   learnTransformation(sourceTokens, targetString) {
-    const targetTokens = new Set(String(targetString).split(/\s+/).filter(Boolean));
+    const targetTokens = new Set(lexicalTokens(targetString));
     const common = sourceTokens.filter((t) => targetTokens.has(t));
     const rule = {
       id: `T_${this.transformations.length + 1}`,
@@ -451,7 +456,7 @@ export class AutolingAutomaton extends Automaton {
         return { rule, rules: [...engine.grammar], stats: engine.getStats() };
       }
       case 'transform': {
-        const source = Array.isArray(input.sourceTokens) ? input.sourceTokens : String(input.text || '').split(/\s+/).filter(Boolean);
+        const source = Array.isArray(input.sourceTokens) ? input.sourceTokens : lexicalTokens(input.text || '');
         const rule = engine.learnTransformation(source, input.target || '');
         return { rule, stats: engine.getStats() };
       }
