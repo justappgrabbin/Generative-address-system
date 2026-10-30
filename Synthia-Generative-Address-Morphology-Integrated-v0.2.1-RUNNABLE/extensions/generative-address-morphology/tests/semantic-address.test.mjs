@@ -100,3 +100,40 @@ test('explicit addresses keep their coordinates and empty input has no fabricate
   assert.equal(out.addresses[0].id, 'manual');
   assert.equal(engine.run([], { subject: '' }).generation.status, 'unresolved');
 });
+
+test('mixed recognized and unknown words report partial coverage, not successful complete recognition', () => {
+  const generator = new SemanticAddressGenerator();
+  const result = generator.generate('limitation zorbax zorbax');
+  assert.ok(result.addresses.length > 0, 'known evidence can still propose candidates');
+  assert.equal(result.status, 'partial');
+  assert.equal(result.coverage.inputTokenOccurrences, 3);
+  assert.equal(result.coverage.recognizedTokenOccurrences, 1);
+  assert.equal(result.coverage.unrecognizedTokenOccurrences, 2);
+  assert.deepEqual(result.coverage.unrecognizedTokens, ['zorbax', 'zorbax']);
+  assert.equal(result.coverage.semanticComplete, false);
+  assert.equal(result.coverage.spatialPlacementVerified, false);
+  assert.equal(result.coverage.completed, false);
+  assert.match(result.reason, /remain unrecognized/);
+});
+
+test('recognizing all prototype words still does not falsely certify spatial placement', () => {
+  const generator = new SemanticAddressGenerator();
+  const result = generator.generate('limitation');
+  assert.equal(result.status, 'generated');
+  assert.equal(result.coverage.unrecognizedTokenOccurrences, 0);
+  assert.equal(result.coverage.semanticComplete, true);
+  assert.equal(result.coverage.spatialPlacementVerified, false);
+  assert.equal(result.coverage.completed, false);
+});
+
+test('end-to-end engine distinguishes successful execution from unverified state-space integrity', () => {
+  const engine = new Engine({ weightsFile: null });
+  const out = engine.run([], { subject: { text: 'limitation zorbax' } });
+  assert.equal(out.ok, true, 'the operation may execute');
+  assert.equal(out.generation.status, 'partial', 'the vocabulary was not fully recognized');
+  assert.equal(out.integrity.executionCompleted, true);
+  assert.equal(out.integrity.semanticCoverage.unrecognizedTokenOccurrences, 1);
+  assert.equal(out.integrity.dodecahedralPlacement, 'not-verified');
+  assert.equal(out.integrity.emergentFormations, 'not-verified');
+  assert.equal(out.integrity.complete, false, 'do not call a partially placed space complete');
+});

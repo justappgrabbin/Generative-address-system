@@ -1,3 +1,4 @@
+import { observeDodecahedron } from './dodecahedron.mjs';
 import {
   DIMENSION_CHAINS, ORDINAL_PERSPECTIVES, THREE_CONDITIONS,
   CRYSTALS_AND_MONOPOLE, COLOR_TABLE, TONE_TABLE, BASE_TABLE,
@@ -251,8 +252,37 @@ export function analyzeStructure(subject, context = {}) {
   };
   if (relations.length) agents.push({ id: 'interplay:Space', operation: 'compose-explicit-relations', status: 'executed', evidence: copy(relations), output: copy(space) });
   for (const run of recognition.runs ?? []) agents.push({id:`recognition:${run.toolId}:${run.operation}`,operation:run.operation,status:run.status,derivationId:run.derivationId ?? null});
+  // Matching a dimensional keynote or extracting an SVO claim is NOT a
+  // geometric placement. Preserve every occurrence until a sourced face
+  // incidence explicitly refers to the same word at the same input position.
+  const geometry = observeDodecahedron(context.spatialEvidence);
+  const confirmedTokenPositions = new Map();
+  for (const p of context.spatialEvidence?.placements ?? []) {
+    const t = tokens[p.tokenIndex];
+    if (!Number.isInteger(p.tokenIndex) || !t ||
+        lower(p.surface ?? p.id) !== lower(t.value)) continue;
+    const placements = confirmedTokenPositions.get(p.tokenIndex) ?? [];
+    placements.push({ face: p.face, source: p.source, placementId: p.id });
+    confirmedTokenPositions.set(p.tokenIndex, placements);
+  }
+  const wordPlacement = tokens.map(t => ({
+    tokenIndex: t.index, word: t.value, normalized: lower(t.value),
+    surfaceRecognized: true,
+    sourceFieldMatched: matches.some(m => m.tokenIndex === t.index),
+    spatial: confirmedTokenPositions.has(t.index)
+      ? { status: 'explicit-source-faces', placements: confirmedTokenPositions.get(t.index) }
+      : { status: 'unplaced', reason: 'no matching source-backed face incidence' },
+  }));
+  const placementCoverage = {
+    observedTokenOccurrences: tokens.length,
+    placedTokenOccurrences: confirmedTokenPositions.size,
+    unplacedTokenOccurrences: tokens.length - confirmedTokenPositions.size,
+    unplacedTokens: wordPlacement.filter(t => t.spatial.status === 'unplaced')
+      .map(t => ({ tokenIndex: t.tokenIndex, word: t.word })),
+    note: 'Field matches and tool recognition do not imply a topological face mapping.',
+  };
   return { view, tokens, matches, recognition, interpretations: (context.coordinates ?? context.addresses ?? []).map(a => interpretCoordinates(a, { ...context, view: view.view })),
-    model, space, swarm: { kind: 'bounded-symbolic-field-workers', agents, count: agents.length },
+    model, space, geometry, wordPlacement, placementCoverage, swarm: { kind: 'bounded-symbolic-field-workers', agents, count: agents.length },
     spaceCapacity: new FractalAddressSpace({ depth: context.depth ?? 1 }).snapshot(),
     unresolvedTokens: tokens.filter(t => !matches.some(m => m.tokenIndex === t.index) && !relations.some(r => lower(r.label) === lower(t.value))),
     unresolved: [...view.unresolved, 'general image synthesis and 3D geometry are not implemented by this structural slice'] };

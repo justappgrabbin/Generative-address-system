@@ -142,7 +142,31 @@ export class SemanticAddressGenerator {
       this.registry.set(address.id, address);
       return address;
     });
-    return { addresses, analysis, vector, analogy, status: addresses.length ? 'generated' : 'unresolved', model: this.model.version,
-      reason: addresses.length ? null : 'No supported gate prototype matched the semantic features.' };
+    // A candidate for some tokens is not evidence that every token was learned.
+    // Keep each unknown occurrence (not just distinct spellings), so corpus
+    // coverage cannot be made green by dropping repeated or unfamiliar words.
+    const unrecognizedTokens = analysis.morphemes
+      .filter(m => Object.keys(m.semantic).length === 0)
+      .map(m => m.surface);
+    const allInputTokenOccurrences = tokens(subjectText(subject)).length;
+    const skippedStopwordOccurrences = allInputTokenOccurrences - analysis.tokenCount;
+    const coverage = {
+      allInputTokenOccurrences,
+      inputTokenOccurrences: analysis.tokenCount,
+      skippedStopwordOccurrences,
+      recognizedTokenOccurrences: analysis.tokenCount - unrecognizedTokens.length,
+      unrecognizedTokenOccurrences: unrecognizedTokens.length,
+      unrecognizedTokens,
+      semanticComplete: unrecognizedTokens.length === 0 && addresses.length > 0,
+      spatialPlacementVerified: false,
+      completed: false,
+      note: 'Prototype matching is not a verified dodecahedral placement or formation.',
+    };
+    const status = !addresses.length ? 'unresolved'
+      : unrecognizedTokens.length ? 'partial' : 'generated';
+    return { addresses, analysis, vector, analogy, status, coverage, model: this.model.version,
+      reason: status === 'unresolved' ? 'No supported gate prototype matched the semantic features.'
+        : status === 'partial' ? `${unrecognizedTokens.length} token occurrence(s) remain unrecognized; candidate addresses are partial.`
+        : null };
   }
 }

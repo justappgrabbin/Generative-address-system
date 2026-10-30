@@ -13,6 +13,11 @@ export class AutolingError extends Error {
   }
 }
 
+// Preserve the same lexical units through morphology, grammar induction,
+// parsing and transformation. Whitespace-only splitting merged punctuation-
+// delimited words and caused corpus counts to disagree with learned tokens.
+const lexicalTokens = text => String(text).normalize('NFKC').match(/[\p{L}\p{N}]+/gu) ?? [];
+
 // Klein's Boolean feature vectors (distributional morphology).
 const extractFeatures = (segment) => ({
   '1st_person': /^(I|me|my|we|us|our)$/i.test(segment),
@@ -43,7 +48,7 @@ export class AutolingEngine {
 
   // ---------- ① Morphology (Klein §2.0) ----------
   analyzeMorphology(input) {
-    const segments = String(input).split(/\s+/).filter(Boolean);
+    const segments = lexicalTokens(input);
     const morphemes = [];
     for (const segment of segments) {
       const features = extractFeatures(segment);
@@ -79,7 +84,7 @@ export class AutolingEngine {
   // ---------- ② Phrase-structure heuristic learning (Klein §3.0) ----------
   learnPhraseStructure(sentence) {
     this.frame++;
-    const tokens = String(sentence).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(sentence);
     const parse = this.attemptParse(tokens);
     if (parse.complete) return { grammar: this.grammar, newRules: [], tests: [] };
     const newRules = this.applyHeuristics(tokens);
@@ -97,57 +102,78 @@ export class AutolingEngine {
   }
 
   applyHeuristics(tokens) {
-    // H1: closure of parse — coin an S_n sentence rule covering the token string.
-    if (this.grammar.length === 0) {
-      this.heuristicCounters.h1++;
+    // H2 is distributional: two DIFFERENT words can share the SAME
+    // surrounding environment across observations. The previous implementation
+    // compared different positions of a single sentence. That only matched
+    // repeated identical words and could not discover genuine substitution.
+    const priorSentences = this.grammar.filter(r => r.isSentenceRule);
+    const rules = [];
+    for (const prior of priorSentences) {
+      if (prior.rhs.length !== tokens.length) continue;
+      const differences = [];
+      for (let i = 0; i < tokens.length; i++)
+        if (prior.rhs[i] !== tokens[i]) differences.push(i);
+      if (differences.length !== 1) continue;
+      const i = differences[0], first = prior.rhs[i], second = tokens[i];
+      const environment = { left: tokens.slice(0, i), right: tokens.slice(i + 1), index: i };
+      const sameClass = this.grammar.some(r => !r.isSentenceRule &&
+        r.evidence?.index === i &&
+        JSON.stringify(r.evidence.left) === JSON.stringify(environment.left) &&
+        JSON.stringify(r.evidence.right) === JSON.stringify(environment.right) &&
+        r.rhs.includes(first) && r.rhs.includes(second));
+      if (sameClass) continue;
+      this.heuristicCounters.h2++;
       const rule = {
-        lhs: `S_${this.heuristicCounters.h1}`,
-        rhs: [...tokens],
-        isSentenceRule: true,
-        isContextSensitive: false,
+        lhs: `Class_${this.heuristicCounters.h2}`,
+        rhs: [first, second],
+        isSentenceRule: false,
+        isContextSensitive: true,
+        evidence: { ...environment, priorFrame: prior.frame ?? null, observedFrame: this.frame,
+          priorSentence: [...prior.rhs], observedSentence: [...tokens] },
+        inference: 'shared lexical environment, NOT verified semantic equivalence',
+        status: 'source-observed',
         testHistory: [],
         confidence: 0.5,
       };
       this.grammar.push(rule);
-      return [rule];
+      rules.push(rule);
     }
-    // H2: two morphemes in identical environments → same Class_n.
-    const rules = [];
-    for (let i = 0; i < tokens.length - 1; i++) {
-      for (let j = i + 1; j < tokens.length; j++) {
-        const env1 = tokens.slice(0, i).concat(tokens.slice(i + 1));
-        const env2 = tokens.slice(0, j).concat(tokens.slice(j + 1));
-        if (JSON.stringify(env1) === JSON.stringify(env2)) {
-          this.heuristicCounters.h2++;
-          const rule = {
-            lhs: `Class_${this.heuristicCounters.h2}`,
-            rhs: [tokens[i], tokens[j]],
-            isSentenceRule: false,
-            isContextSensitive: false,
-            testHistory: [],
-            confidence: 0.6,
-          };
-          this.grammar.push(rule);
-          rules.push(rule);
-        }
-      }
+    // H1: preserve EVERY new sentence as an observed rule so that subsequent
+    // examples can be compared. No silent loss of novel contexts.
+    if (!priorSentences.some(r => r.rhs.join('\u0000') === tokens.join('\u0000'))) {
+      this.heuristicCounters.h1++;
+      const rule = {
+        lhs: `S_${this.heuristicCounters.h1}`,
+        rhs: [...tokens],
+        frame: this.frame,
+        isSentenceRule: true,
+        isContextSensitive: false,
+        testHistory: [],
+        confidence: 0.5,
+        status: 'observed',
+      };
+      this.grammar.push(rule);
+      rules.push(rule);
     }
     return rules;
   }
 
   testRule(rule) {
     // Klein's substitution test: every coined rule generates a 'CAN YOU SAY: ...' sentence.
-    const sentenceRules = this.grammar.filter((r) => r.isSentenceRule);
-    const testSentence = (sentenceRules.length ? sentenceRules[0] : rule).rhs.join(' ');
+    const testSentence = rule.isSentenceRule
+      ? rule.rhs.join(' ')
+      : (rule.evidence?.observedSentence ?? rule.rhs).join(' ');
     const accepted = this.validateTestSentence(testSentence);
     rule.testHistory.push({ accepted, frame: this.frame });
     if (!accepted) this.illegalSet.push(testSentence);
     rule.confidence = rule.testHistory.filter((h) => h.accepted).length / rule.testHistory.length;
+    // Local syntactic checks do not turn a new class into semantic authority.
+    if (!rule.isSentenceRule) rule.status = accepted ? 'context-provisional' : 'rejected';
     return { prompt: `CAN YOU SAY: ${testSentence}`, rule: rule.lhs, accepted };
   }
 
   validateTestSentence(sentence) {
-    const tokens = String(sentence).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(sentence);
     const features = tokens.map((t) => extractFeatures(t));
     for (let i = 0; i < features.length - 1; i++) {
       if (features[i].singular && features[i + 1].plural && features[i + 1].verb) return false;
@@ -157,7 +183,7 @@ export class AutolingEngine {
 
   // ---------- ③ Semantic parse (modern extension) ----------
   parseSemantic(input, morphology) {
-    const tokens = String(input).split(/\s+/).filter(Boolean);
+    const tokens = lexicalTokens(input);
     const nodes = new Map();
     const edges = [];
     for (let i = 0; i < tokens.length; i++) {
@@ -279,7 +305,7 @@ export class AutolingEngine {
 
   // ---------- Transformation learning (Klein §4.0, deterministic subset) ----------
   learnTransformation(sourceTokens, targetString) {
-    const targetTokens = new Set(String(targetString).split(/\s+/).filter(Boolean));
+    const targetTokens = new Set(lexicalTokens(targetString));
     const common = sourceTokens.filter((t) => targetTokens.has(t));
     const rule = {
       id: `T_${this.transformations.length + 1}`,
@@ -451,7 +477,7 @@ export class AutolingAutomaton extends Automaton {
         return { rule, rules: [...engine.grammar], stats: engine.getStats() };
       }
       case 'transform': {
-        const source = Array.isArray(input.sourceTokens) ? input.sourceTokens : String(input.text || '').split(/\s+/).filter(Boolean);
+        const source = Array.isArray(input.sourceTokens) ? input.sourceTokens : lexicalTokens(input.text || '');
         const rule = engine.learnTransformation(source, input.target || '');
         return { rule, stats: engine.getStats() };
       }

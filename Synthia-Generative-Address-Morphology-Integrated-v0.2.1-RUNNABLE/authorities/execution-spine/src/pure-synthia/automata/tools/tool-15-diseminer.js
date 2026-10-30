@@ -46,7 +46,10 @@ export class DiseminerEngine {
   }
 
   tokenize(text) {
-    return String(text).toLowerCase().replace(/[^a-zA-Z0-9\s]/g, ' ').split(/\s+/).filter((t) => t.length > 2);
+    // Keep *all* observed lexical material: short words, Unicode and numeric
+    // tokens are valid distributional evidence. The prior length>2 filter
+    // silently dropped items before any state-space learning could see them.
+    return String(text).normalize('NFKC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
   }
 
   // ---------- observe: distributional space update (window 5) + familiarity sense ----------

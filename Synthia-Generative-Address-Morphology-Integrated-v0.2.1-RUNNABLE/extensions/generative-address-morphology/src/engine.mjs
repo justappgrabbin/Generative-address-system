@@ -39,7 +39,25 @@ export class GenerativeAddressMorphologyEngine{
     if(generation)rawAddresses=generation.addresses;
     const addresses=rawAddresses.map(normalizeAddress);this.addresses=new Map(addresses.map(a=>[a.id,a]));const connections=this.compiler.compileAll(addresses,context);
     const activeIds=new Set(addresses.filter(a=>a.active).map(a=>a.id));const graphs=this.runtime.update(connections,activeIds);const ecology=this.ecology.evaluate(graphs,addresses.filter(a=>a.active));const projections=Object.fromEntries(graphs.map(g=>[g.id,projectGraph(g)]));
-    this.last={ok:true,toolState:this.sharedToolState?.snapshot()??null,at:Date.now(),addresses,generation,addressMode,structure,connections:connections.map(c=>({id:c.id,a:c.a.id,b:c.b.id,channel:c.channel,validity:c.validity,audit:c.audit,morphology:{id:c.morphology.id,implementation:c.morphology.implementation,evidenceStatus:c.morphology.evidenceStatus}})),graphs,ecology,projections};return this.last;
+    // Execution success is intentionally distinct from verified state-space
+    // completeness. No code in this path has assigned words to dodecahedral
+    // faces or tested the closure of an emergent spatial formation.
+    const integrity = {
+      executionCompleted: true,
+      semanticCoverage: generation?.coverage ?? null,
+      sourceFieldMatches: new Set(structure.matches.map(m => m.tokenIndex)).size,
+      wordPlacement: structure.placementCoverage,
+      unresolvedSourceFieldTokens: structure.unresolvedTokens.map(t => ({value:t.value,index:t.index})),
+      dodecahedralPlacement: structure.geometry.placedWordCount ? 'source-placed; authority-unverified' : 'not-verified',
+      emergentFormations: structure.geometry.placedWordCount ? {
+        triangles: structure.geometry.observedTriangles,
+        faceClosureCandidates: structure.geometry.faceClosureCandidates,
+        nestedDodecahedra: structure.geometry.nestedDodecahedra,
+      } : 'not-verified',
+      complete: false,
+      reason: 'Token recognition, tool execution and prototype addresses do not verify dodecahedral placement and emergent geometry.',
+    };
+    this.last={ok:true,integrity,toolState:this.sharedToolState?.snapshot()??null,at:Date.now(),addresses,generation,addressMode,structure,connections:connections.map(c=>({id:c.id,a:c.a.id,b:c.b.id,channel:c.channel,validity:c.validity,audit:c.audit,morphology:{id:c.morphology.id,implementation:c.morphology.implementation,evidenceStatus:c.morphology.evidenceStatus}})),graphs,ecology,projections};return this.last;
   }
   reinforce(graphId,delta,outcome=null){return this.weights.reinforceExisting(graphId,delta,outcome);}
   snapshot(){if(this.last&&this.sharedToolState)return {...this.last,toolState:this.sharedToolState.snapshot()};return this.last??{ok:true,toolState:this.sharedToolState?.snapshot()??null,addresses:[],connections:[],graphs:this.runtime.active(),ecology:{dominantEnergy:null,energies:[],pods:[]},projections:{}};}

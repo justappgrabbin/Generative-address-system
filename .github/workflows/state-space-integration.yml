@@ -18,6 +18,7 @@ jobs:
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/package.json
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/src/**
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/tests/**
+            Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/scripts/**
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/examples/**
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/public-generative/**
             Synthia-Generative-Address-Morphology-Integrated-v0.2.1-RUNNABLE/authorities/execution-spine/src/**
