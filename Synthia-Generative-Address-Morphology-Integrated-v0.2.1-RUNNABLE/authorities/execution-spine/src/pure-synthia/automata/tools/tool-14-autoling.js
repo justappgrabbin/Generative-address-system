@@ -124,7 +124,7 @@ export class AutolingEngine {
       if (sameClass) continue;
       this.heuristicCounters.h2++;
       const rule = {
-        lhs: \`Class_\${this.heuristicCounters.h2}\`,
+        lhs: `Class_${this.heuristicCounters.h2}`,
         rhs: [first, second],
         isSentenceRule: false,
         isContextSensitive: true,
@@ -143,7 +143,7 @@ export class AutolingEngine {
     if (!priorSentences.some(r => r.rhs.join('\u0000') === tokens.join('\u0000'))) {
       this.heuristicCounters.h1++;
       const rule = {
-        lhs: \`S_\${this.heuristicCounters.h1}\`,
+        lhs: `S_${this.heuristicCounters.h1}`,
         rhs: [...tokens],
         frame: this.frame,
         isSentenceRule: true,
