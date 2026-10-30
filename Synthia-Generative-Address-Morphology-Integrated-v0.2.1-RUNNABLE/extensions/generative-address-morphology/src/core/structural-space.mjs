@@ -1,3 +1,4 @@
+import { observeDodecahedron } from './dodecahedron.mjs';
 import {
   DIMENSION_CHAINS, ORDINAL_PERSPECTIVES, THREE_CONDITIONS,
   CRYSTALS_AND_MONOPOLE, COLOR_TABLE, TONE_TABLE, BASE_TABLE,
@@ -252,7 +253,7 @@ export function analyzeStructure(subject, context = {}) {
   if (relations.length) agents.push({ id: 'interplay:Space', operation: 'compose-explicit-relations', status: 'executed', evidence: copy(relations), output: copy(space) });
   for (const run of recognition.runs ?? []) agents.push({id:`recognition:${run.toolId}:${run.operation}`,operation:run.operation,status:run.status,derivationId:run.derivationId ?? null});
   return { view, tokens, matches, recognition, interpretations: (context.coordinates ?? context.addresses ?? []).map(a => interpretCoordinates(a, { ...context, view: view.view })),
-    model, space, swarm: { kind: 'bounded-symbolic-field-workers', agents, count: agents.length },
+    model, space, geometry: observeDodecahedron(context.spatialEvidence), swarm: { kind: 'bounded-symbolic-field-workers', agents, count: agents.length },
     spaceCapacity: new FractalAddressSpace({ depth: context.depth ?? 1 }).snapshot(),
     unresolvedTokens: tokens.filter(t => !matches.some(m => m.tokenIndex === t.index) && !relations.some(r => lower(r.label) === lower(t.value))),
     unresolved: [...view.unresolved, 'general image synthesis and 3D geometry are not implemented by this structural slice'] };
