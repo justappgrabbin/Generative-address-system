@@ -46,6 +46,7 @@ export class GenerativeAddressMorphologyEngine{
       executionCompleted: true,
       semanticCoverage: generation?.coverage ?? null,
       sourceFieldMatches: new Set(structure.matches.map(m => m.tokenIndex)).size,
+      wordPlacement: structure.placementCoverage,
       unresolvedSourceFieldTokens: structure.unresolvedTokens.map(t => ({value:t.value,index:t.index})),
       dodecahedralPlacement: structure.geometry.placedWordCount ? 'source-placed; authority-unverified' : 'not-verified',
       emergentFormations: structure.geometry.placedWordCount ? {
