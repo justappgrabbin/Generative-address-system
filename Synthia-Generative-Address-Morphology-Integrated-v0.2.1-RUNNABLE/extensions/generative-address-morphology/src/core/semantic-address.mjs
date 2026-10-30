@@ -148,8 +148,12 @@ export class SemanticAddressGenerator {
     const unrecognizedTokens = analysis.morphemes
       .filter(m => Object.keys(m.semantic).length === 0)
       .map(m => m.surface);
+    const allInputTokenOccurrences = tokens(subjectText(subject)).length;
+    const skippedStopwordOccurrences = allInputTokenOccurrences - analysis.tokenCount;
     const coverage = {
+      allInputTokenOccurrences,
       inputTokenOccurrences: analysis.tokenCount,
+      skippedStopwordOccurrences,
       recognizedTokenOccurrences: analysis.tokenCount - unrecognizedTokens.length,
       unrecognizedTokenOccurrences: unrecognizedTokens.length,
       unrecognizedTokens,
