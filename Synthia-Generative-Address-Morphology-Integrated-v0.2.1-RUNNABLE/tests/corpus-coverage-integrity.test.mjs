@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { auditCorpus } from '../scripts/audit-word-coverage.mjs';
 
 test('corpus audit accounts for unknown words and exclusions without calling the dodecahedron complete', () => {
-  const report = auditCorpus('Limitation zorbax zorbax the and blue.');
+  const report = auditCorpus('Limitation zorbax zorbax the and limitation.');
   assert.equal(report.corpus.totalTokenOccurrences, 6);
   assert.equal(report.lexicalPrototypes.unknownOccurrences, 2);
   assert.deepEqual(report.lexicalPrototypes.unknownUnique, ['zorbax']);
