@@ -125,3 +125,15 @@ test('recognizing all prototype words still does not falsely certify spatial pla
   assert.equal(result.coverage.spatialPlacementVerified, false);
   assert.equal(result.coverage.completed, false);
 });
+
+test('end-to-end engine distinguishes successful execution from unverified state-space integrity', () => {
+  const engine = new Engine({ weightsFile: null });
+  const out = engine.run([], { subject: { text: 'limitation zorbax' } });
+  assert.equal(out.ok, true, 'the operation may execute');
+  assert.equal(out.generation.status, 'partial', 'the vocabulary was not fully recognized');
+  assert.equal(out.integrity.executionCompleted, true);
+  assert.equal(out.integrity.semanticCoverage.unrecognizedTokenOccurrences, 1);
+  assert.equal(out.integrity.dodecahedralPlacement, 'not-verified');
+  assert.equal(out.integrity.emergentFormations, 'not-verified');
+  assert.equal(out.integrity.complete, false, 'do not call a partially placed space complete');
+});
