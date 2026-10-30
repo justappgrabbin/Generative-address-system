@@ -37,3 +37,29 @@ test('DISEMINER tracks a novel word through repeat observation without inventing
   assert.ok(d.distributionalSpace.has('i'));
   assert.ok(d.distributionalSpace.has('and'));
 });
+
+
+test('AUTOLING H2 actually learns replacements across observed identical contexts', () => {
+  const engine = new AutolingEngine();
+  const first = engine.runPipeline('the blue shape grows');
+  assert.equal(first.phraseStructure.newRules.filter(r => !r.isSentenceRule).length, 0);
+  const second = engine.runPipeline('the red shape grows');
+  const classes = second.phraseStructure.newRules.filter(r => !r.isSentenceRule);
+  assert.equal(classes.length, 1);
+  assert.deepEqual(classes[0].rhs, ['blue','red']);
+  assert.deepEqual(classes[0].evidence.left, ['the']);
+  assert.deepEqual(classes[0].evidence.right, ['shape','grows']);
+  assert.equal(classes[0].status, 'context-provisional');
+  assert.match(classes[0].inference, /NOT verified semantic equivalence/);
+  assert.equal(engine.getStats().grammarRules, 3, 'both observed sentences and their contextual class are retained');
+  const repeat = engine.runPipeline('the red shape grows');
+  assert.equal(repeat.phraseStructure.newRules.length, 0);
+});
+
+test('AUTOLING does not confuse similar sentence length with identical context', () => {
+  const engine = new AutolingEngine();
+  engine.runPipeline('a b c');
+  const second = engine.runPipeline('c b a');
+  assert.equal(second.phraseStructure.newRules.filter(r => !r.isSentenceRule).length, 0);
+  assert.equal(engine.getStats().grammarRules, 2);
+});
