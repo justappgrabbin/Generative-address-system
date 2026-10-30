@@ -24,3 +24,16 @@ test('AutoLing and DISEMINER observations cannot silently certify a geometric re
 test('empty corpus is not a passing test fixture', () => {
   assert.throws(() => auditCorpus(' \t\n '), /no word tokens/);
 });
+
+test('4096 genuinely unsupported words are retained and never mistaken for learned ontology', () => {
+  const tokens=Array.from({length:4096},(_,i)=>'zzword'+String(i).padStart(4,'0'));
+  const report=auditCorpus(tokens.join(' '));
+  assert.equal(report.corpus.totalTokenOccurrences,4096);
+  assert.equal(report.corpus.uniqueWords,4096);
+  assert.equal(report.lexicalPrototypes.unknownOccurrences,4096);
+  assert.equal(report.lexicalPrototypes.unknownUnique.length,4096);
+  assert.equal(report.autoling.tokenOccurrencesParsed,4096);
+  assert.equal(report.diseminer.notObservedOccurrences,0);
+  assert.equal(report.acceptance.passed,false);
+  assert.equal(report.stateSpace.dodecahedralWordPlacements,'not-verified');
+});
