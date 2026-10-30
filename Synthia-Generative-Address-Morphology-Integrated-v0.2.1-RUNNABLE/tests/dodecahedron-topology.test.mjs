@@ -52,3 +52,29 @@ test('face mapping without evidence or dangling relation is rejected', () => {
   assert.throws(()=>observeDodecahedron({placements:[{id:'a',face:13,source:'s'}]}),/face/);
   assert.throws(()=>observeDodecahedron({relations:[{from:'a',to:'b',kind:'x',source:'s'}]}),/endpoints/);
 });
+
+test('every input occurrence remains explicitly unplaced until sourced face incidence exists', () => {
+  const analysis=analyzeStructure('Mind shape Mind');
+  assert.equal(analysis.placementCoverage.observedTokenOccurrences, 3);
+  assert.equal(analysis.placementCoverage.unplacedTokenOccurrences, 3);
+  assert.deepEqual(analysis.placementCoverage.unplacedTokens.map(t=>t.word), ['Mind','shape','Mind']);
+  assert.ok(analysis.wordPlacement.every(t=>t.spatial.status==='unplaced'));
+});
+
+test('source-backed face incidence is matched by word and occurrence, not by mere token recognition', () => {
+  const analysis=analyzeStructure('Mind shape Mind',{spatialEvidence:{
+    placements:[
+      {id:'mind-A',surface:'Mind',tokenIndex:0,face:1,source:'source:first'},
+      {id:'mind-B',surface:'Mind',tokenIndex:0,face:2,source:'source:second'},
+      {id:'mind-C',surface:'Mind',tokenIndex:2,face:7,source:'source:third'},
+      {id:'other',surface:'other',tokenIndex:1,face:8,source:'source:other'},
+    ],
+    relations:[],
+  }});
+  assert.equal(analysis.placementCoverage.placedTokenOccurrences,2);
+  assert.equal(analysis.placementCoverage.unplacedTokenOccurrences,1);
+  assert.deepEqual(analysis.placementCoverage.unplacedTokens,[{tokenIndex:1,word:'shape'}]);
+  assert.deepEqual(analysis.wordPlacement[0].spatial.placements.map(p=>p.face),[1,2]);
+  assert.equal(analysis.wordPlacement[1].spatial.status,'unplaced');
+  assert.equal(analysis.wordPlacement[2].spatial.placements[0].face,7);
+});
