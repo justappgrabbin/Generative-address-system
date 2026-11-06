@@ -1,0 +1,620 @@
+{
+  "summary": {
+    "book": "e1.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 122,
+    "expressionLexiconSize": 361,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "process",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "DET + process + PREP",
+          "DET + process + PREP",
+          "DET + process + PREP"
+        ]
+      },
+      {
+        "lemma": "has",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "UNKNOWN + has + VERB",
+          "UNKNOWN + has + VERB",
+          "UNKNOWN + has + VERB"
+        ]
+      },
+      {
+        "lemma": "same",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "study",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + study + PREP",
+          "DET + study + PREP",
+          "DET + study + PREP"
+        ]
+      },
+      {
+        "lemma": "cycles",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + cycles + NOUN",
+          "DET + cycles + NOUN",
+          "DET + cycles + NOUN"
+        ]
+      },
+      {
+        "lemma": "criteria",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + criteria + UNKNOWN",
+          "DET + criteria + UNKNOWN",
+          "DET + criteria + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "cycle",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + cycle + UNKNOWN",
+          "DET + cycle + UNKNOWN",
+          "DET + cycle + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "have",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "NOUN + have + VERB",
+          "NOUN + have + VERB",
+          "NOUN + have + VERB"
+        ]
+      },
+      {
+        "lemma": "time",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + time + PREP",
+          "DET + time + PREP",
+          "DET + time + PREP"
+        ]
+      },
+      {
+        "lemma": "i",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + i + VERB",
+          "UNKNOWN + i + VERB",
+          "UNKNOWN + i + VERB"
+        ]
+      },
+      {
+        "lemma": "rhythms",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + rhythms + PREP",
+          "DET + rhythms + PREP",
+          "DET + rhythms + PREP"
+        ]
+      },
+      {
+        "lemma": "thc",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + thc + UNKNOWN",
+          "VERB + thc + UNKNOWN",
+          "VERB + thc + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "foundation",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + foundation + PREP",
+          "DET + foundation + PREP",
+          "DET + foundation + PREP"
+        ]
+      },
+      {
+        "lemma": "structural",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + structural + UNKNOWN",
+          "VERB + structural + UNKNOWN",
+          "VERB + structural + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "most",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + most + UNKNOWN",
+          "DET + most + UNKNOWN",
+          "DET + most + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "science",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + science + VERB",
+          "UNKNOWN + science + VERB",
+          "UNKNOWN + science + VERB"
+        ]
+      },
+      {
+        "lemma": "such",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + such + VERB",
+          "UNKNOWN + such + VERB",
+          "UNKNOWN + such + VERB"
+        ]
+      },
+      {
+        "lemma": "structures",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "NOUN + structures + VERB",
+          "NOUN + structures + VERB",
+          "NOUN + structures + VERB"
+        ]
+      },
+      {
+        "lemma": "major",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + major + UNKNOWN",
+          "DET + major + UNKNOWN",
+          "DET + major + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "patterns",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + patterns + PREP",
+          "DET + patterns + PREP",
+          "DET + patterns + PREP"
+        ]
+      },
+      {
+        "lemma": "behavior",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + behavior + PREP",
+          "DET + behavior + PREP",
+          "DET + behavior + PREP"
+        ]
+      },
+      {
+        "lemma": "struc-",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + struc- + DET",
+          "DET + struc- + DET",
+          "DET + struc- + DET"
+        ]
+      },
+      {
+        "lemma": "problem",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + problem + PREP",
+          "DET + problem + PREP",
+          "DET + problem + PREP"
+        ]
+      },
+      {
+        "lemma": "data",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + data + UNKNOWN",
+          "DET + data + NOUN",
+          "DET + data + NOUN"
+        ]
+      },
+      {
+        "lemma": "m.",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + m. + _",
+          "VERB + m. + _",
+          "VERB + m. + _"
+        ]
+      },
+      {
+        "lemma": "concept",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + concept + PREP",
+          "DET + concept + PREP",
+          "DET + concept + PREP"
+        ]
+      },
+      {
+        "lemma": "his",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "UNKNOWN + his + VERB",
+          "UNKNOWN + his + VERB",
+          "UNKNOWN + his + VERB"
+        ]
+      },
+      {
+        "lemma": "hierarchy",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + hierarchy + UNKNOWN",
+          "DET + hierarchy + NOUN",
+          "DET + hierarchy + NOUN"
+        ]
+      },
+      {
+        "lemma": "exploratory",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + exploratory + UNKNOWN",
+          "DET + exploratory + UNKNOWN",
+          "DET + exploratory + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "cyclical",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "PREP + cyclical + VERB",
+          "PREP + cyclical + VERB",
+          "PREP + cyclical + VERB"
+        ]
+      },
+      {
+        "lemma": "more",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + more + UNKNOWN",
+          "VERB + more + UNKNOWN",
+          "VERB + more + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "first",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + first + UNKNOWN",
+          "DET + first + NOUN",
+          "DET + first + NOUN"
+        ]
+      },
+      {
+        "lemma": "evolutionary",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + evolutionary + UNKNOWN",
+          "DET + evolutionary + UNKNOWN",
+          "DET + evolutionary + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "total",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + total + UNKNOWN",
+          "DET + total + UNKNOWN",
+          "DET + total + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "growth",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + growth + PREP",
+          "DET + growth + PREP",
+          "DET + growth + PREP"
+        ]
+      },
+      {
+        "lemma": "inadequacies",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + inadequacies + UNKNOWN",
+          "VERB + inadequacies + UNKNOWN",
+          "VERB + inadequacies + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "point",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + point + PREP",
+          "VERB + point + PREP",
+          "VERB + point + PREP"
+        ]
+      },
+      {
+        "lemma": "wilson",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "NOUN + wilson + VERB",
+          "NOUN + wilson + VERB",
+          "NOUN + wilson + VERB"
+        ]
+      },
+      {
+        "lemma": "astrophysical",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + astrophysical + UNKNOWN",
+          "DET + astrophysical + UNKNOWN",
+          "DET + astrophysical + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "structure",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + structure + PREP",
+          "DET + structure + PREP",
+          "DET + structure + PREP"
+        ]
+      }
+    ],
+    "diseminerVocab": 3700,
+    "diseminerClaims": 40,
+    "cjkTermsSample": [
+      "三",
+      "二"
+    ],
+    "contactBorrowed": 208,
+    "hostGrammarSizeAfter": 1786
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "S_37",
+    "S_38",
+    "S_39",
+    "Class_1",
+    "S_40",
+    "S_41",
+    "S_42",
+    "S_43",
+    "S_44",
+    "S_45",
+    "S_46",
+    "S_47",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "S_67",
+    "S_68",
+    "S_69",
+    "S_70",
+    "S_71",
+    "S_72",
+    "S_73",
+    "S_74",
+    "S_75",
+    "S_76",
+    "S_77",
+    "S_78",
+    "S_79",
+    "S_80",
+    "S_81",
+    "S_82",
+    "S_83",
+    "S_84",
+    "S_85",
+    "S_86",
+    "S_87",
+    "S_88",
+    "S_89",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "S_98",
+    "S_99",
+    "S_100",
+    "S_101",
+    "S_102",
+    "S_103",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "S_109",
+    "S_110",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "S_115",
+    "S_116",
+    "S_117",
+    "S_118",
+    "S_119",
+    "Class_2",
+    "S_120",
+    "EXPR:1===",
+    "EXPR:m.",
+    "EXPR:concept",
+    "EXPR:i",
+    "EXPR:late",
+    "EXPR:rhythms",
+    "EXPR:papcr",
+    "EXPR:originally",
+    "EXPR:conven-",
+    "EXPR:sciencc,",
+    "EXPR:thc",
+    "EXPR:study",
+    "EXPR:title",
+    "EXPR:contents",
+    "EXPR:samc.",
+    "EXPR:hopcd",
+    "EXPR:text",
+    "EXPR:somctimes",
+    "EXPR:quitc",
+    "EXPR:considerable",
+    "EXPR:litera-",
+    "EXPR:areas",
+    "EXPR:bibliography",
+    "EXPR:some",
+    "EXPR:interested",
+    "EXPR:works",
+    "EXPR:listed",
+    "EXPR:forthcoming",
+    "EXPR:now",
+    "EXPR:opportunity",
+    "EXPR:his",
+    "EXPR:manuscript",
+    "EXPR:@",
+    "EXPR:circle,",
+    "EXPR:1976",
+    "EXPR:foundation",
+    "EXPR:.",
+    "EXPR:cosmology",
+    "EXPR:harmonics",
+    "EXPR:unprecedented",
+    "EXPR:levelin",
+    "EXPR:concepts",
+    "EXPR:cycle",
+    "EXPR:hierarchy",
+    "EXPR:have",
+    "EXPR:vital",
+    "EXPR:divergent",
+    "EXPR:intricately",
+    "EXPR:structural",
+    "EXPR:most",
+    "EXPR:large-scale",
+    "EXPR:science",
+    "EXPR:emphasizing",
+    "EXPR:hierarchies",
+    "EXPR:exploratory",
+    "EXPR:explanatory",
+    "EXPR:cyclical",
+    "EXPR:historical",
+    "EXPR:such",
+    "EXPR:structures",
+    "EXPR:more",
+    "EXPR:cur-",
+    "EXPR:widespread",
+    "EXPR:questions",
+    "EXPR:outset.",
+    "EXPR:meaning",
+    "EXPR:first",
+    "EXPR:place,",
+    "EXPR:models",
+    "EXPR:scientist,",
+    "EXPR:keplerian",
+    "EXPR:ther-",
+    "EXPR:bohr",
+    "EXPR:atom).",
+    "EXPR:end",
+    "EXPR:evolutionary",
+    "EXPR:process,",
+    "EXPR:scientist"
+  ]
+}

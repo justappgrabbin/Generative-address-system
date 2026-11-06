@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: forms canonical gate connections and refuses non-channel pair
+ok 1 - forms canonical gate connections and refuses non-channel pair
+  ---
+  duration_ms: 19.135199
+  ...
+# Subtest: dissolves graph when formation conditions disappear
+ok 2 - dissolves graph when formation conditions disappear
+  ---
+  duration_ms: 4.54109
+  ...
+# Subtest: learning cannot mint nonexistent graph
+ok 3 - learning cannot mint nonexistent graph
+  ---
+  duration_ms: 3.962791
+  ...
+# Subtest: graph ecology reports dominant energy from active graph coverage
+ok 4 - graph ecology reports dominant energy from active graph coverage
+  ---
+  duration_ms: 4.604964
+  ...
+# Subtest: projection ignores arbitrary storage identifiers
+ok 5 - projection ignores arbitrary storage identifiers
+  ---
+  duration_ms: 2.201151
+  ...
+# Subtest: leading dimension changes projection
+ok 6 - leading dimension changes projection
+  ---
+  duration_ms: 0.332069
+  ...
+# Subtest: coordinate changes alter projection
+ok 7 - coordinate changes alter projection
+  ---
+  duration_ms: 0.387579
+  ...
+# Subtest: missing coordinate is not fabricated
+ok 8 - missing coordinate is not fabricated
+  ---
+  duration_ms: 0.386848
+  ...
+# Subtest: projection never claims image reconstruction
+ok 9 - projection never claims image reconstruction
+  ---
+  duration_ms: 0.252772
+  ...
+# Subtest: contains 36 unique channel pairs
+ok 10 - contains 36 unique channel pairs
+  ---
+  duration_ms: 1.288227
+  ...
+# Subtest: unseen prose creates validated addresses and a channel graph from an empty registry
+ok 11 - unseen prose creates validated addresses and a channel graph from an empty registry
+  ---
+  duration_ms: 20.885556
+  ...
+# Subtest: morphological variants preserve meaning; unrelated input changes it
+ok 12 - morphological variants preserve meaning; unrelated input changes it
+  ---
+  duration_ms: 7.312304
+  ...
+# Subtest: new combinations get distinct identities even at the same coordinates
+ok 13 - new combinations get distinct identities even at the same coordinates
+  ---
+  duration_ms: 5.274446
+  ...
+# Subtest: unsupported text stays unresolved; teaching a concept enables generation without an address
+ok 14 - unsupported text stays unresolved; teaching a concept enables generation without an address
+  ---
+  duration_ms: 4.347386
+  ...
+# Subtest: Boolean ATO completes a novel analogy in named semantic features
+ok 15 - Boolean ATO completes a novel analogy in named semantic features
+  ---
+  duration_ms: 3.873523
+  ...
+# Subtest: morphology depends on measured features, never channel names or IDs
+ok 16 - morphology depends on measured features, never channel names or IDs
+  ---
+  duration_ms: 0.548865
+  ...
+# Subtest: probe generation cannot mutate the live registry or learned model
+ok 17 - probe generation cannot mutate the live registry or learned model
+  ---
+  duration_ms: 8.608871
+  ...
+# Subtest: explicit addresses keep their coordinates and empty input has no fabricated address
+ok 18 - explicit addresses keep their coordinates and empty input has no fabricated address
+  ---
+  duration_ms: 4.29377
+  ...
+# Subtest: valid canonical coordinates retain supplied provenance
+ok 19 - valid canonical coordinates retain supplied provenance
+  ---
+  duration_ms: 1.332414
+  ...
+# Subtest: missing coordinate is never invented
+ok 20 - missing coordinate is never invented
+  ---
+  duration_ms: 0.520347
+  ...
+# Subtest: fractional discrete coordinate is rejected
+ok 21 - fractional discrete coordinate is rejected
+  ---
+  duration_ms: 0.483762
+  ...
+# Subtest: invalid minute and second are rejected
+ok 22 - invalid minute and second are rejected
+  ---
+  duration_ms: 0.177305
+  ...
+# Subtest: storage identifiers do not alter semantic coordinate identity
+ok 23 - storage identifiers do not alter semantic coordinate identity
+  ---
+  duration_ms: 0.302266
+  ...
+# Subtest: object key order does not change semantic identity
+ok 24 - object key order does not change semantic identity
+  ---
+  duration_ms: 0.195803
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 224.856578

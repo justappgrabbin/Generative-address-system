@@ -1,0 +1,619 @@
+{
+  "summary": {
+    "book": "c2.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 128,
+    "expressionLexiconSize": 75,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "t2,",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + t2, + UNKNOWN",
+          "DET + t2, + UNKNOWN",
+          "DET + t2, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "t3,",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + t3, + UNKNOWN",
+          "DET + t3, + UNKNOWN",
+          "DET + t3, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "t4,",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "DET + t4, + UNKNOWN",
+          "DET + t4, + UNKNOWN",
+          "DET + t4, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "transcript",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + transcript + UNKNOWN",
+          "DET + transcript + UNKNOWN",
+          "DET + transcript + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "t5,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + t5, + UNKNOWN",
+          "DET + t5, + UNKNOWN",
+          "DET + t5, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "t6,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + t6, + UNKNOWN",
+          "DET + t6, + UNKNOWN",
+          "DET + t6, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "t1,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + t1, + UNKNOWN",
+          "DET + t1, + UNKNOWN",
+          "DET + t1, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "1,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 1, + UNKNOWN",
+          "DET + 1, + NOUN",
+          "DET + 1, + NOUN"
+        ]
+      },
+      {
+        "lemma": "2,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 2, + NOUN",
+          "DET + 2, + NOUN",
+          "DET + 2, + NOUN"
+        ]
+      },
+      {
+        "lemma": "3,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 3, + NOUN",
+          "DET + 3, + NOUN",
+          "DET + 3, + NOUN"
+        ]
+      },
+      {
+        "lemma": "5,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 5, + NOUN",
+          "DET + 5, + NOUN",
+          "DET + 5, + NOUN"
+        ]
+      },
+      {
+        "lemma": "6,",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 6, + NOUN",
+          "DET + 6, + NOUN",
+          "DET + 6, + NOUN"
+        ]
+      },
+      {
+        "lemma": "4,",
+        "pos": "NOUN",
+        "support": 11,
+        "environments": [
+          "DET + 4, + NOUN",
+          "DET + 4, + NOUN",
+          "DET + 4, + NOUN"
+        ]
+      },
+      {
+        "lemma": "phs",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "_ + phs + VERB",
+          "_ + phs + VERB",
+          "_ + phs + VERB"
+        ]
+      },
+      {
+        "lemma": "certificate",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + certificate + UNKNOWN",
+          "DET + certificate + UNKNOWN",
+          "DET + certificate + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "(ihds)",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + (ihds) + UNKNOWN",
+          "DET + (ihds) + UNKNOWN",
+          "DET + (ihds) + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "era",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + era + PREP",
+          "DET + era + PREP",
+          "DET + era + PREP"
+        ]
+      },
+      {
+        "lemma": "cross",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + cross + PREP",
+          "DET + cross + PREP",
+          "DET + cross + PREP"
+        ]
+      },
+      {
+        "lemma": "...........................................................................................6",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "UNKNOWN + ...........................................................................................6 + VERB",
+          "VERB + ...........................................................................................6 + UNKNOWN",
+          "UNKNOWN + ...........................................................................................6 + VERB"
+        ]
+      },
+      {
+        "lemma": "2",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + 2 + UNKNOWN",
+          "VERB + 2 + UNKNOWN",
+          "VERB + 2 + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "2nd",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + 2nd + NOUN",
+          "DET + 2nd + NOUN",
+          "DET + 2nd + NOUN"
+        ]
+      },
+      {
+        "lemma": "3rd",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + 3rd + NOUN",
+          "DET + 3rd + NOUN",
+          "DET + 3rd + NOUN"
+        ]
+      },
+      {
+        "lemma": "first,",
+        "pos": "NOUN",
+        "support": 5,
+        "environments": [
+          "DET + first, + UNKNOWN",
+          "DET + first, + UNKNOWN",
+          "DET + first, + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "1",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "UNKNOWN + 1 + VERB",
+          "UNKNOWN + 1 + VERB",
+          "UNKNOWN + 1 + VERB"
+        ]
+      },
+      {
+        "lemma": "proofed",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + proofed + UNKNOWN",
+          "DET + proofed + NOUN",
+          "DET + proofed + NOUN"
+        ]
+      },
+      {
+        "lemma": "version",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + version + UNKNOWN",
+          "VERB + version + UNKNOWN",
+          "VERB + version + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "rave",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "mandala™",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB"
+        ]
+      },
+      {
+        "lemma": "registered",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + registered + UNKNOWN",
+          "VERB + registered + NOUN",
+          "VERB + registered + NOUN"
+        ]
+      },
+      {
+        "lemma": "trademarks",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP"
+        ]
+      },
+      {
+        "lemma": "ii",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + ii + NOUN",
+          "VERB + ii + NOUN",
+          "VERB + ii + NOUN"
+        ]
+      },
+      {
+        "lemma": "ihds",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + ihds + NOUN",
+          "DET + ihds + NOUN",
+          "DET + ihds + NOUN"
+        ]
+      },
+      {
+        "lemma": "future:",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + future: + _",
+          "DET + future: + _",
+          "DET + future: + _"
+        ]
+      },
+      {
+        "lemma": "end",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + end + PREP",
+          "DET + end + PREP",
+          "DET + end + PREP"
+        ]
+      },
+      {
+        "lemma": "future",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + future + UNKNOWN",
+          "DET + future + UNKNOWN",
+          "DET + future + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "sleeping",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + sleeping + UNKNOWN",
+          "DET + sleeping + NOUN",
+          "DET + sleeping + NOUN"
+        ]
+      },
+      {
+        "lemma": "phoenix",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + phoenix + UNKNOWN",
+          "VERB + phoenix + UNKNOWN",
+          "VERB + phoenix + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "personal",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + personal + UNKNOWN",
+          "DET + personal + UNKNOWN",
+          "DET + personal + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": ".......................................3",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "UNKNOWN + .......................................3 + VERB",
+          "UNKNOWN + .......................................3 + VERB",
+          "UNKNOWN + .......................................3 + VERB"
+        ]
+      },
+      {
+        "lemma": "alone",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + alone + UNKNOWN",
+          "VERB + alone + UNKNOWN",
+          "VERB + alone + UNKNOWN"
+        ]
+      }
+    ],
+    "diseminerVocab": 3877,
+    "diseminerClaims": 31,
+    "cjkTermsSample": [
+      "cliché"
+    ],
+    "contactBorrowed": 10,
+    "hostGrammarSizeAfter": 843
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "S_37",
+    "S_38",
+    "S_39",
+    "S_40",
+    "S_41",
+    "S_42",
+    "S_43",
+    "S_44",
+    "S_45",
+    "S_46",
+    "S_47",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "Class_1",
+    "S_67",
+    "S_68",
+    "S_69",
+    "Class_2",
+    "S_70",
+    "S_71",
+    "S_72",
+    "S_73",
+    "S_74",
+    "S_75",
+    "S_76",
+    "Class_3",
+    "S_77",
+    "S_78",
+    "S_79",
+    "Class_4",
+    "S_80",
+    "S_81",
+    "S_82",
+    "S_83",
+    "Class_5",
+    "S_84",
+    "S_85",
+    "Class_6",
+    "S_86",
+    "Class_7",
+    "Class_8",
+    "S_87",
+    "Class_9",
+    "S_88",
+    "S_89",
+    "Class_10",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "Class_11",
+    "S_98",
+    "S_99",
+    "S_100",
+    "Class_12",
+    "S_101",
+    "S_102",
+    "Class_13",
+    "S_103",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "S_109",
+    "S_110",
+    "Class_14",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "EXPR:1",
+    "EXPR:first,",
+    "EXPR:transcript",
+    "EXPR:proofed",
+    "EXPR:version",
+    "EXPR:rave",
+    "EXPR:mandala™",
+    "EXPR:registered",
+    "EXPR:trademarks",
+    "EXPR:phs",
+    "EXPR:certificate",
+    "EXPR:(ihds)",
+    "EXPR:ii",
+    "EXPR:ihds",
+    "EXPR:future:",
+    "EXPR:end",
+    "EXPR:era",
+    "EXPR:cross",
+    "EXPR:future",
+    "EXPR:sleeping",
+    "EXPR:phoenix",
+    "EXPR:personal",
+    "EXPR:.......................................3",
+    "EXPR:alone",
+    "EXPR:tonal",
+    "EXPR:...........................................................................................6",
+    "EXPR:communicator",
+    "EXPR:line",
+    "EXPR:actor",
+    "EXPR:vehicle.....................................................................",
+    "EXPR:vehicle",
+    "EXPR:......................................................................",
+    "EXPR:sensory",
+    "EXPR:chains,",
+    "EXPR:15",
+    "EXPR:46th",
+    "EXPR:archetype",
+    "EXPR:tone",
+    "EXPR:1st",
+    "EXPR:46.1",
+    "EXPR:root",
+    "EXPR:chain:",
+    "EXPR:t2,",
+    "EXPR:t3,",
+    "EXPR:t4,",
+    "EXPR:t5,",
+    "EXPR:discovered:",
+    "EXPR:t6,",
+    "EXPR:iii",
+    "EXPR:nuances",
+    "EXPR:line.........................................................",
+    "EXPR:27",
+    "EXPR:about",
+    "EXPR:2",
+    "EXPR:2nd",
+    "EXPR:t1,",
+    "EXPR:diet",
+    "EXPR:key",
+    "EXPR:3rd",
+    "EXPR:4",
+    "EXPR:between",
+    "EXPR:trigram",
+    "EXPR:....",
+    "EXPR:4th",
+    "EXPR:1,",
+    "EXPR:2,",
+    "EXPR:3,",
+    "EXPR:4,",
+    "EXPR:5,",
+    "EXPR:6,",
+    "EXPR:5th",
+    "EXPR:6th"
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "summary": {
+    "book": "c3.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 132,
+    "expressionLexiconSize": 93,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "20/34",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + 20/34 + UNKNOWN",
+          "DET + 20/34 + UNKNOWN",
+          "DET + 20/34 + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "i",
+        "pos": "NOUN",
+        "support": 10,
+        "environments": [
+          "UNKNOWN + i + VERB",
+          "UNKNOWN + i + VERB",
+          "UNKNOWN + i + VERB"
+        ]
+      },
+      {
+        "lemma": "45th",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + 45th + UNKNOWN",
+          "DET + 45th + UNKNOWN",
+          "DET + 45th + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "pressure",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + pressure + PREP",
+          "DET + pressure + PREP",
+          "DET + pressure + PREP"
+        ]
+      },
+      {
+        "lemma": "program",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + program + PREP",
+          "DET + program + PREP",
+          "DET + program + PREP"
+        ]
+      },
+      {
+        "lemma": "international",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + international + UNKNOWN",
+          "DET + international + UNKNOWN",
+          "DET + international + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "digital",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + digital + NOUN",
+          "DET + digital + NOUN",
+          "DET + digital + NOUN"
+        ]
+      },
+      {
+        "lemma": "rave",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "senses",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + senses + PREP",
+          "DET + senses + PREP",
+          "DET + senses + PREP"
+        ]
+      },
+      {
+        "lemma": "bodygraph",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + bodygraph + UNKNOWN",
+          "DET + bodygraph + UNKNOWN",
+          "DET + bodygraph + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "splenic",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + splenic + UNKNOWN",
+          "DET + splenic + UNKNOWN",
+          "DET + splenic + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "solar",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + solar + UNKNOWN",
+          "DET + solar + UNKNOWN",
+          "DET + solar + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "throat",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + throat + NOUN",
+          "DET + throat + NOUN",
+          "DET + throat + NOUN"
+        ]
+      },
+      {
+        "lemma": "gates",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + gates + PREP",
+          "DET + gates + PREP",
+          "DET + gates + PREP"
+        ]
+      },
+      {
+        "lemma": "35th",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + 35th + UNKNOWN",
+          "DET + 35th + UNKNOWN",
+          "DET + 35th + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "12th",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + 12th + UNKNOWN",
+          "DET + 12th + UNKNOWN",
+          "DET + 12th + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "relationship",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + relationship + UNKNOWN",
+          "DET + relationship + UNKNOWN",
+          "DET + relationship + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "root",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + root + UNKNOWN",
+          "DET + root + UNKNOWN",
+          "DET + root + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "mechanics",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + mechanics + PREP",
+          "DET + mechanics + PREP",
+          "DET + mechanics + PREP"
+        ]
+      },
+      {
+        "lemma": "maia",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + maia + _",
+          "DET + maia + _",
+          "DET + maia + _"
+        ]
+      },
+      {
+        "lemma": "original",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + original + UNKNOWN",
+          "DET + original + NOUN",
+          "DET + original + NOUN"
+        ]
+      },
+      {
+        "lemma": "illustrations",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "NOUN + illustrations + VERB",
+          "NOUN + illustrations + VERB",
+          "NOUN + illustrations + VERB"
+        ]
+      },
+      {
+        "lemma": "included",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + included + PREP",
+          "VERB + included + PREP",
+          "VERB + included + PREP"
+        ]
+      },
+      {
+        "lemma": "book.",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + book. + _",
+          "DET + book. + _",
+          "DET + book. + _"
+        ]
+      },
+      {
+        "lemma": "mandala™",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB"
+        ]
+      },
+      {
+        "lemma": "registered",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + registered + UNKNOWN",
+          "VERB + registered + NOUN",
+          "VERB + registered + NOUN"
+        ]
+      },
+      {
+        "lemma": "trademarks",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP"
+        ]
+      },
+      {
+        "lemma": "center",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "UNKNOWN + center + VERB",
+          "UNKNOWN + center + VERB",
+          "UNKNOWN + center + VERB"
+        ]
+      },
+      {
+        "lemma": "............................................................................",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + ............................................................................ + _",
+          "VERB + ............................................................................ + _",
+          "VERB + ............................................................................ + _"
+        ]
+      },
+      {
+        "lemma": "cognitive",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + cognitive + UNKNOWN",
+          "DET + cognitive + UNKNOWN",
+          "DET + cognitive + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "progression",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + progression + PREP",
+          "DET + progression + PREP",
+          "DET + progression + PREP"
+        ]
+      },
+      {
+        "lemma": "defense",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + defense + UNKNOWN",
+          "DET + defense + UNKNOWN",
+          "DET + defense + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "ajna",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + ajna + UNKNOWN",
+          "DET + ajna + UNKNOWN",
+          "DET + ajna + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "5th",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + 5th + UNKNOWN",
+          "DET + 5th + UNKNOWN",
+          "DET + 5th + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "divide",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + divide + UNKNOWN",
+          "DET + divide + UNKNOWN",
+          "DET + divide + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "tonal",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + tonal + UNKNOWN",
+          "DET + tonal + UNKNOWN",
+          "DET + tonal + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "acoustic",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + acoustic + UNKNOWN",
+          "DET + acoustic + UNKNOWN",
+          "DET + acoustic + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "right",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + right + UNKNOWN",
+          "DET + right + UNKNOWN",
+          "DET + right + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "left",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + left + UNKNOWN",
+          "DET + left + UNKNOWN",
+          "DET + left + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "inner",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + inner + UNKNOWN",
+          "DET + inner + UNKNOWN",
+          "DET + inner + UNKNOWN"
+        ]
+      }
+    ],
+    "diseminerVocab": 4133,
+    "diseminerClaims": 28,
+    "cjkTermsSample": [
+      "clichés",
+      "blasé"
+    ],
+    "contactBorrowed": 31,
+    "hostGrammarSizeAfter": 881
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "Class_1",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "S_37",
+    "S_38",
+    "S_39",
+    "S_40",
+    "S_41",
+    "S_42",
+    "S_43",
+    "Class_2",
+    "S_44",
+    "S_45",
+    "S_46",
+    "S_47",
+    "Class_3",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "Class_4",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "S_67",
+    "S_68",
+    "S_69",
+    "S_70",
+    "S_71",
+    "S_72",
+    "S_73",
+    "Class_5",
+    "S_74",
+    "S_75",
+    "Class_6",
+    "S_76",
+    "Class_7",
+    "S_77",
+    "S_78",
+    "S_79",
+    "S_80",
+    "Class_8",
+    "Class_9",
+    "S_81",
+    "S_82",
+    "S_83",
+    "S_84",
+    "S_85",
+    "S_86",
+    "S_87",
+    "S_88",
+    "S_89",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "Class_10",
+    "S_98",
+    "S_99",
+    "S_100",
+    "S_101",
+    "S_102",
+    "Class_11",
+    "S_103",
+    "Class_12",
+    "Class_13",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "Class_14",
+    "S_109",
+    "S_110",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "S_115",
+    "S_116",
+    "S_117",
+    "S_118",
+    "EXPR:i",
+    "EXPR:mechanics",
+    "EXPR:maia",
+    "EXPR:digital",
+    "EXPR:original",
+    "EXPR:illustrations",
+    "EXPR:included",
+    "EXPR:book.",
+    "EXPR:rave",
+    "EXPR:mandala™",
+    "EXPR:registered",
+    "EXPR:trademarks",
+    "EXPR:program",
+    "EXPR:international",
+    "EXPR:senses",
+    "EXPR:bodygraph",
+    "EXPR:center",
+    "EXPR:............................................................................",
+    "EXPR:cognitive",
+    "EXPR:progression",
+    "EXPR:splenic",
+    "EXPR:defense",
+    "EXPR:ajna",
+    "EXPR:solar",
+    "EXPR:5th",
+    "EXPR:divide",
+    "EXPR:tonal",
+    "EXPR:acoustic",
+    "EXPR:right",
+    "EXPR:left",
+    "EXPR:inner",
+    "EXPR:50th",
+    "EXPR:6th",
+    "EXPR:.............................................................................",
+    "EXPR:tools",
+    "EXPR:sensory",
+    "EXPR:word",
+    "EXPR:throat",
+    "EXPR:62nd",
+    "EXPR:gates",
+    "EXPR:keys",
+    "EXPR:23rd",
+    "EXPR:56th",
+    "EXPR:16th",
+    "EXPR:31st",
+    "EXPR:35th",
+    "EXPR:33rd",
+    "EXPR:28",
+    "EXPR:three",
+    "EXPR:abstract",
+    "EXPR:together",
+    "EXPR:individual",
+    "EXPR:.....................................................................................",
+    "EXPR:20th",
+    "EXPR:8th",
+    "EXPR:12th",
+    "EXPR:45th",
+    "EXPR:experiment",
+    "EXPR:primary",
+    "EXPR:we",
+    "EXPR:about",
+    "EXPR:action",
+    "EXPR:manifestors",
+    "EXPR:designed",
+    "EXPR:20/34",
+    "EXPR:human",
+    "EXPR:mind",
+    "EXPR:keynotes"
+  ]
+}

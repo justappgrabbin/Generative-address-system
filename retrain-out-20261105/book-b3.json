@@ -1,0 +1,622 @@
+{
+  "summary": {
+    "book": "b3.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 123,
+    "expressionLexiconSize": 79,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "rave",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "phs",
+        "pos": "NOUN",
+        "support": 16,
+        "environments": [
+          "_ + phs + VERB",
+          "_ + phs + VERB",
+          "_ + phs + VERB"
+        ]
+      },
+      {
+        "lemma": "certificate",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + certificate + UNKNOWN",
+          "DET + certificate + UNKNOWN",
+          "DET + certificate + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "(ihds)",
+        "pos": "NOUN",
+        "support": 7,
+        "environments": [
+          "DET + (ihds) + UNKNOWN",
+          "DET + (ihds) + UNKNOWN",
+          "DET + (ihds) + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "holistic",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "UNKNOWN + holistic + VERB",
+          "NOUN + holistic + VERB",
+          "NOUN + holistic + VERB"
+        ]
+      },
+      {
+        "lemma": "body",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + body + UNKNOWN",
+          "DET + body + UNKNOWN",
+          "DET + body + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "knowledge",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + knowledge + UNKNOWN",
+          "DET + knowledge + UNKNOWN",
+          "DET + knowledge + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "28",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "_ + 28 + VERB",
+          "_ + 28 + VERB",
+          "_ + 28 + VERB"
+        ]
+      },
+      {
+        "lemma": "information",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + information + UNKNOWN",
+          "VERB + information + UNKNOWN",
+          "VERB + information + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "environment",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + environment + UNKNOWN",
+          "DET + environment + UNKNOWN",
+          "DET + environment + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "mind",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "UNKNOWN + mind + VERB",
+          "UNKNOWN + mind + VERB",
+          "UNKNOWN + mind + VERB"
+        ]
+      },
+      {
+        "lemma": "digital",
+        "pos": "NOUN",
+        "support": 5,
+        "environments": [
+          "DET + digital + NOUN",
+          "DET + digital + NOUN",
+          "DET + digital + NOUN"
+        ]
+      },
+      {
+        "lemma": "2",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "UNKNOWN + 2 + VERB",
+          "UNKNOWN + 2 + VERB",
+          "UNKNOWN + 2 + VERB"
+        ]
+      },
+      {
+        "lemma": "mandala™",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB",
+          "NOUN + mandala™ + VERB"
+        ]
+      },
+      {
+        "lemma": "registered",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + registered + UNKNOWN",
+          "VERB + registered + NOUN",
+          "VERB + registered + NOUN"
+        ]
+      },
+      {
+        "lemma": "trademarks",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP",
+          "VERB + trademarks + PREP"
+        ]
+      },
+      {
+        "lemma": "ihds",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + ihds + NOUN",
+          "DET + ihds + NOUN",
+          "DET + ihds + NOUN"
+        ]
+      },
+      {
+        "lemma": "1",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + 1 + UNKNOWN",
+          "VERB + 1 + UNKNOWN",
+          "VERB + 1 + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "........................................................................",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + ........................................................................ + _",
+          "VERB + ........................................................................ + _",
+          "VERB + ........................................................................ + _"
+        ]
+      },
+      {
+        "lemma": "variable",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + variable + UNKNOWN",
+          "DET + variable + UNKNOWN",
+          "DET + variable + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "list",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + list + UNKNOWN",
+          "VERB + list + UNKNOWN",
+          "VERB + list + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "show",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + show + VERB",
+          "VERB + show + VERB",
+          "VERB + show + VERB"
+        ]
+      },
+      {
+        "lemma": "...................................",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + ................................... + _",
+          "VERB + ................................... + _",
+          "VERB + ................................... + _"
+        ]
+      },
+      {
+        "lemma": "dangerous",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + dangerous + UNKNOWN",
+          "VERB + dangerous + UNKNOWN",
+          "VERB + dangerous + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "single",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + single + UNKNOWN",
+          "DET + single + UNKNOWN",
+          "DET + single + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "process",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + process + UNKNOWN",
+          "DET + process + UNKNOWN",
+          "DET + process + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "12",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "_ + 12 + VERB",
+          "_ + 12 + VERB",
+          "_ + 12 + VERB"
+        ]
+      },
+      {
+        "lemma": "starts",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + starts + PREP",
+          "VERB + starts + PREP",
+          "VERB + starts + PREP"
+        ]
+      },
+      {
+        "lemma": "13",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "_ + 13 + VERB",
+          "_ + 13 + VERB",
+          "_ + 13 + VERB"
+        ]
+      },
+      {
+        "lemma": "consequences",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + consequences + PREP",
+          "DET + consequences + PREP",
+          "DET + consequences + PREP"
+        ]
+      },
+      {
+        "lemma": "17",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "_ + 17 + VERB",
+          "_ + 17 + VERB",
+          "_ + 17 + VERB"
+        ]
+      },
+      {
+        "lemma": "vehicle",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + vehicle + PREP",
+          "DET + vehicle + PREP",
+          "DET + vehicle + PREP"
+        ]
+      },
+      {
+        "lemma": "need",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + need + PREP",
+          "DET + need + PREP",
+          "DET + need + PREP"
+        ]
+      },
+      {
+        "lemma": "personality",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + personality + UNKNOWN",
+          "DET + personality + UNKNOWN",
+          "DET + personality + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "22",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "_ + 22 + VERB",
+          "_ + 22 + VERB",
+          "_ + 22 + VERB"
+        ]
+      },
+      {
+        "lemma": "relationships",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + relationships + UNKNOWN",
+          "VERB + relationships + UNKNOWN",
+          "VERB + relationships + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "23",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "_ + 23 + VERB",
+          "_ + 23 + VERB",
+          "_ + 23 + VERB"
+        ]
+      },
+      {
+        "lemma": ".................................................................",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + ................................................................. + _",
+          "VERB + ................................................................. + _",
+          "VERB + ................................................................. + _"
+        ]
+      },
+      {
+        "lemma": "determination",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + determination + UNKNOWN",
+          "DET + determination + UNKNOWN",
+          "DET + determination + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "cognition",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + cognition + UNKNOWN",
+          "DET + cognition + UNKNOWN",
+          "DET + cognition + UNKNOWN"
+        ]
+      }
+    ],
+    "diseminerVocab": 3868,
+    "diseminerClaims": 26,
+    "cjkTermsSample": [
+      "à",
+      "cliché",
+      "blasé",
+      "séances"
+    ],
+    "contactBorrowed": 48,
+    "hostGrammarSizeAfter": 328
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "Class_1",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "S_37",
+    "S_38",
+    "S_39",
+    "S_40",
+    "S_41",
+    "S_42",
+    "S_43",
+    "S_44",
+    "S_45",
+    "S_46",
+    "S_47",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "S_67",
+    "S_68",
+    "S_69",
+    "S_70",
+    "S_71",
+    "S_72",
+    "S_73",
+    "Class_2",
+    "S_74",
+    "S_75",
+    "S_76",
+    "S_77",
+    "S_78",
+    "S_79",
+    "S_80",
+    "S_81",
+    "S_82",
+    "S_83",
+    "S_84",
+    "S_85",
+    "S_86",
+    "S_87",
+    "Class_3",
+    "S_88",
+    "S_89",
+    "Class_4",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "Class_5",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "S_98",
+    "Class_6",
+    "S_99",
+    "S_100",
+    "Class_7",
+    "S_101",
+    "S_102",
+    "S_103",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "S_109",
+    "S_110",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "S_115",
+    "S_116",
+    "EXPR:2",
+    "EXPR:digital",
+    "EXPR:rave",
+    "EXPR:mandala™",
+    "EXPR:registered",
+    "EXPR:trademarks",
+    "EXPR:phs",
+    "EXPR:certificate",
+    "EXPR:(ihds)",
+    "EXPR:ihds",
+    "EXPR:holistic",
+    "EXPR:1",
+    "EXPR:........................................................................",
+    "EXPR:variable",
+    "EXPR:list",
+    "EXPR:show",
+    "EXPR:...................................",
+    "EXPR:dangerous",
+    "EXPR:single",
+    "EXPR:process",
+    "EXPR:12",
+    "EXPR:starts",
+    "EXPR:body",
+    "EXPR:13",
+    "EXPR:consequences",
+    "EXPR:knowledge",
+    "EXPR:17",
+    "EXPR:vehicle",
+    "EXPR:need",
+    "EXPR:personality",
+    "EXPR:22",
+    "EXPR:relationships",
+    "EXPR:23",
+    "EXPR:.................................................................",
+    "EXPR:determination",
+    "EXPR:cognition",
+    "EXPR:client‘s",
+    "EXPR:......................................................",
+    "EXPR:first",
+    "EXPR:next",
+    "EXPR:28",
+    "EXPR:deconstructing",
+    "EXPR:keynotes",
+    "EXPR:................................................................",
+    "EXPR:information",
+    "EXPR:environment",
+    "EXPR:center",
+    "EXPR:testing",
+    "EXPR:............................................................",
+    "EXPR:technical",
+    "EXPR:tests",
+    "EXPR:mind",
+    "EXPR:.......................................................................",
+    "EXPR:.........................................................................",
+    "EXPR:................................................................................",
+    "EXPR:nuance",
+    "EXPR:54",
+    "EXPR:nutrition",
+    "EXPR:right",
+    "EXPR:.............................................................................",
+    "EXPR:nodes.....................................................................................",
+    "EXPR:link",
+    "EXPR:....................................................................................",
+    "EXPR:60",
+    "EXPR:basics",
+    "EXPR:orientation",
+    "EXPR:more",
+    "EXPR:boxes",
+    "EXPR:.................................................",
+    "EXPR:person",
+    "EXPR:three",
+    "EXPR:.........................................................",
+    "EXPR:..............................................................",
+    "EXPR:66",
+    "EXPR:chain:",
+    "EXPR:cognition:",
+    "EXPR:penta"
+  ]
+}

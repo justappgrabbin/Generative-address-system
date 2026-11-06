@@ -1,0 +1,648 @@
+{
+  "summary": {
+    "book": "d1.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 122,
+    "expressionLexiconSize": 246,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "book",
+        "pos": "NOUN",
+        "support": 36,
+        "environments": [
+          "DET + book + PREP",
+          "DET + book + PREP",
+          "DET + book + PREP"
+        ]
+      },
+      {
+        "lemma": "i",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "NOUN + i + VERB",
+          "NOUN + i + VERB",
+          "NOUN + i + VERB"
+        ]
+      },
+      {
+        "lemma": "he",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "UNKNOWN + he + VERB",
+          "UNKNOWN + he + VERB",
+          "UNKNOWN + he + VERB"
+        ]
+      },
+      {
+        "lemma": "bronze",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + bronze + UNKNOWN",
+          "DET + bronze + UNKNOWN",
+          "DET + bronze + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "changes",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + changes + UNKNOWN",
+          "DET + changes + NOUN",
+          "DET + changes + NOUN"
+        ]
+      },
+      {
+        "lemma": "zhouyi",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "PREP + zhouyi + VERB",
+          "PREP + zhouyi + VERB",
+          "PREP + zhouyi + VERB"
+        ]
+      },
+      {
+        "lemma": "eight",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + eight + UNKNOWN",
+          "DET + eight + UNKNOWN",
+          "DET + eight + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "they",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + they + VERB",
+          "VERB + they + VERB",
+          "VERB + they + VERB"
+        ]
+      },
+      {
+        "lemma": "had",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + had + VERB",
+          "UNKNOWN + had + VERB",
+          "UNKNOWN + had + VERB"
+        ]
+      },
+      {
+        "lemma": "have",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + have + VERB",
+          "UNKNOWN + have + VERB",
+          "UNKNOWN + have + VERB"
+        ]
+      },
+      {
+        "lemma": "new",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + new + UNKNOWN",
+          "DET + new + UNKNOWN",
+          "DET + new + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "(zhouyi)",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + (zhouyi) + _",
+          "VERB + (zhouyi) + _",
+          "VERB + (zhouyi) + _"
+        ]
+      },
+      {
+        "lemma": "catalogue",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + catalogue + UNKNOWN",
+          "DET + catalogue + UNKNOWN",
+          "DET + catalogue + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "some",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + some + UNKNOWN",
+          "DET + some + UNKNOWN",
+          "DET + some + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "background:",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + background: + _",
+          "DET + background: + _",
+          "DET + background: + _"
+        ]
+      },
+      {
+        "lemma": "translation",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "_ + translation + VERB",
+          "_ + translation + VERB",
+          "_ + translation + VERB"
+        ]
+      },
+      {
+        "lemma": "ten",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + ten + UNKNOWN",
+          "DET + ten + UNKNOWN",
+          "DET + ten + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "china",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + china + PREP",
+          "DET + china + PREP",
+          "DET + china + PREP"
+        ]
+      },
+      {
+        "lemma": "order",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + order + PREP",
+          "VERB + order + PREP",
+          "VERB + order + PREP"
+        ]
+      },
+      {
+        "lemma": "four",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + four + VERB",
+          "DET + four + VERB",
+          "DET + four + VERB"
+        ]
+      },
+      {
+        "lemma": "trigrams",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + trigrams + UNKNOWN",
+          "DET + trigrams + UNKNOWN",
+          "VERB + trigrams + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "49",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + 49 + VERB",
+          "DET + 49 + UNKNOWN",
+          "DET + 49 + VERB"
+        ]
+      },
+      {
+        "lemma": "era",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + era + PREP",
+          "DET + era + PREP",
+          "DET + era + PREP"
+        ]
+      },
+      {
+        "lemma": "words",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + words + PREP",
+          "DET + words + PREP",
+          "DET + words + PREP"
+        ]
+      },
+      {
+        "lemma": "really",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + really + DET",
+          "VERB + really + DET",
+          "VERB + really + DET"
+        ]
+      },
+      {
+        "lemma": "me",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + me + UNKNOWN",
+          "VERB + me + UNKNOWN",
+          "VERB + me + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "same",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "work",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + work + PREP",
+          "DET + work + PREP",
+          "DET + work + PREP"
+        ]
+      },
+      {
+        "lemma": "notes",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + notes + UNKNOWN",
+          "DET + notes + UNKNOWN",
+          "DET + notes + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "about",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + about + DET",
+          "VERB + about + DET",
+          "VERB + about + DET"
+        ]
+      },
+      {
+        "lemma": "author",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + author + _",
+          "DET + author + _",
+          "DET + author + _"
+        ]
+      },
+      {
+        "lemma": "rutt",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "UNKNOWN + rutt + VERB",
+          "UNKNOWN + rutt + VERB",
+          "UNKNOWN + rutt + VERB"
+        ]
+      },
+      {
+        "lemma": "born",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + born + PREP",
+          "VERB + born + PREP",
+          "VERB + born + PREP"
+        ]
+      },
+      {
+        "lemma": "himself",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + himself + UNKNOWN",
+          "VERB + himself + UNKNOWN",
+          "VERB + himself + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "outstanding",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + outstanding + UNKNOWN",
+          "DET + outstanding + NOUN",
+          "DET + outstanding + NOUN"
+        ]
+      },
+      {
+        "lemma": "linguist,",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + linguist, + VERB",
+          "VERB + linguist, + VERB",
+          "VERB + linguist, + VERB"
+        ]
+      },
+      {
+        "lemma": "italian",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "VERB + italian + UNKNOWN",
+          "VERB + italian + UNKNOWN",
+          "VERB + italian + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "second",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + second + UNKNOWN",
+          "DET + second + UNKNOWN",
+          "DET + second + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "royal",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + royal + UNKNOWN",
+          "DET + royal + UNKNOWN",
+          "DET + royal + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "translator",
+        "pos": "NOUN",
+        "support": 3,
+        "environments": [
+          "DET + translator + PREP",
+          "DET + translator + PREP",
+          "DET + translator + PREP"
+        ]
+      }
+    ],
+    "diseminerVocab": 13561,
+    "diseminerClaims": 32,
+    "cjkTermsSample": [
+      "ın",
+      "translatıon",
+      "fıfty",
+      "和",
+      "xıa",
+      "fırst",
+      "canonızed",
+      "fıelds",
+      "arıstocrats",
+      "agrarıan",
+      "sıma",
+      "fınely",
+      "fısh",
+      "fıfth",
+      "fıbre",
+      "sılk",
+      "fıve",
+      "ıs",
+      "ımportant",
+      "offıcials",
+      "sıgns",
+      "品",
+      "trıgrams",
+      "classıc",
+      "ıts",
+      "yı",
+      "jızı",
+      "allusıve",
+      "anımals",
+      "charıot"
+    ],
+    "contactBorrowed": 177,
+    "hostGrammarSizeAfter": 1093
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "Class_1",
+    "S_37",
+    "S_38",
+    "S_39",
+    "S_40",
+    "Class_2",
+    "S_41",
+    "S_42",
+    "S_43",
+    "S_44",
+    "S_45",
+    "S_46",
+    "S_47",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "S_67",
+    "S_68",
+    "S_69",
+    "S_70",
+    "S_71",
+    "S_72",
+    "S_73",
+    "S_74",
+    "S_75",
+    "S_76",
+    "S_77",
+    "S_78",
+    "S_79",
+    "S_80",
+    "S_81",
+    "S_82",
+    "S_83",
+    "S_84",
+    "S_85",
+    "S_86",
+    "S_87",
+    "S_88",
+    "S_89",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "S_98",
+    "S_99",
+    "S_100",
+    "S_101",
+    "S_102",
+    "S_103",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "S_109",
+    "S_110",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "S_115",
+    "S_116",
+    "S_117",
+    "S_118",
+    "S_119",
+    "S_120",
+    "EXPR:new",
+    "EXPR:book",
+    "EXPR:about",
+    "EXPR:author",
+    "EXPR:rutt",
+    "EXPR:born",
+    "EXPR:himself",
+    "EXPR:outstanding",
+    "EXPR:linguist,",
+    "EXPR:italian",
+    "EXPR:second",
+    "EXPR:he",
+    "EXPR:royal",
+    "EXPR:translator",
+    "EXPR:ordained",
+    "EXPR:ın",
+    "EXPR:church",
+    "EXPR:missionary",
+    "EXPR:while",
+    "EXPR:village",
+    "EXPR:his",
+    "EXPR:abiding",
+    "EXPR:interest",
+    "EXPR:subsequently",
+    "EXPR:translations",
+    "EXPR:britain,",
+    "EXPR:bishop",
+    "EXPR:now",
+    "EXPR:bard",
+    "EXPR:cornish",
+    "EXPR:roman",
+    "EXPR:vernacular),",
+    "EXPR:bamboo",
+    "EXPR:1950s)",
+    "EXPR:cultural",
+    "EXPR:(zhouyi)",
+    "EXPR:bronze",
+    "EXPR:|",
+    "EXPR:—",
+    "EXPR:east-asia",
+    "EXPR:no.1",
+    "EXPR:first",
+    "EXPR:simultaneously",
+    "EXPR:usa",
+    "EXPR:routledge",
+    "EXPR:imprint",
+    "EXPR:taylor",
+    "EXPR:digital",
+    "EXPR:2007",
+    "EXPR:invented,",
+    "EXPR:including",
+    "EXPR:photocopying",
+    "EXPR:publishers.",
+    "EXPR:library",
+    "EXPR:catalogue",
+    "EXPR:available",
+    "EXPR:british",
+    "EXPR:congress",
+    "EXPR:publisher",
+    "EXPR:quality",
+    "EXPR:reprint",
+    "EXPR:some",
+    "EXPR:original",
+    "EXPR:vi",
+    "EXPR:background:",
+    "EXPR:history",
+    "EXPR:fascination",
+    "EXPR:zhouyi",
+    "EXPR:contents",
+    "EXPR:translation",
+    "EXPR:288",
+    "EXPR:ten",
+    "EXPR:further",
+    "EXPR:457",
+    "EXPR:proper",
+    "EXPR:479",
+    "EXPR:china",
+    "EXPR:title"
+  ]
+}

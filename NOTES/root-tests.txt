@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: cold-start Morph chat generates addresses from meaning and keeps subsequent subjects fresh
+ok 1 - cold-start Morph chat generates addresses from meaning and keeps subsequent subjects fresh
+  ---
+  duration_ms: 223.783523
+  ...
+# Subtest: research generates semantic addresses without caller-supplied coordinates
+ok 2 - research generates semantic addresses without caller-supplied coordinates
+  ---
+  duration_ms: 65.581319
+  ...
+# Subtest: the live Klein operator probes semantic generation without changing registry state
+ok 3 - the live Klein operator probes semantic generation without changing registry state
+  ---
+  duration_ms: 30.883131
+  ...
+# Subtest: generative morphology mounts as a live mesh organ without replacing v0.4.2 organs
+ok 4 - generative morphology mounts as a live mesh organ without replacing v0.4.2 organs
+  ---
+  duration_ms: 5.350235
+  ...
+# Subtest: chat reads inward through active addressed graph ecology and writes outward through morphology
+ok 5 - chat reads inward through active addressed graph ecology and writes outward through morphology
+  ---
+  duration_ms: 76.579685
+  ...
+# Subtest: research browser uses the same morphology field rather than a separate interpretation stack
+ok 6 - research browser uses the same morphology field rather than a separate interpretation stack
+  ---
+  duration_ms: 68.957602
+  ...
+# Subtest: graph dissolves when its connection conditions stop being satisfied
+ok 7 - graph dissolves when its connection conditions stop being satisfied
+  ---
+  duration_ms: 16.042589
+  ...
+# Subtest: browser/form surface receives the same morphology field while retaining its existing consent gates
+ok 8 - browser/form surface receives the same morphology field while retaining its existing consent gates
+  ---
+  duration_ms: 35.287789
+  ...
+# Subtest: Klein chat form stays distinct from morphology chat form
+ok 9 - Klein chat form stays distinct from morphology chat form
+  ---
+  duration_ms: 96.024452
+  ...
+# Subtest: root assembles the Klein-connected spine and every trainable organ
+ok 10 - root assembles the Klein-connected spine and every trainable organ
+  ---
+  duration_ms: 21.716608
+  ...
+# Subtest: root chat carries one witnessed Klein evaluation into the training journal
+ok 11 - root chat carries one witnessed Klein evaluation into the training journal
+  ---
+  duration_ms: 23.399533
+  ...
+# Subtest: root tool invocation uses the same intake + Klein + provenance path
+ok 12 - root tool invocation uses the same intake + Klein + provenance path
+  ---
+  duration_ms: 5.959316
+  ...
+# Subtest: book ingestion uses live AutoLing and DISEMINER via engine.invoke and then shares fragments to the mesh
+ok 13 - book ingestion uses live AutoLing and DISEMINER via engine.invoke and then shares fragments to the mesh
+  ---
+  duration_ms: 11.838273
+  ...
+# Subtest: root preserves address authority boundary instead of silently converting arc <-> arcAxis
+ok 14 - root preserves address authority boundary instead of silently converting arc <-> arcAxis
+  ---
+  duration_ms: 3.178748
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 811.638641

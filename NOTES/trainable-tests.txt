@@ -1,0 +1,11 @@
+
+> pure-synthia-trainable-assembly@0.4.1 test
+> node tests/run.mjs
+
+PASS registration
+PASS canonical 13-field live address
+PASS provenance-preserving book ingestion
+PASS sentence mesh
+PASS scientist loop
+PASS training journal
+6/6 PASS

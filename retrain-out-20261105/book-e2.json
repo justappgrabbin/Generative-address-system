@@ -1,0 +1,617 @@
+{
+  "summary": {
+    "book": "e2.txt",
+    "sentencesLearned": 120,
+    "autolingRules": 177,
+    "expressionLexiconSize": 461,
+    "topExpressionMeasurements": [
+      {
+        "lemma": "you",
+        "pos": "NOUN",
+        "support": 45,
+        "environments": [
+          "DET + you + UNKNOWN",
+          "DET + you + UNKNOWN",
+          "DET + you + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "about",
+        "pos": "NOUN",
+        "support": 27,
+        "environments": [
+          "VERB + about + DET",
+          "VERB + about + DET",
+          "VERB + about + DET"
+        ]
+      },
+      {
+        "lemma": "unconscious",
+        "pos": "NOUN",
+        "support": 24,
+        "environments": [
+          "VERB + unconscious + VERB",
+          "DET + unconscious + UNKNOWN",
+          "VERB + unconscious + VERB"
+        ]
+      },
+      {
+        "lemma": "we",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "DET + we + UNKNOWN",
+          "DET + we + UNKNOWN",
+          "DET + we + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "you're",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "DET + you're + VERB",
+          "DET + you're + VERB",
+          "DET + you're + VERB"
+        ]
+      },
+      {
+        "lemma": "design",
+        "pos": "NOUN",
+        "support": 18,
+        "environments": [
+          "NOUN + design + VERB",
+          "NOUN + design + VERB",
+          "NOUN + design + VERB"
+        ]
+      },
+      {
+        "lemma": "one",
+        "pos": "NOUN",
+        "support": 15,
+        "environments": [
+          "VERB + one + UNKNOWN",
+          "VERB + one + UNKNOWN",
+          "VERB + one + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "rave",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN",
+          "DET + rave + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "two",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + two + UNKNOWN",
+          "DET + two + UNKNOWN",
+          "DET + two + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "personality",
+        "pos": "NOUN",
+        "support": 12,
+        "environments": [
+          "DET + personality + UNKNOWN",
+          "DET + personality + UNKNOWN",
+          "DET + personality + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "moment",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + moment + VERB",
+          "DET + moment + VERB",
+          "DET + moment + VERB"
+        ]
+      },
+      {
+        "lemma": "universe",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + universe + UNKNOWN",
+          "DET + universe + UNKNOWN",
+          "DET + universe + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "other",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + other + UNKNOWN",
+          "DET + other + UNKNOWN",
+          "DET + other + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "yang",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "NOUN + yang + VERB",
+          "NOUN + yang + VERB",
+          "NOUN + yang + VERB"
+        ]
+      },
+      {
+        "lemma": "only",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + only + VERB",
+          "VERB + only + VERB",
+          "VERB + only + VERB"
+        ]
+      },
+      {
+        "lemma": "information",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "NOUN + information + VERB",
+          "NOUN + information + VERB",
+          "NOUN + information + VERB"
+        ]
+      },
+      {
+        "lemma": "that's",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "UNKNOWN + that's + VERB",
+          "UNKNOWN + that's + VERB",
+          "UNKNOWN + that's + VERB"
+        ]
+      },
+      {
+        "lemma": "same",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN",
+          "DET + same + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "side",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "NOUN + side + VERB",
+          "NOUN + side + VERB",
+          "NOUN + side + VERB"
+        ]
+      },
+      {
+        "lemma": "us",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + us + DET",
+          "VERB + us + DET",
+          "VERB + us + DET"
+        ]
+      },
+      {
+        "lemma": "your",
+        "pos": "NOUN",
+        "support": 9,
+        "environments": [
+          "VERB + your + UNKNOWN",
+          "VERB + your + UNKNOWN",
+          "VERB + your + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "writtenby",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + writtenby + UNKNOWN",
+          "VERB + writtenby + NOUN",
+          "VERB + writtenby + NOUN"
+        ]
+      },
+      {
+        "lemma": "theresa",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "NOUN + theresa + VERB",
+          "NOUN + theresa + VERB",
+          "NOUN + theresa + VERB"
+        ]
+      },
+      {
+        "lemma": "eleven",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + eleven + UNKNOWN",
+          "VERB + eleven + UNKNOWN",
+          "VERB + eleven + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "neutrinos",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "UNKNOWN + neutrinos + VERB",
+          "UNKNOWN + neutrinos + VERB",
+          "UNKNOWN + neutrinos + VERB"
+        ]
+      },
+      {
+        "lemma": "everything",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + everything + DET",
+          "DET + everything + DET",
+          "DET + everything + DET"
+        ]
+      },
+      {
+        "lemma": "yin",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + yin + UNKNOWN",
+          "DET + yin + UNKNOWN",
+          "DET + yin + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "things",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + things + DET",
+          "DET + things + DET",
+          "DET + things + DET"
+        ]
+      },
+      {
+        "lemma": "neutrino",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + neutrino + UNKNOWN",
+          "DET + neutrino + UNKNOWN",
+          "DET + neutrino + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "red",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + red + NOUN",
+          "DET + red + NOUN",
+          "DET + red + NOUN"
+        ]
+      },
+      {
+        "lemma": "all",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + all + DET",
+          "VERB + all + DET",
+          "VERB + all + DET"
+        ]
+      },
+      {
+        "lemma": "something",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "VERB + something + NOUN",
+          "VERB + something + NOUN",
+          "VERB + something + NOUN"
+        ]
+      },
+      {
+        "lemma": "human",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + human + UNKNOWN",
+          "DET + human + UNKNOWN",
+          "DET + human + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "magnetic",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + magnetic + UNKNOWN",
+          "DET + magnetic + UNKNOWN",
+          "DET + magnetic + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "illusion",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + illusion + UNKNOWN",
+          "DET + illusion + UNKNOWN",
+          "DET + illusion + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "analogy",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + analogy + UNKNOWN",
+          "DET + analogy + UNKNOWN",
+          "DET + analogy + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "passenger",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + passenger + VERB",
+          "ADJ + passenger + VERB",
+          "DET + passenger + VERB"
+        ]
+      },
+      {
+        "lemma": "car",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + car + UNKNOWN",
+          "DET + car + UNKNOWN",
+          "DET + car + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "mandala",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + mandala + UNKNOWN",
+          "DET + mandala + UNKNOWN",
+          "DET + mandala + UNKNOWN"
+        ]
+      },
+      {
+        "lemma": "nature",
+        "pos": "NOUN",
+        "support": 6,
+        "environments": [
+          "DET + nature + PREP",
+          "DET + nature + PREP",
+          "DET + nature + PREP"
+        ]
+      }
+    ],
+    "diseminerVocab": 7695,
+    "diseminerClaims": 69,
+    "cjkTermsSample": [],
+    "contactBorrowed": 314,
+    "hostGrammarSizeAfter": 2167
+  },
+  "donorGrammarKeys": [
+    "S_1",
+    "S_2",
+    "S_3",
+    "S_4",
+    "S_5",
+    "S_6",
+    "S_7",
+    "S_8",
+    "S_9",
+    "S_10",
+    "S_11",
+    "S_12",
+    "S_13",
+    "S_14",
+    "S_15",
+    "S_16",
+    "S_17",
+    "S_18",
+    "S_19",
+    "S_20",
+    "S_21",
+    "S_22",
+    "S_23",
+    "Class_1",
+    "S_24",
+    "S_25",
+    "S_26",
+    "S_27",
+    "S_28",
+    "S_29",
+    "S_30",
+    "S_31",
+    "Class_2",
+    "Class_3",
+    "S_32",
+    "S_33",
+    "S_34",
+    "S_35",
+    "S_36",
+    "S_37",
+    "S_38",
+    "S_39",
+    "S_40",
+    "S_41",
+    "S_42",
+    "Class_4",
+    "Class_5",
+    "Class_6",
+    "S_43",
+    "S_44",
+    "S_45",
+    "S_46",
+    "Class_7",
+    "Class_8",
+    "Class_9",
+    "Class_10",
+    "S_47",
+    "S_48",
+    "S_49",
+    "S_50",
+    "S_51",
+    "Class_11",
+    "Class_12",
+    "Class_13",
+    "Class_14",
+    "Class_15",
+    "S_52",
+    "S_53",
+    "S_54",
+    "S_55",
+    "S_56",
+    "S_57",
+    "S_58",
+    "S_59",
+    "S_60",
+    "S_61",
+    "S_62",
+    "Class_16",
+    "S_63",
+    "S_64",
+    "S_65",
+    "S_66",
+    "S_67",
+    "S_68",
+    "S_69",
+    "S_70",
+    "S_71",
+    "S_72",
+    "Class_17",
+    "Class_18",
+    "Class_19",
+    "Class_20",
+    "Class_21",
+    "Class_22",
+    "S_73",
+    "S_74",
+    "S_75",
+    "S_76",
+    "S_77",
+    "S_78",
+    "S_79",
+    "S_80",
+    "S_81",
+    "S_82",
+    "S_83",
+    "S_84",
+    "S_85",
+    "S_86",
+    "S_87",
+    "S_88",
+    "S_89",
+    "Class_23",
+    "Class_24",
+    "Class_25",
+    "Class_26",
+    "Class_27",
+    "Class_28",
+    "Class_29",
+    "S_90",
+    "S_91",
+    "S_92",
+    "S_93",
+    "Class_30",
+    "Class_31",
+    "Class_32",
+    "Class_33",
+    "Class_34",
+    "Class_35",
+    "Class_36",
+    "Class_37",
+    "S_94",
+    "S_95",
+    "S_96",
+    "S_97",
+    "S_98",
+    "Class_38",
+    "S_99",
+    "S_100",
+    "S_101",
+    "S_102",
+    "S_103",
+    "S_104",
+    "S_105",
+    "S_106",
+    "S_107",
+    "S_108",
+    "Class_39",
+    "Class_40",
+    "Class_41",
+    "Class_42",
+    "Class_43",
+    "Class_44",
+    "Class_45",
+    "Class_46",
+    "Class_47",
+    "S_109",
+    "S_110",
+    "S_111",
+    "S_112",
+    "S_113",
+    "S_114",
+    "S_115",
+    "S_116",
+    "S_117",
+    "S_118",
+    "S_119",
+    "Class_48",
+    "Class_49",
+    "Class_50",
+    "Class_51",
+    "Class_52",
+    "Class_53",
+    "Class_54",
+    "Class_55",
+    "Class_56",
+    "Class_57",
+    "S_120",
+    "EXPR:student",
+    "EXPR:236",
+    "EXPR:writtenby",
+    "EXPR:theresa",
+    "EXPR:basedontheteachingof",
+    "EXPR:raveabc236copyright2005jovianarchivecorporation",
+    "EXPR:rave",
+    "EXPR:foundation",
+    "EXPR:willbe",
+    "EXPR:completed",
+    "EXPR:during",
+    "EXPR:classwith",
+    "EXPR:system,humandesign",
+    "EXPR:onformulas",
+    "EXPR:structure",
+    "EXPR:abcs,there",
+    "EXPR:eleven",
+    "EXPR:chartat",
+    "EXPR:surfacelevel.these",
+    "EXPR:intothewholeandnolongerstand",
+    "EXPR:neutrinos",
+    "EXPR:veryimportant.accordingtothephysicists",
+    "EXPR:placethatthey"
+  ]
+}

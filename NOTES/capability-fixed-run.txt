@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: CONTROL AUTOLING: first observation creates an initial rule
+ok 1 - CONTROL AUTOLING: first observation creates an initial rule
+  ---
+  duration_ms: 3.01269
+  ...
+# Subtest: CAPABILITY AUTOLING: learns a second distinct sentence instead of stopping at one rule
+ok 2 - CAPABILITY AUTOLING: learns a second distinct sentence instead of stopping at one rule
+  ---
+  duration_ms: 0.487812
+  ...
+# Subtest: CAPABILITY AUTOLING: repeated contextual examples change classification of domain terms
+ok 3 - CAPABILITY AUTOLING: repeated contextual examples change classification of domain terms
+  ---
+  duration_ms: 1.649437
+  ...
+# Subtest: CONTROL DISEMINER: repeated passages accumulate persistent contextual observations
+ok 4 - CONTROL DISEMINER: repeated passages accumulate persistent contextual observations
+  ---
+  duration_ms: 1.148588
+  ...
+# Subtest: CAPABILITY DISEMINER: contradiction is linked across successive passages
+ok 5 - CAPABILITY DISEMINER: contradiction is linked across successive passages
+  ---
+  duration_ms: 0.986327
+  ...
+# Subtest: CAPABILITY DISEMINER: CJK terms are not silently dropped from Yijing text
+ok 6 - CAPABILITY DISEMINER: CJK terms are not silently dropped from Yijing text
+  ---
+  duration_ms: 0.521487
+  ...
+# Subtest: CONTROL STATE SPACE: named source fields can be matched
+ok 7 - CONTROL STATE SPACE: named source fields can be matched
+  ---
+  duration_ms: 1.811962
+  ...
+# Subtest: CAPABILITY STATE SPACE: a learned, dimension-anchored relation participates in resolving its term
+ok 8 - CAPABILITY STATE SPACE: a learned, dimension-anchored relation participates in resolving its term
+  ---
+  duration_ms: 0.634175
+  ...
+# Subtest: CONTROL MONTE CARLO: zero mutation preserves normalized variant weights
+ok 9 - CONTROL MONTE CARLO: zero mutation preserves normalized variant weights
+  ---
+  duration_ms: 2.252705
+  ...
+# Subtest: CAPABILITY MONTE CARLO: negative weights never produce accepted probabilities
+ok 10 - CAPABILITY MONTE CARLO: negative weights never produce accepted probabilities
+  ---
+  duration_ms: 0.376458
+  ...
+# Subtest: CAPABILITY MONTE CARLO: empty hypotheses cannot be declared a successful sample
+ok 11 - CAPABILITY MONTE CARLO: empty hypotheses cannot be declared a successful sample
+  ---
+  duration_ms: 0.270732
+  ...
+# Subtest: CONTROL MONTE CARLO: identical seeds and inputs reproduce exactly
+ok 12 - CONTROL MONTE CARLO: identical seeds and inputs reproduce exactly
+  ---
+  duration_ms: 0.838156
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 180.235994
