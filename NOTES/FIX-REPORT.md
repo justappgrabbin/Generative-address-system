@@ -61,3 +61,12 @@ Script: `fixed-retrain/retrain-language-contact.mjs`
 2. **Wire into production?** Originals still used by default. Promoting fixed → live tools needs her explicit yes (and should keep ORIGINAL labelled backups).
 3. **Full-book vs capped retrain:** retrain used `MAX_SENTENCES=120` per book for cost. Say if she wants a full uncapped pass overnight.
 4. Do **not** merge PR #8 as-is (it only adds failing tests); merge/fix strategy is her call.
+
+## Retrain numbers (capped at 120 sentences/book)
+- 26 books from `/workspace/alexis-batch/books2`
+- Host grammar size: 2672 rules/expression entries
+- Host expression lexicon: 2584 lemmas
+- Host Diseminer vocab: 46689
+- Monte Carlo accepted with dominant book `e1.txt`
+- Outputs labelled `*.fixed.json` only under `retrain-out-20261105/` (no prior model overwritten)
+- Local commit `0425e49` on `fix/klein-capability-20261105` — **not pushed**
