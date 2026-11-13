@@ -1,6 +1,7 @@
 // Additive Euclidean construction layer for Klein visual grammar.
 // Byrne, Elements Book I, Proposition 1: construct an equilateral triangle on a finite segment.
 // No gate assignment, hashes, or fabricated semantic addresses.
+import { readImage } from './klein.mjs';
 const EPS=1e-8;
 export const point=(x,y)=>Object.freeze({x,y});
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
@@ -61,6 +62,5 @@ export function rasterizeConstruction(construction,{width=256,height=256,backgro
   return {width,height,data};
 }
 export async function readEuclidWithKlein(construction,options={}){
-  const {readImage}=await import('./klein.mjs');
   return readImage(rasterizeConstruction(construction,options));
 }
